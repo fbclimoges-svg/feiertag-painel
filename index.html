@@ -801,6 +801,657 @@ tbody td {
   height: 1px;
   background: var(--border);
 }
+
+/* ===== PENDÊNCIAS SECTION ===== */
+.pendencias-section {
+  margin-bottom: 24px;
+}
+
+.section-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-title-bar h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.section-title-bar .title-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-title-bar .title-badge {
+  background: var(--red-bg);
+  color: var(--red);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Pendências KPI cards */
+.pend-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.pend-kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 16px 14px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.pend-kpi-card:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.pend-kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.pend-kpi-card.accent-red::before { background: var(--red); opacity: 0.7; }
+.pend-kpi-card.accent-yellow::before { background: var(--yellow); opacity: 0.7; }
+.pend-kpi-card.accent-green::before { background: var(--green); opacity: 0.7; }
+.pend-kpi-card.accent-teal::before { background: var(--teal); opacity: 0.5; }
+
+.pend-kpi-card .pend-kpi-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.pend-kpi-card .pend-kpi-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pend-kpi-card .pend-kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.pend-kpi-card .pend-kpi-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pend-kpi-card .pend-kpi-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+}
+
+/* ===== PLANO DE AÇÃO (Timeline Stepper) ===== */
+.plano-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.plano-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.plano-header h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plano-header h3 svg {
+  width: 16px;
+  height: 16px;
+  color: var(--teal-light);
+}
+
+.plano-header .plano-progress {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.timeline-steps {
+  padding: 8px 0;
+}
+
+.timeline-step {
+  display: flex;
+  gap: 0;
+  padding: 0 18px;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.timeline-step:hover {
+  background: var(--bg-card-hover);
+}
+
+.timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  flex-shrink: 0;
+  padding-top: 14px;
+}
+
+.step-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.step-dot.critica {
+  background: var(--red);
+  box-shadow: 0 0 0 4px var(--red-bg);
+}
+
+.step-dot.critica::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0; transform: scale(1.4); }
+}
+
+.step-dot.alta {
+  background: var(--orange);
+  box-shadow: 0 0 0 4px var(--orange-bg);
+}
+
+.step-dot.media {
+  background: var(--yellow);
+  box-shadow: 0 0 0 4px var(--yellow-bg);
+  color: #000;
+}
+
+.step-dot.concluido {
+  background: var(--green) !important;
+  box-shadow: 0 0 0 4px var(--green-bg) !important;
+}
+
+.step-dot.concluido::after { display: none; }
+
+.step-line {
+  width: 2px;
+  flex: 1;
+  background: var(--border);
+  min-height: 12px;
+}
+
+.timeline-step:last-child .step-line {
+  display: none;
+}
+
+.step-content {
+  flex: 1;
+  padding: 12px 0 16px 12px;
+  border-bottom: 1px solid var(--border);
+  min-width: 0;
+}
+
+.timeline-step:last-child .step-content {
+  border-bottom: none;
+}
+
+.step-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.step-action {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.step-badges {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.step-badge-resp {
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-advogado { background: var(--blue-bg); color: var(--blue); }
+.badge-secretaria { background: rgba(188,140,255,0.12); color: var(--purple); }
+.badge-contador { background: var(--orange-bg); color: var(--orange); }
+
+.step-badge-priority {
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.priority-critica { background: var(--red-bg); color: var(--red); }
+.priority-alta { background: var(--orange-bg); color: var(--orange); }
+.priority-media { background: var(--yellow-bg); color: var(--yellow); }
+
+.step-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.step-meta svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.step-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.step-detail {
+  display: none;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.step-detail.open {
+  display: block;
+}
+
+.step-detail-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.step-detail-value {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===== PROCESSOS TRABALHISTAS GRID ===== */
+.proc-trab-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.proc-trab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.proc-trab-header h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.proc-trab-header h3 svg {
+  width: 16px;
+  height: 16px;
+  color: var(--yellow);
+}
+
+.proc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 12px;
+  padding: 16px 18px;
+}
+
+.proc-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  border-left: 3px solid var(--border);
+  transition: all var(--transition);
+}
+
+.proc-item:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.proc-item.border-verde { border-left-color: var(--green); }
+.proc-item.border-amarelo { border-left-color: var(--yellow); }
+.proc-item.border-cinza { border-left-color: var(--text-muted); }
+.proc-item.border-vermelho { border-left-color: var(--red); }
+
+.proc-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.proc-item-num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--teal-light);
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.proc-status-badge {
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.status-extinto { background: var(--green-bg); color: var(--green); }
+.status-muito-provavel { background: var(--yellow-bg); color: var(--yellow); }
+.status-provavel { background: rgba(210,153,34,0.08); color: #c8881c; }
+.status-analise { background: var(--bg-elevated); color: var(--text-muted); }
+.status-requer { background: var(--red-bg); color: var(--red); }
+
+.proc-item-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.proc-item-origin {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.proc-item-detail {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ===== CENÁRIOS ===== */
+.cenarios-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.cenarios-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cenarios-header h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cenarios-header h3 svg {
+  width: 16px;
+  height: 16px;
+  color: var(--green);
+}
+
+.cenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.cenario-col {
+  padding: 20px 18px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+.cenario-col:last-child {
+  border-right: none;
+}
+
+.cenario-col.highlighted {
+  background: var(--teal-bg);
+  border-top: 2px solid var(--teal);
+}
+
+.cenario-col.highlighted .cenario-label {
+  color: var(--teal-light);
+}
+
+.cenario-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cenario-label .base-tag {
+  background: var(--teal-bg-strong);
+  color: var(--teal-light);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cenario-value-big {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cenario-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.cenario-bar-wrap {
+  margin-bottom: 10px;
+}
+
+.cenario-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.cenario-bar {
+  height: 6px;
+  background: var(--bg-elevated);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.cenario-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s ease;
+}
+
+.cenario-bar-fill.fill-conservador { background: var(--yellow); }
+.cenario-bar-fill.fill-provavel { background: var(--teal); }
+.cenario-bar-fill.fill-otimista { background: var(--green); }
+
+.cenario-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cenario-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.cenario-stat-label {
+  color: var(--text-muted);
+}
+
+.cenario-stat-value {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+/* ===== ACTION DOT in table ===== */
+.acao-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--yellow);
+  margin-right: 5px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.acao-cell-link {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+}
+
+.acao-cell-link:hover .acao-dot {
+  box-shadow: 0 0 6px var(--yellow);
+}
+
+/* ===== RESPONSIVE for Pendências ===== */
+@media (max-width: 1200px) {
+  .pend-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .cenarios-grid { grid-template-columns: 1fr; }
+  .cenario-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .cenario-col:last-child { border-bottom: none; }
+}
+
+@media (max-width: 900px) {
+  .proc-grid { grid-template-columns: 1fr; }
+  .step-main { flex-direction: column; gap: 6px; }
+  .step-badges { justify-content: flex-start; }
+}
+
+@media (max-width: 600px) {
+  .pend-kpi-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .pend-kpi-card { padding: 12px 10px 10px; }
+  .pend-kpi-card .pend-kpi-value { font-size: 1.2rem; }
+  .timeline-step { padding: 0 12px; }
+  .proc-grid { padding: 12px; }
+  .cenario-col { padding: 14px 12px; }
+  .cenario-value-big { font-size: 1.1rem; }
+}
+
 </style>
 </head>
 <body>
@@ -924,6 +1575,89 @@ tbody td {
       </div>
     </div>
 
+
+    <!-- ===== PENDÊNCIAS E PLANO DE AÇÃO ===== -->
+    <div class="pendencias-section" id="pendenciasSection">
+      <div class="section-title-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--red);flex-shrink:0;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <h2>Pendências e Plano de Ação</h2>
+        <span class="title-line"></span>
+        <span class="title-badge">Trabalhista</span>
+      </div>
+
+      <!-- Pendências KPI Row -->
+      <div class="pend-kpi-grid">
+        <div class="pend-kpi-card accent-red animate-in">
+          <div class="pend-kpi-icon" style="background:var(--red-bg);color:var(--red);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="pend-kpi-value">R$ 1,48M</div>
+          <div class="pend-kpi-label">Valor em Execução</div>
+          <div class="pend-kpi-sub">R$ 1.477.952,86</div>
+        </div>
+        <div class="pend-kpi-card accent-yellow animate-in">
+          <div class="pend-kpi-icon" style="background:var(--yellow-bg);color:var(--yellow);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          </div>
+          <div class="pend-kpi-value">39</div>
+          <div class="pend-kpi-label">Processos Trabalhistas</div>
+          <div class="pend-kpi-sub">Execução concentrada</div>
+        </div>
+        <div class="pend-kpi-card accent-green animate-in">
+          <div class="pend-kpi-icon" style="background:var(--green-bg);color:var(--green);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="pend-kpi-value">~R$ 950k</div>
+          <div class="pend-kpi-label">Redução Potencial</div>
+          <div class="pend-kpi-sub">Cenário provável</div>
+        </div>
+        <div class="pend-kpi-card accent-teal animate-in">
+          <div class="pend-kpi-icon" style="background:var(--teal-bg);color:var(--teal-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="pend-kpi-value">3</div>
+          <div class="pend-kpi-label">Ações Críticas</div>
+          <div class="pend-kpi-sub">Prioridade imediata</div>
+        </div>
+      </div>
+
+      <!-- Plano de Ação (7-step timeline) -->
+      <div class="plano-card">
+        <div class="plano-header">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Plano de Ação — Prescrição Intercorrente
+          </h3>
+          <span class="plano-progress">0 / 7 concluídos</span>
+        </div>
+        <div class="timeline-steps" id="timelineSteps"></div>
+      </div>
+
+      <!-- Processos Trabalhistas Identificados -->
+      <div class="proc-trab-card">
+        <div class="proc-trab-header">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Processos Trabalhistas Identificados
+          </h3>
+          <span style="font-size:0.78rem;color:var(--text-muted);">10 processos</span>
+        </div>
+        <div class="proc-grid" id="procGrid"></div>
+      </div>
+
+      <!-- Cenários de Redução -->
+      <div class="cenarios-card">
+        <div class="cenarios-header">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Cenários de Redução
+          </h3>
+          <span style="font-size:0.72rem;color:var(--text-muted);font-family:var(--font-mono);">Proc. 0000947-60.2017.5.17.0131</span>
+        </div>
+        <div class="cenarios-grid" id="cenariosGrid"></div>
+      </div>
+    </div>
+
     <!-- DATA TABLE -->
     <div class="table-section">
       <div class="table-header">
@@ -1004,6 +1738,164 @@ tbody td {
     'Dir. Req.': { cls: 'fase-dir-req', label: 'Dir. Requerido' }
   };
 
+
+  // ===== PENDÊNCIAS DATA =====
+  const pendenciasData = {"prescricao_trabalhista": {"processo_concentrado": "0000947-60.2017.5.17.0131", "vara": "1ª Vara do Trabalho de Cachoeiro de Itapemirim/ES", "valor_total": 1477952.86, "total_processos": 39, "precedente": {"processo": "0077400-53.2004.5.17.0131", "reclamante": "Geneci Rosa", "status": "EXTINTO por prescrição intercorrente", "data_decisao": "2026-03", "juiz": "Giovanni Antonio Diniz Guerra"}, "cenarios": {"conservador": {"prescritos": 15, "valor_eliminado": 560000, "saldo": 917000, "com_acordo": 550000}, "provavel": {"prescritos": 25, "valor_eliminado": 950000, "saldo": 527000, "com_acordo": 316000}, "otimista": {"prescritos": 33, "valor_eliminado": 1250000, "saldo": 227000, "com_acordo": 136000}}, "imoveis_penhorados": ["2.805", "1.611", "24.755", "24.970", "25.246", "25.697", "26.433"], "processos_identificados": [{"num": 1, "processo": "0077400-53.2004.5.17.0131", "reclamante": "Geneci Rosa", "origem": "Vara 0131", "status_prescricao": "JÁ EXTINTO", "cor": "verde", "detalhe": "Decisão mar/2026 - Juiz Giovanni"}, {"num": 2, "processo": "00499.1999.131.17.02-2", "reclamante": "Otacílio Ataíde", "origem": "Edital TRF2", "status_prescricao": "MUITO PROVÁVEL", "cor": "amarelo", "detalhe": "Processo de 1999 - Inalienabilidade desde ~2000s"}, {"num": 3, "processo": "00569.2003.131.17.00-0", "reclamante": "Raimundo Pontes Araújo", "origem": "Edital TRF2", "status_prescricao": "MUITO PROVÁVEL", "cor": "amarelo", "detalhe": "Processo de 2003 - Bloqueia matrícula 1.611"}, {"num": 4, "processo": "XXXXX-93.2007.5.17.0131", "reclamante": "Não identificado", "origem": "Decisão concentração", "status_prescricao": "PROVÁVEL", "cor": "amarelo", "detalhe": "Processo de 2007 - Concentrado desde 2017"}, {"num": 5, "processo": "XXXXX-84.2008.5.17.0131", "reclamante": "Não identificado", "origem": "Decisão concentração", "status_prescricao": "PROVÁVEL", "cor": "amarelo", "detalhe": "Processo de 2008 - Processo-base da concentração"}, {"num": 6, "processo": "0054000-34.2009.5.17.0131", "reclamante": "Não identificado", "origem": "Decisão concentração", "status_prescricao": "PROVÁVEL", "cor": "amarelo", "detalhe": "Processo de 2009 - Concentrado desde 2017"}, {"num": 7, "processo": "XXXXX-35.2008.5.17.0131", "reclamante": "Não identificado", "origem": "Decisão concentração", "status_prescricao": "PROVÁVEL", "cor": "amarelo", "detalhe": "Processo de 2008 - Concentrado desde 2017"}, {"num": 8, "processo": "0084000-51.2008.5.17.0131", "reclamante": "Ismael Baia (Espólio)", "origem": "Planilha anterior", "status_prescricao": "EM ANÁLISE", "cor": "cinza", "detalhe": "Execução ativa - R$ 279.906,72 - 2 Corolla não localizados"}, {"num": 9, "processo": "014XXXX-72.2007.5.17.0131", "reclamante": "Via Mibita Minérios", "origem": "JusBrasil", "status_prescricao": "PROVÁVEL", "cor": "amarelo", "detalhe": "Processo de 2007 - Relacionado ao grupo"}, {"num": 10, "processo": "~30 processos não identificados", "reclamante": "Múltiplos reclamantes", "origem": "PJe TRT-17", "status_prescricao": "REQUER CERTIDÃO", "cor": "vermelho", "detalhe": "Acesso restrito - ver pedido na petição"}], "plano_acao": [{"passo": 1, "acao": "Protocolar petição de prescrição intercorrente (já preparada)", "responsavel": "Advogado trabalhista", "prazo": "5 dias úteis", "resultado": "Petição registrada nos autos da execução concentrada", "prioridade": "critica", "status": "pendente"}, {"passo": 2, "acao": "Obter certidão da Secretaria com histórico dos 39 processos", "responsavel": "Secretaria da Vara", "prazo": "15-30 dias", "resultado": "Lista completa com datas de intimação e períodos de inércia", "prioridade": "critica", "status": "pendente"}, {"passo": 3, "acao": "Identificar processos com inércia > 2 anos", "responsavel": "Advogado + contadoria", "prazo": "10 dias após item 2", "resultado": "Mapa de prescrição: processos prescritos vs. não prescritos", "prioridade": "alta", "status": "pendente"}, {"passo": 4, "acao": "Requerer prescrição individual para cada processo identificado", "responsavel": "Advogado", "prazo": "5 dias após item 3", "resultado": "Petições individualizadas por processo prescrito", "prioridade": "alta", "status": "pendente"}, {"passo": 5, "acao": "Impugnar cálculos globais (ADC 58 / duplicidades)", "responsavel": "Advogado + contador", "prazo": "Paralelo ao item 3", "resultado": "Redução adicional do valor devido (estimativa 10-20%)", "prioridade": "media", "status": "pendente"}, {"passo": 6, "acao": "Requerer audiência de conciliação global", "responsavel": "Advogado", "prazo": "Após itens 3-5", "resultado": "Acordo com deságio 30-50% sobre saldo remanescente", "prioridade": "media", "status": "pendente"}, {"passo": 7, "acao": "Anexar decisão Geneci Rosa como precedente", "responsavel": "Advogado", "prazo": "Com a petição", "resultado": "Pressão sobre o juízo pela coerência judicial", "prioridade": "critica", "status": "pendente"}]}};
+
+  // ===== RENDER PENDÊNCIAS =====
+  function renderPendencias() {
+    renderTimeline();
+    renderProcGrid();
+    renderCenarios();
+  }
+
+  function renderTimeline() {
+    const container = document.getElementById('timelineSteps');
+    if (!container) return;
+    const plano = pendenciasData.prescricao_trabalhista.plano_acao;
+    let html = '';
+
+    plano.forEach((step, i) => {
+      const prioClass = step.prioridade;
+      const dotClass = step.status === 'concluido' ? 'concluido' : prioClass;
+      const prioLabel = step.prioridade === 'critica' ? 'Crítica' : step.prioridade === 'alta' ? 'Alta' : 'Média';
+      const prioClsMap = { critica: 'priority-critica', alta: 'priority-alta', media: 'priority-media' };
+
+      // Determine badge class for responsible
+      let respBadge = 'badge-advogado';
+      if (step.responsavel.toLowerCase().includes('secretaria')) respBadge = 'badge-secretaria';
+      else if (step.responsavel.toLowerCase().includes('contad')) respBadge = 'badge-contador';
+      else if (step.responsavel.toLowerCase().includes('contador')) respBadge = 'badge-contador';
+
+      html += '<div class="timeline-step" data-step="' + i + '">';
+      html += '  <div class="timeline-left">';
+      html += '    <div class="step-dot ' + dotClass + '">' + step.passo + '</div>';
+      html += '    <div class="step-line"></div>';
+      html += '  </div>';
+      html += '  <div class="step-content">';
+      html += '    <div class="step-main">';
+      html += '      <span class="step-action">' + escHtml(step.acao) + '</span>';
+      html += '      <div class="step-badges">';
+      html += '        <span class="step-badge-resp ' + respBadge + '">' + escHtml(step.responsavel) + '</span>';
+      html += '        <span class="step-badge-priority ' + prioClsMap[step.prioridade] + '">' + prioLabel + '</span>';
+      html += '      </div>';
+      html += '    </div>';
+      html += '    <div class="step-meta">';
+      html += '      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' + escHtml(step.prazo) + '</span>';
+      html += '      <span style="color:var(--text-faint);">•</span>';
+      html += '      <span style="text-transform:capitalize;">' + step.status.replace('_', ' ') + '</span>';
+      html += '    </div>';
+      html += '    <div class="step-detail" id="stepDetail' + i + '">';
+      html += '      <div class="step-detail-label">Resultado Esperado</div>';
+      html += '      <div class="step-detail-value">' + escHtml(step.resultado) + '</div>';
+      html += '    </div>';
+      html += '  </div>';
+      html += '</div>';
+    });
+
+    container.innerHTML = html;
+
+    // Click to expand
+    container.querySelectorAll('.timeline-step').forEach(el => {
+      el.addEventListener('click', () => {
+        const idx = el.dataset.step;
+        const detail = document.getElementById('stepDetail' + idx);
+        if (detail) detail.classList.toggle('open');
+      });
+    });
+  }
+
+  function renderProcGrid() {
+    const container = document.getElementById('procGrid');
+    if (!container) return;
+    const procs = pendenciasData.prescricao_trabalhista.processos_identificados;
+    let html = '';
+
+    procs.forEach(p => {
+      const borderClass = 'border-' + p.cor;
+      let statusClass = 'status-analise';
+      if (p.status_prescricao === 'JÁ EXTINTO') statusClass = 'status-extinto';
+      else if (p.status_prescricao === 'MUITO PROVÁVEL') statusClass = 'status-muito-provavel';
+      else if (p.status_prescricao === 'PROVÁVEL') statusClass = 'status-provavel';
+      else if (p.status_prescricao === 'REQUER CERTIDÃO') statusClass = 'status-requer';
+
+      html += '<div class="proc-item ' + borderClass + '">';
+      html += '  <div class="proc-item-header">';
+      html += '    <span class="proc-item-num">' + escHtml(p.processo) + '</span>';
+      html += '    <span class="proc-status-badge ' + statusClass + '">' + escHtml(p.status_prescricao) + '</span>';
+      html += '  </div>';
+      html += '  <div class="proc-item-name">' + escHtml(p.reclamante) + '</div>';
+      html += '  <div class="proc-item-origin">Origem: ' + escHtml(p.origem) + '</div>';
+      html += '  <div class="proc-item-detail">' + escHtml(p.detalhe) + '</div>';
+      html += '</div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  function renderCenarios() {
+    const container = document.getElementById('cenariosGrid');
+    if (!container) return;
+    const c = pendenciasData.prescricao_trabalhista.cenarios;
+    const total = pendenciasData.prescricao_trabalhista.total_processos;
+
+    function brl(v) {
+      return 'R$ ' + v.toLocaleString('pt-BR');
+    }
+
+    let html = '';
+
+    // Conservador
+    const consPerc = Math.round((c.conservador.prescritos / total) * 100);
+    html += '<div class="cenario-col">';
+    html += '  <div class="cenario-label">Conservador</div>';
+    html += '  <div class="cenario-value-big">' + brl(c.conservador.valor_eliminado) + '</div>';
+    html += '  <div class="cenario-sub">em dívida eliminada</div>';
+    html += '  <div class="cenario-bar-wrap">';
+    html += '    <div class="cenario-bar-label"><span>Prescritos</span><span>' + c.conservador.prescritos + '/' + total + ' (' + consPerc + '%)</span></div>';
+    html += '    <div class="cenario-bar"><div class="cenario-bar-fill fill-conservador" style="width:' + consPerc + '%;"></div></div>';
+    html += '  </div>';
+    html += '  <div class="cenario-stats">';
+    html += '    <div class="cenario-stat"><span class="cenario-stat-label">Saldo remanescente</span><span class="cenario-stat-value">' + brl(c.conservador.saldo) + '</span></div>';
+    html += '    <div class="cenario-stat"><span class="cenario-stat-label">Com acordo (30-40%)</span><span class="cenario-stat-value">' + brl(c.conservador.com_acordo) + '</span></div>';
+    html += '  </div>';
+    html += '</div>';
+
+    // Provável (highlighted)
+    const provPerc = Math.round((c.provavel.prescritos / total) * 100);
+    html += '<div class="cenario-col highlighted">';
+    html += '  <div class="cenario-label">Provável <span class="base-tag">BASE</span></div>';
+    html += '  <div class="cenario-value-big" style="color:var(--teal-light);">' + brl(c.provavel.valor_eliminado) + '</div>';
+    html += '  <div class="cenario-sub">em dívida eliminada</div>';
+    html += '  <div class="cenario-bar-wrap">';
+    html += '    <div class="cenario-bar-label"><span>Prescritos</span><span>' + c.provavel.prescritos + '/' + total + ' (' + provPerc + '%)</span></div>';
+    html += '    <div class="cenario-bar"><div class="cenario-bar-fill fill-provavel" style="width:' + provPerc + '%;"></div></div>';
+    html += '  </div>';
+    html += '  <div class="cenario-stats">';
+    html += '    <div class="cenario-stat"><span class="cenario-stat-label">Saldo remanescente</span><span class="cenario-stat-value">' + brl(c.provavel.saldo) + '</span></div>';
+    html += '    <div class="cenario-stat"><span class="cenario-stat-label">Com acordo (30-40%)</span><span class="cenario-stat-value">' + brl(c.provavel.com_acordo) + '</span></div>';
+    html += '  </div>';
+    html += '</div>';
+
+    // Otimista
+    const otiPerc = Math.round((c.otimista.prescritos / total) * 100);
+    html += '<div class="cenario-col">';
+    html += '  <div class="cenario-label">Otimista</div>';
+    html += '  <div class="cenario-value-big">' + brl(c.otimista.valor_eliminado) + '</div>';
+    html += '  <div class="cenario-sub">em dívida eliminada</div>';
+    html += '  <div class="cenario-bar-wrap">';
+    html += '    <div class="cenario-bar-label"><span>Prescritos</span><span>' + c.otimista.prescritos + '/' + total + ' (' + otiPerc + '%)</span></div>';
+    html += '    <div class="cenario-bar"><div class="cenario-bar-fill fill-otimista" style="width:' + otiPerc + '%;"></div></div>';
+    html += '  </div>';
+    html += '  <div class="cenario-stats">';
+    html += '    <div class="cenario-stat"><span class="cenario-stat-label">Saldo remanescente</span><span class="cenario-stat-value">' + brl(c.otimista.saldo) + '</span></div>';
+    html += '    <div class="cenario-stat"><span class="cenario-stat-label">Com acordo (30-40%)</span><span class="cenario-stat-value">' + brl(c.otimista.com_acordo) + '</span></div>';
+    html += '  </div>';
+    html += '</div>';
+
+    container.innerHTML = html;
+  }
+
   // ===== UTILITY =====
   function val(d, key) {
     const v = d[key];
@@ -1063,6 +1955,7 @@ tbody td {
       buildFilters();
       setupEvents();
       applyFilters();
+      renderPendencias();
     } catch (e) {
       document.getElementById('loading').innerHTML =
         '<span style="color:var(--red);">Erro ao carregar dados: ' + e.message + '</span>';
@@ -1447,7 +2340,7 @@ tbody td {
       html += '<td style="font-variant-numeric:tabular-nums;text-align:right;">' + areaStr + '</td>';
       html += '<td><span class="fase-badge ' + fCls + '">' + escHtml(faseLabel) + '</span></td>';
       html += '<td title="' + escHtml(d.sub_status) + '">' + escHtml(truncate(d.sub_status, 25)) + '</td>';
-      html += '<td title="' + escHtml(d.acao) + '">' + escHtml(truncate(d.acao, 30)) + '</td>';
+      html += '<td title="' + escHtml(d.acao) + '">' + (d.acao && d.acao.trim() ? '<span class="acao-cell-link" onclick="event.stopPropagation();document.getElementById(\'pendenciasSection\').scrollIntoView({behavior:\'smooth\'});"><span class="acao-dot"></span>' + escHtml(truncate(d.acao, 28)) + '</span>' : '—') + '</td>';
       html += '</tr>';
 
       // Detail row
