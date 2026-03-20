@@ -163,7 +163,7 @@ body {
 /* ===== KPI CARDS ===== */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 14px;
   margin: 20px 0;
 }
@@ -1428,6 +1428,582 @@ tbody td {
   box-shadow: 0 0 6px var(--yellow);
 }
 
+
+/* ===== PROCESSOS JURÍDICOS SECTION ===== */
+.juridicos-section {
+  margin: 40px 0 30px;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.juridicos-section .section-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.juridicos-section .section-title-bar h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.juridicos-section .section-title-bar .title-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.juridicos-section .section-title-bar .title-badge {
+  background: var(--blue-bg);
+  color: var(--blue);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Jurídicos KPI Grid */
+.jur-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.jur-kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 16px 14px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.jur-kpi-card:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.jur-kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  opacity: 0.5;
+}
+
+.jur-kpi-card:nth-child(1)::before { background: var(--blue); }
+.jur-kpi-card:nth-child(2)::before { background: var(--yellow); }
+.jur-kpi-card:nth-child(3)::before { background: var(--red); }
+.jur-kpi-card:nth-child(4)::before { background: var(--orange); }
+
+.jur-kpi-card .jur-kpi-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 10px;
+  background: var(--teal-bg);
+  color: var(--teal-light);
+}
+
+.jur-kpi-card .jur-kpi-icon svg { width: 18px; height: 18px; }
+
+.jur-kpi-card .jur-kpi-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  font-family: var(--font-mono);
+}
+
+.jur-kpi-card .jur-kpi-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.jur-kpi-card .jur-kpi-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Antenor Warning Banner */
+.antenor-banner {
+  background: linear-gradient(135deg, rgba(248,81,73,0.12) 0%, rgba(219,109,40,0.08) 100%);
+  border: 1px solid rgba(248,81,73,0.3);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  animation: pulseBorder 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseBorder {
+  from { border-color: rgba(248,81,73,0.3); }
+  to { border-color: rgba(248,81,73,0.6); }
+}
+
+.antenor-banner .banner-icon {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(248,81,73,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--red);
+  font-size: 1.2rem;
+}
+
+.antenor-banner .banner-content {
+  flex: 1;
+}
+
+.antenor-banner .banner-title {
+  font-weight: 700;
+  color: var(--red);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.antenor-banner .banner-text {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.antenor-banner .banner-text strong {
+  color: var(--text-primary);
+}
+
+.antenor-banner .banner-valor {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--red);
+  font-size: 1.1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Filter Bar for Jurídicos */
+.jur-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.jur-filter-bar .jur-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.jur-filter-bar .jur-search-wrap svg {
+  width: 16px; height: 16px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.jur-filter-bar .jur-search-wrap input {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  width: 100%;
+  outline: none;
+}
+
+.jur-filter-bar .jur-search-wrap input::placeholder {
+  color: var(--text-muted);
+}
+
+.jur-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.jur-chip {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.jur-chip:hover {
+  border-color: var(--teal);
+  color: var(--text-primary);
+}
+
+.jur-chip.active {
+  background: var(--teal-bg-strong);
+  border-color: var(--teal);
+  color: var(--teal-light);
+}
+
+.jur-filter-bar select {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.jur-filter-bar select:focus {
+  border-color: var(--teal);
+}
+
+/* Process Cards Grid */
+.jur-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.jur-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.jur-card:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.jur-card .jur-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.jur-card .jur-processo-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.jur-card .jur-cat-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.jur-cat-ACP { background: rgba(188,140,255,0.15); color: var(--purple); }
+.jur-cat-RT { background: var(--blue-bg); color: var(--blue); }
+.jur-cat-EF { background: var(--yellow-bg); color: var(--yellow); }
+.jur-cat-HAE { background: var(--green-bg); color: var(--green); }
+
+.jur-card .jur-reclamante {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.jur-card .jur-reclamado {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.jur-card .jur-fase-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.jur-fase-recursal { background: var(--yellow-bg); color: var(--yellow); }
+.jur-fase-execucao { background: var(--orange-bg); color: var(--orange); }
+.jur-fase-sentenca { background: var(--blue-bg); color: var(--blue); }
+.jur-fase-acordo { background: var(--green-bg); color: var(--green); }
+.jur-fase-arquivo { background: rgba(99,108,118,0.15); color: var(--text-muted); }
+.jur-fase-quitado { background: var(--green-bg); color: var(--green); }
+.jur-fase-outro { background: var(--teal-bg); color: var(--teal-light); }
+
+.jur-card .jur-valor {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.jur-card .jur-valor.zero-val {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.jur-card .jur-prioridade-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.jur-prio-critica { background: rgba(220,38,38,0.15); color: #dc2626; }
+.jur-prio-alta { background: rgba(234,88,12,0.15); color: #ea580c; }
+.jur-prio-media { background: rgba(202,138,4,0.15); color: #ca8a04; }
+.jur-prio-baixa { background: rgba(22,163,74,0.15); color: #16a34a; }
+
+.jur-card .jur-pendencia {
+  background: rgba(248,81,73,0.06);
+  border: 1px solid rgba(248,81,73,0.15);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.jur-card .jur-pendencia .pend-icon {
+  color: var(--red);
+  margin-right: 4px;
+}
+
+.jur-card .jur-penhoras {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.jur-card .jur-penhoras strong {
+  color: var(--text-secondary);
+}
+
+.jur-card .jur-obs-toggle {
+  font-size: 0.72rem;
+  color: var(--teal-light);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 4px 0;
+  font-family: var(--font-body);
+  transition: color var(--transition);
+}
+
+.jur-card .jur-obs-toggle:hover {
+  color: var(--teal);
+}
+
+.jur-card .jur-obs-content {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+  display: none;
+}
+
+.jur-card .jur-obs-content.show {
+  display: block;
+}
+
+/* No results */
+.jur-no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  grid-column: 1 / -1;
+}
+
+/* Summary Table */
+.jur-summary-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  cursor: pointer;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all var(--transition);
+  margin-bottom: 0;
+}
+
+.jur-summary-toggle:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+}
+
+.jur-summary-toggle .toggle-arrow {
+  transition: transform 0.3s ease;
+  color: var(--text-muted);
+}
+
+.jur-summary-toggle.open .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+.jur-summary-content {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: 16px;
+  margin-top: -1px;
+}
+
+.jur-summary-content.show {
+  display: block;
+}
+
+.jur-summary-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.jur-summary-tables h4 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.jur-summary-tables table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.jur-summary-tables table th {
+  text-align: left;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.jur-summary-tables table td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(45,51,59,0.5);
+  color: var(--text-primary);
+}
+
+.jur-summary-tables table td:last-child {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.jur-summary-tables .pct-bar {
+  display: inline-block;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--teal);
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Cards count */
+.jur-cards-count {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* ===== RESPONSIVE for Jurídicos ===== */
+@media (max-width: 1024px) {
+  .jur-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .jur-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .jur-summary-tables { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .jur-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .jur-cards-grid { grid-template-columns: 1fr; }
+  .jur-filter-bar { flex-direction: column; align-items: stretch; }
+  .jur-filter-bar .jur-search-wrap { min-width: unset; }
+  .jur-chip-group { justify-content: flex-start; }
+  .antenor-banner { flex-direction: column; gap: 10px; }
+  .antenor-banner .banner-valor { align-self: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .jur-kpi-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .jur-kpi-card { padding: 12px 10px 10px; }
+  .jur-kpi-card .jur-kpi-value { font-size: 1.25rem; }
+  .jur-cards-grid { gap: 10px; }
+  .jur-card { padding: 12px; }
+  .jur-card .jur-valor { font-size: 1.1rem; }
+}
+
 /* ===== RESPONSIVE for Pendências ===== */
 @media (max-width: 1200px) {
   .pend-kpi-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1479,6 +2055,17 @@ tbody td {
     </div>
   </div>
 </header>
+
+<nav style="background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:6px 0;position:sticky;top:64px;z-index:99;" id="navLinks">
+  <div class="container" style="display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+    <a href="#kpiGrid" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Resumo</a>
+    <a href="#filterBar" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Minerários</a>
+    <a href="#juridicosSection" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Jurídicos</a>
+    <a href="#pendenciasSection" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Pendências</a>
+    <a href="#dataTable" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">PGFN</a>
+  </div>
+</nav>
+
 
 <main class="container" id="app">
   <div class="loading-overlay" id="loading">
@@ -1535,6 +2122,13 @@ tbody td {
         <div class="kpi-value" id="kpiArea">—</div>
         <div class="kpi-label">Área Total (ha)</div>
       </div>
+      <div class="kpi-card animate-in">
+        <div class="kpi-icon" style="background:var(--red-bg);color:var(--red);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="kpi-value" style="font-size:1.2rem;">R$ 5,68M</div>
+        <div class="kpi-label">Passivo Jurídico</div>
+      </div>
     </div>
 
     <!-- FILTER BAR -->
@@ -1575,6 +2169,118 @@ tbody td {
       </div>
     </div>
 
+
+
+    <!-- ===== PROCESSOS JURÍDICOS ===== -->
+    <div class="juridicos-section" id="juridicosSection">
+      <div class="section-title-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--blue);flex-shrink:0;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <h2>Processos Jurídicos</h2>
+        <span class="title-line"></span>
+        <span class="title-badge">Trabalhista / Fiscal</span>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="jur-kpi-grid">
+        <div class="jur-kpi-card">
+          <div class="jur-kpi-icon" style="background:var(--blue-bg);color:var(--blue);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="jur-kpi-value">32</div>
+          <div class="jur-kpi-sub">70 números de processo</div>
+          <div class="jur-kpi-label">Total Processos</div>
+        </div>
+        <div class="jur-kpi-card">
+          <div class="jur-kpi-icon" style="background:var(--yellow-bg);color:var(--yellow);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="jur-kpi-value">R$ 5,68M</div>
+          <div class="jur-kpi-sub">R$ 5.679.813,43</div>
+          <div class="jur-kpi-label">Passivo Total</div>
+        </div>
+        <div class="jur-kpi-card">
+          <div class="jur-kpi-icon" style="background:var(--red-bg);color:var(--red);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="jur-kpi-value">R$ 1,28M</div>
+          <div class="jur-kpi-sub">Antenor Areas Junior</div>
+          <div class="jur-kpi-label">Maior Processo</div>
+        </div>
+        <div class="jur-kpi-card">
+          <div class="jur-kpi-icon" style="background:var(--orange-bg);color:var(--orange);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="jur-kpi-value">4</div>
+          <div class="jur-kpi-sub">Ação imediata necessária</div>
+          <div class="jur-kpi-label">Processos Críticos</div>
+        </div>
+      </div>
+
+      <!-- Antenor Warning Banner -->
+      <div class="antenor-banner">
+        <div class="banner-icon">⚠️</div>
+        <div class="banner-content">
+          <div class="banner-title">Atenção — Processo Antenor Areas Junior</div>
+          <div class="banner-text">
+            Processo <strong>0000110-60.2021.5.17.0132</strong> — Condenação transitada em julgado no TST.<br>
+            <strong>Advogado do reclamante conhece os bens da empresa.</strong> Recomenda-se <strong>programar pagamento</strong> ou discutir via Embargos à Execução.
+          </div>
+        </div>
+        <div class="banner-valor">R$ 1.280.708,37</div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="jur-filter-bar">
+        <div class="jur-search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="jurSearch" placeholder="Buscar processo, reclamante, reclamado…">
+        </div>
+        <div class="jur-chip-group" id="jurCatChips">
+          <span class="jur-chip active" data-cat="">Todos</span>
+          <span class="jur-chip" data-cat="ACP">ACP</span>
+          <span class="jur-chip" data-cat="RT">RT</span>
+          <span class="jur-chip" data-cat="EF">EF</span>
+          <span class="jur-chip" data-cat="HAE">HAE</span>
+        </div>
+        <div class="jur-chip-group" id="jurPrioChips">
+          <span class="jur-chip active" data-prio="">Todas</span>
+          <span class="jur-chip" data-prio="critica">Crítica</span>
+          <span class="jur-chip" data-prio="alta">Alta</span>
+          <span class="jur-chip" data-prio="media">Média</span>
+          <span class="jur-chip" data-prio="baixa">Baixa</span>
+        </div>
+        <select id="jurSort">
+          <option value="valor_desc">Valor ↓</option>
+          <option value="valor_asc">Valor ↑</option>
+          <option value="prioridade">Prioridade</option>
+          <option value="nome">Nome</option>
+        </select>
+      </div>
+
+      <!-- Cards count -->
+      <div class="jur-cards-count" id="jurCardsCount">Mostrando 32 processos</div>
+
+      <!-- Cards Grid -->
+      <div class="jur-cards-grid" id="jurCardsGrid"></div>
+
+      <!-- Summary Table (collapsible) -->
+      <button class="jur-summary-toggle" id="jurSummaryToggle" onclick="toggleJurSummary()">
+        <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        Resumo por Categoria e Prioridade
+      </button>
+      <div class="jur-summary-content" id="jurSummaryContent">
+        <div class="jur-summary-tables">
+          <div>
+            <h4>Por Categoria</h4>
+            <table id="jurSumCat"></table>
+          </div>
+          <div>
+            <h4>Por Prioridade</h4>
+            <table id="jurSumPrio"></table>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ===== PENDÊNCIAS E PLANO DE AÇÃO ===== -->
     <div class="pendencias-section" id="pendenciasSection">
@@ -2509,6 +3215,804 @@ tbody td {
   // ===== RUN =====
   document.addEventListener('DOMContentLoaded', init);
 })();
+
+
+  // ===== PROCESSOS JURÍDICOS =====
+  var jurProcessos = [
+  {
+    "numero": "0000472-60.2024.5.17.0131",
+    "tipo": "Ação Civil Pública",
+    "caso": "Caso Marcelo Ferri",
+    "reclamante": "Ministério Público do Trabalho (MPT)",
+    "reclamado": "GRANBRASIL",
+    "fase": "Recursal",
+    "valor": 200000.0,
+    "valor_adicional": 43000.0,
+    "valor_desc": "Condenação R$ 200k + custas/depósito recursal R$ 43k",
+    "observacoes": "Recurso de revista e agravo de instrumento ao TST. Empresa deverá recolher custas e depósito recursal (R$ 43k).",
+    "vara": "0131",
+    "categoria": "ACP",
+    "prioridade": "alta",
+    "pendencia": "Recolher custas e depósito recursal R$ 43.000",
+    "penhoras": [],
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0001126-81.2023.5.17.0131",
+    "tipo": "Ação Civil Pública",
+    "caso": "Caso Aprendizes",
+    "reclamante": "Ministério Público do Trabalho (MPT)",
+    "reclamado": "GRANBRASIL",
+    "fase": "Parcelamento (Art. 916 CPC)",
+    "valor": 0,
+    "valor_desc": "Em parcelamento — 6 parcelas mensais a partir de fev/2026 + saldo residual",
+    "observacoes": "Entrada adimplida. 6 parcelas mensais com vencimento a partir de 10/fev/2026. Haverá saldo residual.",
+    "vara": "0131",
+    "categoria": "ACP",
+    "prioridade": "media",
+    "pendencia": "6 parcelas mensais a partir de 10/fev/2026 + saldo residual",
+    "penhoras": [],
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000124-44.2021.5.17.0132",
+    "reclamante": "Ademir José Batista",
+    "reclamado": "GRANBRASIL",
+    "fase": "Acordo em pagamento",
+    "valor": 192969.41,
+    "valor_desc": "Crédito + honorários R$ 192.969,41 + INSS ~R$ 33k + custas R$ 701,62",
+    "observacoes": "Restrição de inalienabilidade sobre direito de lavra 890.014/1978. Honorários periciais R$ 618,26 já quitados (mai/2025).",
+    "prioridade": "alta",
+    "pendencia": "Pagar parcelas do acordo + INSS residual ~R$ 33k",
+    "penhoras": [
+      "Lavra 890.014/1978"
+    ],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0136500-65.2006.5.17.0131",
+    "reclamante": "Braz Callegari e outros",
+    "reclamado": "BRAMINEX",
+    "fase": "Quitação crédito previdenciário",
+    "valor": 12848.88,
+    "valor_desc": "Crédito previdenciário/fiscal R$ 12.848,88 (atualizado ago/2022). Demais quitados.",
+    "observacoes": "Em prosseguimento apenas para quitação do crédito previdenciário/fiscal.",
+    "prioridade": "media",
+    "pendencia": "Quitar crédito previdenciário R$ 12.848,88",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000680-07.2025.5.17.0132",
+    "reclamante": "Carlos Rabelo Sobrinho",
+    "reclamado": "BRAMINEX",
+    "fase": "Sentença — Recurso",
+    "valor": 80000.0,
+    "valor_desc": "Condenação estimada R$ 80k (ilíquida)",
+    "observacoes": "Recurso Ordinário denegado por deserção. Pedido de gratuidade de justiça formulado. Embargos de Declaração opostos.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento dos Embargos de Declaração",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000152-75.2022.5.17.0132",
+    "reclamante": "Dailton Rodrigues Leal",
+    "reclamado": "GRANBRASIL",
+    "fase": "Execução definitiva (frustrada)",
+    "valor": 129594.53,
+    "valor_desc": "R$ 129.594,53 (atualizado mar/2025)",
+    "observacoes": "Execução frustrada. Reclamante requereu penhora de escavadeira CAT 336D e máquina de fio diamantado. Processo suspenso set/2025 por ausência de movimentação. Prescrição em ~3 anos.",
+    "prioridade": "media",
+    "pendencia": "Monitorar prescrição — suspenso desde set/2025",
+    "penhoras": [
+      "Escavadeira CAT 336D",
+      "Máquina de fio diamantado"
+    ],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000520-79.2025.5.17.0132",
+    "reclamante": "Delson Marcelino da Silva",
+    "reclamado": "BRAMINEX",
+    "fase": "Sentença — Recurso",
+    "valor": 181550.17,
+    "valor_desc": "Líquido R$ 112.278,21 + FGTS R$ 26.352,66 + INSS R$ 24.460,32 + Honorários R$ 14.453,06 + IRPF R$ 446,11 + Custas R$ 3.559,81 = R$ 181.550,17",
+    "observacoes": "Recurso Ordinário denegado por deserção. Embargos de Declaração opostos.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento dos Embargos de Declaração",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0068900-03.2008.5.17.0181",
+    "reclamante": "Dionisio Evaldt",
+    "reclamado": "GRANITO, SERRAGEM, MINERAÇÃO E BENEFICIAMENTO LTDA",
+    "fase": "Execução definitiva",
+    "valor": 61277.03,
+    "valor_desc": "R$ 61.277,03",
+    "observacoes": "",
+    "prioridade": "media",
+    "pendencia": "",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0181",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0001394-43.2020.5.17.0131",
+    "reclamante": "Edimar Caetano Andrade",
+    "reclamado": "GRANBRASIL",
+    "fase": "Execução definitiva — TST",
+    "valor": 49887.03,
+    "valor_desc": "Líquido R$ 37.661,95 + INSS R$ 7.046,98 + Honorários R$ 5.178,10 = R$ 49.887,03 (jun/2023)",
+    "observacoes": "Recurso de execução no TST. Penhora sobre direito de lavra 890.014/1978.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento no TST",
+    "penhoras": [
+      "Lavra 890.014/1978"
+    ],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000434-16.2022.5.17.0132",
+    "reclamante": "Edimar Caetano Andrade",
+    "reclamado": "GRANBRASIL",
+    "fase": "Execução definitiva — TST",
+    "valor": 37034.97,
+    "valor_desc": "Dano Moral R$ 28.926,49 + Dano Material R$ 2.771,20 + Honorários R$ 4.753,66 + Custas R$ 583,62 = R$ 37.034,97",
+    "observacoes": "Recurso de execução no TST. Penhora sobre direito de lavra 890.014/1978.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento no TST",
+    "penhoras": [
+      "Lavra 890.014/1978"
+    ],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000334-95.2021.5.17.0132",
+    "reclamante": "Rodrigo Ferreira Vaillant",
+    "reclamado": "MINERAÇÃO SÃO CARLOS LTDA / GRANBRASIL",
+    "fase": "Execução definitiva — TST",
+    "valor": 29326.42,
+    "valor_desc": "Líquido R$ 26.583,47 + Honorários R$ 2.577,71 + Custas R$ 165,24 = R$ 29.326,42 (out/2022)",
+    "observacoes": "GRANBRASIL incluída no polo passivo, contestada em recurso. Aguarda pauta no TST.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento no TST — inclusão de Granbrasil",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000978-36.2024.5.17.0131",
+    "reclamante": "Eliezio Favari da Rocha",
+    "reclamado": "MINERAÇÃO SÃO CARLOS LTDA",
+    "fase": "Aguardando TST",
+    "valor": 70000.0,
+    "valor_desc": "Condenação R$ 70k (ilíquida)",
+    "observacoes": "Recurso de Revista e Agravo de Instrumento da MSC no TST. Sem trânsito em julgado.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento no TST",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0026200-50.1999.5.17.0141",
+    "reclamante": "Emidio Fernandes Estani",
+    "reclamado": "BRAMINEX",
+    "fase": "Quitado",
+    "valor": 0,
+    "valor_desc": "Processo quitado",
+    "observacoes": "Acompanhamento para liberação das penhoras sobre matrículas 2.805; 1.611; 24.755; 24.970; 25.246; 25.697; 26.433.",
+    "prioridade": "critica",
+    "pendencia": "Liberar penhoras sobre 7 matrículas imobiliárias da sede",
+    "penhoras": [
+      "Mat. 2.805",
+      "Mat. 1.611",
+      "Mat. 24.755",
+      "Mat. 24.970",
+      "Mat. 25.246",
+      "Mat. 25.697",
+      "Mat. 26.433"
+    ],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0141",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000947-60.2017.5.17.0131",
+    "reclamante": "Gessinea de Oliveira e Silva Mota (+ 38 outros)",
+    "reclamado": "GRANBRASIL",
+    "fase": "Execução concentrada — TST",
+    "valor": 1477952.86,
+    "valor_desc": "R$ 1.477.952,86 (set/2018) — 39 processos concentrados (INSS + IR + custas)",
+    "observacoes": "Execução concentrada da 1ª Vara de Cachoeiro. Alegações de prescrição, pagamento e nulidades no TST. Penhora sobre imóveis da sede (7 matrículas). Estratégia de prescrição intercorrente em andamento.",
+    "prioridade": "critica",
+    "pendencia": "Prescrição intercorrente — plano de ação de 7 passos em andamento",
+    "penhoras": [
+      "Mat. 2.805",
+      "Mat. 1.611",
+      "Mat. 24.755",
+      "Mat. 24.970",
+      "Mat. 25.246",
+      "Mat. 25.697",
+      "Mat. 26.433"
+    ],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000870-67.2025.5.17.0132",
+    "reclamante": "Gilson de Souza Santana",
+    "reclamado": "GRANBRASIL",
+    "fase": "Sentença — prazos recursais",
+    "valor": 50000.0,
+    "valor_desc": "Condenação R$ 50k (ilíquida)",
+    "observacoes": "Sentença recente, prazos recursais em aberto. Embargos declaratórios protocolados em 26/01/2026.",
+    "prioridade": "alta",
+    "pendencia": "Interpor todos os recursos cabíveis",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0084000-51.2008.5.17.0131",
+    "reclamante": "Ismael Baia (Espólio)",
+    "reclamado": "BRAMINEX",
+    "fase": "Execução complexa",
+    "valor": 279906.72,
+    "valor_desc": "Líquido R$ 254.386,30 + Honorários R$ 25.438,63 + Custas R$ 81,79 = R$ 279.906,72 (ago/2025)",
+    "observacoes": "Penhoras sobre 2 veículos Corolla não localizados. Exequente não identificou patrimônio efetivo.",
+    "prioridade": "media",
+    "pendencia": "Monitorar — exequente sem patrimônio localizado",
+    "penhoras": [
+      "2 veículos Corolla (não localizados)"
+    ],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0001224-34.2021.5.17.0132",
+    "reclamante": "Jonas Pulcino da Cunha",
+    "reclamado": "GRANBRASIL",
+    "fase": "TST — recurso",
+    "valor": 60000.0,
+    "valor_desc": "Condenação R$ 60k (ilíquida)",
+    "observacoes": "Recursos versam sobre a licitude da 'pejotização'.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento no TST — tese pejotização",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000640-25.2025.5.17.0132",
+    "reclamante": "Jose Machado Neto",
+    "reclamado": "GRANBRASIL",
+    "fase": "Sentença — ED",
+    "valor": 50000.0,
+    "valor_desc": "Sentença ilíquida R$ 50k",
+    "observacoes": "Embargos de Declaração apresentados. Prazo para Recurso Ordinário em breve.",
+    "prioridade": "alta",
+    "pendencia": "Preparar Recurso Ordinário após ED",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000010-50.2017.5.17.0131",
+    "reclamante": "Luiz Antonio Pereira da Silva",
+    "reclamado": "GRANBRASIL",
+    "fase": "Arquivo provisório",
+    "valor": 15172.72,
+    "valor_desc": "INSS R$ 13.021,19 + Custas R$ 2.151,53 = R$ 15.172,72 (fev/2021). Créditos principais quitados.",
+    "observacoes": "Em vias de prescrição intercorrente. Créditos principais já quitados.",
+    "prioridade": "media",
+    "pendencia": "Próximo de prescrição intercorrente — monitorar",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000165-45.2020.5.17.0132",
+    "reclamante": "Antonio Fernandes Domiciano",
+    "reclamado": "MINERAÇÃO SÃO CARLOS LTDA",
+    "fase": "Arquivo provisório",
+    "valor": 12326.94,
+    "valor_desc": "R$ 12.326,94 (fev/2021)",
+    "observacoes": "Prestes a ter prescrição intercorrente suscitada. Pedido será protocolizado nos próximos dias.",
+    "prioridade": "critica",
+    "pendencia": "Protocolizar pedido de prescrição intercorrente",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000150-08.2022.5.17.0132",
+    "reclamante": "Paulo do Nascimento Delfino",
+    "reclamado": "GRANBRASIL",
+    "fase": "Execução definitiva",
+    "valor": 60472.93,
+    "valor_desc": "R$ 60.472,93 (mar/2025)",
+    "observacoes": "Processo em limbo, sem identificação de patrimônio para execução.",
+    "prioridade": "baixa",
+    "pendencia": "Sem patrimônio identificado — monitorar",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0001932-97.2015.5.17.0131",
+    "reclamante": "Paulo Machado Alves de Abreu",
+    "reclamado": "GRANBRASIL",
+    "fase": "Execução de acordos não cumpridos",
+    "valor": 10991.29,
+    "valor_desc": "R$ 10.991,29 (abr/2025)",
+    "observacoes": "Pesquisas patrimoniais sem resultado.",
+    "prioridade": "baixa",
+    "pendencia": "Sem patrimônio localizado — monitorar",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0001218-61.2020.5.17.0132",
+    "reclamante": "Perceli Antonio da Silva",
+    "reclamado": "MINERAÇÃO SÃO CARLOS LTDA",
+    "fase": "Execução de acordo não cumprido",
+    "valor": 26279.39,
+    "valor_desc": "R$ 26.279,39 (jul/2022)",
+    "observacoes": "Prazo prescricional iniciou em jun/2024, prescrição prevista para jun/2027.",
+    "prioridade": "media",
+    "pendencia": "Prescrição prevista jun/2027 — monitorar",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000547-65.2025.5.17.0131",
+    "reclamante": "Ramon Moraes Domiciano Calvacan",
+    "reclamado": "GRANBRASIL",
+    "fase": "Recurso — TRT17",
+    "valor": 167417.31,
+    "valor_desc": "Sentença líquida R$ 167.417,31",
+    "observacoes": "Aguardando julgamento pelo TRT17.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento no TRT17",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000641-10.2025.5.17.0132",
+    "reclamante": "Reginaldo Catarino Gregorio",
+    "reclamado": "GRANBRASIL",
+    "fase": "Recurso — TRT17",
+    "valor": 158542.16,
+    "valor_desc": "Sentença líquida R$ 158.542,16",
+    "observacoes": "Recurso Ordinário interposto, aguarda remessa para o TRT17.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar recurso no TRT17",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000938-54.2024.5.17.0131",
+    "reclamante": "Reinaldo do Nascimento Delfino",
+    "reclamado": "GRANBRASIL",
+    "fase": "Execução definitiva",
+    "valor": 38448.94,
+    "valor_desc": "R$ 38.448,94 (set/2024)",
+    "observacoes": "Sem avanços significativos na fase executória.",
+    "prioridade": "baixa",
+    "pendencia": "Sem avanços — monitorar",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0131",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000110-60.2021.5.17.0132",
+    "reclamante": "Antenor Areas Junior",
+    "reclamado": "GRANBRASIL",
+    "fase": "Execução — TST (alta complexidade)",
+    "valor": 1280708.37,
+    "valor_desc": "R$ 1.280.708,37 (dez/2024). Condenação transitada em julgado no TST.",
+    "observacoes": "MAIOR processo individual. Metodologia de liquidação passível de discussão via Embargos à Execução. Recomenda-se programar pagamento — advogado do reclamante conhece os bens da empresa.",
+    "prioridade": "critica",
+    "pendencia": "PROGRAMAR PAGAMENTO — advogado do reclamante conhece os bens. Discutir via Embargos à Execução.",
+    "penhoras": [],
+    "tipo": "Reclamação Trabalhista",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "RT",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0005100-85.2007.5.17.0132",
+    "reclamante": "União Federal (PGFN)",
+    "reclamado": "GRANBRASIL",
+    "fase": "Arquivado a pedido da União",
+    "valor": 29825.61,
+    "valor_desc": "R$ 29.825,61 (desatualizado)",
+    "observacoes": "Após término do arquivamento (1 ano, previsto mai/2026), inicia prazo prescricional.",
+    "prioridade": "media",
+    "pendencia": "Prescrição inicia após mai/2026",
+    "penhoras": [],
+    "tipo": "Execução Fiscal",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "EF",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0017600-47.2011.5.17.0132",
+    "reclamante": "União Federal (PGFN)",
+    "reclamado": "GRANBRASIL",
+    "fase": "TRT17 — Agravo de Petição",
+    "valor": 606811.03,
+    "valor_desc": "União reivindica R$ 606.811,03 (controverso)",
+    "observacoes": "Defesa sustenta quitação das CDAs via pagamento parcial + prejuízo fiscal (PERT Lei 13.496/2017). Documentação comprobatória nos autos.",
+    "prioridade": "alta",
+    "pendencia": "Acompanhar julgamento do Agravo de Petição no TRT17",
+    "penhoras": [],
+    "tipo": "Execução Fiscal",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "EF",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0132000-84.2005.5.17.0132",
+    "reclamante": "União Federal (PGFN)",
+    "reclamado": "BRAMINEX",
+    "fase": "Aguardando contadoria",
+    "valor": 220872.52,
+    "valor_desc": "R$ 220.872,52 (jul/2020)",
+    "observacoes": "Penhora sobre sede (7 matrículas). Integra o termo de transação individual com a Fazenda Federal.",
+    "prioridade": "alta",
+    "pendencia": "Aguardar promoção da contadoria — integra transação PGFN",
+    "penhoras": [
+      "Mat. 2.805",
+      "Mat. 1.611",
+      "Mat. 24.755",
+      "Mat. 24.970",
+      "Mat. 25.246",
+      "Mat. 25.697",
+      "Mat. 26.433"
+    ],
+    "tipo": "Execução Fiscal",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "EF",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0106700-52.2007.5.17.0132",
+    "reclamante": "União Federal (PGFN)",
+    "reclamado": "BRAMINEX",
+    "fase": "Suspensão da execução fiscal",
+    "valor": 181798.7,
+    "valor_desc": "R$ 181.798,70 (valor não atualizado por parcelamento)",
+    "observacoes": "Parcelamento administrativo das CDAs. Valor atualizado não pode ser verificado.",
+    "prioridade": "media",
+    "pendencia": "Em parcelamento administrativo — monitorar",
+    "penhoras": [],
+    "tipo": "Execução Fiscal",
+    "caso": "",
+    "vara": "0132",
+    "categoria": "EF",
+    "data_atualizacao": "2026-01"
+  },
+  {
+    "numero": "0000029-41.2026.5.17.0131",
+    "tipo": "Homologação de Acordo Extrajudicial",
+    "caso": "",
+    "reclamante": "Igor Alves Faria Pessini",
+    "reclamado": "Roland Feiertag",
+    "fase": "Acordo homologado — em pagamento",
+    "valor": 10000.0,
+    "valor_desc": "R$ 10.000 — sem valores adicionais",
+    "observacoes": "Não haverá valores adicionais (custas, previdência, etc.).",
+    "vara": "0131",
+    "categoria": "HAE",
+    "prioridade": "baixa",
+    "pendencia": "Pagar R$ 10.000 conforme acordo",
+    "penhoras": [],
+    "data_atualizacao": "2026-01"
+  }
+];
+
+  var jurActiveCat = '';
+  var jurActivePrio = '';
+
+  function formatBRL(v) {
+    if (v === 0 || v === null || v === undefined) return 'R$ 0,00';
+    return 'R$ ' + v.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.').replace(/\.(?=\d{2}$)/, ',');
+  }
+
+  function getJurFaseClass(fase) {
+    var f = (fase || '').toLowerCase();
+    if (f.includes('recurso') || f.includes('recursal') || f.includes('tst') || f.includes('trt') || f.includes('agravo')) return 'jur-fase-recursal';
+    if (f.includes('execu')) return 'jur-fase-execucao';
+    if (f.includes('senten')) return 'jur-fase-sentenca';
+    if (f.includes('acordo') || f.includes('parcel') || f.includes('pagamento') || f.includes('homolog')) return 'jur-fase-acordo';
+    if (f.includes('arquiv') || f.includes('provisório')) return 'jur-fase-arquivo';
+    if (f.includes('quitad')) return 'jur-fase-quitado';
+    return 'jur-fase-outro';
+  }
+
+  function getPrioOrder(p) {
+    var m = { 'critica': 0, 'alta': 1, 'media': 2, 'baixa': 3 };
+    return m[p] !== undefined ? m[p] : 4;
+  }
+
+  function filterJurProcessos() {
+    var search = (document.getElementById('jurSearch').value || '').toLowerCase();
+    var sort = document.getElementById('jurSort').value;
+
+    var filtered = jurProcessos.filter(function(p) {
+      if (jurActiveCat && p.categoria !== jurActiveCat) return false;
+      if (jurActivePrio && p.prioridade !== jurActivePrio) return false;
+      if (search) {
+        var haystack = [p.numero, p.reclamante, p.reclamado, p.fase, p.pendencia, p.observacoes, p.tipo, p.categoria].join(' ').toLowerCase();
+        if (haystack.indexOf(search) === -1) return false;
+      }
+      return true;
+    });
+
+    // Sort
+    filtered.sort(function(a, b) {
+      if (sort === 'valor_desc') return (b.valor || 0) - (a.valor || 0);
+      if (sort === 'valor_asc') return (a.valor || 0) - (b.valor || 0);
+      if (sort === 'prioridade') return getPrioOrder(a.prioridade) - getPrioOrder(b.prioridade);
+      if (sort === 'nome') return (a.reclamante || '').localeCompare(b.reclamante || '');
+      return 0;
+    });
+
+    return filtered;
+  }
+
+  function renderJurCards() {
+    var filtered = filterJurProcessos();
+    var grid = document.getElementById('jurCardsGrid');
+    var countEl = document.getElementById('jurCardsCount');
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '<div class="jur-no-results">Nenhum processo encontrado com os filtros selecionados.</div>';
+      countEl.textContent = 'Nenhum processo encontrado';
+      return;
+    }
+
+    countEl.textContent = 'Mostrando ' + filtered.length + ' de ' + jurProcessos.length + ' processos';
+
+    var html = '';
+    for (var i = 0; i < filtered.length; i++) {
+      var p = filtered[i];
+      var valorStr = p.valor > 0 ? formatBRL(p.valor) : 'Sem valor definido';
+      var valorClass = p.valor > 0 ? '' : ' zero-val';
+      var prioLabel = { 'critica': 'Crítica', 'alta': 'Alta', 'media': 'Média', 'baixa': 'Baixa' };
+      var faseClass = getJurFaseClass(p.fase);
+
+      html += '<div class="jur-card" data-idx="' + i + '">';
+      html += '  <div class="jur-card-header">';
+      html += '    <span class="jur-processo-num">' + p.numero + '</span>';
+      html += '    <span class="jur-cat-badge jur-cat-' + p.categoria + '">' + p.categoria + '</span>';
+      html += '  </div>';
+      html += '  <div class="jur-reclamante">' + escapeHtml(p.reclamante) + '</div>';
+      html += '  <div class="jur-reclamado">vs. ' + escapeHtml(p.reclamado) + '</div>';
+      html += '  <span class="jur-fase-badge ' + faseClass + '">' + escapeHtml(p.fase) + '</span><br>';
+      html += '  <div class="jur-valor' + valorClass + '">' + valorStr + '</div>';
+      html += '  <span class="jur-prioridade-badge jur-prio-' + p.prioridade + '">' + (prioLabel[p.prioridade] || p.prioridade) + '</span>';
+
+      if (p.pendencia) {
+        html += '  <div class="jur-pendencia"><span class="pend-icon">⚠️</span> ' + escapeHtml(p.pendencia) + '</div>';
+      }
+
+      if (p.penhoras && p.penhoras.length > 0) {
+        html += '  <div class="jur-penhoras"><strong>Penhoras:</strong> ' + p.penhoras.map(function(x) { return escapeHtml(x); }).join(', ') + '</div>';
+      }
+
+      if (p.observacoes) {
+        html += '  <button class="jur-obs-toggle" onclick="toggleJurObs(event, ' + i + ')">▸ Ver observações</button>';
+        html += '  <div class="jur-obs-content" id="jurObs' + i + '">' + escapeHtml(p.observacoes) + '</div>';
+      }
+
+      html += '</div>';
+    }
+
+    grid.innerHTML = html;
+  }
+
+  function escapeHtml(t) {
+    if (!t) return '';
+    return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function toggleJurObs(e, idx) {
+    e.stopPropagation();
+    var el = document.getElementById('jurObs' + idx);
+    var btn = e.target;
+    if (el.classList.contains('show')) {
+      el.classList.remove('show');
+      btn.textContent = '▸ Ver observações';
+    } else {
+      el.classList.add('show');
+      btn.textContent = '▾ Ocultar observações';
+    }
+  }
+
+  function toggleJurSummary() {
+    var btn = document.getElementById('jurSummaryToggle');
+    var content = document.getElementById('jurSummaryContent');
+    btn.classList.toggle('open');
+    content.classList.toggle('show');
+  }
+
+  function buildJurSummaryTables() {
+    var total = jurProcessos.reduce(function(s, p) { return s + (p.valor || 0); }, 0);
+
+    // By category
+    var cats = {};
+    jurProcessos.forEach(function(p) {
+      if (!cats[p.categoria]) cats[p.categoria] = { count: 0, valor: 0 };
+      cats[p.categoria].count++;
+      cats[p.categoria].valor += (p.valor || 0);
+    });
+
+    var catNames = { 'RT': 'Reclamação Trabalhista', 'ACP': 'Ação Civil Pública', 'EF': 'Execução Fiscal', 'HAE': 'Homologação Acordo' };
+    var catHtml = '<thead><tr><th>Categoria</th><th>Qtd</th><th>Valor</th><th>%</th></tr></thead><tbody>';
+    Object.keys(cats).sort().forEach(function(k) {
+      var c = cats[k];
+      var pct = total > 0 ? ((c.valor / total) * 100) : 0;
+      catHtml += '<tr><td>' + (catNames[k] || k) + ' (' + k + ')</td><td>' + c.count + '</td><td>' + formatBRL(c.valor) + '</td><td><span class="pct-bar" style="width:' + Math.max(pct * 0.8, 2) + 'px"></span>' + pct.toFixed(1) + '%</td></tr>';
+    });
+    catHtml += '</tbody>';
+    document.getElementById('jurSumCat').innerHTML = catHtml;
+
+    // By priority
+    var prios = {};
+    var prioOrder = ['critica', 'alta', 'media', 'baixa'];
+    var prioLabels = { 'critica': 'Crítica', 'alta': 'Alta', 'media': 'Média', 'baixa': 'Baixa' };
+    jurProcessos.forEach(function(p) {
+      if (!prios[p.prioridade]) prios[p.prioridade] = { count: 0, valor: 0 };
+      prios[p.prioridade].count++;
+      prios[p.prioridade].valor += (p.valor || 0);
+    });
+
+    var prioHtml = '<thead><tr><th>Prioridade</th><th>Qtd</th><th>Valor</th><th>%</th></tr></thead><tbody>';
+    prioOrder.forEach(function(k) {
+      if (!prios[k]) return;
+      var c = prios[k];
+      var pct = total > 0 ? ((c.valor / total) * 100) : 0;
+      prioHtml += '<tr><td><span class="jur-prioridade-badge jur-prio-' + k + '" style="font-size:0.7rem">' + (prioLabels[k] || k) + '</span></td><td>' + c.count + '</td><td>' + formatBRL(c.valor) + '</td><td><span class="pct-bar" style="width:' + Math.max(pct * 0.8, 2) + 'px"></span>' + pct.toFixed(1) + '%</td></tr>';
+    });
+    prioHtml += '</tbody>';
+    document.getElementById('jurSumPrio').innerHTML = prioHtml;
+  }
+
+  // Setup event listeners for Jurídicos
+  function initJuridicos() {
+    // Category chips
+    document.querySelectorAll('#jurCatChips .jur-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        document.querySelectorAll('#jurCatChips .jur-chip').forEach(function(c) { c.classList.remove('active'); });
+        this.classList.add('active');
+        jurActiveCat = this.getAttribute('data-cat');
+        renderJurCards();
+      });
+    });
+
+    // Priority chips
+    document.querySelectorAll('#jurPrioChips .jur-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        document.querySelectorAll('#jurPrioChips .jur-chip').forEach(function(c) { c.classList.remove('active'); });
+        this.classList.add('active');
+        jurActivePrio = this.getAttribute('data-prio');
+        renderJurCards();
+      });
+    });
+
+    // Search
+    document.getElementById('jurSearch').addEventListener('input', function() {
+      renderJurCards();
+    });
+
+    // Sort
+    document.getElementById('jurSort').addEventListener('change', function() {
+      renderJurCards();
+    });
+
+    // Initial render
+    renderJurCards();
+    buildJurSummaryTables();
+  }
+
+  // Call init after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initJuridicos);
+  } else {
+    initJuridicos();
+  }
+
 </script>
 </body>
 </html>
