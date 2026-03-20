@@ -2375,6 +2375,208 @@ tbody td {
   .cop-chat-item { padding: 0 16px; }
 }
 
+
+/* ===== PGFN SECTION ===== */
+.pgfn-section {
+  margin-top: 40px;
+  padding-top: 24px;
+}
+
+.pgfn-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.pgfn-kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 16px 14px;
+  text-align: center;
+}
+
+.pgfn-kpi-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.pgfn-kpi-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.pgfn-kpi-value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.pgfn-kpi-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-family: var(--font-mono);
+}
+
+.pgfn-kpi-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.pgfn-details-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.pgfn-details-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.pgfn-details-header h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.pgfn-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.pgfn-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pgfn-detail-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.pgfn-detail-value {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.pgfn-progress-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.pgfn-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.pgfn-progress-header h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.pgfn-progress-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.pgfn-progress-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pgfn-progress-bar {
+  height: 10px;
+  background: var(--bg-elevated);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.pgfn-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  border-radius: 5px;
+  transition: width 1s ease;
+  min-width: 4px;
+}
+
+.pgfn-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.pgfn-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(234,179,8,0.08);
+  border: 1px solid rgba(234,179,8,0.3);
+  border-left: 4px solid #eab308;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 16px;
+  color: #eab308;
+}
+
+.pgfn-warning svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pgfn-warning strong {
+  color: #eab308;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 900px) {
+  .pgfn-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .pgfn-details-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .pgfn-kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .pgfn-kpi-card { padding: 12px 10px 10px; }
+  .pgfn-kpi-value { font-size: 1.2rem; }
+  .pgfn-progress-info { flex-direction: column; gap: 2px; }
+  .pgfn-warning { flex-direction: column; gap: 8px; }
+  .filter-bar .chip-group { width: 100%; }
+  .filter-bar .chip { font-size: 0.68rem; padding: 4px 8px; }
+  .jur-chip-group { width: 100%; }
+  .jur-chip { font-size: 0.68rem; padding: 4px 8px; }
+}
+
 </style>
 </head>
 <body>
@@ -2406,10 +2608,10 @@ tbody td {
 <nav style="background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:6px 0;position:sticky;top:64px;z-index:99;" id="navLinks">
   <div class="container" style="display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;">
     <a href="#kpiGrid" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Resumo</a>
-    <a href="#filterBar" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Minerários</a>
+    <a href="#minerariosSection" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Minerários</a>
     <a href="#juridicosSection" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Jurídicos</a>
     <a href="#pendenciasSection" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">Pendências</a>
-    <a href="#dataTable" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">PGFN</a>
+    <a href="#pgfnSection" style="padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">PGFN</a>
   </div>
 </nav>
 
@@ -2424,6 +2626,9 @@ tbody td {
 <!-- MAIN CONTENT (hidden until loaded) -->
 <div id="mainContent" style="display:none;">
   <div class="container">
+
+    <!-- ===== PROCESSOS MINERÁRIOS ===== -->
+    <div id="minerariosSection">
 
     <!-- KPI CARDS -->
     <div class="kpi-grid" id="kpiGrid">
@@ -2517,6 +2722,36 @@ tbody td {
     </div>
 
 
+
+    <!-- DATA TABLE -->
+    <div class="table-section">
+      <div class="table-header">
+        <h2>Registro de Processos</h2>
+        <span class="table-count" id="tableCount">— registros</span>
+      </div>
+      <div class="table-container">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th data-col="process">Processo <span class="sort-arrow">▼</span></th>
+              <th data-col="company">Empresa <span class="sort-arrow">▼</span></th>
+              <th data-col="brand">Marca <span class="sort-arrow">▼</span></th>
+              <th data-col="mineral">Substância <span class="sort-arrow">▼</span></th>
+              <th data-col="municipality">Município <span class="sort-arrow">▼</span></th>
+              <th data-col="state">UF <span class="sort-arrow">▼</span></th>
+              <th data-col="area">Área (ha) <span class="sort-arrow">▼</span></th>
+              <th data-col="fase">Fase <span class="sort-arrow">▼</span></th>
+              <th data-col="sub_status">Sub-Status <span class="sort-arrow">▼</span></th>
+              <th data-col="acao">Ação <span class="sort-arrow">▼</span></th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <div class="pagination" id="pagination"></div>
+    </div>
+
+    </div><!-- /minerariosSection -->
 
     <!-- ===== PROCESSOS JURÍDICOS ===== -->
     <div class="juridicos-section" id="juridicosSection">
@@ -2711,32 +2946,110 @@ tbody td {
       </div>
     </div>
 
-    <!-- DATA TABLE -->
-    <div class="table-section">
-      <div class="table-header">
-        <h2>Registro de Processos</h2>
-        <span class="table-count" id="tableCount">— registros</span>
+    <!-- ===== DÍVIDA PGFN ===== -->
+    <div class="pgfn-section" id="pgfnSection">
+      <div class="section-title-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--yellow);flex-shrink:0;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        <h2>Dívida PGFN — Transação Tributária</h2>
+        <span class="title-line"></span>
+        <span class="title-badge" style="background:rgba(234,179,8,0.15);color:#eab308;">Federal</span>
       </div>
-      <div class="table-container">
-        <table id="dataTable">
-          <thead>
-            <tr>
-              <th data-col="process">Processo <span class="sort-arrow">▼</span></th>
-              <th data-col="company">Empresa <span class="sort-arrow">▼</span></th>
-              <th data-col="brand">Marca <span class="sort-arrow">▼</span></th>
-              <th data-col="mineral">Substância <span class="sort-arrow">▼</span></th>
-              <th data-col="municipality">Município <span class="sort-arrow">▼</span></th>
-              <th data-col="state">UF <span class="sort-arrow">▼</span></th>
-              <th data-col="area">Área (ha) <span class="sort-arrow">▼</span></th>
-              <th data-col="fase">Fase <span class="sort-arrow">▼</span></th>
-              <th data-col="sub_status">Sub-Status <span class="sort-arrow">▼</span></th>
-              <th data-col="acao">Ação <span class="sort-arrow">▼</span></th>
-            </tr>
-          </thead>
-          <tbody id="tableBody"></tbody>
-        </table>
+
+      <!-- PGFN KPI Cards -->
+      <div class="pgfn-kpi-grid">
+        <div class="pgfn-kpi-card">
+          <div class="pgfn-kpi-icon" style="background:var(--red-bg);color:var(--red);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="pgfn-kpi-value">R$ 60,19M</div>
+          <div class="pgfn-kpi-sub">R$ 60.187.030,33</div>
+          <div class="pgfn-kpi-label">Dívida Total PGFN</div>
+        </div>
+        <div class="pgfn-kpi-card">
+          <div class="pgfn-kpi-icon" style="background:var(--blue-bg);color:var(--blue);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="pgfn-kpi-value">120</div>
+          <div class="pgfn-kpi-sub">Parcelas mensais</div>
+          <div class="pgfn-kpi-label">Parcelamento</div>
+        </div>
+        <div class="pgfn-kpi-card">
+          <div class="pgfn-kpi-icon" style="background:var(--yellow-bg);color:var(--yellow);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="pgfn-kpi-value">R$ 476,5K</div>
+          <div class="pgfn-kpi-sub">R$ 476.463,07 / mês</div>
+          <div class="pgfn-kpi-label">Valor da Parcela</div>
+        </div>
+        <div class="pgfn-kpi-card">
+          <div class="pgfn-kpi-icon" style="background:var(--green-bg);color:var(--green);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <div class="pgfn-kpi-value">Ativo</div>
+          <div class="pgfn-kpi-sub">Transação tributária vigente</div>
+          <div class="pgfn-kpi-label">Status</div>
+        </div>
       </div>
-      <div class="pagination" id="pagination"></div>
+
+      <!-- PGFN Details Card -->
+      <div class="pgfn-details-card">
+        <div class="pgfn-details-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <h3>Detalhes da Transação</h3>
+        </div>
+        <div class="pgfn-details-grid">
+          <div class="pgfn-detail-item">
+            <span class="pgfn-detail-label">Tipo</span>
+            <span class="pgfn-detail-value">Transação Tributária (Art. 171, CTN)</span>
+          </div>
+          <div class="pgfn-detail-item">
+            <span class="pgfn-detail-label">Órgão</span>
+            <span class="pgfn-detail-value">Procuradoria-Geral da Fazenda Nacional (PGFN)</span>
+          </div>
+          <div class="pgfn-detail-item">
+            <span class="pgfn-detail-label">Empresas Envolvidas</span>
+            <span class="pgfn-detail-value">Braminex, Granbrasil, Roland Feiertag (Grupo)</span>
+          </div>
+          <div class="pgfn-detail-item">
+            <span class="pgfn-detail-label">Modalidade</span>
+            <span class="pgfn-detail-value">Parcelamento em 120 prestações mensais</span>
+          </div>
+          <div class="pgfn-detail-item">
+            <span class="pgfn-detail-label">Valor Mensal</span>
+            <span class="pgfn-detail-value" style="color:var(--yellow);font-weight:600;">R$ 476.463,07</span>
+          </div>
+          <div class="pgfn-detail-item">
+            <span class="pgfn-detail-label">Total Parcelado</span>
+            <span class="pgfn-detail-value" style="color:var(--red);font-weight:600;">R$ 60.187.030,33</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PGFN Progress Bar -->
+      <div class="pgfn-progress-card">
+        <div class="pgfn-progress-header">
+          <h3>Progresso do Parcelamento</h3>
+          <span class="pgfn-progress-label">Monitoramento contínuo</span>
+        </div>
+        <div class="pgfn-progress-bar-wrap">
+          <div class="pgfn-progress-bar">
+            <div class="pgfn-progress-fill" style="width: 0%;"></div>
+          </div>
+          <div class="pgfn-progress-info">
+            <span>0 de 120 parcelas pagas</span>
+            <span style="color:var(--text-muted);">Saldo restante: R$ 60.187.030,33</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warning Banner -->
+      <div class="pgfn-warning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div>
+          <strong>ATENÇÃO — Parcelamento exige pontualidade</strong>
+          <p style="margin:4px 0 0;font-size:0.82rem;color:var(--text-muted);">O atraso de qualquer parcela pode resultar na rescisão da transação tributária e retorno à cobrança integral da dívida com acréscimos legais. Manter pagamentos rigorosamente em dia.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ALERTS -->
