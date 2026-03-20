@@ -2028,6 +2028,327 @@ tbody td {
   .cenario-value-big { font-size: 1.1rem; }
 }
 
+
+/* ===== CHAT ORGANIZATION PANEL ===== */
+.chat-org-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9998;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #20808D 0%, #2ba3b2 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(32,128,141,0.4), 0 0 0 0 rgba(32,128,141,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms cubic-bezier(0.25,0.46,0.45,0.94);
+  animation: chatBtnPulse 3s ease-in-out infinite;
+}
+.chat-org-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(32,128,141,0.5);
+  animation: none;
+}
+.chat-org-btn:active { transform: scale(0.95); }
+.chat-org-btn svg { width: 26px; height: 26px; color: #fff; }
+.chat-org-btn .badge-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #f85149;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  font-family: var(--font-body);
+  border: 2px solid var(--bg-primary);
+}
+@keyframes chatBtnPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(32,128,141,0.4), 0 0 0 0 rgba(32,128,141,0.3); }
+  50% { box-shadow: 0 4px 20px rgba(32,128,141,0.4), 0 0 0 8px rgba(32,128,141,0); }
+}
+
+/* Overlay */
+.chat-org-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+.chat-org-overlay.open { opacity: 1; visibility: visible; }
+
+/* Panel */
+.chat-org-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 580px;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 10000;
+  background: var(--bg-primary);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: right 400ms cubic-bezier(0.25,0.46,0.45,0.94);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.5);
+}
+.chat-org-panel.open { right: 0; }
+
+/* Panel header */
+.cop-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+}
+.cop-header-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(32,128,141,0.15);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cop-header-icon svg { width: 22px; height: 22px; color: var(--teal-light); }
+.cop-header-text { flex: 1; }
+.cop-header-text h2 { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0; }
+.cop-header-text span { font-size: 0.75rem; color: var(--text-secondary); }
+.cop-close {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-secondary); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 200ms;
+}
+.cop-close:hover { background: var(--bg-card); color: var(--text-primary); border-color: var(--border-light); }
+
+/* Search */
+.cop-search {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+}
+.cop-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.cop-search-wrap svg {
+  position: absolute; left: 12px;
+  width: 16px; height: 16px; color: var(--text-muted);
+  pointer-events: none;
+}
+.cop-search-wrap input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 200ms;
+}
+.cop-search-wrap input::placeholder { color: var(--text-muted); }
+.cop-search-wrap input:focus { border-color: var(--teal); }
+
+/* Stats bar */
+.cop-stats {
+  padding: 8px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex; gap: 8px; flex-wrap: wrap;
+  flex-shrink: 0;
+  background: var(--bg-primary);
+}
+.cop-stat-chip {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: transparent;
+  transition: all 200ms;
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
+.cop-stat-chip:hover { border-color: var(--teal); color: var(--teal-light); }
+.cop-stat-chip.active {
+  background: rgba(32,128,141,0.15);
+  border-color: var(--teal);
+  color: var(--teal-light);
+}
+.cop-stat-chip .chip-count {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 1px 6px;
+  margin-left: 4px;
+  font-size: 0.62rem;
+}
+
+/* Content scroll area */
+.cop-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Category group */
+.cop-category {
+  border-bottom: 1px solid var(--border);
+}
+.cop-cat-header {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background: var(--bg-secondary);
+  transition: background 200ms;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.cop-cat-header:hover { background: var(--bg-card); }
+.cop-cat-emoji { font-size: 1.1rem; flex-shrink: 0; }
+.cop-cat-name {
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--text-primary); flex: 1;
+}
+.cop-cat-count {
+  font-size: 0.7rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 10px;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.06);
+}
+.cop-cat-arrow {
+  width: 18px; height: 18px; color: var(--text-muted);
+  transition: transform 300ms ease;
+  flex-shrink: 0;
+}
+.cop-category.expanded .cop-cat-arrow { transform: rotate(180deg); }
+
+/* Chat items */
+.cop-cat-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.cop-category.expanded .cop-cat-items { max-height: 5000px; }
+
+.cop-chat-item {
+  padding: 0 20px;
+}
+.cop-chat-card {
+  padding: 12px 14px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 200ms;
+  cursor: pointer;
+}
+.cop-chat-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+  transform: translateX(4px);
+}
+.cop-chat-card:last-child { margin-bottom: 14px; }
+.cop-chat-title {
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 6px;
+}
+.cop-chat-title .platform-badge {
+  font-size: 0.6rem; font-weight: 700;
+  padding: 1px 6px; border-radius: 4px;
+  background: rgba(88,166,255,0.12);
+  color: #58a6ff;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+.cop-chat-summary {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease, opacity 300ms ease, margin 200ms ease;
+  opacity: 0;
+  margin-top: 0;
+}
+.cop-chat-card.expanded .cop-chat-summary {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 8px;
+}
+.cop-chat-meta {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 6px;
+}
+.cop-chat-date {
+  font-size: 0.66rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+.cop-chat-link {
+  font-size: 0.66rem;
+  color: var(--teal-light);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: color 200ms;
+  margin-left: auto;
+}
+.cop-chat-link:hover { color: #fff; }
+.cop-chat-link svg { width: 12px; height: 12px; }
+
+/* Empty state */
+.cop-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .chat-org-panel { max-width: 100%; }
+  .chat-org-btn { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+  .chat-org-btn svg { width: 22px; height: 22px; }
+  .cop-header { padding: 14px 16px; }
+  .cop-search { padding: 10px 16px; }
+  .cop-stats { padding: 8px 16px; }
+  .cop-cat-header { padding: 12px 16px; }
+  .cop-chat-item { padding: 0 16px; }
+}
+
 </style>
 </head>
 <body>
@@ -4013,6 +4334,209 @@ tbody td {
     initJuridicos();
   }
 
+
+
+// ===== CHAT ORGANIZATION PANEL =====
+(function() {
+  const chatData = [{"num": 1, "category": "Brazilian Mining Litigation", "title": "GRAMACRUZ vs MAGNITOS - Process 0021588", "summary": "Comprehensive study of 15-year execution case (R$470K original, ~R$24M updated). Strategic reactivation plan, intercurrent prescription analysis.", "last_updated": "2026-03-03", "link": "https://claude.ai/chat/56c614a1-2e8a-4851-8ecf-f304de36f0db"}, {"num": 2, "category": "Brazilian Mining Litigation", "title": "GRAMACRUZ vs MAGNITOS - Process 0012200", "summary": "Study of 1ª Vara Cível execution. R$4.2M original claim (~R$24M updated). Four-phase reactivation plan.", "last_updated": "2026-03-03", "link": "https://claude.ai/chat/afb759f6-1017-4059-8aba-477c9937ce43"}, {"num": 3, "category": "Brazilian Mining Litigation", "title": "GRAMACRUZ vs MAGNITOS - SISBAJUD Petition Analysis", "summary": "Review of Dr. Alexandre's SISBAJUD/RENAJUD/CNIB asset freeze petition. Strategic analysis linking to parallel case.", "last_updated": "2026-03-04", "link": "https://claude.ai/chat/b6822dae-4309-4cf8-b393-9cde2ddbec05"}, {"num": 4, "category": "Brazilian Mining Litigation", "title": "GRAMACRUZ vs MAGNITOS - Document Organization", "summary": "Two execution processes + one admin procedure organized. Critical risk: 2013 embargo ruling blocking execution.", "last_updated": "2026-03-04", "link": "https://claude.ai/chat/1d8aed71-0ec2-467b-b15d-a7fb8d1b3a99"}, {"num": 5, "category": "Brazilian Mining Litigation", "title": "GRAMACRUZ vs MAGNITOS - Blue Pearl Updated Report", "summary": "Comprehensive DOCX report with corrections: Mauro Montenegro deceased, Raimundo as administrator, Nivaldo fraud history.", "last_updated": "2026-03-05", "link": "https://claude.ai/chat/eda8da95-15b2-432f-8e6f-16a6fa1b5bb4"}, {"num": 6, "category": "Brazilian Mining Litigation", "title": "Braminex vs Imerys - Ação Rescisória Analysis", "summary": "Analysis of Ação Rescisória nº 0038180-28.2019. Agravo Interno unanimously rejected Nov 2025. ~R$17M execution active.", "last_updated": "2026-02-05", "link": "https://claude.ai/chat/3e42678d-8382-4852-8c34-b4295af85bb7"}, {"num": 7, "category": "Brazilian Mining Litigation", "title": "Braminex vs Imerys - Prescription Strategy", "summary": "Updated case status: 15% revenue garnishment active. Final appeal rejected. R$17M vs R$1M calculation dispute.", "last_updated": "2026-02-05", "link": "https://claude.ai/chat/e4b4cbb6-cfce-42df-bdf8-3ce324fa05c4"}, {"num": 8, "category": "Brazilian Mining Litigation", "title": "Braminex vs Imerys - STJ/TJES Original Case", "summary": "AREsp 1.639.304/STJ analysis. Case origin 2006. 15-year execution period. Prescription analysis.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/e3452738-5ca5-44d4-ba1d-a5b415bf11bd"}, {"num": 9, "category": "Brazilian Mining Litigation", "title": "Braminex - Agravo sobre venda de imóvel penhorado", "summary": "Court denied private sale of seized property. Redirected to judicial auction (leilão judicial).", "last_updated": "2026-03-04", "link": "https://claude.ai/chat/5ab069a0-9ce6-4084-9c71-c7491e323ecb"}, {"num": 10, "category": "Brazilian Mining Litigation", "title": "Braminex - Property Auction Research (BR-482)", "summary": "Judicial auction for Duas Barras property. R$6.25M valuation. Extensive liens. 589 related proceedings.", "last_updated": "2026-02-20", "link": "https://claude.ai/chat/b1044a94-af1c-4582-bfed-c36c9b0b8f89"}, {"num": 11, "category": "Brazilian Mining Litigation", "title": "Braminex vs Banco do Brasil - Quesitos", "summary": "Expert witness questions for R$256M bank contract revision case (Process 5009375-39.2022).", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/a140e0cd-d0a3-4dd3-b439-9a313e3dd657"}, {"num": 12, "category": "Brazilian Mining Litigation", "title": "Braminex vs Banco do Brasil - Contractual Abuses PDF", "summary": "PDF table of 6 contractual abuses with STJ jurisprudence for litigation support.", "last_updated": "2025-12-17", "link": "https://claude.ai/chat/d0977b1d-8631-4fb9-b98f-86b43ce009fd"}, {"num": 13, "category": "Brazilian Mining Litigation", "title": "Granbrasil - Execução Fiscal CVM", "summary": "CVM fiscal execution analysis. R$58K original debt. Part of R$365K total CVM cases.", "last_updated": "2026-01-30", "link": "https://claude.ai/chat/c74ebd52-aedd-4b8c-a814-2176e09d7d4a"}, {"num": 14, "category": "Brazilian Mining Litigation", "title": "Granbrasil - Federal Tax Execution Intimação", "summary": "Unsuccessful auction, seizure dissolved, execution suspended. Favorable short-term.", "last_updated": "2026-02-05", "link": "https://claude.ai/chat/40b6061a-701d-482a-a1b0-0ba12174af6f"}, {"num": 15, "category": "Brazilian Mining Litigation", "title": "Granbrasil - Mining Contract (SS3)", "summary": "Operational support contract between GranBrasil and SS3 Mármores. Maira Quinilatto Daróz as SS3 managing partner.", "last_updated": "2026-02-12", "link": "https://claude.ai/chat/026ef2cf-22eb-42b7-b083-3e08515135c9"}, {"num": 16, "category": "Brazilian Mining Litigation", "title": "Granbrasil - Labor Process Citation", "summary": "Labor case 0000061-43.2026 in Cachoeiro. Marilia and Roland as defendants. Failed service notification.", "last_updated": "2026-02-18", "link": "https://claude.ai/chat/f64c7d65-67e4-4e95-aa93-60b194f43865"}, {"num": 17, "category": "Brazilian Mining Litigation", "title": "Granbrasil - Antenor Labor Execution Defense", "summary": "R$1.28M labor execution. Embargos à Execução petition with ADC 58/59 defenses.", "last_updated": "2026-01-28", "link": "https://claude.ai/chat/63e81be9-c6a2-446e-96b5-6a86ed3a18f5"}, {"num": 18, "category": "Brazilian Mining Litigation", "title": "Grupo Gramacruz - 57-Process Spreadsheet Analysis", "summary": "Comprehensive analysis of 57 processes. 15 high-priority. Action plan with Dr. Alexandre coordination.", "last_updated": "2026-02-10", "link": "https://claude.ai/chat/270b08b4-9e80-441e-9275-2d7f43653ca5"}, {"num": 19, "category": "Brazilian Mining Litigation", "title": "Braminex Group - 189-Process Report", "summary": "Excel analysis of 189 processes across group. Corrected R$1.25B error to R$1.2M. ~R$100M total exposure.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/f9aefdc7-3f17-4fab-8eab-86262e909c56"}, {"num": 20, "category": "Brazilian Mining Litigation", "title": "Braminex Group - Judicial Process Tracker", "summary": "Excel tracking system with 6 tabs for Gramacruz and Unibrasil. Python automation scripts.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/be44fe57-724e-425e-8d2c-62e71102bdde"}, {"num": 21, "category": "Brazilian Mining Litigation", "title": "Braminex Group - REFIS Tax Transaction", "summary": "Analysis of Braminex exclusion from tax transaction. TRF-2 appeal. Jurisprudence analysis.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/572a7de4-9b8b-467b-91ce-3ead8f88840c"}, {"num": 22, "category": "Brazilian Mining Litigation", "title": "Braminex Group - REFIS Email Thread", "summary": "Email thread analysis for REFIS case. Failed email deliveries. Roger Matos Zanca as attorney.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/5aba4d4e-29cb-49e5-8257-30e7522778fa"}, {"num": 23, "category": "Brazilian Mining Litigation", "title": "PGFN Debt Settlement (Edital PGDAU 1/2026)", "summary": "Deadline extended to May 29, 2026. Discounts up to 65-70%. Four mining companies eligible.", "last_updated": "2026-01-30", "link": "https://claude.ai/chat/b5e040c4-d12b-4b6b-846b-ee985cbe8a92"}, {"num": 24, "category": "Brazilian Mining Litigation", "title": "Braminex - Lesma/Bela Aurora Property Strategy", "summary": "297 fiscal executions. R$50M+ exposure. 29 prescribed processes. Auction nullification strategy.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/b4aae1bb-433b-48e8-b0c7-9eebdc7afa57"}, {"num": 25, "category": "Brazilian Mining Litigation", "title": "Braminex - Equipment Valuation", "summary": "13 pieces of heavy machinery. R$2.91M-R$4.33M range. Median R$3.4-3.8M.", "last_updated": "2026-01-26", "link": "https://claude.ai/chat/2d590541-b00c-4788-8607-e0c5c4731edd"}, {"num": 26, "category": "Brazilian Mining Litigation", "title": "ANM Despacho 176426 - Mining Process", "summary": "ANM Bahia dispatch for process 27207.870894/1984-75. Guia de Utilização authorizations.", "last_updated": "2025-11-24", "link": "https://claude.ai/chat/93a37cad-5670-4bf0-affe-1ce67d4b74a8"}, {"num": 27, "category": "Brazilian Mining Litigation", "title": "Braminex - Ricamar Mining Lease Dispute", "summary": "Contranotificação Extrajudicial. Contract dispute over lease payments and mining obligations.", "last_updated": "2025-09-24", "link": "https://claude.ai/chat/4ea214d5-39ba-43f8-b771-0498fda951e3"}, {"num": 28, "category": "Brazilian Mining Litigation", "title": "ANM Granbrasil - Regulatory Document", "summary": "ANM administrative dispatch. Process from 1977. Forwarded for technical analysis.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/e99c2a2c-117e-4ddc-875b-065c947e9add"}, {"num": 29, "category": "Brazilian Mining Litigation", "title": "Braminex Debt Consolidation (Google Sheets)", "summary": "Attempted debt analysis for Braminex/Granbrasil. Google Sheets access limitations.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/b6ab69f9-2ec1-45ac-9b24-86c6b46f5edb"}, {"num": 30, "category": "Brazilian Mining Litigation", "title": "Braminex Debt Consolidation (Drive Search)", "summary": "Multiple attempts to locate DÍVIDA BRAM GRAN BRA MIN spreadsheet.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/f7612975-c7b1-4a1e-9b2a-c8abf3685b9b"}, {"num": 31, "category": "Brazilian Mining Litigation", "title": "Braminex Debt Consolidation (Drive)", "summary": "Located Google Drive folders for BRAMINEX MINERACAO and GRANBRASIL.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/6c292655-5e14-4117-9b51-16e5070ff092"}, {"num": 32, "category": "Brazilian Mining Litigation", "title": "REFIS Financial Model (R$60M Property)", "summary": "Excel model comparing cash sale vs REFIS debt assumption. R$30M cash more advantageous for buyer.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/ca22581d-9dac-4551-95c8-37df4e4dbbde"}, {"num": 33, "category": "Brazilian Mining Litigation", "title": "OTC Market + Tokenization Strategy", "summary": "Comprehensive roadmap for OTC listing + blockchain tokenization of mining assets. $455K-$1.36M budget.", "last_updated": "2026-01-03", "link": "https://claude.ai/chat/f654c9ea-9ce4-41a5-bd1f-32cb3e151498"}, {"num": 34, "category": "Brazilian Mining Litigation", "title": "OTC Market Research", "summary": "OTC Markets tiers (OTCQX/OTCQB/Pink). Dual OTC + crypto token capital structure concept.", "last_updated": "2026-01-03", "link": "https://claude.ai/chat/37ba1ef4-e605-48d0-875b-0f5b44f4369e"}, {"num": 35, "category": "Immigration", "title": "Marcele I-751 - Complete Filing Package", "summary": "Filled I-751 form, exhibit list, affidavits, photo exhibits. Filing window Dec 6, 2025 - Mar 6, 2026.", "last_updated": "2026-02-24", "link": "https://claude.ai/chat/3c4d93ba-038a-4c74-a8ea-1ad6c89fb7ac"}, {"num": 36, "category": "Immigration", "title": "Marcele I-751 - Form Preparation (Updated PDF)", "summary": "Official USCIS form filled with 329 fields. All pages completed.", "last_updated": "2026-02-07", "link": "https://claude.ai/chat/ed7919d3-6de5-45bf-b785-bd0b03da86f1"}, {"num": 37, "category": "Immigration", "title": "Marcele I-751 - Full Form + Supporting Docs", "summary": "Complete form + Word document package with exhibits A-I and filing checklist.", "last_updated": "2026-02-10", "link": "https://claude.ai/chat/eede1ae1-fd1f-4995-86ad-d0fe4bc557ea"}, {"num": 38, "category": "Immigration", "title": "Marcele I-751 - Photo Exhibit (25 Collages)", "summary": "27-page Word document with 25 collage images. International travel, family events documented.", "last_updated": "2026-02-23", "link": "https://claude.ai/chat/5d336326-7061-43bb-bd48-bf6278503726"}, {"num": 39, "category": "Immigration", "title": "Marcele I-751 - Affidavits (4 Witnesses)", "summary": "Affidavits for Ruiter, Daniel, Mark, Valerie. 40-page PDF photo exhibit with captions.", "last_updated": "2026-02-12", "link": "https://claude.ai/chat/525a1a31-09fd-46b2-afa7-a8dd5ab51ca1"}, {"num": 40, "category": "Immigration", "title": "Marcele I-751 - Petition Package (Cover Letter)", "summary": "5-document package: cover letter, TOC, photo exhibit, checklist, filing instructions.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/51c9dc55-a177-4a48-b282-0ab32f178a6f"}, {"num": 41, "category": "Immigration", "title": "Marcele I-751 - Green Card Document & Form", "summary": "Green card images analyzed. Initial form completion guide created.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/d7db69e6-5c14-48af-8edd-135ce26f5fec"}, {"num": 42, "category": "Immigration", "title": "Marcele I-751 - Evidence Checklist PDF", "summary": "Comprehensive checklist with 10 required documents. Filing timeline and fee info.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/25b0f6af-e759-4f64-9cab-1ae36d65bae2"}, {"num": 43, "category": "Immigration", "title": "Marcele I-751 - Bona Fide Affidavits (8 Witnesses)", "summary": "Affidavits for 8 witnesses including Ruiter, Jolita, Juliana, Daniel, Marilia, Roland, Rogério, Marjorie.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/ebc2e1b4-5355-4d6f-88c7-065f40997b40"}, {"num": 44, "category": "Immigration", "title": "Marcele I-751 - UPS Filing Confirmation", "summary": "I-751 shipped Mar 3, 2026 via UPS 2nd Day Air. Tracking 1Z8646410703394617. Case tracker created.", "last_updated": "2026-03-05", "link": "https://claude.ai/chat/4b60600d-d766-4cd6-87bb-bfdd3290cf5a"}, {"num": 45, "category": "Immigration", "title": "Roland Green Card - I-130 & I-864 Forms", "summary": "Forms completed. David as joint sponsor ($44,200 AGI). Roland passport FT779554.", "last_updated": "2026-02-24", "link": "https://claude.ai/chat/5612507f-dfda-4e64-84f5-136beca8a5b2"}, {"num": 46, "category": "Immigration", "title": "Roland Green Card - Passport Search", "summary": "Located Roland's info from prior chats. Current passport needed for processing.", "last_updated": "2026-02-24", "link": "https://claude.ai/chat/42ecdd2b-06f9-4609-8760-07e6c2e2c27c"}, {"num": 47, "category": "Immigration", "title": "Roland Green Card - Medical Exam (I-693)", "summary": "Dr. Bernard at Gulf Coast Direct Primary Care. Scheduled Feb 25 at 2:15 PM. $300 + vaccines.", "last_updated": "2026-02-20", "link": "https://claude.ai/chat/fd5b2156-1afd-4330-b7db-292b7a99930a"}, {"num": 48, "category": "Immigration", "title": "US Golden Card Program Research", "summary": "Trump Gold Card program launched Sep 19, 2025. Three tiers: $1M/$2M/$5M.", "last_updated": "2025-09-20", "link": "https://claude.ai/chat/40807e4f-c1d6-4b15-a06a-cc163da18ce5"}, {"num": 49, "category": "Immigration", "title": "Invitation Letters for Drauzio & Alzira", "summary": "Formal English invitation letters for Brazilian friends visiting Feb 11-19, 2026.", "last_updated": "2026-02-10", "link": "https://claude.ai/chat/59d38881-2a75-4c2b-98f0-6fa73ddd6aec"}, {"num": 50, "category": "Immigration", "title": "Divorce Decree Search (Fabiana)", "summary": "Located case FMCE05005248 from Broward County, Jun 30, 2005. Court records request form created.", "last_updated": "2025-09-23", "link": "https://claude.ai/chat/16283f41-908a-4d75-b4b0-2b3f4746e9e3"}, {"num": 51, "category": "Immigration", "title": "Divorce Decree - Records Request Form", "summary": "Print-ready HTML form for Broward County Archives Division.", "last_updated": "2025-09-24", "link": "https://claude.ai/chat/9a89af86-a17b-4bed-ac9a-4fdfe3ffde70"}, {"num": 52, "category": "Family Legal (Roland Defense)", "title": "Consolidated Strategic Action Plan", "summary": "7-section defense plan against Adriane Felisberto Paiva. Coordinated with Dra. Lilian's team.", "last_updated": "2026-03-02", "link": "https://claude.ai/chat/fca26dd4-194a-40bf-a2ea-866957911ab7"}, {"num": 53, "category": "Family Legal (Roland Defense)", "title": "Petição Inicial - Oferta de Alimentos (Review)", "summary": "Detailed review of alimony petition. 8 corrections identified including solidária error.", "last_updated": "2026-03-02", "link": "https://claude.ai/chat/f1027b2a-df4e-4f52-b802-716b731543e3"}, {"num": 54, "category": "Family Legal (Roland Defense)", "title": "Petição Review - Citation Issue", "summary": "Clarified that judicial citation is mandatory regardless of power of attorney.", "last_updated": "2026-03-06", "link": "https://claude.ai/chat/0bf08b9d-de16-4fcc-93fc-49529e6aeb20"}, {"num": 55, "category": "Countertops & More Operations", "title": "Alterra Property Group LOI Analysis", "summary": "14361 N Cleveland Ave. $3.25M sale-leaseback offer. Analysis flags buyer-favorable terms.", "last_updated": "2026-02-16", "link": "https://claude.ai/chat/7501b894-ec81-4929-bff9-92c0842d3a2d"}, {"num": 56, "category": "Countertops & More Operations", "title": "Acquisition Research (DeSanctis, Metro Granite)", "summary": "DeSanctis $1.1M/$2.39M rev. Metro Granite likely $3.5M/$7.1M rev listing.", "last_updated": "2026-02-03", "link": "https://claude.ai/chat/6c72e7bd-6156-4414-894c-9e0c6014ad5e"}, {"num": 57, "category": "Countertops & More Operations", "title": "Net-Arb Arbitration Service Review", "summary": "Third-party arbitration service review for contract alignment. Awaiting contract upload.", "last_updated": "2026-03-04", "link": "https://claude.ai/chat/716e6fd9-dcb6-4d59-9516-48a9797c7da9"}, {"num": 58, "category": "Countertops & More Operations", "title": "QuickBooks Payment Fraud ($50K)", "summary": "Franniel Lemus Chavez fraud. 5 e-checks totaling $50,936.80. 7 legal documents created.", "last_updated": "2026-01-03", "link": "https://claude.ai/chat/efad6231-9ece-4241-b947-78182ac2e82d"}, {"num": 59, "category": "Countertops & More Operations", "title": "QuickBooks Chargeback ($11,250)", "summary": "Customer chargeback. $9K covered by QB. $2,250 exposure. Documentation guidance.", "last_updated": "2025-12-18", "link": "https://claude.ai/chat/e13d2e91-58ec-4303-9422-d23e5a44c099"}, {"num": 60, "category": "Countertops & More Operations", "title": "QuickBooks Dispute Gmail Search", "summary": "Multiple Gmail searches for QB dispute documentation.", "last_updated": "2026-01-03", "link": "https://claude.ai/chat/50d35ec7-c55c-4e76-a7f5-8b84c16f201b"}, {"num": 61, "category": "Countertops & More Operations", "title": "QuickBooks Dispute Search (cont.)", "summary": "Continued search attempts for QB dispute emails.", "last_updated": "2026-01-03", "link": "https://claude.ai/chat/cd9431b5-166f-4ce0-b609-4e2f0bee59af"}, {"num": 62, "category": "Countertops & More Operations", "title": "Square Dispute ($1,376.25)", "summary": "Square Dispute Resolutions Team. Response via Square Dashboard.", "last_updated": "2026-02-27", "link": "https://claude.ai/chat/882172ce-fca1-49e7-b563-f0f79d282f3e"}, {"num": 63, "category": "Countertops & More Operations", "title": "T-Mobile Business Bill Dispute", "summary": "Equipment non-return fees on multi-line business account.", "last_updated": "2026-03-03", "link": "https://claude.ai/chat/1b338ac3-cf80-4535-b9f9-641f4a4cf116"}, {"num": 64, "category": "Countertops & More Operations", "title": "Customer Review Strategy (Digifeel)", "summary": "Multi-phase review collection plan. Cutting board incentive. Budget $2-3K.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/4a4d8028-c4d4-4f72-a355-5ab5700ab6ed"}, {"num": 65, "category": "Countertops & More Operations", "title": "Review Platform Legal Research", "summary": "Class action research vs Google/Yelp. Section 230 protections. Escalation plan.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/2aa3e750-91f5-466f-b1f8-806276affd1c"}, {"num": 66, "category": "Countertops & More Operations", "title": "Commercial Lease Translation (Port Charlotte)", "summary": "Portuguese translation of 15-year NNN lease. 30,780 sqft at 4628 Tamiami Trail.", "last_updated": "2025-07-11", "link": "https://claude.ai/chat/5e857758-cc3c-454c-b718-f0d080cbb96f"}, {"num": 67, "category": "Countertops & More Operations", "title": "Environmental Licensing Proposal Analysis", "summary": "KF Engenharia (Karla Baldotto) loteamento proposal. R$378K total. Below market pricing.", "last_updated": "2026-03-06", "link": "https://claude.ai/chat/8f23d691-7de9-4699-b02e-f2844de016e0"}, {"num": 68, "category": "Fleet & Vehicle Management", "title": "Comprehensive Fleet Tracker (23 vehicles)", "summary": "8-sheet Excel: fleet, payments, registrations, plates, financing, mortgages, insurance, actions. $34K/mo total.", "last_updated": "2026-01-12", "link": "https://claude.ai/chat/95466782-a4d4-4a8d-83a3-a49a942ccd9d"}, {"num": 69, "category": "Fleet & Vehicle Management", "title": "Fleet Update (E-Pass, LeeWay, Keystone RV)", "summary": "E-Pass transponder assignments. LeeWay cards. Keystone RV registration. FR hold resolution.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/7ef8eb6f-d168-4da7-b946-2a69e6418e20"}, {"num": 70, "category": "Fleet & Vehicle Management", "title": "Fleet + eTags Orders Spreadsheet", "summary": "3 eTags orders tracking. Bill of Sale for Ford Explorer title correction (Jansky error).", "last_updated": "2026-02-07", "link": "https://claude.ai/chat/1835fefb-9ade-44b6-83ed-fc628e434520"}, {"num": 71, "category": "Fleet & Vehicle Management", "title": "Ford Explorer Bill of Sale (eTags Resubmission)", "summary": "HSMV 82050 filled. Juliana to Lindsey. $500. Affidavit: Jansky added in error.", "last_updated": "2026-02-20", "link": "https://claude.ai/chat/150d6704-ac4d-4073-b401-c25490c92c3c"}, {"num": 72, "category": "Fleet & Vehicle Management", "title": "Ford Explorer Bill of Sale (Corrected Affidavit)", "summary": "Updated form with 'no fraud intended' language in affidavit section.", "last_updated": "2026-02-18", "link": "https://claude.ai/chat/0eb25e79-9aa3-479c-b1a9-5dd18fb507e0"}, {"num": 73, "category": "Fleet & Vehicle Management", "title": "Ford Explorer - eTags Signing Instructions", "summary": "Complete signing package for Juliana (1 sig) and Lindsey (3 sigs). Electronic signature guidance.", "last_updated": "2026-03-07", "link": "https://claude.ai/chat/7b3ff92f-84ac-4ef7-8804-71c35a930991"}, {"num": 74, "category": "Fleet & Vehicle Management", "title": "Dodge Ram 2012 - Suspension Resolution", "summary": "Traffic citations from Jun 2025. Ticket Clinic results. $150 FR clearance. D-6 forms needed.", "last_updated": "2026-01-06", "link": "https://claude.ai/chat/2a34c752-1624-4e54-8a6e-ba100da9214e"}, {"num": 75, "category": "Fleet & Vehicle Management", "title": "Daniel DL Suspension - Maserati Insurance", "summary": "Progressive policy lapse on Maserati. Resolved by updating insurance info. Status: VALID.", "last_updated": "2026-01-14", "link": "https://claude.ai/chat/6f4a5474-2c36-49d0-8e4a-1217370f6192"}, {"num": 76, "category": "Fleet & Vehicle Management", "title": "Traffic Citations / DL Suspension", "summary": "Lee County citations. Ticket Clinic results. $193.20 payment. Reinstatement guidance.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/1762ca39-ecaf-40be-b9f2-05337da895b6"}, {"num": 77, "category": "Fleet & Vehicle Management", "title": "Ford F-350 Registration Check", "summary": "VIN 1FDWF36P04EA41540. Plate Y53WVF. eTags renewal in progress. $36.23.", "last_updated": "2026-02-05", "link": "https://claude.ai/chat/2fd0649a-2c34-4865-8c50-e8f5c42df9b1"}, {"num": 78, "category": "Fleet & Vehicle Management", "title": "Ford Truck Registration Renewal", "summary": "2004 Ford truck. Plate Y53WVF. Valid through Dec 31, 2026. $114.85.", "last_updated": "2026-02-11", "link": "https://claude.ai/chat/e484cb65-ae73-479e-9355-bb7bbbe76a33"}, {"num": 79, "category": "Fleet & Vehicle Management", "title": "LeeWay Toll Payment Portal", "summary": "Toll invoice resolution. $323 due on Dodge Ram. Registration stop guidance.", "last_updated": "2026-02-04", "link": "https://claude.ai/chat/b4582bf8-3257-4f04-8885-27f3af61e2e9"}, {"num": 80, "category": "Fleet & Vehicle Management", "title": "Lee County Toll Portal Access", "summary": "LeeWay pay-by-plate portal. Registration stop check instructions.", "last_updated": "2026-02-04", "link": "https://claude.ai/chat/7b73e498-454d-4fe0-9965-6b690b5f1ad0"}, {"num": 81, "category": "Fleet & Vehicle Management", "title": "Vehicle Inventory & Driver Licenses", "summary": "24 vehicles CSV. Driver license extraction from images. Family & employee docs.", "last_updated": "2026-01-03", "link": "https://claude.ai/chat/d0a3df0f-bd57-441b-9d68-a78fd16d9bf9"}, {"num": 82, "category": "Fleet & Vehicle Management", "title": "Car Insurance Policies Spreadsheet", "summary": "Progressive personal ($914/mo, 7 vehicles) + commercial ($1,370/mo, 10 vehicles). All plates.", "last_updated": "2026-01-28", "link": "https://claude.ai/chat/4a508826-7a35-48f0-8a53-c761ed747f19"}, {"num": 83, "category": "Fleet & Vehicle Management", "title": "Driver License Status Check", "summary": "FLHSMV portal instructions. Cannot access DMV databases directly.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/2357242c-4a96-4849-bf84-c850ac5c13a4"}, {"num": 84, "category": "Financial Analysis", "title": "Credit Card Analysis (4 Cards, $63K)", "summary": "Apple, Citi, Luxury Card, Chase Ink. Total debt $63,141.84. 6-sheet Excel.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/0fa77e0d-4c3b-498a-ab4c-88a0a3bce193"}, {"num": 85, "category": "Financial Analysis", "title": "Credit Card Analysis (351 Transactions, $30K)", "summary": "4 cards, Oct 2025-Jan 2026. 7 worksheets. Retail 28.7%, Ads 21.6%.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/f85ab46a-5e19-4f3e-803b-666c8ca16370"}, {"num": 86, "category": "Financial Analysis", "title": "Credit Card Statements (Drive Search)", "summary": "Attempted to locate uploaded statements in Google Drive. Access issues.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/61044704-685a-4ace-984d-f7bcbfce5e9a"}, {"num": 87, "category": "Financial Analysis", "title": "Monthly Expenses ($72.5K, 3 Months)", "summary": "Nov 2025-Jan 2026. Multiple cards. Categorized by ads, tech, office. Duplicate detection.", "last_updated": "2026-01-16", "link": "https://claude.ai/chat/54885868-c258-4721-ad07-e7119404aa8e"}, {"num": 88, "category": "Financial Analysis", "title": "Business Software Expenses", "summary": "Google Ads $2,500/mo, QuickBooks $275/mo, Comcast $684/mo, AI tools $90/mo.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/6c9d205e-4c6e-4ca1-be8a-34c7c5796acf"}, {"num": 89, "category": "Financial Analysis", "title": "David/Daniel Settlement Tracker", "summary": "Financial settlement tracking. Credit card payments, check deposits. R$7,522 initial.", "last_updated": "2026-01-16", "link": "https://claude.ai/chat/90015270-0809-4150-a478-32b382c0603a"}, {"num": 90, "category": "Financial Analysis", "title": "Credit Dispute (SmileDirectClub)", "summary": "TEK-COLLECT $551 dispute. Letters to 3 bureaus + collection agency. Identity theft claim.", "last_updated": "2026-01-12", "link": "https://claude.ai/chat/67b1e572-4d67-4394-b251-bb14117a53f4"}, {"num": 91, "category": "Property & Real Estate", "title": "Scopel/Campo do Guarapari Fraud Recovery", "summary": "R$100M property fraudulently sold for R$8.5M in 2011. Dual-jurisdiction strategy. RICO claims.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/6c30b4e1-7232-46b4-ab19-38984b3ac08c"}, {"num": 92, "category": "Property & Real Estate", "title": "Granbrasil Property (Matrícula 3730)", "summary": "31.46ha in Cachoeiro. R$47-125M potential. Development proposal 'Reserva do Gavião'.", "last_updated": "2025-07-20", "link": "https://claude.ai/chat/2120cc3c-3e73-4310-9409-0e8f30c7c8da"}, {"num": 93, "category": "Property & Real Estate", "title": "Rio de Janeiro Historical Property (1954)", "summary": "Notarized sale document. Teixeira family. 2,200,000 cruzeiros.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/681e8619-ca5a-46fb-af5a-7c7c2494a675"}, {"num": 94, "category": "Property & Real Estate", "title": "Mining Concession Valuation (Venturosa)", "summary": "500ha granite concession. ANM process 840.038/1986. R$8-15M conservative estimate.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/b6f7fd9b-dac8-4779-92c6-ce19106e04b7"}, {"num": 95, "category": "Property & Real Estate", "title": "Property Insurance Search", "summary": "Gmail/Drive search. State Insurance USA correspondence found. Limited policy docs.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/17b1564c-8f43-4caa-93e5-2e7a3ceeb37a"}, {"num": 96, "category": "Intellectual Property", "title": "IP Portfolio Management", "summary": "COUNTERTOPS & MORE, OUTFIRE, CABINET FREAKS trademarks. BATH PRO SYSTEMS abandoned. Patel IP attorney.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/d79c94a4-4683-4eda-8a02-291826b61d80"}, {"num": 97, "category": "Intellectual Property", "title": "French Patent (ABC) Research", "summary": "Patent 1356674/B10537FR filed 2013. Envelope Soleau 394163 from 2010. Correspondence ceased 2015.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/9feaff31-e363-4527-a867-23a534259430"}, {"num": 98, "category": "Intellectual Property", "title": "Original Phrase Publication", "summary": "Verified originality. Social media posts and blog article created.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/78215a60-a75a-4972-94ec-2718ece7f4a5"}, {"num": 99, "category": "Health & Medical", "title": "Roland Medical Report (BP + Symptoms)", "summary": "Blood pressure monitoring report for Premier Medical Wellness. Incontinence, confusion, trembling noted.", "last_updated": "2026-02-17", "link": "https://claude.ai/chat/df81f43b-718c-49dd-822d-bf0bccb8e355"}, {"num": 100, "category": "Health & Medical", "title": "Roland Medication Schedule", "summary": "Clopin Duo, Metformina 850mg, Bramicar/Telmisartana 80mg. Photo matching.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/e99c2a2c-117e-4ddc-875b-065c947e9add"}, {"num": 101, "category": "Health & Medical", "title": "UnitedHealthcare 2026 Setup", "summary": "Family insurance tracking. David/Marcele/Julia ($79.30/mo) + Marilia ($64.04/mo). HMO plans.", "last_updated": "2026-01-27", "link": "https://claude.ai/chat/e3d22004-55f4-4a83-8f12-454a6da49fe8"}, {"num": 102, "category": "Health & Medical", "title": "Peptide Protocol for Doctor", "summary": "CJC-1295, Ipamorelin, GHK-Cu, Tesamorelin. Dosages, contraindications, monitoring labs.", "last_updated": "2026-03-08", "link": "https://claude.ai/chat/703d5284-a263-424c-ba45-d474d7a5f9d8"}, {"num": 103, "category": "Personal & Family Documents", "title": "De Luca Family Genealogy / Italian Citizenship", "summary": "Civil registry analysis. 6-phase strategy for Nilza/Marcele Italian citizenship.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/2196231c-8abc-40a9-8146-cd1a1da02c25"}, {"num": 104, "category": "Personal & Family Documents", "title": "Brazilian Passports (3 Family Members)", "summary": "Passport data extraction. Henrique Paiva Feiertag correction.", "last_updated": "2026-01-19", "link": "https://claude.ai/chat/54606298-a428-42ab-b7fb-e3b61c52f3f9"}, {"num": 105, "category": "Personal & Family Documents", "title": "David's American Passport Lookup", "summary": "Located passport details from prior chats. DOB Feb 16, 1977.", "last_updated": "2026-02-10", "link": "https://claude.ai/chat/a9f0bc01-1160-4848-931e-f381efe6fc07"}, {"num": 106, "category": "Personal & Family Documents", "title": "Brazilian Company Monthly Expenses", "summary": "R$169,858.31/mo recurring. R$645,600.20 pending debts. PDF consolidated report.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/681e8619-ca5a-46fb-af5a-7c7c2494a675"}, {"num": 107, "category": "Personal & Family Documents", "title": "Google Drive Document Organization", "summary": "20 documents organized into 5 categories. Business, personal, educational, projects, archived.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/f9696dcf-b757-44f5-a5a0-ea3a106e4a2c"}, {"num": 108, "category": "Personal & Family Documents", "title": "Consolidated Chat Summary (60+ chats)", "summary": "12-page Word doc. 10 categories. Clickable links. Urgent action items table.", "last_updated": "2026-01-28", "link": "https://claude.ai/chat/69e87c2f-cb58-419f-8dcc-ceabd2eea38e"}, {"num": 109, "category": "Personal & Family Documents", "title": "Family Scheduling System", "summary": "Gulf Coast Orthodontics (Julia). Dr. Bandera (Roland/Naples). Multi-family appointment management.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/07953966-5c23-4417-a7cf-ad2b6712059b"}, {"num": 110, "category": "Personal & Family Documents", "title": "Sigamina Mining Deadlines & Calendar", "summary": "Environmental licensing deadlines. Gmail organization. Calendar events with 3-day reminders.", "last_updated": "2025-12-13", "link": "https://claude.ai/chat/6839f537-a7b0-4abc-8984-0e0c03d9df2d"}, {"num": 111, "category": "General / Other", "title": "iPhone 17 Empty Box (Apple/UPS Theft)", "summary": "Distribution center in Lebanon, TN. UPS claim guidance. Evidence documentation.", "last_updated": "2026-02-14", "link": "https://claude.ai/chat/95c2b904-e405-4da8-a8b3-707a2114338c"}, {"num": 112, "category": "General / Other", "title": "Florida DMV Phishing Text", "summary": "Fake DMV text identified. gov-derh.bond fraudulent URL. Report to FTC guidance.", "last_updated": "2026-03-02", "link": "https://claude.ai/chat/3de4ab09-4696-4959-ae4c-519c208e8f5a"}, {"num": 113, "category": "General / Other", "title": "Book Summaries (10 Classics)", "summary": "To Kill a Mockingbird, 1984, Fahrenheit 451, etc. Discussion prep summaries.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/a0660834-3f68-4c54-bb93-466092320acc"}, {"num": 114, "category": "General / Other", "title": "MyIQ.com Subscription Cancellation", "summary": "No self-service cancel. Payment method cancellation guidance.", "last_updated": "2025-12-15", "link": "https://claude.ai/chat/2a82c1fd-5b11-4e98-86be-f329f2062055"}, {"num": 115, "category": "General / Other", "title": "Meta Business Account AI Tools", "summary": "Madgicx, AdEspresso, NapoleonCat recommendations. VIX-Europe flight research.", "last_updated": "2025-07-07", "link": "https://claude.ai/chat/b30f6b96-68dc-4491-8c05-7977ac7cd8eb"}, {"num": 116, "category": "General / Other", "title": "Marcos 2:1-4 (Ambiguous Request)", "summary": "Unclear reference. Biblical passage or person named Marcos. No resolution.", "last_updated": "2026-02-16", "link": "https://claude.ai/chat/6e1c9419-c60c-43c1-ad62-8d6bf853f74e"}];
+  const catConfig = {"Brazilian Mining Litigation": {"icon": "⛏️", "color": "#20808D", "short": "Mineração"}, "Immigration": {"icon": "🛂", "color": "#58a6ff", "short": "Imigração"}, "Fleet & Vehicle Management": {"icon": "🚗", "color": "#3fb950", "short": "Frota"}, "Countertops & More Operations": {"icon": "🏢", "color": "#d29922", "short": "Countertops"}, "Personal & Family Documents": {"icon": "📋", "color": "#bc8cff", "short": "Pessoal"}, "Financial Analysis": {"icon": "💰", "color": "#db6d28", "short": "Financeiro"}, "General / Other": {"icon": "📎", "color": "#8b949e", "short": "Geral"}, "Property & Real Estate": {"icon": "🏠", "color": "#f0883e", "short": "Imóveis"}, "Health & Medical": {"icon": "🏥", "color": "#f85149", "short": "Saúde"}, "Family Legal (Roland Defense)": {"icon": "⚖️", "color": "#ff7b72", "short": "Família Legal"}, "Intellectual Property": {"icon": "💡", "color": "#d2a8ff", "short": "PI"}};
+  
+  // Group by category
+  const grouped = {};
+  chatData.forEach(c => {
+    if (!grouped[c.category]) grouped[c.category] = [];
+    grouped[c.category].push(c);
+  });
+  
+  // Sort categories by count desc
+  const sortedCats = Object.keys(grouped).sort((a,b) => grouped[b].length - grouped[a].length);
+  
+  let activeFilter = '';
+  let searchTerm = '';
+  
+  function getPlatform(link) {
+    if (link.includes('claude.ai')) return 'Claude';
+    if (link.includes('chatgpt') || link.includes('openai')) return 'ChatGPT';
+    if (link.includes('perplexity')) return 'Perplexity';
+    return 'AI';
+  }
+  
+  function renderPanel() {
+    const content = document.getElementById('copContent');
+    if (!content) return;
+    
+    let html = '';
+    let visibleCount = 0;
+    
+    sortedCats.forEach(cat => {
+      const cfg = catConfig[cat] || { icon: '📄', color: '#8b949e', short: cat };
+      let items = grouped[cat];
+      
+      // Apply category filter
+      if (activeFilter && activeFilter !== cat) return;
+      
+      // Apply search
+      if (searchTerm) {
+        items = items.filter(c => 
+          c.title.toLowerCase().includes(searchTerm) ||
+          c.summary.toLowerCase().includes(searchTerm)
+        );
+        if (items.length === 0) return;
+      }
+      
+      visibleCount += items.length;
+      
+      // Sort by date desc
+      items.sort((a,b) => (b.last_updated || '').localeCompare(a.last_updated || ''));
+      
+      const isExpanded = !!activeFilter || !!searchTerm;
+      
+      html += `<div class="cop-category ${isExpanded ? 'expanded' : ''}" data-cat="${cat}">`;
+      html += `<div class="cop-cat-header" onclick="toggleCopCat(this)">`;
+      html += `<span class="cop-cat-emoji">${cfg.icon}</span>`;
+      html += `<span class="cop-cat-name">${cat}</span>`;
+      html += `<span class="cop-cat-count">${items.length}</span>`;
+      html += `<svg class="cop-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>`;
+      html += `</div>`;
+      html += `<div class="cop-cat-items">`;
+      
+      items.forEach(c => {
+        const platform = getPlatform(c.link);
+        const dateStr = c.last_updated ? c.last_updated.split(' ')[0] : '';
+        html += `<div class="cop-chat-item">`;
+        html += `<div class="cop-chat-card" onclick="toggleCopChat(this, event)">`;
+        html += `<div class="cop-chat-title">`;
+        html += `<span style="flex:1;">${c.title}</span>`;
+        html += `<span class="platform-badge">${platform}</span>`;
+        html += `</div>`;
+        html += `<div class="cop-chat-summary">${c.summary}</div>`;
+        html += `<div class="cop-chat-meta">`;
+        html += `<span class="cop-chat-date">${dateStr}</span>`;
+        if (c.link) {
+          html += `<a class="cop-chat-link" href="${c.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">`;
+          html += `Abrir conversa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+          html += `</a>`;
+        }
+        html += `</div>`;
+        html += `</div></div>`;
+      });
+      
+      html += `</div></div>`;
+    });
+    
+    if (visibleCount === 0) {
+      html = '<div class="cop-empty">Nenhuma conversa encontrada</div>';
+    }
+    
+    content.innerHTML = html;
+    
+    // Update result count
+    const countEl = document.getElementById('copResultCount');
+    if (countEl) countEl.textContent = visibleCount + ' de ' + chatData.length;
+  }
+  
+  // Toggle category
+  window.toggleCopCat = function(header) {
+    header.parentElement.classList.toggle('expanded');
+  };
+  
+  // Toggle chat card expand
+  window.toggleCopChat = function(card, e) {
+    if (e.target.closest('.cop-chat-link')) return;
+    card.classList.toggle('expanded');
+  };
+  
+  // Open panel
+  window.openChatOrg = function() {
+    document.getElementById('chatOrgOverlay').classList.add('open');
+    document.getElementById('chatOrgPanel').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    renderPanel();
+  };
+  
+  // Close panel
+  window.closeChatOrg = function() {
+    document.getElementById('chatOrgOverlay').classList.remove('open');
+    document.getElementById('chatOrgPanel').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  
+  // Search handler
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('copSearch');
+    if (searchInput) {
+      let debounce;
+      searchInput.addEventListener('input', function() {
+        clearTimeout(debounce);
+        debounce = setTimeout(function() {
+          searchTerm = searchInput.value.toLowerCase().trim();
+          renderPanel();
+        }, 200);
+      });
+    }
+    
+    // Build filter chips
+    const statsEl = document.getElementById('copStats');
+    if (statsEl) {
+      let chipsHtml = '<button class="cop-stat-chip active" data-filter="" onclick="filterCopCat(this, \'\')">Todos<span class="chip-count">' + chatData.length + '</span></button>';
+      sortedCats.forEach(cat => {
+        const cfg = catConfig[cat] || { short: cat };
+        chipsHtml += '<button class="cop-stat-chip" data-filter="' + cat + '" onclick="filterCopCat(this, \'' + cat.replace(/'/g, "\\'") + '\')">' + cfg.short + '<span class="chip-count">' + grouped[cat].length + '</span></button>';
+      });
+      statsEl.innerHTML = chipsHtml;
+    }
+  });
+  
+  // Filter by category
+  window.filterCopCat = function(chip, cat) {
+    activeFilter = cat;
+    document.querySelectorAll('.cop-stat-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    renderPanel();
+  };
+})();
+
 </script>
+
+<!-- ===== CHAT ORGANIZATION BUTTON ===== -->
+<button class="chat-org-btn" onclick="openChatOrg()" aria-label="Conversas organizadas">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    <line x1="9" y1="9" x2="15" y2="9"/>
+    <line x1="9" y1="13" x2="13" y2="13"/>
+  </svg>
+  <span class="badge-count">116</span>
+</button>
+
+<!-- Overlay -->
+<div class="chat-org-overlay" id="chatOrgOverlay" onclick="closeChatOrg()"></div>
+
+<!-- Panel -->
+<div class="chat-org-panel" id="chatOrgPanel">
+  <div class="cop-header">
+    <div class="cop-header-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    <div class="cop-header-text">
+      <h2>Conversas por Projeto</h2>
+      <span id="copResultCount">116 de 116</span>
+    </div>
+    <button class="cop-close" onclick="closeChatOrg()" aria-label="Fechar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  
+  <div class="cop-search">
+    <div class="cop-search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="copSearch" placeholder="Buscar conversa, processo, tema…">
+    </div>
+  </div>
+  
+  <div class="cop-stats" id="copStats"></div>
+  
+  <div class="cop-content" id="copContent"></div>
+</div>
+
 </body>
 </html>
