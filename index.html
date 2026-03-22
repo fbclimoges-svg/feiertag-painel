@@ -2992,6 +2992,526 @@ tbody td {
 .detail-val-item .dv-label { font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.3px; }
 .detail-val-item .dv-value { font-size:0.82rem; color:var(--text-primary); font-weight:500; margin-top:2px; }
 
+/* ===== BLOCK A: CLUSTER CARBONATO ===== */
+.av-carbonato-card {
+  background: var(--bg-card);
+  border: 2px solid #2ba3b2;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.av-carbonato-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #20808D, #2ba3b2, #20808D);
+}
+.av-carbonato-card .carb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.av-carbonato-card .carb-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2ba3b2;
+}
+.av-carbonato-card .carb-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+.av-carbonato-card .carb-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.carb-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.carb-badge.teal {
+  background: rgba(32,128,141,0.15);
+  color: #2ba3b2;
+}
+.carb-badge.secondary {
+  background: rgba(139,148,158,0.12);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+.carb-callout {
+  margin: 16px 0;
+  padding: 12px 16px;
+  background: rgba(32,128,141,0.08);
+  border-left: 3px solid #2ba3b2;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.85rem;
+  color: #2ba3b2;
+  line-height: 1.5;
+}
+.carb-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+@media (max-width: 600px) { .carb-stats-row { grid-template-columns: 1fr; } }
+.carb-stat {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  text-align: center;
+}
+.carb-stat .stat-val {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.carb-stat .stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.carb-valuation-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin: 16px 0;
+  overflow: hidden;
+}
+.carb-valuation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+.carb-valuation-header:hover {
+  background: var(--bg-card-hover);
+}
+.carb-valuation-header .carb-chevron {
+  width: 16px; height: 16px;
+  color: var(--text-muted);
+  transition: transform 300ms;
+}
+.carb-valuation-toggle.open .carb-chevron {
+  transform: rotate(180deg);
+}
+.carb-valuation-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.carb-valuation-toggle.open .carb-valuation-body {
+  max-height: 600px;
+}
+.carb-val-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+.carb-val-table th {
+  background: var(--bg-elevated);
+  padding: 8px 12px;
+  text-align: left;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.carb-val-table td {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.carb-val-table tr:hover td {
+  background: var(--bg-card-hover);
+}
+.carb-val-table .scenario-label {
+  font-weight: 600;
+  color: #2ba3b2;
+}
+.carb-concessoes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  margin-top: 12px;
+}
+.carb-concessoes-table th {
+  background: var(--bg-elevated);
+  padding: 6px 10px;
+  text-align: left;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.carb-concessoes-table td {
+  padding: 6px 10px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.carb-concessoes-table tr.overlap-row {
+  border-left: 3px solid #2ba3b2;
+}
+.carb-concessoes-table tr.overlap-row td:first-child {
+  padding-left: 8px;
+}
+.carb-transacao {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(32,128,141,0.06);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.carb-transacao strong { color: #2ba3b2; }
+
+/* ===== BLOCK B: TERRAS RARAS ===== */
+.av-terras-card {
+  background: var(--bg-card);
+  border: 2px solid var(--green);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.av-terras-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2d6a30, #3fb950, #2d6a30);
+}
+.av-terras-card .terras-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.av-terras-card .terras-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+}
+.terras-badge {
+  background: rgba(63,185,80,0.15);
+  color: var(--green);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.terras-summary {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.terras-lito-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+.terras-lito-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+.terras-lito-card .lito-tipo {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+.terras-lito-card .lito-potencial {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+}
+.lito-potencial.alto { background: rgba(63,185,80,0.15); color: var(--green); }
+.lito-potencial.medio { background: rgba(210,153,34,0.15); color: var(--yellow); }
+.lito-potencial.minimo { background: rgba(248,81,73,0.12); color: var(--red); }
+.terras-lito-card .lito-minerais {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.terras-strategic-callout {
+  margin: 16px 0;
+  padding: 12px 16px;
+  background: rgba(63,185,80,0.08);
+  border-left: 3px solid var(--green);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.85rem;
+  color: var(--green);
+  line-height: 1.5;
+}
+.terras-recommendation {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  border-left: 3px solid var(--yellow);
+}
+.terras-recommendation strong { color: var(--yellow); }
+
+/* ===== BLOCK C: CRÉDITO JUDICIAL ===== */
+.av-credito-card {
+  background: var(--bg-card);
+  border: 2px solid #d4a843;
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.av-credito-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #b8922f, #d4a843, #f0d078, #d4a843, #b8922f);
+}
+.av-credito-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.av-credito-header:hover {
+  background: var(--bg-card-hover);
+}
+.av-credito-header .credito-title-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.av-credito-header .credito-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d4a843;
+}
+.credito-badge {
+  background: rgba(212,168,67,0.15);
+  color: #d4a843;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.av-credito-header .credito-chevron {
+  width: 20px; height: 20px;
+  color: var(--text-muted);
+  transition: transform 300ms;
+  flex-shrink: 0;
+}
+.av-credito-card.open .credito-chevron {
+  transform: rotate(180deg);
+}
+.av-credito-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 500ms cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.av-credito-card.open .av-credito-body {
+  max-height: 3000px;
+}
+.av-credito-content {
+  padding: 0 24px 24px;
+}
+.credito-big-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #d4a843;
+  text-align: center;
+  margin: 12px 0 20px;
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+}
+.credito-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) { .credito-info-grid { grid-template-columns: 1fr; } }
+.credito-info-item {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+.credito-info-item .ci-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+}
+.credito-info-item .ci-value {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 4px;
+  word-break: break-word;
+}
+.credito-section-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 20px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.credito-abusos-list {
+  list-style: none;
+  padding: 0;
+}
+.credito-abusos-list li {
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  border-left: 3px solid var(--red);
+  line-height: 1.4;
+}
+.credito-cenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 10px 0;
+}
+@media (max-width: 768px) { .credito-cenarios-grid { grid-template-columns: 1fr; } }
+.credito-cenario-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+.credito-cenario-card .cc-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+.credito-cenario-card .cc-valor {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d4a843;
+}
+.credito-cenario-card .cc-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cc-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.cc-badge.alta { background: rgba(63,185,80,0.15); color: var(--green); }
+.cc-badge.media-alta { background: rgba(88,166,255,0.12); color: var(--blue); }
+.cc-badge.muito-alta { background: rgba(63,185,80,0.2); color: var(--green); }
+.credito-usos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  margin-top: 10px;
+}
+.credito-usos-table th {
+  background: var(--bg-elevated);
+  padding: 8px 12px;
+  text-align: left;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.credito-usos-table td {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.credito-usos-table .viavel-yes { color: var(--green); font-weight: 600; }
+.credito-usos-table .viavel-no { color: var(--red); font-weight: 600; }
+
+/* ===== EXPANDABLE SUBSECTION GENERIC ===== */
+.av-expand-section {
+  margin-bottom: 24px;
+}
+.av-expand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 8px 0;
+}
+.av-expand-header .expand-chevron {
+  width: 18px; height: 18px;
+  color: var(--text-muted);
+  transition: transform 300ms;
+}
+.av-expand-section.open .expand-chevron {
+  transform: rotate(180deg);
+}
+.av-expand-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.av-expand-section.open .av-expand-body {
+  max-height: 5000px;
+}
+
+/* KPI grid update for 6 columns */
+.av-kpi-grid-6 { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:24px; }
+@media (max-width: 1100px) { .av-kpi-grid-6 { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 600px) { .av-kpi-grid-6 { grid-template-columns: repeat(2,1fr); } }
+
 </style>
 </head>
 <body>
@@ -3715,7 +4235,7 @@ tbody td {
         <span class="title-badge">INVESTIMENTO</span>
       </div>
 
-      <div class="av-kpi-grid">
+      <div class="av-kpi-grid-6">
         <div class="av-kpi-card">
           <div class="kpi-val">88</div>
           <div class="kpi-label">Processos ANM</div>
@@ -3727,9 +4247,14 @@ tbody td {
           <div class="kpi-sub">ES 78% • BA 13%</div>
         </div>
         <div class="av-kpi-card">
-          <div class="kpi-val" style="color:#d4a843;">$25-150M</div>
+          <div class="kpi-val" style="color:#d4a843;">$25-500M+</div>
           <div class="kpi-label">Avaliação</div>
-          <div class="kpi-sub">Conservador a otimista</div>
+          <div class="kpi-sub">Conservador a estratégico</div>
+        </div>
+        <div class="av-kpi-card">
+          <div class="kpi-val" style="color:#d4a843;">R$ 256M</div>
+          <div class="kpi-label">Crédito BB</div>
+          <div class="kpi-sub">Braminex vs Banco do Brasil</div>
         </div>
         <div class="av-kpi-card">
           <div class="kpi-val">$1.26B</div>
@@ -3798,6 +4323,306 @@ tbody td {
           </div>
           <div class="av-premium-quote">
             “Único depósito significativo de larvikite fora da Noruega”
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK A: CLUSTER CARBONATO / MÁRMORE — ITAOCA -->
+      <div class="av-subsection av-expand-section open" id="avCarbonatoSection">
+        <div class="av-expand-header" onclick="this.parentElement.classList.toggle('open')">
+          <h3 style="margin-bottom:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2ba3b2" stroke-width="2" width="18" height="18"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            Cluster Carbonato / Mármore — Itaoca
+          </h3>
+          <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="av-expand-body">
+          <div class="av-carbonato-card">
+            <div class="carb-header">
+              <div>
+                <div class="carb-title">Cluster Carbonato / Mármore — Itaoca</div>
+                <div class="carb-subtitle">Concessões de mármore, calcita e CaCO₃ no Espírito Santo e Minas Gerais</div>
+              </div>
+              <div class="carb-badges">
+                <span class="carb-badge teal">CARBONATO</span>
+                <span class="carb-badge secondary">IMERYS • OMYA</span>
+              </div>
+            </div>
+
+            <div class="carb-callout">
+              Imerys ($2.71B) e Omya ($4B+) operam no <strong>MESMO ENDEREÇO</strong> que as concessões Braminex — Alto Moledo, Estrada Alto Moledo, Cachoeiro de Itapemirim/ES
+            </div>
+
+            <div class="carb-stats-row">
+              <div class="carb-stat">
+                <div class="stat-val">11</div>
+                <div class="stat-label">Concessões</div>
+              </div>
+              <div class="carb-stat">
+                <div class="stat-val">44+ ha (ES) + 234 ha (MG)</div>
+                <div class="stat-label">Área Total</div>
+              </div>
+              <div class="carb-stat">
+                <div class="stat-val" style="color:#2ba3b2;">$48-61B</div>
+                <div class="stat-label">Mercado CaCO₃ Global</div>
+              </div>
+            </div>
+
+            <!-- Valuation Table (expandable) -->
+            <div class="carb-valuation-toggle" id="carbValuationToggle">
+              <div class="carb-valuation-header" onclick="this.parentElement.classList.toggle('open')">
+                <span>📊 Cenários de Avaliação (4 cenários)</span>
+                <svg class="carb-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="carb-valuation-body">
+                <table class="carb-val-table">
+                  <thead>
+                    <tr><th>Cenário</th><th>Base</th><th>Low</th><th>Mid</th><th>High</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="scenario-label">A — Current State</td>
+                      <td style="font-size:0.72rem;color:var(--text-muted);">As-is, sem desenvolvimento</td>
+                      <td>R$ 8M (~$1.4M)</td>
+                      <td>R$ 15M (~$2.7M)</td>
+                      <td>R$ 25M (~$4.5M)</td>
+                    </tr>
+                    <tr>
+                      <td class="scenario-label">B — GCC Feedstock</td>
+                      <td style="font-size:0.72rem;color:var(--text-muted);">Valor p/ Imerys/Omya como reserva captiva</td>
+                      <td>R$ 25M (~$4.5M)</td>
+                      <td>R$ 50M (~$9M)</td>
+                      <td>R$ 80M (~$14M)</td>
+                    </tr>
+                    <tr>
+                      <td class="scenario-label">C — Fully Developed</td>
+                      <td style="font-size:0.72rem;color:var(--text-muted);">DCF GCC + mármore, 20 anos</td>
+                      <td>R$ 50M (~$9M)</td>
+                      <td>R$ 100M (~$18M)</td>
+                      <td>R$ 200M+ (~$36M+)</td>
+                    </tr>
+                    <tr>
+                      <td class="scenario-label">D — Strategic Premium</td>
+                      <td style="font-size:0.72rem;color:var(--text-muted);">Valor de bloqueio para concorrente</td>
+                      <td>R$ 40M (~$7M)</td>
+                      <td>R$ 75M (~$13M)</td>
+                      <td>R$ 150M (~$27M)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Concessions table -->
+            <div style="overflow-x:auto;">
+              <table class="carb-concessoes-table">
+                <thead>
+                  <tr><th>Processo</th><th>Titular</th><th>Substância</th><th>Local</th><th>Área (ha)</th><th>Fase</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="overlap-row"><td>805.081/1968</td><td>Braminex Min.</td><td>Mármore Branco</td><td>Alto Moledo/Itaoca</td><td>4,01</td><td>Concessão</td><td>Active/Leased Ricamar</td></tr>
+                  <tr class="overlap-row"><td>810.972/1975</td><td>Braminex Min.</td><td>Mármore/Cal</td><td>Alto Moledo/Itaoca</td><td>0,92</td><td>Concessão</td><td>Active</td></tr>
+                  <tr class="overlap-row"><td>824.334/1972</td><td>Braminex Min.</td><td>Mármore Branco</td><td>Alto Moledo/Itaoca</td><td>4,55</td><td>Concessão</td><td>Active (Susp.)</td></tr>
+                  <tr><td>804.698/1977</td><td>Braminex Min.</td><td>Mármore</td><td>Santa Clara</td><td>11,93</td><td>Concessão</td><td>Active</td></tr>
+                  <tr><td>890.033/1980</td><td>Braminex Bras.</td><td>Mármore/Cal</td><td>Córrego do Sal</td><td>6,16</td><td>Concessão</td><td>Active</td></tr>
+                  <tr><td>890.080/1982</td><td>Braminex Min.</td><td>Mármore</td><td>Itaoca</td><td>—</td><td>TBV</td><td>Verify</td></tr>
+                  <tr><td>890.193/1981</td><td>Braminex Min.</td><td>Mármore</td><td>Tico-Tico</td><td>11,66</td><td>Concessão</td><td>Distrato arrend.</td></tr>
+                  <tr><td>890.209/1986</td><td>Braminex Bras.</td><td>Calcita</td><td>Serra de Itaoca</td><td>0,39</td><td>Req. Lavra</td><td>Rec. caducidade</td></tr>
+                  <tr><td>896.796/2007</td><td>Braminex Calc.</td><td>Mármore</td><td>Itaoca</td><td>—</td><td>Pesq./Lavra</td><td>Em análise</td></tr>
+                  <tr><td>896.847/2007</td><td>Trianon</td><td>Mármore</td><td>Itaoca</td><td>—</td><td>Pesq./Lavra</td><td>CNPJ Inapta</td></tr>
+                  <tr><td>830.232/1980</td><td>Braminex Calc.</td><td>Mármore</td><td>Faz. Padre José/MG</td><td>234,74</td><td>Req. Lavra</td><td>Active</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="carb-transacao">
+              <strong>Transação Comparável:</strong> Artemyn → Flacks Group (Jul 2024): ~EUR 150M (~$165M), $400M rev, $60M EBITDA, 2.5× EBITDA
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK B: POTENCIAL DE TERRAS RARAS / MONAZITA -->
+      <div class="av-subsection av-expand-section open" id="avTerrasSection">
+        <div class="av-expand-header" onclick="this.parentElement.classList.toggle('open')">
+          <h3 style="margin-bottom:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3fb950" stroke-width="2" width="18" height="18"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Potencial de Terras Raras / Monazita
+          </h3>
+          <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="av-expand-body">
+          <div class="av-terras-card">
+            <div class="terras-header">
+              <div class="terras-title">Potencial de Terras Raras / Monazita</div>
+              <span class="terras-badge">MINERAIS CRÍTICOS</span>
+            </div>
+
+            <div class="terras-summary">
+              Charnockitos e gnaisses do portfólio possuem potencial <strong style="color:var(--green);">ALTO</strong> para monazita (fosfato de terras raras). As areias monazíticas de Guarapari e Marataízes derivam de gnaisses precambrianos — mesmas formações geológicas do portfólio.
+            </div>
+
+            <div class="terras-lito-grid">
+              <div class="terras-lito-card">
+                <div class="lito-tipo">Gnaisse</div>
+                <span class="lito-potencial alto">ALTO +2</span>
+                <div class="lito-minerais">Monazita, xenotima (rocha-fonte)<br><em style="color:var(--text-muted);font-size:0.7rem;">Alegre, Juparaná Guarapari</em></div>
+              </div>
+              <div class="terras-lito-card">
+                <div class="lito-tipo">Charnockito</div>
+                <span class="lito-potencial alto">ALTO +2</span>
+                <div class="lito-minerais">Monazita, allanita (acessórios)<br><em style="color:var(--text-muted);font-size:0.7rem;">Verde Ubatuba, Peacock, Labrador</em></div>
+              </div>
+              <div class="terras-lito-card">
+                <div class="lito-tipo">Migmatito</div>
+                <span class="lito-potencial alto">ALTO +2</span>
+                <div class="lito-minerais">Monazita (rocha-fonte)</div>
+              </div>
+              <div class="terras-lito-card">
+                <div class="lito-tipo">Granulito</div>
+                <span class="lito-potencial alto">ALTO +2</span>
+                <div class="lito-minerais">Monazita (alto grau metamórfico)</div>
+              </div>
+              <div class="terras-lito-card">
+                <div class="lito-tipo">Granito</div>
+                <span class="lito-potencial medio">MÉDIO +1</span>
+                <div class="lito-minerais">Monazita possível como acessório</div>
+              </div>
+              <div class="terras-lito-card">
+                <div class="lito-tipo">Granodiorito</div>
+                <span class="lito-potencial medio">MÉDIO +1</span>
+                <div class="lito-minerais">Pode ser charnockito na região</div>
+              </div>
+              <div class="terras-lito-card">
+                <div class="lito-tipo">Gabro</div>
+                <span class="lito-potencial minimo">MÍNIMO -1</span>
+                <div class="lito-minerais">Não contém monazita</div>
+              </div>
+            </div>
+
+            <div class="terras-strategic-callout">
+              Classificados como <strong>minerais críticos</strong> por EUA, UE e China — demanda crescente para EVs, turbinas eólicas, eletrônica de defesa e tecnologias verdes
+            </div>
+
+            <div class="terras-recommendation">
+              <strong>Recomendação:</strong> Reclassificar processos em Baixo Guandu, Pancas e Alto Mutum (ES) como prováveis charnockitos — registrados como GRANITO mas provavelmente charnockitos com potencial de terras raras
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK C: CRÉDITO JUDICIAL — BRAMINEX VS BANCO DO BRASIL -->
+      <div class="av-subsection" id="avCreditoSection">
+        <div class="av-credito-card" id="avCreditoCard">
+          <div class="av-credito-header" onclick="document.getElementById('avCreditoCard').classList.toggle('open')">
+            <div class="credito-title-area">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2" width="20" height="20"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              <span class="credito-title">Crédito Judicial — Braminex vs Banco do Brasil</span>
+              <span class="credito-badge">R$ 256M</span>
+            </div>
+            <svg class="credito-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="av-credito-body">
+            <div class="av-credito-content">
+              <div class="credito-big-value">R$ 256.000.000</div>
+
+              <div class="credito-info-grid">
+                <div class="credito-info-item">
+                  <div class="ci-label">Processo Original</div>
+                  <div class="ci-value">0011866-27.2010.8.08.0011 — 5ª Vara Cível, Cachoeiro de Itapemirim/ES</div>
+                </div>
+                <div class="credito-info-item">
+                  <div class="ci-label">Liquidação</div>
+                  <div class="ci-value">5009375-39.2022.8.08.0011 — TJES</div>
+                </div>
+                <div class="credito-info-item">
+                  <div class="ci-label">Juiz</div>
+                  <div class="ci-value">Dr. Ricardo de Rezende Basílio</div>
+                </div>
+                <div class="credito-info-item">
+                  <div class="ci-label">Advogado</div>
+                  <div class="ci-value">Dr. Alexandre Carvalho Silva (OAB/ES 10.925)</div>
+                </div>
+                <div class="credito-info-item">
+                  <div class="ci-label">Credor</div>
+                  <div class="ci-value">BRAMINEX MINERAÇÃO DE CALCÁRIOS S.A. (CNPJ 16.665.960/0001-00)</div>
+                </div>
+                <div class="credito-info-item">
+                  <div class="ci-label">Devedor</div>
+                  <div class="ci-value">BANCO DO BRASIL S.A.</div>
+                </div>
+              </div>
+
+              <div class="credito-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" width="16" height="16"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Abusos Identificados (6)
+              </div>
+              <ul class="credito-abusos-list">
+                <li>Juros acima de 12% a.a. (Súmula 596 STF)</li>
+                <li>Capitalização mensal / anatocismo (Súmula 539 STJ)</li>
+                <li>Comissão de permanência 10% a.m. (Súmula 472 STJ)</li>
+                <li>Cumulação de encargos (Súmula 472 STJ)</li>
+                <li>TBF como indexador (não autorizado)</li>
+                <li>Duplicatas sem endosso regular</li>
+              </ul>
+
+              <div class="credito-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2" width="16" height="16"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                Cenários de Realização
+              </div>
+              <div class="credito-cenarios-grid">
+                <div class="credito-cenario-card">
+                  <div class="cc-name">Perícia + execução integral</div>
+                  <div class="cc-valor">R$ 256.000.000</div>
+                  <div class="cc-meta">
+                    <span>Prazo: 1-3 anos</span>
+                    <span class="cc-badge media-alta">Média-Alta</span>
+                  </div>
+                </div>
+                <div class="credito-cenario-card">
+                  <div class="cc-name">Acordo negociado (40-60%)</div>
+                  <div class="cc-valor">R$ 102-154.000.000</div>
+                  <div class="cc-meta">
+                    <span>Prazo: 3-6 meses</span>
+                    <span class="cc-badge alta">Alta</span>
+                  </div>
+                </div>
+                <div class="credito-cenario-card">
+                  <div class="cc-name">Cessão de crédito (deságio 30-50%)</div>
+                  <div class="cc-valor">R$ 128-179.000.000</div>
+                  <div class="cc-meta">
+                    <span>Prazo: Imediato</span>
+                    <span class="cc-badge muito-alta">Muito Alta</span>
+                  </div>
+                </div>
+                <div class="credito-cenario-card">
+                  <div class="cc-name">Garantia em execuções fiscais</div>
+                  <div class="cc-valor">Valor integral como garantia</div>
+                  <div class="cc-meta">
+                    <span>Prazo: Imediato</span>
+                    <span class="cc-badge alta">Alta</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="credito-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" width="16" height="16"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Usos Estratégicos
+              </div>
+              <table class="credito-usos-table">
+                <thead>
+                  <tr><th>Uso</th><th>Viável?</th><th>Observação</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Garantir execuções fiscais</td><td class="viavel-yes">✓ Sim</td><td>Nomear crédito à penhora</td></tr>
+                  <tr><td>Quitar dívidas trabalhistas</td><td class="viavel-yes">✓ Sim</td><td>Via penhora no rosto dos autos</td></tr>
+                  <tr><td>Receber e pagar dívidas</td><td class="viavel-yes">✓ Sim</td><td>Forma mais direta</td></tr>
+                  <tr><td>Ceder/vender (FIDC)</td><td class="viavel-yes">✓ Sim</td><td>Com deságio 30-50%</td></tr>
+                  <tr><td>Compensar tributos federais</td><td class="viavel-no">✗ Não</td><td>Não é precatório federal</td></tr>
+                  <tr><td>Compensar tributos estaduais</td><td class="viavel-no">✗ Não</td><td>Mesma razão</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
