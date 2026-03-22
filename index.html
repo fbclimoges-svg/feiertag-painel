@@ -2825,6 +2825,173 @@ tbody td {
   .resumo-card-value { font-size: 1.2rem; }
 }
 
+/* ===== PORTFÓLIO JURÍDICO SECTION ===== */
+.portfolio-section { margin-top: 32px; }
+.portfolio-section .section-title-bar { display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+.portfolio-section .section-title-bar h2 { font-size:1.15rem; font-weight:600; color:var(--text-primary); display:flex; align-items:center; gap:10px; }
+.portfolio-section .section-title-bar .title-badge { background:var(--red-bg); color:var(--red); font-size:0.72rem; font-weight:600; padding:3px 10px; border-radius:20px; letter-spacing:0.5px; }
+
+.pj-chips { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+.pj-chip { padding:7px 16px; border-radius:20px; border:1px solid var(--border); background:var(--bg-card); color:var(--text-secondary); font-size:0.82rem; font-weight:500; cursor:pointer; transition:var(--transition); }
+.pj-chip:hover { border-color:var(--teal); color:var(--text-primary); }
+.pj-chip.active { background:var(--teal-bg-strong); border-color:var(--teal); color:var(--teal-light); }
+
+.pj-view { display:none; }
+.pj-view.active { display:block; }
+
+.pj-kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:20px; }
+.pj-kpi-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; text-align:center; }
+.pj-kpi-card .kpi-val { font-size:1.5rem; font-weight:700; color:var(--text-primary); }
+.pj-kpi-card .kpi-sub { font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+.pj-kpi-card .kpi-label { font-size:0.82rem; color:var(--text-secondary); margin-top:4px; }
+.pj-kpi-card.kpi-red { border-left:3px solid var(--red); }
+.pj-kpi-card.kpi-yellow { border-left:3px solid var(--yellow); }
+.pj-kpi-card.kpi-blue { border-left:3px solid var(--blue); }
+.pj-kpi-card.kpi-green { border-left:3px solid var(--green); }
+
+@media (max-width: 768px) { .pj-kpi-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 480px) { .pj-kpi-grid { grid-template-columns: 1fr; } }
+
+.pj-table-wrap { overflow-x:auto; margin-top:12px; }
+.pj-table { width:100%; border-collapse:collapse; font-size:0.82rem; }
+.pj-table th { background:var(--bg-elevated); color:var(--text-secondary); font-weight:600; padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px; }
+.pj-table td { padding:10px 12px; border-bottom:1px solid var(--border); color:var(--text-primary); }
+.pj-table tbody tr { cursor:pointer; transition:var(--transition); }
+.pj-table tbody tr:hover { background:var(--bg-card-hover); }
+
+.pj-status-badge { padding:3px 10px; border-radius:12px; font-size:0.72rem; font-weight:600; letter-spacing:0.3px; white-space:nowrap; }
+.pj-status-prescrito { background:var(--red-bg); color:var(--red); }
+.pj-status-verificar { background:var(--yellow-bg); color:var(--yellow); }
+.pj-status-monitorar { background:var(--blue-bg); color:var(--blue); }
+.pj-status-extinto { background:var(--green-bg); color:var(--green); }
+
+.pj-detail-row { display:none; }
+.pj-detail-row.open { display:table-row; }
+.pj-detail-row td { padding:16px 20px; background:var(--bg-secondary); }
+.pj-detail-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px 16px; }
+.pj-detail-grid .dl { font-size:0.75rem; }
+.pj-detail-grid .dl .dt { color:var(--text-muted); font-weight:500; text-transform:uppercase; letter-spacing:0.3px; font-size:0.68rem; }
+.pj-detail-grid .dl .dd { color:var(--text-primary); margin-top:2px; }
+
+/* Ativos Críticos */
+.pj-criticos-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+@media (max-width: 768px) { .pj-criticos-grid { grid-template-columns:1fr; } }
+.pj-critico-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; transition:var(--transition); }
+.pj-critico-card:hover { border-color:var(--border-light); background:var(--bg-card-hover); }
+.pj-critico-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
+.pj-critico-processo { font-family:var(--font-mono); font-size:0.78rem; color:var(--teal-light); }
+.pj-risk-badge { padding:3px 10px; border-radius:12px; font-size:0.68rem; font-weight:700; letter-spacing:0.3px; }
+.pj-risk-muito-alto { background:var(--red-bg); color:var(--red); }
+.pj-risk-alto { background:var(--orange-bg); color:var(--orange); }
+.pj-risk-medio { background:var(--yellow-bg); color:var(--yellow); }
+.pj-risk-favoravel { background:var(--green-bg); color:var(--green); }
+.pj-risk-baixo { background:rgba(99,108,118,0.15); color:var(--text-muted); }
+.pj-critico-meta { font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+.pj-critico-meta strong { color:var(--text-primary); }
+.pj-critico-valor { font-size:1.1rem; font-weight:700; color:var(--text-primary); margin:6px 0; }
+.pj-critico-acao { margin-top:10px; padding-top:10px; border-top:1px solid var(--border); font-size:0.78rem; color:var(--yellow); display:flex; align-items:center; gap:6px; }
+
+/* Calendário */
+.pj-cal-grid { display:grid; gap:8px; }
+.pj-cal-month { font-size:0.82rem; font-weight:700; color:var(--teal-light); padding:10px 0 4px; border-bottom:1px solid var(--border); margin-top:8px; }
+.pj-cal-event { display:grid; grid-template-columns:100px 1fr auto; gap:12px; padding:10px 12px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm); align-items:center; font-size:0.82rem; }
+.pj-cal-event:hover { background:var(--bg-card-hover); }
+.pj-cal-date { font-family:var(--font-mono); font-size:0.78rem; color:var(--teal-light); }
+.pj-cal-desc { color:var(--text-primary); }
+.pj-cal-desc small { display:block; color:var(--text-muted); font-size:0.75rem; }
+.pj-cal-valor { font-family:var(--font-mono); font-size:0.78rem; color:var(--text-secondary); text-align:right; white-space:nowrap; }
+
+/* Ações Estratégicas */
+.pj-acoes-group { margin-bottom:20px; }
+.pj-acoes-prio { font-size:0.82rem; font-weight:700; padding:6px 14px; border-radius:var(--radius-sm); display:inline-block; margin-bottom:10px; }
+.pj-prio-1 { background:var(--red-bg); color:var(--red); }
+.pj-prio-2 { background:var(--orange-bg); color:var(--orange); }
+.pj-prio-3 { background:var(--yellow-bg); color:var(--yellow); }
+.pj-prio-4 { background:rgba(99,108,118,0.15); color:var(--text-muted); }
+.pj-acao-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:14px 16px; margin-bottom:8px; }
+.pj-acao-card:hover { background:var(--bg-card-hover); }
+.pj-acao-title { font-weight:600; color:var(--text-primary); font-size:0.88rem; margin-bottom:6px; }
+.pj-acao-meta { font-size:0.78rem; color:var(--text-secondary); display:flex; gap:16px; flex-wrap:wrap; }
+.pj-acao-meta span { display:flex; align-items:center; gap:4px; }
+
+/* Bens Penhorados */
+.pj-bens-table { width:100%; border-collapse:collapse; font-size:0.82rem; }
+.pj-bens-table th { background:var(--bg-elevated); color:var(--text-secondary); font-weight:600; padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px; }
+.pj-bens-table td { padding:10px 12px; border-bottom:1px solid var(--border); color:var(--text-primary); font-size:0.82rem; }
+.pj-bens-table tbody tr:hover { background:var(--bg-card-hover); }
+.pj-sit-badge { padding:3px 10px; border-radius:12px; font-size:0.72rem; font-weight:600; white-space:nowrap; }
+.pj-sit-ativo { background:var(--red-bg); color:var(--red); }
+.pj-sit-leilao { background:var(--orange-bg); color:var(--orange); }
+.pj-sit-inalien { background:var(--yellow-bg); color:var(--yellow); }
+.pj-sit-parcel { background:var(--blue-bg); color:var(--blue); }
+.pj-sit-prescrito { background:var(--green-bg); color:var(--green); }
+.pj-sit-edital { background:rgba(188,140,255,0.12); color:var(--purple); }
+
+/* Search filter */
+.pj-filter-wrap { display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+.pj-filter-input { flex:1; min-width:200px; padding:8px 14px; background:var(--bg-input); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-primary); font-size:0.82rem; font-family:var(--font-body); }
+.pj-filter-input:focus { outline:none; border-color:var(--teal); }
+
+/* ===== AVALIAÇÃO DE ATIVOS SECTION ===== */
+.avaliacao-section { margin-top: 32px; }
+.avaliacao-section .section-title-bar { display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+.avaliacao-section .section-title-bar h2 { font-size:1.15rem; font-weight:600; color:var(--text-primary); display:flex; align-items:center; gap:10px; }
+.avaliacao-section .section-title-bar .title-badge { background:rgba(212,168,67,0.15); color:#d4a843; font-size:0.72rem; font-weight:600; padding:3px 10px; border-radius:20px; letter-spacing:0.5px; }
+
+.av-kpi-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:24px; }
+.av-kpi-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; text-align:center; }
+.av-kpi-card .kpi-val { font-size:1.4rem; font-weight:700; color:var(--text-primary); }
+.av-kpi-card .kpi-label { font-size:0.78rem; color:var(--text-secondary); margin-top:4px; }
+.av-kpi-card .kpi-sub { font-size:0.72rem; color:var(--text-muted); margin-top:2px; }
+@media (max-width: 900px) { .av-kpi-grid { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 600px) { .av-kpi-grid { grid-template-columns: repeat(2,1fr); } }
+
+.av-subsection { margin-bottom:24px; }
+.av-subsection h3 { font-size:1rem; font-weight:600; color:#d4a843; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+
+.av-zona-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+@media (max-width: 900px) { .av-zona-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 600px) { .av-zona-grid { grid-template-columns: 1fr; } }
+
+.av-zona-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; cursor:pointer; transition:var(--transition); }
+.av-zona-card:hover { border-color:#d4a843; background:var(--bg-card-hover); }
+.av-zona-card .zona-name { font-weight:600; color:var(--text-primary); font-size:0.92rem; margin-bottom:8px; }
+.av-zona-card .zona-count { font-size:0.78rem; color:#d4a843; font-weight:600; margin-bottom:6px; }
+.av-zona-card .zona-meta { font-size:0.75rem; color:var(--text-secondary); line-height:1.6; }
+.av-zona-card .zona-meta strong { color:var(--text-primary); }
+.av-zona-detail { display:none; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+.av-zona-card.expanded .av-zona-detail { display:block; }
+
+.av-premium-card { background:var(--bg-card); border:2px solid #d4a843; border-radius:var(--radius-lg); padding:24px; margin-bottom:24px; position:relative; overflow:hidden; }
+.av-premium-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#d4a843,#f0d078,#d4a843); }
+.av-premium-card .premium-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px; }
+.av-premium-card .premium-title { font-size:1.1rem; font-weight:700; color:#d4a843; }
+.av-premium-card .premium-subtitle { font-size:0.82rem; color:var(--text-secondary); margin-top:4px; }
+.av-premium-card .premium-badge { background:rgba(212,168,67,0.15); color:#d4a843; padding:4px 12px; border-radius:20px; font-size:0.72rem; font-weight:700; letter-spacing:0.5px; }
+.av-premium-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:16px 0; }
+@media (max-width: 768px) { .av-premium-grid { grid-template-columns:1fr; } }
+.av-premium-item { background:var(--bg-secondary); border-radius:var(--radius-sm); padding:12px; }
+.av-premium-item .item-label { font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600; }
+.av-premium-item .item-value { font-size:1rem; font-weight:600; color:var(--text-primary); margin-top:4px; }
+.av-premium-item .item-sub { font-size:0.75rem; color:var(--text-secondary); margin-top:2px; }
+.av-premium-quote { margin-top:16px; padding:12px 16px; background:rgba(212,168,67,0.08); border-left:3px solid #d4a843; border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-style:italic; font-size:0.85rem; color:#d4a843; }
+
+.av-metodo-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; }
+.av-metodo-card h4 { font-size:0.92rem; font-weight:600; color:var(--text-primary); margin-bottom:12px; }
+.av-metodo-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+@media (max-width: 600px) { .av-metodo-grid { grid-template-columns:1fr; } }
+.av-metodo-item { background:var(--bg-secondary); border-radius:var(--radius-sm); padding:12px; }
+.av-metodo-item .m-label { font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.3px; }
+.av-metodo-item .m-value { font-size:0.88rem; font-weight:600; color:var(--text-primary); margin-top:4px; }
+
+/* Mining table valuation enhancement */
+.detail-valuation { margin-top:10px; padding-top:10px; border-top:1px dashed var(--border); }
+.detail-valuation h4 { font-size:0.78rem; font-weight:600; color:#d4a843; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+.detail-valuation h4 svg { width:14px; height:14px; }
+.detail-val-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.detail-val-item .dv-label { font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.3px; }
+.detail-val-item .dv-value { font-size:0.82rem; color:var(--text-primary); font-weight:500; margin-top:2px; }
+
 </style>
 </head>
 <body>
@@ -2855,6 +3022,8 @@ tbody td {
     <a href="#juridicosSection" class="nav-link" data-section="juridicosSection">Jurídicos</a>
     <a href="#pendenciasSection" class="nav-link" data-section="pendenciasSection">Pendências</a>
     <a href="#pgfnSection" class="nav-link" data-section="pgfnSection">PGFN</a>
+    <a href="#portfolioJuridicoSection" class="nav-link" data-section="portfolioJuridicoSection">Portfólio Jurídico</a>
+    <a href="#avaliacaoAtivosSection" class="nav-link" data-section="avaliacaoAtivosSection">Avaliação Ativos</a>
     <a href="javascript:void(0)" class="nav-link" onclick="openChatOrg()">Conversas</a>
   </div>
 </nav>
@@ -2886,8 +3055,8 @@ tbody td {
               <div class="resumo-card-icon" style="background:var(--teal-bg);color:var(--teal-light);">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
               </div>
-              <div class="resumo-card-value">175</div>
-              <div class="resumo-card-label">Processos Minerários</div>
+              <div class="resumo-card-value">189</div>
+              <div class="resumo-card-label">Processos Ativos</div>
             </div>
             <svg class="resumo-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
@@ -2895,20 +3064,20 @@ tbody td {
             <div class="resumo-detail-divider"></div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              <span>34 Concessões Ativas</span>
-              <a href="#minerariosSection" class="resumo-detail-link" onclick="event.stopPropagation()">Ver seção <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+              <span>BRAMINEX S/A — 60 proc. (R$ 59,3M)</span>
+              <a href="#portfolioJuridicoSection" class="resumo-detail-link" onclick="event.stopPropagation()">Portfólio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              <span>68 Req. de Lavra</span>
+              <span>GRANBRASIL — 76 proc. (R$ 26,7M)</span>
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>7 Estados (UF)</span>
+              <span>BRAM.MINERAÇÃO — 22 proc. (R$ 4,7M)</span>
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-              <span>60.962 ha Área Total</span>
+              <span>Outras empresas — 31 proc. (R$ 9,5M)</span>
             </div>
           </div>
         </div>
@@ -2919,8 +3088,8 @@ tbody td {
               <div class="resumo-card-icon" style="background:var(--red-bg);color:var(--red);">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <div class="resumo-card-value">R$ 5,68M</div>
-              <div class="resumo-card-label">Passivo Jurídico</div>
+              <div class="resumo-card-value">R$ 100,2M</div>
+              <div class="resumo-card-label">Passivo Total</div>
             </div>
             <svg class="resumo-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
@@ -2928,16 +3097,16 @@ tbody td {
             <div class="resumo-detail-divider"></div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              <span>32 processos (70 números)</span>
-              <a href="#juridicosSection" class="resumo-detail-link" onclick="event.stopPropagation()">Ver seção <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+              <span>R$ 60,19M dívida PGFN + R$ 40M judicial</span>
+              <a href="#portfolioJuridicoSection" class="resumo-detail-link" onclick="event.stopPropagation()">Portfólio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              <span>Maior: R$ 1,28M (Antenor)</span>
+              <span>Leilão complexo R$ 37,6M em risco</span>
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg>
-              <span>39 trabalhistas concentrados</span>
+              <span>Economia potencial: R$ 15-17M</span>
               <a href="#pendenciasSection" class="resumo-detail-link" onclick="event.stopPropagation()">Pendências <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </div>
@@ -2978,8 +3147,8 @@ tbody td {
               <div class="resumo-card-icon" style="background:var(--blue-bg);color:var(--blue);">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               </div>
-              <div class="resumo-card-value">4</div>
-              <div class="resumo-card-label">Processos Críticos</div>
+              <div class="resumo-card-value">29</div>
+              <div class="resumo-card-label">Prescritos Urgentes</div>
             </div>
             <svg class="resumo-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
@@ -2987,17 +3156,17 @@ tbody td {
             <div class="resumo-detail-divider"></div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              <span>Antenor — R$ 1,28M (TST)</span>
-              <a href="#juridicosSection" class="resumo-detail-link" onclick="event.stopPropagation()">Ver <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+              <span>R$ 6,18M em valor prescrito</span>
+              <a href="#portfolioJuridicoSection" class="resumo-detail-link" onclick="event.stopPropagation()">Ver <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              <span>Gessinea (+38) — R$ 1,48M</span>
-              <a href="#pendenciasSection" class="resumo-detail-link" onclick="event.stopPropagation()">Plano <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+              <span>6 verificar + 8 monitorar (R$ 15,7M)</span>
+              <a href="#portfolioJuridicoSection" class="resumo-detail-link" onclick="event.stopPropagation()">Plano <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              <span>3 ações imediatas pendentes</span>
+              <span>Caso Geneci Rosa: EXTINTO mar/2026</span>
               <a href="#alertsSection" class="resumo-detail-link" onclick="event.stopPropagation()">Alertas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </div>
@@ -3449,6 +3618,223 @@ tbody td {
         <div>
           <strong>ATENÇÃO — Parcelamento exige pontualidade</strong>
           <p style="margin:4px 0 0;font-size:0.82rem;color:var(--text-muted);">O atraso de qualquer parcela pode resultar na rescisão da transação tributária e retorno à cobrança integral da dívida com acréscimos legais. Manter pagamentos rigorosamente em dia.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PORTFÓLIO JURÍDICO -->
+    <div class="portfolio-section" id="portfolioJuridicoSection">
+      <div class="section-title-bar">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Portfólio Jurídico Consolidado
+        </h2>
+        <span class="title-badge">MAR/2026</span>
+      </div>
+
+      <div class="pj-chips">
+        <button class="pj-chip active" onclick="switchPJView('prescricoes')">Prescrições</button>
+        <button class="pj-chip" onclick="switchPJView('criticos')">Ativos Críticos</button>
+        <button class="pj-chip" onclick="switchPJView('calendario')">Calendário 2026</button>
+        <button class="pj-chip" onclick="switchPJView('acoes')">Ações Estratégicas</button>
+        <button class="pj-chip" onclick="switchPJView('bens')">Bens Penhorados</button>
+      </div>
+
+      <!-- Prescrições View -->
+      <div class="pj-view active" id="pjViewPrescricoes">
+        <div class="pj-kpi-grid">
+          <div class="pj-kpi-card kpi-red">
+            <div class="kpi-val">29</div>
+            <div class="kpi-sub">R$ 6,18M</div>
+            <div class="kpi-label">Prescritos</div>
+          </div>
+          <div class="pj-kpi-card kpi-yellow">
+            <div class="kpi-val">6</div>
+            <div class="kpi-sub">R$ 2,64M</div>
+            <div class="kpi-label">Verificar</div>
+          </div>
+          <div class="pj-kpi-card kpi-blue">
+            <div class="kpi-val">8</div>
+            <div class="kpi-sub">R$ 13,09M</div>
+            <div class="kpi-label">Monitorar</div>
+          </div>
+          <div class="pj-kpi-card kpi-green">
+            <div class="kpi-val">1</div>
+            <div class="kpi-sub">Geneci Rosa</div>
+            <div class="kpi-label">Extinto</div>
+          </div>
+        </div>
+        <div class="pj-filter-wrap">
+          <input type="text" class="pj-filter-input" id="pjPrescFilter" placeholder="Buscar processo, empresa, objeto…" oninput="filterPrescricoes()">
+        </div>
+        <div class="pj-table-wrap">
+          <table class="pj-table">
+            <thead><tr>
+              <th>#</th><th>Processo</th><th>Empresa</th><th>Exequente</th><th>Objeto</th><th>Valor</th><th>Dt.Prescrição</th><th>Status</th><th>Ação</th>
+            </tr></thead>
+            <tbody id="pjPrescBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Ativos Críticos View -->
+      <div class="pj-view" id="pjViewCriticos">
+        <div class="pj-criticos-grid" id="pjCriticosGrid"></div>
+      </div>
+
+      <!-- Calendário 2026 View -->
+      <div class="pj-view" id="pjViewCalendario">
+        <div class="pj-cal-grid" id="pjCalGrid"></div>
+      </div>
+
+      <!-- Ações Estratégicas View -->
+      <div class="pj-view" id="pjViewAcoes">
+        <div id="pjAcoesContent"></div>
+      </div>
+
+      <!-- Bens Penhorados View -->
+      <div class="pj-view" id="pjViewBens">
+        <div class="pj-table-wrap">
+          <table class="pj-bens-table">
+            <thead><tr>
+              <th>Bem</th><th>Tipo</th><th>Processos</th><th>Empresa</th><th>Valor</th><th>Situação</th>
+            </tr></thead>
+            <tbody id="pjBensBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- AVALIAÇÃO DE ATIVOS -->
+    <div class="avaliacao-section" id="avaliacaoAtivosSection">
+      <div class="section-title-bar">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Avaliação de Ativos Minerários
+        </h2>
+        <span class="title-badge">INVESTIMENTO</span>
+      </div>
+
+      <div class="av-kpi-grid">
+        <div class="av-kpi-card">
+          <div class="kpi-val">88</div>
+          <div class="kpi-label">Processos ANM</div>
+          <div class="kpi-sub">10 empresas • 45 anos</div>
+        </div>
+        <div class="av-kpi-card">
+          <div class="kpi-val">6.180+</div>
+          <div class="kpi-label">Hectares</div>
+          <div class="kpi-sub">ES 78% • BA 13%</div>
+        </div>
+        <div class="av-kpi-card">
+          <div class="kpi-val" style="color:#d4a843;">$25-150M</div>
+          <div class="kpi-label">Avaliação</div>
+          <div class="kpi-sub">Conservador a otimista</div>
+        </div>
+        <div class="av-kpi-card">
+          <div class="kpi-val">$1.26B</div>
+          <div class="kpi-label">Exportações BR</div>
+          <div class="kpi-sub">2024 • Mercado global $4-20B</div>
+        </div>
+        <div class="av-kpi-card">
+          <div class="kpi-val">41</div>
+          <div class="kpi-label">em Granito Preto</div>
+          <div class="kpi-sub">6 zonas geológicas</div>
+        </div>
+      </div>
+
+      <div class="av-subsection">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Zonas de Granito Preto
+        </h3>
+        <div class="av-zona-grid" id="avZonaGrid"></div>
+      </div>
+
+      <div class="av-subsection">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Norte Rochas — Ativo Estratégico
+        </h3>
+        <div class="av-premium-card">
+          <div class="premium-header">
+            <div>
+              <div class="premium-title">Norte Rochas Importação & Exportação de Minerais</div>
+              <div class="premium-subtitle">Processo ANM 872.189/2004 • Concessão de Lavra • 470,35 ha</div>
+            </div>
+            <span class="premium-badge">LARVIKITE</span>
+          </div>
+          <div class="av-premium-grid">
+            <div class="av-premium-item">
+              <div class="item-label">Classificação</div>
+              <div class="item-value">Larvikite-equivalent monzonite</div>
+              <div class="item-sub">Com labradorescência</div>
+            </div>
+            <div class="av-premium-item">
+              <div class="item-label">Equivalência</div>
+              <div class="item-value" style="color:#d4a843;">Blue Pearl / Emerald Pearl</div>
+              <div class="item-sub">Noruega • $400-650/m² retail</div>
+            </div>
+            <div class="av-premium-item">
+              <div class="item-label">Status</div>
+              <div class="item-value" style="color:var(--green);">Ativo — Pronto p/ Produção</div>
+              <div class="item-sub">Exportação Noruega: ~200K ton/ano</div>
+            </div>
+          </div>
+          <div class="av-premium-grid">
+            <div class="av-premium-item">
+              <div class="item-label">Cenário Conservador</div>
+              <div class="item-value" style="color:#d4a843;">$50-100M</div>
+            </div>
+            <div class="av-premium-item">
+              <div class="item-label">Cenário Base</div>
+              <div class="item-value" style="color:#d4a843;">$150-300M</div>
+            </div>
+            <div class="av-premium-item">
+              <div class="item-label">Cenário Estratégico</div>
+              <div class="item-value" style="color:#d4a843;">$300-500M+</div>
+              <div class="item-sub">Recurso bruto: $2.1-6.4B</div>
+            </div>
+          </div>
+          <div class="av-premium-quote">
+            “Único depósito significativo de larvikite fora da Noruega”
+          </div>
+        </div>
+      </div>
+
+      <div class="av-subsection">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2" width="18" height="18"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Metodologia de Avaliação
+        </h3>
+        <div class="av-metodo-card">
+          <h4>Transação Comparável &amp; Métricas</h4>
+          <div class="av-metodo-grid">
+            <div class="av-metodo-item">
+              <div class="m-label">Transação Comparável</div>
+              <div class="m-value">Huaxin → Embu (2018): $186M</div>
+            </div>
+            <div class="av-metodo-item">
+              <div class="m-label">Capacidade</div>
+              <div class="m-value">$21,14/ton capacidade</div>
+            </div>
+            <div class="av-metodo-item">
+              <div class="m-label">Reservas Standard</div>
+              <div class="m-value">$30-80/m³</div>
+            </div>
+            <div class="av-metodo-item">
+              <div class="m-label">Reservas Premium</div>
+              <div class="m-value">$80-200/m³</div>
+            </div>
+            <div class="av-metodo-item">
+              <div class="m-label">Múltiplo EBITDA (Mediana)</div>
+              <div class="m-value">12,53x</div>
+            </div>
+            <div class="av-metodo-item">
+              <div class="m-label">Taxa de Recuperação</div>
+              <div class="m-value">10-15%</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -4080,6 +4466,39 @@ tbody td {
   }
 
   // ===== TABLE =====
+  // Valuation data matching by municipality
+  var zonaMap = [
+    {munis:['Alegre','Muqui','Jer\u00f4nimo Monteiro','At\u00edlio Vivacqua'], zona:'Complexo Alegre', preco:'$50-100/m\u00b2 (slabs)', variedade:'Santa Angelica Black'},
+    {munis:['Castelo','Concei\u00e7\u00e3o do Castelo'], zona:'Intrus\u00e3o Castelo', preco:'$30-80/m\u00b3', variedade:'Castelo Granodiorite'},
+    {munis:['Cachoeiro de Itapemirim','Vargem Alta','Cachoeiro'], zona:'Hub Cachoeiro', preco:'$30-80/m\u00b3', variedade:'M\u00faltiplas variedades'},
+    {munis:['Venda Nova do Imigrante','Venda Nova'], zona:'Intrus\u00e3o Venda Nova', preco:'$80-200/m\u00b3', variedade:'Black Mist'},
+    {munis:['Guarapari'], zona:'Complexo Costeiro', preco:'$30-80/m\u00b3', variedade:'Coastal Black'},
+    {munis:['Irupi'], zona:'Complexo Juiz de Fora', preco:'$30-80/m\u00b3', variedade:'JF Black'}
+  ];
+
+  function getValuationInfo(d) {
+    if (!d.municipality) return null;
+    var muni = d.municipality.trim().toLowerCase();
+    var mineral = (d.mineral || '').toLowerCase();
+    var area = d.area || 0;
+    var matched = null;
+    for (var i = 0; i < zonaMap.length; i++) {
+      for (var j = 0; j < zonaMap[i].munis.length; j++) {
+        if (muni.indexOf(zonaMap[i].munis[j].toLowerCase()) >= 0) { matched = zonaMap[i]; break; }
+      }
+      if (matched) break;
+    }
+    var zona = matched ? matched.zona : (d.state === 'ES' ? 'Esp\u00edrito Santo (n\u00e3o-mapeada)' : 'Fora da zona de granito preto');
+    var preco = matched ? matched.preco : (mineral.indexOf('granit') >= 0 ? '$30-80/m\u00b3 (standard)' : '$15-50/m\u00b3 (estimado)');
+    var potencial = 'Standard';
+    if (matched && matched.zona === 'Complexo Alegre') potencial = 'Premium \u2014 Santa Angelica Black';
+    else if (matched && matched.zona === 'Intrus\u00e3o Venda Nova') potencial = 'Ultra-Premium \u2014 Black Mist';
+    else if (mineral.indexOf('granit') >= 0 && area > 100) potencial = 'Alto \u2014 \u00e1rea significativa';
+    else if (mineral.indexOf('granit') >= 0) potencial = 'M\u00e9dio \u2014 granito';
+    else potencial = 'A avaliar \u2014 ' + (d.mineral || 'mineral n\u00e3o especificado');
+    return {zona: zona, preco: preco, potencial: potencial};
+  }
+
   function updateTable() {
     const tbody = document.getElementById('tableBody');
     const totalPages = Math.ceil(filteredData.length / PAGE_SIZE);
@@ -4128,7 +4547,19 @@ tbody td {
       html += detailItem('Último Evento', d.ultimo_evento || 'N/D');
       html += detailItem('Data Evento', d.data_evento || 'N/D');
       html += detailItem('Ação Requerida', d.acao || 'Nenhuma');
-      html += '</div></td></tr>';
+      html += '</div>';
+      // Avaliação de Mercado
+      var valInfo = getValuationInfo(d);
+      if (valInfo) {
+        html += '<div class="detail-valuation">';
+        html += '<h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Avaliação de Mercado</h4>';
+        html += '<div class="detail-val-grid">';
+        html += '<div class="detail-val-item"><div class="dv-label">Zona Geológica</div><div class="dv-value">' + valInfo.zona + '</div></div>';
+        html += '<div class="detail-val-item"><div class="dv-label">Preço de Referência</div><div class="dv-value">' + valInfo.preco + '</div></div>';
+        html += '<div class="detail-val-item"><div class="dv-label">Potencial</div><div class="dv-value">' + valInfo.potencial + '</div></div>';
+        html += '</div></div>';
+      }
+      html += '</td></tr>';
     });
 
     tbody.innerHTML = html;
@@ -5351,6 +5782,216 @@ function toggleResumoCard(card) {
       }
     }, 200);
   });
+})();
+
+// ===== PORTFÓLIO JURÍDICO SECTION =====
+(function() {
+  var prescricoes = [{"num":1,"processo":"0000091-15.2009.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"IRPJ","valor":31638.34,"dt_arquiv":"25/05/2023","dt_prescricao":"25/05/2024","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":2,"processo":"0000165-79.2003.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":40601.48,"dt_arquiv":"08/08/2024","dt_prescricao":"08/08/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":3,"processo":"0000168-34.2003.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":332005.49,"dt_arquiv":"18/09/2024","dt_prescricao":"18/09/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":4,"processo":"0000174-60.2011.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"PIS/COFINS","valor":279971.99,"dt_arquiv":"18/09/2024","dt_prescricao":"18/09/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":5,"processo":"0000272-60.2002.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"FGTS","valor":845475.62,"dt_arquiv":"10/03/2023","dt_prescricao":"10/03/2024","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":6,"processo":"0000313-22.2005.4.02.5002","empresa":"BRAMINEX SA","exequente":"CREA/ES","objeto":"Multa admin.","valor":521.4,"dt_arquiv":"04/08/2021","dt_prescricao":"04/08/2022","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":7,"processo":"0000399-90.2005.4.02.5002","empresa":"BRAMINEX SA","exequente":"CREA/ES","objeto":"Multa admin.","valor":4607.64,"dt_arquiv":"11/11/2021","dt_prescricao":"11/11/2022","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":8,"processo":"0000463-32.2007.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"IRPJ/CSLL","valor":110798.93,"dt_arquiv":"29/11/2024","dt_prescricao":"29/11/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":9,"processo":"0000533-20.2005.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":470799.77,"dt_arquiv":"23/07/2024","dt_prescricao":"23/07/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":10,"processo":"0000542-11.2007.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"FGTS","valor":191248.83,"dt_arquiv":"13/10/2022","dt_prescricao":"13/10/2023","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":11,"processo":"0000546-14.2008.4.02.5002","empresa":"BRAM.MINERA\u00c7\u00c3O","exequente":"UNI\u00c3O","objeto":"FGTS","valor":27012.72,"dt_arquiv":"05/06/2024","dt_prescricao":"05/06/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":12,"processo":"0000549-71.2005.4.02.5002","empresa":"MIN.S\u00c3O CARLOS","exequente":"CREA/ES","objeto":"Multa admin.","valor":43144.6,"dt_arquiv":"03/09/2021","dt_prescricao":"03/09/2022","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":13,"processo":"0000808-95.2007.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"PIS/COFINS","valor":57981.4,"dt_arquiv":"30/04/2024","dt_prescricao":"30/04/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":14,"processo":"0000889-15.2005.4.02.5002","empresa":"BRAM.MINERA\u00c7\u00c3O","exequente":"CREA/ES","objeto":"Multa admin.","valor":33379.86,"dt_arquiv":"06/06/2020","dt_prescricao":"06/06/2021","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":15,"processo":"0000922-39.2004.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":546726.82,"dt_arquiv":"27/06/2024","dt_prescricao":"27/06/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":16,"processo":"0001028-69.2002.4.02.5002","empresa":"BRAM.MINERA\u00c7\u00c3O","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":548412.49,"dt_arquiv":"20/04/2023","dt_prescricao":"20/04/2024","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":17,"processo":"0001198-55.2013.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":524972.34,"dt_arquiv":"30/08/2024","dt_prescricao":"30/08/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":18,"processo":"0001329-40.2007.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"Cumpr.Senten\u00e7a","valor":33225.7,"dt_arquiv":"24/06/2024","dt_prescricao":"24/06/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":19,"processo":"0001383-50.2000.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"Cumpr.Senten\u00e7a","valor":39330.89,"dt_arquiv":"08/05/2020","dt_prescricao":"08/05/2021","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":20,"processo":"0001428-10.2007.4.02.5002","empresa":"BRAM.MINERA\u00c7\u00c3O","exequente":"UNI\u00c3O","objeto":"FGTS","valor":59805.27,"dt_arquiv":"25/08/2020","dt_prescricao":"25/08/2021","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":21,"processo":"0001489-07.2003.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"PIS/COFINS","valor":90592.44,"dt_arquiv":"02/09/2024","dt_prescricao":"02/09/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":22,"processo":"0001623-92.2007.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"Cumpr.Senten\u00e7a","valor":8352.06,"dt_arquiv":"31/10/2024","dt_prescricao":"31/10/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":23,"processo":"0001625-62.2007.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"Cumpr.Senten\u00e7a","valor":5417.67,"dt_arquiv":"20/05/2022","dt_prescricao":"20/05/2023","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":24,"processo":"0002076-19.2009.4.02.5002","empresa":"BRAM.MINERA\u00c7\u00c3O","exequente":"UNI\u00c3O","objeto":"Contrib.Social","valor":26943.1,"dt_arquiv":"15/03/2024","dt_prescricao":"15/03/2025","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":25,"processo":"0002085-86.2006.4.02.5001","empresa":"GRANBRASIL","exequente":"CVM","objeto":"Cumpr.Senten\u00e7a","valor":11765.32,"dt_arquiv":"14/04/2023","dt_prescricao":"14/04/2024","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":26,"processo":"0000112-30.2005.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"FGTS","valor":16901.09,"dt_arquiv":"09/05/2022","dt_prescricao":"09/05/2023","status":"PRESCRITO","acao":"Peti\u00e7\u00e3o urgente"},{"num":27,"processo":"0077400-53.2004.5.17.0131","empresa":"BRAMINEX/GRAN","exequente":"Geneci Rosa","objeto":"Trabalhista","valor":0,"dt_arquiv":"N/A","dt_prescricao":"03/2026","status":"EXTINTO","acao":"Conclu\u00eddo"},{"num":28,"processo":"0000358-55.2007.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":1360275.67,"dt_arquiv":"26/02/2025","dt_prescricao":"26/02/2026","status":"VERIFICAR","acao":"Pode j\u00e1 estar prescrito"},{"num":29,"processo":"0001291-62.2006.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"PIS/COFINS/IRPJ","valor":120147.07,"dt_arquiv":"09/01/2025","dt_prescricao":"09/01/2026","status":"VERIFICAR","acao":"Pode j\u00e1 estar prescrito"},{"num":30,"processo":"0001644-10.2003.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"Contrib.Social","valor":40686.03,"dt_arquiv":"24/01/2025","dt_prescricao":"24/01/2026","status":"VERIFICAR","acao":"Pode j\u00e1 estar prescrito"},{"num":31,"processo":"0001684-98.2017.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"FGTS","valor":150123.57,"dt_arquiv":"21/02/2025","dt_prescricao":"21/02/2026","status":"VERIFICAR","acao":"Pode j\u00e1 estar prescrito"},{"num":32,"processo":"0006272-51.2017.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"IRPJ","valor":46330.02,"dt_arquiv":"12/02/2025","dt_prescricao":"12/02/2026","status":"VERIFICAR","acao":"Pode j\u00e1 estar prescrito"},{"num":33,"processo":"0000926-76.2004.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":920117.0,"dt_arquiv":"05/02/2025","dt_prescricao":"05/02/2026","status":"VERIFICAR","acao":"Pode j\u00e1 estar prescrito"},{"num":34,"processo":"0001638-03.2003.4.02.5002","empresa":"GRANBRASIL","exequente":"UNI\u00c3O","objeto":"PIS/COFINS","valor":86171.82,"dt_arquiv":"07/05/2025","dt_prescricao":"07/05/2026","status":"MONITORAR","acao":"Prescreve mai/2026"},{"num":35,"processo":"0001805-20.2003.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"PIS/COFINS","valor":832585.08,"dt_arquiv":"23/06/2025","dt_prescricao":"23/06/2026","status":"MONITORAR","acao":"Prescreve jun/2026"},{"num":36,"processo":"0000173-56.2003.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":65576.31,"dt_arquiv":"08/07/2025","dt_prescricao":"08/07/2026","status":"MONITORAR","acao":"Prescreve jul/2026"},{"num":37,"processo":"0000351-63.2007.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"IPI/Multas","valor":255323.27,"dt_arquiv":"21/07/2025","dt_prescricao":"21/07/2026","status":"MONITORAR","acao":"Prescreve jul/2026"},{"num":38,"processo":"0000690-90.2005.4.02.5002","empresa":"BRAMINEX SA","exequente":"BACEN","objeto":"Multa admin.","valor":11716951.0,"dt_arquiv":"15/09/2025","dt_prescricao":"15/09/2026","status":"MONITORAR","acao":"VALOR ALTO - verificar"},{"num":39,"processo":"0001097-91.2008.4.02.5002","empresa":"BRAM.MINERA\u00c7\u00c3O","exequente":"UNI\u00c3O","objeto":"FGTS","valor":25410.85,"dt_arquiv":"22/09/2025","dt_prescricao":"22/09/2026","status":"MONITORAR","acao":"Prescreve set/2026"},{"num":40,"processo":"0000291-80.2013.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"Contrib.Previd.","valor":56522.16,"dt_arquiv":"03/11/2025","dt_prescricao":"03/11/2026","status":"MONITORAR","acao":"Prescreve nov/2026"},{"num":41,"processo":"0000175-45.2011.4.02.5002","empresa":"BRAMINEX SA","exequente":"UNI\u00c3O","objeto":"IRPJ","valor":54431.41,"dt_arquiv":"19/11/2025","dt_prescricao":"19/11/2026","status":"MONITORAR","acao":"Prescreve nov/2026"}];
+
+  var ativosCriticos = [{"processo":"0000166-64.2003.4.02.5002","empresa":"BRAMINEX SA","contraparte":"UNI\u00c3O","tipo":"Contrib.Previd.","valor":3543310.51,"status":"Busca de bens - Leil\u00e3o de terrenos","risco":"MUITO ALTO","acao":"Monitorar leil\u00e3o - URGENTE"},{"processo":"0000163-12.2003.4.02.5002","empresa":"BRAMINEX SA","contraparte":"UNI\u00c3O","tipo":"Contrib.Previd.","valor":1288757.29,"status":"Suspenso por parcelamento","risco":"ALTO","acao":"Manter parcelamento em dia"},{"processo":"0000415-39.2008.4.02.5002","empresa":"GRUPO BRAMINEX","contraparte":"UNI\u00c3O","tipo":"Impostos federais","valor":2852083.42,"status":"Busca de bens - Pedido de fraude","risco":"MUITO ALTO","acao":"URGENTE - Monitorar fraude"},{"processo":"0031864-30.1999.4.02.5002","empresa":"GRUPO BRAMINEX","contraparte":"UNI\u00c3O","tipo":"D\u00edv.Previd.","valor":1287630.72,"status":"SISBAJUD deferido","risco":"MUITO ALTO","acao":"Monitorar bloqueio"},{"processo":"0034020-88.1999.4.02.5002","empresa":"BRAMINEX/TRIANON","contraparte":"UNI\u00c3O","tipo":"Execu\u00e7\u00e3o Federal","valor":37600000,"status":"Edital leil\u00e3o complexo industrial","risco":"MUITO ALTO","acao":"Monitorar leil\u00e3o R$37,6M"},{"processo":"5009375-39.2022.8.08.0011","empresa":"BRAMINEX SA","contraparte":"Banco do Brasil","tipo":"A\u00e7\u00e3o Indenizat\u00f3ria","valor":256000000,"status":"Senten\u00e7a favor\u00e1vel - per\u00edcia","risco":"FAVOR\u00c1VEL","acao":"Acompanhar per\u00edcia"},{"processo":"Braminex vs Imerys","empresa":"BRAM.MINERA\u00c7\u00c3O","contraparte":"IMERYS","tipo":"Execu\u00e7\u00e3o","valor":17000000,"status":"15% revenue garnishment","risco":"FAVOR\u00c1VEL","acao":"A\u00e7\u00e3o Rescis\u00f3ria + execu\u00e7\u00e3o"},{"processo":"0000947-60.2017.5.17.0131","empresa":"BRAMINEX/GRAN","contraparte":"39 reclamantes","tipo":"Exec.Concentrada","valor":1480000,"status":"Concentrada - 39 processos","risco":"ALTO","acao":"Prescri\u00e7\u00e3o ~20-30 processos"},{"processo":"0012200 (1\u00aa Vara C\u00edvel)","empresa":"GRAMACRUZ","contraparte":"MAGNITOS","tipo":"Execu\u00e7\u00e3o","valor":24000000,"status":"Suspenso desde 2021","risco":"ALTO","acao":"Report 15 dias (ordem 12/03)"},{"processo":"0021588 (4\u00aa Vara C\u00edvel)","empresa":"GRAMACRUZ","contraparte":"MAGNITOS","tipo":"Execu\u00e7\u00e3o","valor":3500000,"status":"Ativo - SISBAJUD/RENAJUD","risco":"M\u00c9DIO","acao":"Acompanhar attachments"},{"processo":"0000404-44.2007.4.02.5002","empresa":"BRAM.MINERA\u00c7\u00c3O","contraparte":"BACEN","tipo":"Multa admin.","valor":348969.12,"status":"Reserva de cr\u00e9dito","risco":"M\u00c9DIO","acao":"Monitorar reserva"},{"processo":"0007642-25.2004.4.02.5001","empresa":"GRANBRASIL","contraparte":"CVM","tipo":"Taxa fiscaliza\u00e7\u00e3o","valor":90190.62,"status":"Parcelamento (29\u00aa parcela)","risco":"BAIXO","acao":"Manter parcelas"},{"processo":"5008063-31.2021.4.02.5001","empresa":"GRANBRASIL","contraparte":"UNI\u00c3O","tipo":"Execu\u00e7\u00e3o Fiscal","valor":0,"status":"SUSPENSO - leil\u00e3o negativo","risco":"FAVOR\u00c1VEL","acao":"Aguardar prescri\u00e7\u00e3o"},{"processo":"5018244-20.2025.4.02.0000","empresa":"BRAMINEX SA","contraparte":"UNI\u00c3O","tipo":"Agravo Instrumento","valor":0,"status":"Tutela INDEFERIDA TRF-2","risco":"M\u00c9DIO","acao":"Aguardar julgamento m\u00e9rito"}];
+
+  var calendario = [{"mes":"JAN","data":"09/01/2026","assunto":"0001291-62.2006 (BRAMINEX)","acao":"Verificar prescri\u00e7\u00e3o","valor":120147.07},{"mes":"JAN","data":"24/01/2026","assunto":"0001644-10.2003 (GRANBRASIL)","acao":"Verificar prescri\u00e7\u00e3o","valor":40686.03},{"mes":"FEV","data":"05/02/2026","assunto":"0000926-76.2004 (BRAMINEX)","acao":"Verificar prescri\u00e7\u00e3o","valor":920117.0},{"mes":"FEV","data":"12/02/2026","assunto":"0006272-51.2017 (GRANBRASIL)","acao":"Verificar prescri\u00e7\u00e3o","valor":46330.02},{"mes":"FEV","data":"21/02/2026","assunto":"0001684-98.2017 (GRANBRASIL)","acao":"Verificar prescri\u00e7\u00e3o","valor":150123.57},{"mes":"FEV","data":"26/02/2026","assunto":"0000358-55.2007 (GRANBRASIL)","acao":"Verificar prescri\u00e7\u00e3o","valor":1360275.67},{"mes":"MAR","data":"27/03/2026","assunto":"Gramacruz vs Magnitos","acao":"Prazo 15 dias p/ report (ordem 12/03)","valor":27500000},{"mes":"ABR","data":"14/04/2026","assunto":"Decreto Tajani - Cassazione","acao":"Sezioni Unite - cidadania italiana","valor":0},{"mes":"ABR","data":"Abril 2026","assunto":"Decreto Tajani - Corte Constitucional","acao":"Decis\u00e3o esperada","valor":0},{"mes":"MAI","data":"07/05/2026","assunto":"0001638-03.2003 (GRANBRASIL)","acao":"Prescri\u00e7\u00e3o intercorrente","valor":86171.82},{"mes":"MAI","data":"29/05/2026","assunto":"PGFN Transa\u00e7\u00e3o Tribut\u00e1ria","acao":"PRAZO FINAL - descontos 65-70%","valor":0},{"mes":"JUN","data":"03/06/2026","assunto":"Roland - Alimentos","acao":"Audi\u00eancia","valor":0},{"mes":"JUN","data":"09/06/2026","assunto":"Ordinanza di Mantova","acao":"Audi\u00eancia cidadania italiana","valor":0},{"mes":"JUN","data":"23/06/2026","assunto":"0001805-20.2003 (BRAMINEX)","acao":"Prescri\u00e7\u00e3o intercorrente","valor":832585.08},{"mes":"JUL","data":"08/07/2026","assunto":"0000173-56.2003 (BRAMINEX)","acao":"Prescri\u00e7\u00e3o intercorrente","valor":65576.31},{"mes":"JUL","data":"21/07/2026","assunto":"0000351-63.2007 (BRAMINEX)","acao":"Prescri\u00e7\u00e3o intercorrente","valor":255323.27},{"mes":"SET","data":"15/09/2026","assunto":"0000690-90.2005 (BRAMINEX)","acao":"Prescri\u00e7\u00e3o BACEN - VALOR ALTO","valor":11716951.0},{"mes":"SET","data":"22/09/2026","assunto":"0001097-91.2008 (BRAM.MIN)","acao":"Prescri\u00e7\u00e3o intercorrente","valor":25410.85},{"mes":"NOV","data":"03/11/2026","assunto":"0000291-80.2013 (BRAMINEX)","acao":"Prescri\u00e7\u00e3o intercorrente","valor":56522.16},{"mes":"NOV","data":"19/11/2026","assunto":"0000175-45.2011 (BRAMINEX)","acao":"Prescri\u00e7\u00e3o intercorrente","valor":54431.41}];
+
+  var acoesRecomendadas = [{"prioridade":"1 - URGENTE","acao":"Protocolar 29 peti\u00e7\u00f5es de prescri\u00e7\u00e3o intercorrente","processos":"29 processos j\u00e1 prescritos","economia":6184656.54,"prazo":"ESTA SEMANA"},{"prioridade":"1 - URGENTE","acao":"Verificar 6 processos com prescri\u00e7\u00e3o jan-mar/2026","processos":"6 processos rec\u00e9m-vencidos","economia":2637679.36,"prazo":"ESTA SEMANA"},{"prioridade":"1 - URGENTE","acao":"Responder ordem judicial Gramacruz vs Magnitos (15 dias)","processos":"4 processos Cachoeiro","economia":27500000,"prazo":"At\u00e9 27/03/2026"},{"prioridade":"2 - ALTA","acao":"Avaliar Transa\u00e7\u00e3o PGFN (descontos 65-70%)","processos":"Todos processos federais eleg\u00edveis","economia":0,"prazo":"At\u00e9 29/05/2026"},{"prioridade":"2 - ALTA","acao":"Monitorar leil\u00e3o complexo Braminex/Trianon","processos":"0034020-88.1999","economia":37600000,"prazo":"Cont\u00ednuo"},{"prioridade":"2 - ALTA","acao":"Manter parcelamentos em dia","processos":"Diversos (8+ processos)","economia":0,"prazo":"Mensal"},{"prioridade":"2 - ALTA","acao":"Usar precedente Geneci Rosa nas 39 reclama\u00e7\u00f5es trabalhistas","processos":"Exec.Concentrada 0000947","economia":1480000,"prazo":"Imediato"},{"prioridade":"3 - M\u00c9DIA","acao":"Monitorar 8 prescri\u00e7\u00f5es mai-nov/2026 (N\u00c3O movimentar)","processos":"8 processos","economia":13093171.9,"prazo":"Passivo"},{"prioridade":"3 - M\u00c9DIA","acao":"Acompanhar A\u00e7\u00e3o Rescis\u00f3ria Braminex vs Imerys","processos":"Custas R$18K pendentes","economia":17000000,"prazo":"Cont\u00ednuo"},{"prioridade":"3 - M\u00c9DIA","acao":"Acompanhar per\u00edcia Braminex vs Banco do Brasil","processos":"5009375-39.2022","economia":256000000,"prazo":"Cont\u00ednuo"},{"prioridade":"3 - M\u00c9DIA","acao":"Regularizar CNPJ Trianon","processos":"Cross-settlement strategy","economia":0,"prazo":"Curto prazo"},{"prioridade":"4 - BAIXA","acao":"Peticionar extin\u00e7\u00e3o CVM prescrito","processos":"0002085-86.2006","economia":11765.32,"prazo":"Quando poss\u00edvel"},{"prioridade":"4 - BAIXA","acao":"Monitorar Decreto Tajani (cidadania italiana)","processos":"Cassazione/Corte Constitucional","economia":0,"prazo":"Abr/2026"}];
+
+  var bensPenhorados = [{"bem":"Matr\u00edcula 1.611 (19,36ha Bairro Gilson Carone)","tipo":"Im\u00f3vel urbano","processos":"M\u00faltiplos trabalhistas + federais","empresa":"BRAMINEX/TRIANON","valor":0,"situacao":"Inalienabilidade"},{"bem":"Matr\u00edcula 2.805","tipo":"Im\u00f3vel","processos":"0000164-94.2003","empresa":"BRAMINEX SA","valor":76921,"situacao":"Penhora ativa"},{"bem":"Matr\u00edcula 2.807","tipo":"Im\u00f3vel","processos":"0000386-91.2005","empresa":"BRAMINEX SA","valor":36157.7,"situacao":"Penhora ativa"},{"bem":"Matr\u00edcula 1.337","tipo":"Im\u00f3vel","processos":"0000166-64.2003","empresa":"BRAMINEX SA","valor":3543310.51,"situacao":"Leil\u00e3o em andamento"},{"bem":"Matr\u00edcula 12.518","tipo":"Im\u00f3vel","processos":"0000112-30.2005","empresa":"BRAMINEX SA","valor":16901.09,"situacao":"Penhora ativa"},{"bem":"Matr\u00edcula 12.516","tipo":"Im\u00f3vel","processos":"0000386-91.2005","empresa":"BRAMINEX SA","valor":36157.7,"situacao":"Penhora ativa"},{"bem":"Matr\u00edcula 3.702","tipo":"Im\u00f3vel","processos":"0000163-94.2012","empresa":"BRAM.MINERA\u00c7\u00c3O","valor":108829.33,"situacao":"Penhora ativa"},{"bem":"Matr\u00edcula 6.700","tipo":"Im\u00f3vel","processos":"0007642-25.2004 (CVM)","empresa":"GRANBRASIL","valor":90190.62,"situacao":"Leiloado - parcelamento"},{"bem":"Matr\u00edcula 160","tipo":"Im\u00f3vel","processos":"0032789-26.1999","empresa":"BRAMINEX SA","valor":21295.01,"situacao":"Penhora ativa"},{"bem":"Matr\u00edcula 28.609","tipo":"Im\u00f3vel","processos":"0001028-69.2002","empresa":"BRAM.MINERA\u00c7\u00c3O","valor":548412.49,"situacao":"Penhora ativa - PRESCRITO"},{"bem":"Matr\u00edculas 24.755/24.970/25.246/25.697/26.433","tipo":"Im\u00f3veis (sede)","processos":"M\u00faltiplos federais","empresa":"BRAMINEX SA","valor":0,"situacao":"Penhora ativa"},{"bem":"Complexo industrial Braminex/Trianon","tipo":"Industrial","processos":"0034020-88.1999","empresa":"BRAMINEX/TRIANON","valor":37600000,"situacao":"Edital leil\u00e3o R$37,6M"},{"bem":"Direito de lavra 890.014/1978","tipo":"Concess\u00e3o mineral","processos":"3 processos (~R$86.922)","empresa":"BRAM.MINERA\u00c7\u00c3O","valor":86922,"situacao":"Gravado em 3 processos"},{"bem":"Equipamentos Braminex","tipo":"Maquin\u00e1rio","processos":"Diversos","empresa":"BRAM.MINERA\u00c7\u00c3O","valor":3600000,"situacao":"Avaliado R$2,91-4,33M"},{"bem":"50m\u00b3 granito","tipo":"Material","processos":"0001142-03.2005","empresa":"MIN.S\u00c3O CARLOS","valor":31735.95,"situacao":"Penhora ativa"},{"bem":"Quotas sociais Braminex","tipo":"Cotas","processos":"0001441-48.2003","empresa":"MIN.S\u00c3O CARLOS","valor":69660.56,"situacao":"Penhora - edital"}];
+
+  var zonas = [{"zona":"Complexo Alegre","processos":18,"municipios":"Alegre (11), Muqui (5), Jer\u00f4nimo Monteiro (1), At\u00edlio Vivacqua (1)","variedade":"Santa Angelica Black","preco_mercado":"$50-100/m\u00b2 (slabs)"},{"zona":"Intrus\u00e3o Castelo","processos":11,"municipios":"Castelo (8), Concei\u00e7\u00e3o do Castelo (3)","variedade":"Castelo Granodiorite","preco_mercado":"$30-80/m\u00b3"},{"zona":"Hub Cachoeiro","processos":8,"municipios":"Cachoeiro de Itapemirim (6), Vargem Alta (2)","variedade":"Multiple varieties","preco_mercado":"$30-80/m\u00b3"},{"zona":"Intrus\u00e3o Venda Nova","processos":1,"municipios":"Venda Nova do Imigrante (1)","variedade":"Black Mist","preco_mercado":"$80-200/m\u00b3"},{"zona":"Complexo Costeiro","processos":2,"municipios":"Guarapari (2)","variedade":"Coastal Black","preco_mercado":"$30-80/m\u00b3"},{"zona":"Complexo Juiz de Fora","processos":1,"municipios":"Irupi (1)","variedade":"JF Black","preco_mercado":"$30-80/m\u00b3"}];
+
+  function fmtBRL(v) {
+    if (!v || v === 0) return '\u2014';
+    return 'R$ ' + v.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+
+  function statusClass(s) {
+    var m = {'PRESCRITO':'prescrito','VERIFICAR':'verificar','MONITORAR':'monitorar','EXTINTO':'extinto'};
+    return m[s] || '';
+  }
+
+  function riskClass(r) {
+    var m = {'MUITO ALTO':'muito-alto','ALTO':'alto','M\u00c9DIO':'medio','FAVOR\u00c1VEL':'favoravel','BAIXO':'baixo'};
+    return m[r] || '';
+  }
+
+  function sitClass(s) {
+    if (s.indexOf('Penhora ativa') >= 0 && s.indexOf('PRESCRITO') < 0) return 'ativo';
+    if (s.indexOf('PRESCRITO') >= 0) return 'prescrito';
+    if (s.indexOf('Leil') >= 0 || s.indexOf('leil') >= 0) return 'leilao';
+    if (s.indexOf('Inalien') >= 0) return 'inalien';
+    if (s.indexOf('arcel') >= 0) return 'parcel';
+    if (s.indexOf('edital') >= 0 || s.indexOf('Edital') >= 0) return 'edital';
+    return 'ativo';
+  }
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  // Render prescricoes
+  function renderPrescricoes(data) {
+    var tbody = document.getElementById('pjPrescBody');
+    var html = '';
+    data.forEach(function(p, idx) {
+      html += '<tr onclick="togglePrescDetail(' + idx + ')">';
+      html += '<td>' + p.num + '</td>';
+      html += '<td style="font-family:var(--font-mono);font-size:0.78rem;color:var(--teal-light);">' + esc(p.processo) + '</td>';
+      html += '<td>' + esc(p.empresa) + '</td>';
+      html += '<td>' + esc(p.exequente) + '</td>';
+      html += '<td>' + esc(p.objeto) + '</td>';
+      html += '<td style="font-variant-numeric:tabular-nums;text-align:right;">' + fmtBRL(p.valor) + '</td>';
+      html += '<td style="font-family:var(--font-mono);font-size:0.78rem;">' + esc(p.dt_prescricao) + '</td>';
+      html += '<td><span class="pj-status-badge pj-status-' + statusClass(p.status) + '">' + esc(p.status) + '</span></td>';
+      html += '<td>' + esc(p.acao) + '</td>';
+      html += '</tr>';
+      html += '<tr class="pj-detail-row" id="prescDetail' + idx + '"><td colspan="9"><div class="pj-detail-grid">';
+      html += '<div class="dl"><div class="dt">Processo</div><div class="dd">' + esc(p.processo) + '</div></div>';
+      html += '<div class="dl"><div class="dt">Empresa</div><div class="dd">' + esc(p.empresa) + '</div></div>';
+      html += '<div class="dl"><div class="dt">Exequente</div><div class="dd">' + esc(p.exequente) + '</div></div>';
+      html += '<div class="dl"><div class="dt">Objeto</div><div class="dd">' + esc(p.objeto) + '</div></div>';
+      html += '<div class="dl"><div class="dt">Valor</div><div class="dd">' + fmtBRL(p.valor) + '</div></div>';
+      html += '<div class="dl"><div class="dt">Dt.Arquivamento</div><div class="dd">' + esc(p.dt_arquiv) + '</div></div>';
+      html += '<div class="dl"><div class="dt">Dt.Prescri\u00e7\u00e3o</div><div class="dd">' + esc(p.dt_prescricao) + '</div></div>';
+      html += '<div class="dl"><div class="dt">Status</div><div class="dd">' + esc(p.status) + '</div></div>';
+      html += '<div class="dl"><div class="dt">A\u00e7\u00e3o</div><div class="dd">' + esc(p.acao) + '</div></div>';
+      html += '</div></td></tr>';
+    });
+    tbody.innerHTML = html;
+  }
+
+  window.togglePrescDetail = function(idx) {
+    var row = document.getElementById('prescDetail' + idx);
+    if (row) row.classList.toggle('open');
+  };
+
+  window.filterPrescricoes = function() {
+    var q = document.getElementById('pjPrescFilter').value.toLowerCase();
+    var filtered = prescricoes.filter(function(p) {
+      return (p.processo + ' ' + p.empresa + ' ' + p.objeto + ' ' + p.status + ' ' + p.exequente).toLowerCase().indexOf(q) >= 0;
+    });
+    renderPrescricoes(filtered);
+  };
+
+  // Render Ativos Cr\u00edticos
+  function renderCriticos() {
+    var grid = document.getElementById('pjCriticosGrid');
+    var html = '';
+    ativosCriticos.forEach(function(c) {
+      var valorStr = c.valor > 0 ? fmtBRL(c.valor) : '\u2014';
+      html += '<div class="pj-critico-card">';
+      html += '<div class="pj-critico-header">';
+      html += '<span class="pj-critico-processo">' + esc(c.processo) + '</span>';
+      html += '<span class="pj-risk-badge pj-risk-' + riskClass(c.risco) + '">' + esc(c.risco) + '</span>';
+      html += '</div>';
+      html += '<div class="pj-critico-valor">' + valorStr + '</div>';
+      html += '<div class="pj-critico-meta"><strong>' + esc(c.empresa) + '</strong> vs ' + esc(c.contraparte) + '<br>' + esc(c.tipo) + '</div>';
+      html += '<div class="pj-critico-meta" style="margin-top:4px;">Status: ' + esc(c.status) + '</div>';
+      html += '<div class="pj-critico-acao">\u26a0 ' + esc(c.acao) + '</div>';
+      html += '</div>';
+    });
+    grid.innerHTML = html;
+  }
+
+  // Render Calend\u00e1rio
+  function renderCalendario() {
+    var grid = document.getElementById('pjCalGrid');
+    var html = '';
+    var lastMes = '';
+    calendario.forEach(function(e) {
+      if (e.mes !== lastMes) {
+        html += '<div class="pj-cal-month">' + esc(e.mes) + ' 2026</div>';
+        lastMes = e.mes;
+      }
+      var valorStr = e.valor > 0 ? fmtBRL(e.valor) : '';
+      html += '<div class="pj-cal-event">';
+      html += '<div class="pj-cal-date">' + esc(e.data) + '</div>';
+      html += '<div class="pj-cal-desc">' + esc(e.assunto) + '<small>' + esc(e.acao) + '</small></div>';
+      html += '<div class="pj-cal-valor">' + valorStr + '</div>';
+      html += '</div>';
+    });
+    grid.innerHTML = html;
+  }
+
+  // Render A\u00e7\u00f5es Estrat\u00e9gicas
+  function renderAcoes() {
+    var content = document.getElementById('pjAcoesContent');
+    var groups = {};
+    acoesRecomendadas.forEach(function(a) {
+      var key = a.prioridade;
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(a);
+    });
+    var html = '';
+    var prioOrder = ['1 - URGENTE','2 - ALTA','3 - M\u00c9DIA','4 - BAIXA'];
+    prioOrder.forEach(function(prio) {
+      if (!groups[prio]) return;
+      var prioNum = prio.charAt(0);
+      html += '<div class="pj-acoes-group">';
+      html += '<div class="pj-acoes-prio pj-prio-' + prioNum + '">' + esc(prio) + '</div>';
+      groups[prio].forEach(function(a) {
+        var econStr = a.economia > 0 ? fmtBRL(a.economia) : '\u2014';
+        html += '<div class="pj-acao-card">';
+        html += '<div class="pj-acao-title">' + esc(a.acao) + '</div>';
+        html += '<div class="pj-acao-meta">';
+        html += '<span>\ud83d\udcc1 ' + esc(a.processos) + '</span>';
+        html += '<span>\ud83d\udcb0 ' + econStr + '</span>';
+        html += '<span>\u23f0 ' + esc(a.prazo) + '</span>';
+        html += '</div></div>';
+      });
+      html += '</div>';
+    });
+    content.innerHTML = html;
+  }
+
+  // Render Bens Penhorados
+  function renderBens() {
+    var tbody = document.getElementById('pjBensBody');
+    var html = '';
+    bensPenhorados.forEach(function(b) {
+      html += '<tr>';
+      html += '<td>' + esc(b.bem) + '</td>';
+      html += '<td>' + esc(b.tipo) + '</td>';
+      html += '<td style="font-family:var(--font-mono);font-size:0.78rem;">' + esc(b.processos) + '</td>';
+      html += '<td>' + esc(b.empresa) + '</td>';
+      html += '<td style="text-align:right;font-variant-numeric:tabular-nums;">' + fmtBRL(b.valor) + '</td>';
+      html += '<td><span class="pj-sit-badge pj-sit-' + sitClass(b.situacao) + '">' + esc(b.situacao) + '</span></td>';
+      html += '</tr>';
+    });
+    tbody.innerHTML = html;
+  }
+
+  // Sub-tab switching
+  window.switchPJView = function(view) {
+    var viewMap = {'prescricoes':'pjViewPrescricoes','criticos':'pjViewCriticos','calendario':'pjViewCalendario','acoes':'pjViewAcoes','bens':'pjViewBens'};
+    document.querySelectorAll('.pj-view').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.pj-chip').forEach(function(el) { el.classList.remove('active'); });
+    var target = document.getElementById(viewMap[view]);
+    if (target) target.classList.add('active');
+    // Activate the correct chip
+    var chips = document.querySelectorAll('.pj-chip');
+    var chipIdx = {'prescricoes':0,'criticos':1,'calendario':2,'acoes':3,'bens':4};
+    if (chips[chipIdx[view]]) chips[chipIdx[view]].classList.add('active');
+  };
+
+  // Render Zonas
+  function renderZonas() {
+    var grid = document.getElementById('avZonaGrid');
+    var html = '';
+    zonas.forEach(function(z, i) {
+      html += '<div class="av-zona-card" onclick="this.classList.toggle(\'expanded\')">';
+      html += '<div class="zona-name">' + esc(z.zona) + '</div>';
+      html += '<div class="zona-count">' + z.processos + ' processos</div>';
+      html += '<div class="zona-meta"><strong>Variedade:</strong> ' + esc(z.variedade) + '<br><strong>Pre\u00e7o:</strong> ' + esc(z.preco_mercado) + '</div>';
+      html += '<div class="av-zona-detail"><strong>Munic\u00edpios:</strong> ' + esc(z.municipios) + '</div>';
+      html += '</div>';
+    });
+    grid.innerHTML = html;
+  }
+
+  // Init all
+  renderPrescricoes(prescricoes);
+  renderCriticos();
+  renderCalendario();
+  renderAcoes();
+  renderBens();
+  renderZonas();
 })();
 
 </script>
