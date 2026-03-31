@@ -3603,6 +3603,377 @@ tbody td {
 /* Resumo card green accent */
 .resumo-card.accent-green::before { background: var(--green); }
 
+/* ===== EPE SECTION ===== */
+.epe-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 24px;
+  margin-bottom: 24px;
+}
+
+.epe-section .section-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.epe-section .section-title-bar h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.epe-section .section-title-bar .title-badge {
+  background: var(--teal-bg-strong);
+  color: var(--teal-light);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.epe-section .title-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.epe-subtitle {
+  font-size: 0.77rem;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+/* EPE KPI grid — reuses .pend-kpi-card patterns */
+.epe-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 900px) { .epe-kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .epe-kpi-grid { grid-template-columns: 1fr 1fr; gap: 8px; } }
+
+/* EPE table wrapper */
+.epe-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.epe-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.epe-table thead th {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.epe-table tbody tr.epe-data-row {
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.epe-table tbody tr.epe-data-row:hover {
+  background: var(--bg-card-hover);
+}
+
+.epe-table tbody tr.epe-data-row:nth-child(even) {
+  background: var(--bg-elevated);
+}
+
+.epe-table tbody tr.epe-data-row:nth-child(even):hover {
+  background: var(--bg-card-hover);
+}
+
+.epe-table tbody td {
+  padding: 10px 14px;
+  vertical-align: middle;
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-primary);
+}
+
+.epe-detail-row { display: none; }
+.epe-detail-row.open { display: table-row; }
+.epe-detail-row td {
+  padding: 16px 20px;
+  background: var(--bg-secondary);
+  white-space: normal;
+}
+
+.epe-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px 16px;
+}
+
+.epe-detail-grid .dl { font-size: 0.75rem; }
+.epe-detail-grid .dl .dt { color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; font-size: 0.68rem; }
+.epe-detail-grid .dl .dd { color: var(--text-primary); margin-top: 2px; font-family: var(--font-mono); font-size: 0.75rem; }
+
+.epe-alert-note {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--red-bg);
+  border-left: 3px solid var(--red);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.epe-alert-note.warn {
+  background: var(--yellow-bg);
+  border-left-color: var(--yellow);
+}
+
+/* EPE status badges */
+.epe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.epe-badge.prescrito { background: var(--green-bg); color: var(--green); }
+.epe-badge.incompleto { background: var(--yellow-bg); color: var(--yellow); }
+.epe-badge.alerta { background: var(--red-bg); color: var(--red); }
+
+/* EPE issues card */
+.epe-issues-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.epe-issues-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.epe-issues-header h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.epe-issues-body { padding: 16px 18px; }
+
+.epe-issue-item {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  border-left: 3px solid transparent;
+}
+
+.epe-issue-item.severity-high {
+  background: var(--red-bg);
+  border-left-color: var(--red);
+}
+
+.epe-issue-item.severity-medium {
+  background: var(--yellow-bg);
+  border-left-color: var(--yellow);
+}
+
+.epe-issue-item.severity-low {
+  background: rgba(88,166,255,0.06);
+  border-left-color: var(--blue);
+}
+
+.epe-issue-item .issue-proc {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 3px;
+}
+
+.epe-issue-item .issue-desc {
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.epe-issue-group-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px 0 6px;
+  color: var(--text-muted);
+}
+
+/* EPE Roland Feiertag card */
+.epe-roland-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border-top: 2px solid var(--red);
+}
+
+.epe-roland-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+}
+
+.epe-roland-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.epe-roland-body { padding: 20px; }
+
+.epe-roland-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.epe-roland-meta-item {
+  font-size: 0.78rem;
+}
+
+.epe-roland-meta-item .meta-label {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.epe-roland-meta-item .meta-val {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.epe-roland-fronts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 700px) { .epe-roland-fronts { grid-template-columns: 1fr; } }
+
+.epe-frente-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.epe-frente-card .frente-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--teal-light);
+  margin-bottom: 4px;
+}
+
+.epe-frente-card .frente-desc {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.epe-frente-card .frente-urgencia {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.epe-frente-card .frente-urgencia.hoje {
+  background: var(--yellow-bg);
+  color: var(--yellow);
+}
+
+.epe-checklist { list-style: none; padding: 0; margin: 0; }
+
+.epe-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.epe-checklist li:last-child { border-bottom: none; }
+
+.epe-checklist li::before {
+  content: '○';
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.epe-checklist li.urgent {
+  color: var(--text-primary);
+}
+
+.epe-checklist li.urgent::before {
+  content: '●';
+  color: var(--red);
+}
+
 </style>
 </head>
 <body>
@@ -3636,6 +4007,7 @@ tbody td {
     <a href="#portfolioJuridicoSection" class="nav-link" data-section="portfolioJuridicoSection">Portfólio Jurídico</a>
     <a href="#avaliacaoAtivosSection" class="nav-link" data-section="avaliacaoAtivosSection">Avaliação Ativos</a>
     <a href="#patrimonioSection" class="nav-link" data-section="patrimonioSection">Patrimônio</a>
+    <a href="#epeSection" class="nav-link" data-section="epeSection">EPE</a>
     <a href="javascript:void(0)" class="nav-link" onclick="openChatOrg()">Conversas</a>
   </div>
 </nav>
@@ -5071,6 +5443,391 @@ tbody td {
         </div>
       </div>
     </div>
+
+    <!-- ===== EPE — EXCEÇÕES DE PRÉ-EXECUTIVIDADE ===== -->
+    <div class="epe-section" id="epeSection">
+
+      <!-- A. Title Bar -->
+      <div class="section-title-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:var(--teal-light);flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <h2>
+          Exceções de Pré-Executividade
+          <span class="title-badge">MAR/2026</span>
+        </h2>
+        <span class="title-line"></span>
+      </div>
+      <p class="epe-subtitle">Dr. Pedro Henrique Merote Sacramento — OAB/ES 35.959</p>
+
+      <!-- B. KPI Cards Row -->
+      <div class="epe-kpi-grid">
+        <div class="pend-kpi-card accent-teal">
+          <div class="pend-kpi-icon" style="background:var(--teal-bg);color:var(--teal-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="pend-kpi-value">8</div>
+          <div class="pend-kpi-label">Petições</div>
+          <div class="pend-kpi-sub">EPE protocoladas</div>
+        </div>
+        <div class="pend-kpi-card accent-green">
+          <div class="pend-kpi-icon" style="background:var(--green-bg);color:var(--green);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="pend-kpi-value">7</div>
+          <div class="pend-kpi-label">Prescritas</div>
+          <div class="pend-kpi-sub">Prazo &gt;6 anos ultrapassado</div>
+        </div>
+        <div class="pend-kpi-card accent-red">
+          <div class="pend-kpi-icon" style="background:var(--red-bg);color:var(--red);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="pend-kpi-value">4</div>
+          <div class="pend-kpi-label">Alertas</div>
+          <div class="pend-kpi-sub">Correções necessárias</div>
+        </div>
+        <div class="pend-kpi-card accent-yellow">
+          <div class="pend-kpi-icon" style="background:var(--yellow-bg);color:var(--yellow);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="pend-kpi-value">1</div>
+          <div class="pend-kpi-label">Incompleta</div>
+          <div class="pend-kpi-sub">Campos em branco</div>
+        </div>
+      </div>
+
+      <!-- C. EPE Processes Table -->
+      <div class="epe-table-wrap">
+        <table class="epe-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Processo</th>
+              <th>Executada</th>
+              <th>Exequente</th>
+              <th>Vara</th>
+              <th>Marco Inicial</th>
+              <th>Tempo</th>
+              <th>Status</th>
+              <th>Alertas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1: INCOMPLETO -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(1)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">1</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0000313-22.2005.4.02.5002</td>
+              <td>BRAMINEX S/A</td>
+              <td>CREA/ES</td>
+              <td style="color:var(--text-secondary);">3ª Vara Fed. Exec. Fiscal</td>
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">NÃO PREENCHIDO</td>
+              <td style="color:var(--text-muted);">—</td>
+              <td><span class="epe-badge incompleto">⚠ INCOMPLETO</span></td>
+              <td style="color:var(--yellow);font-size:0.75rem;">Campos em branco</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail1">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0000313-22.2005.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">BRAMINEX S/A</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">CREA/ES</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">3ª Vara Fed. Exec. Fiscal</div></div>
+                  <div class="dl"><div class="dt">Marco Inicial</div><div class="dd">NÃO PREENCHIDO</div></div>
+                  <div class="dl"><div class="dt">Status</div><div class="dd">INCOMPLETO</div></div>
+                </div>
+                <div class="epe-alert-note warn">⚠ Datas e eventos-chave NÃO preenchidos no corpo da minuta. Campos em branco. Necessária revisão completa antes do protocolo.</div>
+              </td>
+            </tr>
+            <!-- Row 2: PRESCRITO -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(2)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">2</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0000889-15.2005.4.02.5002</td>
+              <td>BRAMINEX MINERAÇÃO LTDA</td>
+              <td>CREA/ES</td>
+              <td style="color:var(--text-secondary);">4ª Vara Fed. Exec. Fiscal</td>
+              <td style="font-family:var(--font-mono);">20/11/2019</td>
+              <td style="color:var(--green);">6,4 anos</td>
+              <td><span class="epe-badge prescrito">✓ PRESCRITO</span></td>
+              <td style="color:var(--text-muted);">—</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail2">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0000889-15.2005.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">BRAMINEX MINERAÇÃO LTDA</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">CREA/ES</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">4ª Vara Fed. Exec. Fiscal</div></div>
+                  <div class="dl"><div class="dt">Marco Inicial</div><div class="dd">20/11/2019</div></div>
+                  <div class="dl"><div class="dt">Tempo Prescricional</div><div class="dd">6,4 anos</div></div>
+                  <div class="dl"><div class="dt">Status</div><div class="dd">PRESCRITO — sem pendências</div></div>
+                </div>
+              </td>
+            </tr>
+            <!-- Row 3: PRESCRITO + alerta frase incompleta -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(3)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">3</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0000399-90.2005.4.02.5002</td>
+              <td>BRAMINEX S/A</td>
+              <td>CREA/ES</td>
+              <td style="color:var(--text-secondary);">4ª Vara Fed. Exec. Fiscal</td>
+              <td style="font-family:var(--font-mono);">06/02/2019</td>
+              <td style="color:var(--green);">7,1 anos</td>
+              <td><span class="epe-badge prescrito">✓ PRESCRITO</span></td>
+              <td style="color:var(--red);font-size:0.75rem;">⚠ Frase incompleta</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail3">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0000399-90.2005.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">BRAMINEX S/A</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">CREA/ES</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">4ª Vara Fed. Exec. Fiscal</div></div>
+                  <div class="dl"><div class="dt">Marco Inicial</div><div class="dd">06/02/2019</div></div>
+                  <div class="dl"><div class="dt">Tempo Prescricional</div><div class="dd">7,1 anos</div></div>
+                </div>
+                <div class="epe-alert-note">⚠ Frase incompleta no corpo da minuta: <em>"permanecendo inerte até conforme consta dos autos"</em> — data de paralisação está faltando.</div>
+              </td>
+            </tr>
+            <!-- Row 4: PRESCRITO (clean) -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(4)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">4</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0001028-69.2002.4.02.5002</td>
+              <td>BRAMINEX S/A</td>
+              <td>União Federal</td>
+              <td style="color:var(--text-secondary);">2ª Vara Fed. Exec. Fiscal</td>
+              <td style="font-family:var(--font-mono);">21/03/2018</td>
+              <td style="color:var(--green);">8,0 anos</td>
+              <td><span class="epe-badge prescrito">✓ PRESCRITO</span></td>
+              <td style="color:var(--text-muted);">—</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail4">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0001028-69.2002.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">BRAMINEX S/A</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">União Federal</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">2ª Vara Fed. Exec. Fiscal</div></div>
+                  <div class="dl"><div class="dt">Marco Inicial</div><div class="dd">21/03/2018</div></div>
+                  <div class="dl"><div class="dt">Tempo Prescricional</div><div class="dd">8,0 anos</div></div>
+                  <div class="dl"><div class="dt">Status</div><div class="dd">PRESCRITO — sem pendências</div></div>
+                </div>
+              </td>
+            </tr>
+            <!-- Row 5: PRESCRITO + identificação errada -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(5)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">5</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0000979-76.2012.4.02.5002</td>
+              <td>BRAMINEX MINERAÇÃO LTDA</td>
+              <td>CREA/ES</td>
+              <td style="color:var(--text-secondary);">2ª Vara Fed. Exec. Fiscal</td>
+              <td style="font-family:var(--font-mono);">15/08/2014</td>
+              <td style="color:var(--green);">11,6 anos</td>
+              <td><span class="epe-badge prescrito">✓ PRESCRITO</span></td>
+              <td style="color:var(--red);font-size:0.75rem;">⚠ Identificação errada</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail5">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0000979-76.2012.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">BRAMINEX MINERAÇÃO LTDA</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">CREA/ES</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">2ª Vara Fed. Exec. Fiscal</div></div>
+                  <div class="dl"><div class="dt">Marco Inicial</div><div class="dd">15/08/2014</div></div>
+                  <div class="dl"><div class="dt">Tempo Prescricional</div><div class="dd">11,6 anos</div></div>
+                </div>
+                <div class="epe-alert-note">⚠ Os pedidos citam "Procuradoria da Fazenda Nacional" como parte, mas o exequente é CREA/ES. Identificação incorreta compromete a petição. Imagens das decisões judiciais também estão vazias.</div>
+              </td>
+            </tr>
+            <!-- Row 6: PRESCRITO + erro data -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(6)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">6</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0001428-10.2007.4.02.5002</td>
+              <td>BRAMINEX MINERAÇÃO LTDA</td>
+              <td>União Federal</td>
+              <td style="color:var(--text-secondary);">3ª Vara Fed. Exec. Fiscal</td>
+              <td style="font-family:var(--font-mono);">17/10/2019</td>
+              <td style="color:var(--green);">6,5 anos</td>
+              <td><span class="epe-badge prescrito">✓ PRESCRITO</span></td>
+              <td style="color:var(--red);font-size:0.75rem;">⚠ Erro de data</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail6">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0001428-10.2007.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">BRAMINEX MINERAÇÃO LTDA</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">União Federal</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">3ª Vara Fed. Exec. Fiscal</div></div>
+                  <div class="dl"><div class="dt">Marco Inicial</div><div class="dd">17/10/2019</div></div>
+                  <div class="dl"><div class="dt">Tempo Prescricional</div><div class="dd">6,5 anos</div></div>
+                </div>
+                <div class="epe-alert-note">⚠ Erro cronológico: a minuta afirma que o processo está "paralisado desde 10/03/2026" — data futura impossível. Provável erro de digitação: deveria ser 10/03/2020.</div>
+              </td>
+            </tr>
+            <!-- Row 7: PRESCRITO + erro gramatical menor -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(7)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">7</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0000272-60.2002.4.02.5002</td>
+              <td>BRAMINEX S/A</td>
+              <td>União Federal</td>
+              <td style="color:var(--text-secondary);">2ª Vara Fed. Exec. Fiscal</td>
+              <td style="font-family:var(--font-mono);">07/11/2019</td>
+              <td style="color:var(--green);">6,4 anos</td>
+              <td><span class="epe-badge prescrito">✓ PRESCRITO</span></td>
+              <td style="color:var(--yellow);font-size:0.75rem;">ℹ Erro gramatical</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail7">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0000272-60.2002.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">BRAMINEX S/A</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">União Federal</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">2ª Vara Fed. Exec. Fiscal</div></div>
+                  <div class="dl"><div class="dt">Marco Inicial</div><div class="dd">07/11/2019</div></div>
+                  <div class="dl"><div class="dt">Tempo Prescricional</div><div class="dd">6,4 anos</div></div>
+                </div>
+                <div class="epe-alert-note warn">ℹ Erro gramatical menor: construção "foi peticionou" na minuta. Corrigir para "foi peticionado" antes do protocolo.</div>
+              </td>
+            </tr>
+            <!-- Row 8: PRESCRITO + vulnerabilidade argumentativa -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(8)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">8</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0001625-62.2007.4.02.5002</td>
+              <td>GRANBRASIL S/A</td>
+              <td>União – FN</td>
+              <td style="color:var(--text-secondary);">3ª Vara Fed. Exec. Fiscal</td>
+              <td style="font-family:var(--font-mono);">03/05/2019</td>
+              <td style="color:var(--green);">6,9 anos</td>
+              <td><span class="epe-badge prescrito">✓ PRESCRITO</span></td>
+              <td style="color:var(--yellow);font-size:0.75rem;">⚠ Marco vulnerável</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail8">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0001625-62.2007.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">GRANBRASIL S/A</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">União – Fazenda Nacional</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">3ª Vara Fed. Exec. Fiscal</div></div>
+                  <div class="dl"><div class="dt">Marco Inicial</div><div class="dd">03/05/2019</div></div>
+                  <div class="dl"><div class="dt">Tempo Prescricional</div><div class="dd">6,9 anos</div></div>
+                </div>
+                <div class="epe-alert-note warn">⚠ Vulnerabilidade argumentativa: o marco prescricional utilizado é uma <strong>penhora positiva</strong>, não a ausência de bens. A Fazenda pode contestar este marco, pois a penhora é ato de movimentação processual. Considerar ajuste da fundamentação.</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- D. Issues Detail Section -->
+      <div class="epe-issues-card">
+        <div class="epe-issues-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? '' : 'none'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--red);flex-shrink:0;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <h3>Alertas e Correções Necessárias</h3>
+          <span style="font-size:0.72rem;background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:20px;font-weight:600;">9 itens</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--text-muted);margin-left:4px;"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="epe-issues-body">
+          <div class="epe-issue-group-label" style="color:var(--red);">ALTA PRIORIDADE — Bloqueantes</div>
+
+          <div class="epe-issue-item severity-high">
+            <div class="issue-proc">Proc. 0000313-22.2005.4.02.5002</div>
+            <div class="issue-desc"><strong>Campos em branco:</strong> datas, eventos e circunstâncias do processo não foram preenchidos no corpo da minuta. Petição inapta para protocolo.</div>
+          </div>
+
+          <div class="epe-issue-item severity-high">
+            <div class="issue-proc">Proc. 0000399-90.2005.4.02.5002</div>
+            <div class="issue-desc"><strong>Frase incompleta:</strong> <em>"permanecendo inerte até conforme consta dos autos"</em> — data de paralisação ausente. Argumento prescricional fragilizado.</div>
+          </div>
+
+          <div class="epe-issue-item severity-high">
+            <div class="issue-proc">Proc. 0001428-10.2007.4.02.5002</div>
+            <div class="issue-desc"><strong>Erro cronológico:</strong> minuta afirma que o processo está "paralisado desde <strong>10/03/2026</strong>" — data futura impossível. Corrigir para 10/03/2020.</div>
+          </div>
+
+          <div class="epe-issue-item severity-high">
+            <div class="issue-proc">Proc. 0000979-76.2012.4.02.5002</div>
+            <div class="issue-desc"><strong>Identificação errada da parte:</strong> pedidos citam "Procuradoria da Fazenda Nacional" como exequente, mas o exequente é <strong>CREA/ES</strong>. Erro material que pode inviabilizar a petição.</div>
+          </div>
+
+          <div class="epe-issue-group-label" style="color:var(--yellow);">MÉDIA PRIORIDADE — Correções Recomendadas</div>
+
+          <div class="epe-issue-item severity-medium">
+            <div class="issue-proc">Proc. 0001625-62.2007.4.02.5002</div>
+            <div class="issue-desc"><strong>Argumentação vulnerável:</strong> marco prescricional é uma <em>penhora positiva</em>, não ausência de bens. A Fazenda pode contestar este marco processual.</div>
+          </div>
+
+          <div class="epe-issue-item severity-medium">
+            <div class="issue-proc">Proc. 0000979-76.2012.4.02.5002</div>
+            <div class="issue-desc"><strong>Imagens de decisões judiciais vazias:</strong> os campos para imagens das decisões não foram preenchidos no documento. Necessário incluir cópia dos atos processuais relevantes.</div>
+          </div>
+
+          <div class="epe-issue-item severity-medium">
+            <div class="issue-proc">Proc. 0000272-60.2002.4.02.5002</div>
+            <div class="issue-desc"><strong>Erro gramatical:</strong> construção <em>"foi peticionou"</em> na minuta. Corrigir para "foi peticionado" antes do protocolo.</div>
+          </div>
+
+          <div class="epe-issue-group-label" style="color:var(--blue);">BAIXA PRIORIDADE — Padronização</div>
+
+          <div class="epe-issue-item severity-low">
+            <div class="issue-proc">Múltiplas petições</div>
+            <div class="issue-desc"><strong>Variação no nome do advogado:</strong> algumas minutas identificam o subscritor como "Pedro Henrique Merote Sacramento" e outras como "Pedro Henrique Merote" — uniformizar para manter consistência.</div>
+          </div>
+
+          <div class="epe-issue-item severity-low">
+            <div class="issue-proc">Múltiplas petições</div>
+            <div class="issue-desc"><strong>Variação nas datas de assinatura:</strong> as datas variam de 18/03/2026 a 30/03/2026. Verificar se as petições serão protocoladas em lote ou individualmente e uniformizar as datas conforme o planejamento.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E. Processo Roland Feiertag Card -->
+      <div class="epe-roland-card">
+        <div class="epe-roland-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:var(--red);flex-shrink:0;"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <h3>Estratégia Roland Feiertag</h3>
+          <span style="background:var(--red-bg);color:var(--red);font-size:0.7rem;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.4px;">CONFIDENCIAL</span>
+        </div>
+        <div class="epe-roland-body">
+          <div class="epe-roland-meta">
+            <div class="epe-roland-meta-item">
+              <div class="meta-label">Processo</div>
+              <div class="meta-val">5002594-59.2026.8.08.0011</div>
+            </div>
+            <div class="epe-roland-meta-item">
+              <div class="meta-label">Vara</div>
+              <div class="meta-val">Vara de Família — Cachoeiro de Itapemirim/ES</div>
+            </div>
+            <div class="epe-roland-meta-item">
+              <div class="meta-label">Audiência</div>
+              <div class="meta-val" style="color:var(--yellow);">03/06/2026</div>
+            </div>
+          </div>
+
+          <div class="epe-roland-fronts">
+            <div class="epe-frente-card">
+              <div class="frente-title">Frente 1 — Aditamento à Petição Inicial</div>
+              <div class="frente-desc">Aditamento nos termos do Art. 329, I do CPC, para inclusão das medidas protetivas e demais pleitos urgentes identificados na revisão estratégica.</div>
+              <span class="frente-urgencia hoje">HOJE — 31/03/2026</span>
+            </div>
+            <div class="epe-frente-card">
+              <div class="frente-title">Frente 2 — Comparecimento Espontâneo</div>
+              <div class="frente-desc">Notificação ao réu via comparecimento espontâneo nos termos do Art. 239, §1º do CPC, como alternativa à citação formal ainda pendente.</div>
+              <span class="frente-urgencia">URGENTE — Imediato</span>
+            </div>
+          </div>
+
+          <div style="font-size:0.78rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:10px;">Providências — Checklist</div>
+          <ul class="epe-checklist">
+            <li class="urgent">Elaborar e protocolar aditamento à petição inicial (Art. 329, I CPC) incluindo todos os pleitos urgentes</li>
+            <li class="urgent">Requerer tutela de urgência antecipada para bloqueio de transferências patrimoniais</li>
+            <li class="urgent">Notificar réu por comparecimento espontâneo (Art. 239 §1º CPC) — dispensar citação formal</li>
+            <li>Solicitar ao juízo prazo razoável para emenda da petição inicial antes da audiência de 03/06/2026</li>
+            <li>Juntar documentos patrimoniais levantados (imóveis, jazidas, registros minerários) ao aditamento</li>
+            <li>Coordenar com perito/avaliador para laudos de valor dos bens a serem partilhados</li>
+            <li>Preparar minuta de acordo extrajudicial como alternativa à audiência litigiosa</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <!-- /EPE -->
 
     <!-- ALERTS -->
     <div class="alerts-section" id="alertsSection">
@@ -7096,6 +7853,12 @@ function toggleGuarapariCard() {
 
   window.togglePrescDetail = function(idx) {
     var row = document.getElementById('prescDetail' + idx);
+    if (row) row.classList.toggle('open');
+  };
+
+  // EPE — Exceções de Pré-Executividade row expand/collapse
+  window.toggleEpeDetail = function(idx) {
+    var row = document.getElementById('epeDetail' + idx);
     if (row) row.classList.toggle('open');
   };
 
