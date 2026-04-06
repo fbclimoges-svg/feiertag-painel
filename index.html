@@ -4234,26 +4234,29 @@ tbody td {
         <div class="kpi-value" id="kpiTotal">—</div>
         <div class="kpi-label">Total Processos</div>
       </div>
-      <div class="kpi-card animate-in">
+      <div class="kpi-card animate-in" onclick="filterByFase('Conc.', this)" title="Filtrar por Concessões Ativas">
         <div class="kpi-icon" style="background:var(--green-bg);color:var(--green);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
         </div>
         <div class="kpi-value" id="kpiConc">—</div>
         <div class="kpi-label">Concessões Ativas</div>
+        <span class="kpi-filter-hint">clique para filtrar</span>
       </div>
-      <div class="kpi-card animate-in">
+      <div class="kpi-card animate-in" onclick="filterByFase('Req. Lav', this)" title="Filtrar por Req. de Lavra">
         <div class="kpi-icon" style="background:var(--blue-bg);color:var(--blue);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
         <div class="kpi-value" id="kpiReqLav">—</div>
         <div class="kpi-label">Req. de Lavra</div>
+        <span class="kpi-filter-hint">clique para filtrar</span>
       </div>
-      <div class="kpi-card animate-in">
+      <div class="kpi-card animate-in" onclick="filterByDisp(this)" title="Ver processos em Disponibilidade">
         <div class="kpi-icon" style="background:var(--red-bg);color:var(--red);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
         <div class="kpi-value" id="kpiDisp">—</div>
         <div class="kpi-label">Em Disponibilidade</div>
+        <span class="kpi-filter-hint" style="color:rgba(248,81,73,0.7);">clique para ver detalhes</span>
       </div>
       <div class="kpi-card animate-in">
         <div class="kpi-icon" style="background:rgba(188,140,255,0.12);color:var(--purple);">
@@ -4270,6 +4273,58 @@ tbody td {
         <div class="kpi-label">Área Total (ha)</div>
       </div>
 
+    </div>
+
+    <!-- PAINEL DISPONIBILIDADE -->
+    <div class="disp-alert-panel" id="dispAlertPanel">
+      <div class="disp-alert-header">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        3 PROCESSOS EM DISPONIBILIDADE — risco de perda de titularidade para terceiros
+        <button onclick="document.getElementById('dispAlertPanel').classList.remove('visible'); clearKpiActive();" style="margin-left:auto;background:none;border:none;color:var(--red);cursor:pointer;font-size:1rem;">✕</button>
+      </div>
+      <div class="disp-alert-list">
+
+        <div class="disp-alert-item">
+          <span class="disp-alert-badge disp-badge-vencido">Edital Vencido</span>
+          <div class="disp-alert-proc">
+            <a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=890026198600" target="_blank" rel="noopener">890.026/1986 ↗</a>
+          </div>
+          <div class="disp-alert-company">Braminex Brasileira de Mármore Exportadora S.A.</div>
+          <div class="disp-alert-local">📍 IRUPI / ES — 897 ha · Mármore/Calcário</div>
+          <div class="disp-alert-sub">Edital vencido / modalidade antiga. Último mov.: 05/08/2011. Aguardando análise de cumprimento de exigência.</div>
+        </div>
+
+        <div class="disp-alert-item">
+          <span class="disp-alert-badge disp-badge-livre">Área Livre s/ pretendente</span>
+          <div class="disp-alert-proc">
+            <a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=890152197900" target="_blank" rel="noopener">890.152/1979 ↗</a>
+          </div>
+          <div class="disp-alert-company">Braminex Brasileira de Mármore Exportadora S.A.</div>
+          <div class="disp-alert-local">📍 FAZ. SANTA FÉ — ALEGRE / ES — 212 ha · Mármore</div>
+          <div class="disp-alert-sub">Área desbloqueada judicialmente em 27/10/2022. Indeferimento do Req. Lavra; área em edital desde 02/04/2008.</div>
+        </div>
+
+        <div class="disp-alert-item">
+          <span class="disp-alert-badge disp-badge-vencido">Disp. Cancelada</span>
+          <div class="disp-alert-proc">
+            <a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=890399198800" target="_blank" rel="noopener">890.399/1988 ↗</a>
+          </div>
+          <div class="disp-alert-company">Granbrasil Granitos do Brasil S.A.</div>
+          <div class="disp-alert-local">📍 ALTO PAULISTA — BARRA DE SÃO FRANCISCO / ES — 49,7 ha · Granito</div>
+          <div class="disp-alert-sub">Título caducado. Disponibilidade cancelada. Área retirada por retificação. Último mov.: 10/06/2024.</div>
+        </div>
+
+        <div class="disp-alert-item">
+          <span class="disp-alert-badge disp-badge-apto">Apto p/ Disponibilidade</span>
+          <div class="disp-alert-proc">
+            <a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=890464198800" target="_blank" rel="noopener">890.464/1988 ↗</a>
+          </div>
+          <div class="disp-alert-company">Granbrasil Granitos do Brasil S.A.</div>
+          <div class="disp-alert-local">📍 FAZ. SOBRADO — SÃO FIDÉLIS / RJ — 986 ha · Granito</div>
+          <div class="disp-alert-sub">Área livre sem pretendentes. Indeferimento de pedido. Último mov.: 23/07/2024.</div>
+        </div>
+
+      </div>
     </div>
 
     <!-- FILTER BAR -->
@@ -6431,6 +6486,54 @@ tbody td {
     activeBrands.clear();
     document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
     applyFilters();
+  }
+
+  // ===== KPI FILTER FUNCTIONS =====
+  let activeKpiCard = null;
+
+  function clearKpiActive() {
+    document.querySelectorAll('.kpi-card').forEach(c => {
+      c.classList.remove('kpi-active', 'kpi-active-red');
+    });
+    activeKpiCard = null;
+  }
+
+  function filterByFase(fase, card) {
+    const faSel = document.getElementById('filterFase');
+    const isAlreadyActive = activeKpiCard === card && faSel.value === fase;
+    clearKpiActive();
+    document.getElementById('dispAlertPanel').classList.remove('visible');
+    if (isAlreadyActive) {
+      faSel.value = '';
+      applyFilters();
+      return;
+    }
+    faSel.value = fase;
+    card.classList.add('kpi-active');
+    activeKpiCard = card;
+    applyFilters();
+    // Scroll suave para a tabela
+    setTimeout(() => document.querySelector('.table-section').scrollIntoView({behavior:'smooth', block:'start'}), 150);
+  }
+
+  function filterByDisp(card) {
+    const isAlreadyActive = activeKpiCard === card;
+    clearKpiActive();
+    const faSel = document.getElementById('filterFase');
+    if (isAlreadyActive) {
+      faSel.value = '';
+      document.getElementById('dispAlertPanel').classList.remove('visible');
+      applyFilters();
+      return;
+    }
+    // Ativar card vermelho + mostrar painel + filtrar tabela
+    card.classList.add('kpi-active-red');
+    activeKpiCard = card;
+    faSel.value = 'Disp.';
+    document.getElementById('dispAlertPanel').classList.add('visible');
+    applyFilters();
+    // Scroll para o painel de alerta
+    setTimeout(() => document.getElementById('dispAlertPanel').scrollIntoView({behavior:'smooth', block:'start'}), 150);
   }
 
   function applyFilters() {
