@@ -19,7 +19,7 @@
 <link rel="author" href="https://www.perplexity.ai/computer">
 
 <meta charset="UTF-8">
-    <meta name="cache-version" content="1775487207">
+    <meta name="cache-version" content="1775488107">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grupo Feiertag — Painel de Mineração</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -4087,7 +4087,7 @@ tbody td {
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              <span>Leilão complexo R$ 37,6M em risco</span>
+              <span>Melhor negociação: R$ 69,9M (economia R$ 55,2M — 44%)</span>
             </div>
             <div class="resumo-detail-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg>
@@ -4685,6 +4685,26 @@ tbody td {
         </div>
       </div>
 
+      <!-- KPI Economia Total -->
+      <div style="background:linear-gradient(135deg,rgba(32,128,141,0.12),rgba(63,185,80,0.10));border:1px solid rgba(63,185,80,0.25);border-radius:var(--radius-md);padding:18px 22px;margin-bottom:16px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;">
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Passivo Total (valor corrigido)</div>
+          <div style="font-size:1.6rem;font-weight:700;color:var(--red);">R$ 125.185.281,36</div>
+        </div>
+        <div style="font-size:1.4rem;color:var(--text-muted);">→</div>
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Economia potencial (PGFN + Extinção)</div>
+          <div style="font-size:1.6rem;font-weight:700;color:var(--green);">− R$ 55.237.638,99</div>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">PGFN −50%/−40%/−30% · Extinção −100%</div>
+        </div>
+        <div style="font-size:1.4rem;color:var(--text-muted);">=</div>
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Melhor cenário de liquidação</div>
+          <div style="font-size:1.6rem;font-weight:700;color:var(--teal);">R$ 69.947.642,37</div>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Redução de <strong style="color:var(--green);">44%</strong> sobre o passivo atual</div>
+        </div>
+      </div>
+
       <!-- Alerta PGFN Prazo -->
       <div style="background:rgba(234,179,8,0.08);border:1px solid rgba(234,179,8,0.3);border-radius:var(--radius-md);padding:16px;margin-bottom:20px;display:flex;align-items:flex-start;gap:12px;">
         <span style="font-size:1.3rem;">⚠️</span>
@@ -4754,24 +4774,100 @@ tbody td {
       </div>
 
       <!-- Distribuição por Empresa -->
-      <h3 style="font-size:0.9rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Distribuição por Empresa (processos c/ sobreposição)</h3>
+      <h3 style="font-size:0.9rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Exposição por Empresa — Melhor Cenário de Negociação</h3>
+      <p style="font-size:0.75rem;color:var(--text-muted);margin-bottom:12px;">
+        ⚠️ Processos com múltiplos executados são contados para cada empresa — a soma das linhas é maior que R$ 125,2M (sobreposição esperada).
+        "Valor Negociado" = melhor cenário: PGFN Alta −50% · PGFN Média −40% · PGFN Baixa −30% · Extinção Judicial −100% · Parcelados sem desconto adicional.
+      </p>
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-bottom:20px;">
-        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.81rem;">
           <thead>
             <tr style="background:var(--bg-elevated);">
-              <th style="text-align:left;padding:10px 14px;color:var(--text-secondary);font-weight:600;border-bottom:1px solid var(--border);">Empresa</th>
-              <th style="text-align:right;padding:10px 14px;color:var(--text-secondary);font-weight:600;border-bottom:1px solid var(--border);">Processos</th>
+              <th style="text-align:left;padding:10px 14px;color:var(--text-secondary);font-weight:600;border-bottom:1px solid var(--border);">Empresa / Executado</th>
+              <th style="text-align:right;padding:10px 14px;color:var(--text-secondary);font-weight:600;border-bottom:1px solid var(--border);">Proc.</th>
               <th style="text-align:right;padding:10px 14px;color:var(--text-secondary);font-weight:600;border-bottom:1px solid var(--border);">Valor Exposto</th>
+              <th style="text-align:right;padding:10px 14px;color:var(--text-secondary);font-weight:600;border-bottom:1px solid var(--border);">Economia Potencial</th>
+              <th style="text-align:right;padding:10px 14px;color:var(--green);font-weight:600;border-bottom:1px solid var(--border);">Melhor Negociado</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 14px;color:var(--text-primary);">BRAMINEX BRASILEIRA</td><td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">139</td><td style="padding:9px 14px;text-align:right;color:var(--red);font-weight:600;">R$ 84.258.423,07</td></tr>
-            <tr style="border-bottom:1px solid var(--border);background:var(--bg-card-hover);"><td style="padding:9px 14px;color:var(--text-primary);">GRANBRASIL</td><td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">136</td><td style="padding:9px 14px;text-align:right;color:var(--orange);font-weight:600;">R$ 50.492.554,31</td></tr>
-            <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 14px;color:var(--text-primary);">TRIANON</td><td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">31</td><td style="padding:9px 14px;text-align:right;color:var(--yellow);font-weight:600;">R$ 25.876.600,50</td></tr>
-            <tr style="border-bottom:1px solid var(--border);background:var(--bg-card-hover);"><td style="padding:9px 14px;color:var(--text-primary);">BRAMINEX MIN. LTDA</td><td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">40</td><td style="padding:9px 14px;text-align:right;color:var(--text-primary);font-weight:600;">R$ 25.120.900,59</td></tr>
-            <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 14px;color:var(--text-primary);">BRAMINEX MIN. CALCÁRIO</td><td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">19</td><td style="padding:9px 14px;text-align:right;color:var(--text-primary);font-weight:600;">R$ 21.404.880,76</td></tr>
-            <tr style="border-bottom:1px solid var(--border);background:var(--bg-card-hover);"><td style="padding:9px 14px;color:var(--text-primary);">ROMA ADM</td><td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">27</td><td style="padding:9px 14px;text-align:right;color:var(--text-primary);font-weight:600;">R$ 20.934.684,08</td></tr>
-            <tr style="background:var(--bg-elevated);"><td style="padding:9px 14px;color:var(--text-secondary);font-weight:600;">⚠️ Obs.: sobreposição entre empresas — proc. multi-executado conta para todas</td><td colspan="2" style="padding:9px 14px;text-align:right;color:var(--text-muted);font-size:0.75rem;">Total único: 307 proc. / R$ 125,2M</td></tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:9px 14px;color:var(--text-primary);font-weight:600;">BRAMINEX BRASILEIRA</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">138</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--red);font-weight:600;">R$ 84.258.423,07</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 39.291.002,48 <span style="font-size:0.7rem;opacity:0.7;">(47%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 44.967.420,59</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:var(--bg-card-hover);">
+              <td style="padding:9px 14px;color:var(--text-primary);font-weight:600;">ROLAND</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">112</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--red);font-weight:600;">R$ 53.950.157,57</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 24.161.404,19 <span style="font-size:0.7rem;opacity:0.7;">(45%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 29.788.753,38</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:9px 14px;color:var(--text-primary);font-weight:600;">GRANBRASIL</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">136</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--orange);font-weight:600;">R$ 50.492.554,31</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 21.870.326,66 <span style="font-size:0.7rem;opacity:0.7;">(43%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 28.622.227,65</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:var(--bg-card-hover);">
+              <td style="padding:9px 14px;color:var(--text-primary);font-weight:600;">BRAMINEX MIN. LTDA</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">40</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--yellow);font-weight:600;">R$ 25.120.900,59</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 12.204.442,02 <span style="font-size:0.7rem;opacity:0.7;">(49%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 12.916.458,57</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:9px 14px;color:var(--text-primary);font-weight:600;">TRIANON</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">31</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--yellow);font-weight:600;">R$ 25.876.600,50</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 11.177.070,61 <span style="font-size:0.7rem;opacity:0.7;">(43%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 14.699.529,89</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:var(--bg-card-hover);">
+              <td style="padding:9px 14px;color:var(--text-primary);font-weight:600;">BRAMINEX MIN. CALCÁRIO</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">19</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-primary);font-weight:600;">R$ 21.404.880,76</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 11.102.797,12 <span style="font-size:0.7rem;opacity:0.7;">(52%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 10.302.083,64</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:9px 14px;color:var(--text-primary);font-weight:600;">ROMA ADM</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">27</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-primary);font-weight:600;">R$ 20.934.684,08</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 10.322.636,54 <span style="font-size:0.7rem;opacity:0.7;">(49%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 10.612.047,54</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:var(--bg-card-hover);">
+              <td style="padding:9px 14px;color:var(--text-primary);font-weight:600;">ROGÉRIO</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">31</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-primary);font-weight:600;">R$ 20.930.073,82</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 10.105.857,61 <span style="font-size:0.7rem;opacity:0.7;">(48%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 10.824.216,21</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:9px 14px;color:var(--text-primary);">ROLAND JR</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">12</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-primary);">R$ 4.554.741,75</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 1.100.034,02 <span style="font-size:0.7rem;opacity:0.7;">(24%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 3.454.707,73</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:var(--bg-card-hover);">
+              <td style="padding:9px 14px;color:var(--text-primary);">DANIEL</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-secondary);">8</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--text-primary);">R$ 2.220.040,81</td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);">R$ 904.369,70 <span style="font-size:0.7rem;opacity:0.7;">(41%)</span></td>
+              <td style="padding:9px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 1.315.671,11</td>
+            </tr>
+            <!-- Linha de total único -->
+            <tr style="background:var(--bg-elevated);border-top:2px solid var(--border-light);">
+              <td style="padding:10px 14px;color:var(--text-primary);font-weight:700;" colspan="2">TOTAL ÚNICO DO GRUPO (sem sobreposição)</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--red);font-weight:700;">R$ 125.185.281,36</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--green);font-weight:700;">R$ 55.237.638,99</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--green);font-weight:700;font-size:0.95rem;">R$ 69.947.642,37</td>
+            </tr>
           </tbody>
         </table>
       </div>
