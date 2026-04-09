@@ -21,7 +21,7 @@
 <meta charset="UTF-8">
     <meta name="cache-version" content="1775488107">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grupo Feiertag — Painel de Mineração</title>
+<title>Grupo Feiertag — Painel de Inteligência</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3974,6 +3974,64 @@ tbody td {
   color: var(--red);
 }
 
+/* Floating Spreadsheet Button */
+.fab-sheet {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+.fab-sheet a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  transition: all 0.2s ease;
+}
+.fab-sheet a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+}
+.fab-sheet .fab-google {
+  background: linear-gradient(135deg, #0d652d 0%, #137333 100%);
+  color: #fff;
+}
+.fab-sheet .fab-download {
+  background: var(--bg-elevated);
+  color: var(--teal-light);
+  border: 1px solid var(--border-light);
+}
+.sheet-link-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(63,185,80,0.1);
+  border: 1px solid rgba(63,185,80,0.2);
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 8px;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+.sheet-link-inline:hover {
+  background: rgba(63,185,80,0.25);
+  border-color: rgba(63,185,80,0.4);
+  transform: scale(1.1);
+}
+
 </style>
 </head>
 <body>
@@ -4010,6 +4068,7 @@ tbody td {
     <a href="#patrimonioSection" class="nav-link" data-section="patrimonioSection">Patrimônio</a>
     <a href="#epeSection" class="nav-link" data-section="epeSection">EPE</a>
     <a href="javascript:void(0)" class="nav-link" onclick="openChatOrg()">Conversas</a>
+    <a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="nav-link nav-sheet-link" style="background:rgba(63,185,80,0.15);color:#3fb950;border:1px solid rgba(63,185,80,0.3);font-weight:600;">📊 Planilha Completa</a>
   </div>
 </nav>
 
@@ -4029,7 +4088,7 @@ tbody td {
     <!-- ===== RESUMO EXECUTIVO ===== -->
     <div id="resumoExecutivo" class="resumo-executivo">
       <div class="resumo-header">
-        <h2>Resumo Executivo</h2>
+        <h2>Resumo Executivo</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit#gid=0" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="resumo-subtitle">Visão consolidada de todos os módulos</span>
       </div>
       <div class="resumo-grid">
@@ -4370,7 +4429,7 @@ tbody td {
     <!-- DATA TABLE -->
     <div class="table-section">
       <div class="table-header">
-        <h2>Registro de Processos</h2>
+        <h2>Registro de Processos</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="table-count" id="tableCount">— registros</span>
       </div>
       <div class="table-container">
@@ -4401,7 +4460,7 @@ tbody td {
     <div class="juridicos-section" id="juridicosSection">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--blue);flex-shrink:0;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        <h2>Processos Jurídicos</h2>
+        <h2>Processos Jurídicos</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="title-line"></span>
         <span class="title-badge">Trabalhista / Fiscal</span>
       </div>
@@ -4512,7 +4571,7 @@ tbody td {
     <div class="pendencias-section" id="pendenciasSection">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--red);flex-shrink:0;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <h2>Pendências e Plano de Ação</h2>
+        <h2>Pendências e Plano de Ação</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="title-line"></span>
         <span class="title-badge">Trabalhista</span>
       </div>
@@ -4594,7 +4653,7 @@ tbody td {
     <div class="pgfn-section" id="pgfnSection">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--yellow);flex-shrink:0;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        <h2>Dívida PGFN — Transação Tributária</h2>
+        <h2>Dívida PGFN — Transação Tributária</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="title-line"></span>
         <span class="title-badge" style="background:rgba(234,179,8,0.15);color:#eab308;">Federal</span>
       </div>
@@ -4701,7 +4760,7 @@ tbody td {
     <div class="pgfn-section" id="analiseEstrategicaSection" style="margin-top:32px;">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--teal);flex-shrink:0;"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-        <h2>Análise Estratégica Processual</h2>
+        <h2>Análise Estratégica Processual</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="title-line"></span>
         <span class="title-badge" style="background:rgba(32,128,141,0.15);color:var(--teal);">Atualizado 06/04/2026</span>
       </div>
@@ -4944,7 +5003,7 @@ tbody td {
         <h2>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           Portfólio Jurídico Consolidado
-        </h2>
+        </h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="title-badge">ABR/2026</span>
       </div>
 
@@ -5027,7 +5086,7 @@ tbody td {
         <h2>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           Avaliação de Ativos Minerários
-        </h2>
+        </h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="title-badge">INVESTIMENTO</span>
       </div>
 
@@ -5558,7 +5617,7 @@ tbody td {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           Patrimônio Imobiliário & Ações Judiciais
           <span class="title-badge">ATIVOS</span>
-        </h2>
+        </h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
       </div>
 
       <!-- KPI Cards -->
@@ -5751,7 +5810,7 @@ tbody td {
         <h2>
           Exceções de Pré-Executividade
           <span class="title-badge">ABR/2026</span>
-        </h2>
+        </h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="title-line"></span>
       </div>
       <p class="epe-subtitle">Dr. Pedro Henrique Merote Sacramento — OAB/ES 35.959</p>
@@ -6131,7 +6190,7 @@ tbody td {
     <div class="alerts-section" id="alertsSection">
       <div class="alerts-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <h2>Ações Pendentes</h2>
+        <h2>Ações Pendentes</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="alerts-count" id="alertsCount">0</span>
       </div>
       <div id="alertsBody"></div>
@@ -8381,6 +8440,16 @@ function toggleGuarapariCard() {
   <div class="cop-stats" id="copStats"></div>
   
   <div class="cop-content" id="copContent"></div>
+</div>
+
+<!-- Floating Spreadsheet Access -->
+<div class="fab-sheet">
+  <a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="fab-google" title="Abrir Planilha no Google Sheets">
+    📊 Google Sheets
+  </a>
+  <a href="https://github.com/fbclimoges-svg/feiertag-painel/raw/main/Grupo_Feiertag_Processos_Completo.xlsx" class="fab-download" title="Download XLSX">
+    ⬇ Download XLSX
+  </a>
 </div>
 
 </body>
