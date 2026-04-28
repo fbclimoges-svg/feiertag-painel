@@ -3769,6 +3769,7 @@ tbody td {
 .epe-badge.prescrito { background: var(--green-bg); color: var(--green); }
 .epe-badge.incompleto { background: var(--yellow-bg); color: var(--yellow); }
 .epe-badge.alerta { background: var(--red-bg); color: var(--red); }
+.epe-badge.analise { background: var(--teal-bg); color: var(--teal-light); }
 
 /* EPE issues card */
 .epe-issues-card {
@@ -6363,9 +6364,9 @@ tbody td {
           <div class="pend-kpi-icon" style="background:var(--teal-bg);color:var(--teal-light);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <div class="pend-kpi-value">8</div>
+          <div class="pend-kpi-value">9</div>
           <div class="pend-kpi-label">Petições</div>
-          <div class="pend-kpi-sub">EPE protocoladas</div>
+          <div class="pend-kpi-sub">8 protocoladas + 1 em análise</div>
         </div>
         <div class="pend-kpi-card accent-green">
           <div class="pend-kpi-icon" style="background:var(--green-bg);color:var(--green);">
@@ -6608,6 +6609,33 @@ tbody td {
                   <div class="dl"><div class="dt">Tempo Prescricional</div><div class="dd">6,9 anos</div></div>
                 </div>
                 <div class="epe-alert-note warn">⚠ Vulnerabilidade argumentativa: o marco prescricional utilizado é uma <strong>penhora positiva</strong>, não a ausência de bens. A Fazenda pode contestar este marco, pois a penhora é ato de movimentação processual. Considerar ajuste da fundamentação.</div>
+              </td>
+            </tr>
+            <!-- Row 9: NOVO ACHADO — em análise -->
+            <tr class="epe-data-row" onclick="toggleEpeDetail(9)">
+              <td style="color:var(--text-muted);font-family:var(--font-mono);">9</td>
+              <td style="font-family:var(--font-mono);font-size:0.72rem;">0000318-44.2005.4.02.5002</td>
+              <td style="color:var(--text-secondary);">A confirmar</td>
+              <td style="color:var(--text-secondary);">A confirmar</td>
+              <td style="color:var(--text-secondary);">3ª Vara Fed. Exec. Fiscal</td>
+              <td style="font-family:var(--font-mono);">16/12/2025</td>
+              <td style="color:var(--text-secondary);">verificar</td>
+              <td><span class="epe-badge analise">◐ EM ANÁLISE</span></td>
+              <td style="color:var(--teal-light);font-size:0.75rem;">Achado DataJud · eproc indisp.</td>
+            </tr>
+            <tr class="epe-detail-row" id="epeDetail9">
+              <td colspan="9">
+                <div class="epe-detail-grid">
+                  <div class="dl"><div class="dt">Processo</div><div class="dd">0000318-44.2005.4.02.5002</div></div>
+                  <div class="dl"><div class="dt">Classe</div><div class="dd">Execução Fiscal — Dívida Ativa</div></div>
+                  <div class="dl"><div class="dt">Vara</div><div class="dd">3ª Vara Fed. Exec. Fiscal de Vitória/ES</div></div>
+                  <div class="dl"><div class="dt">Distribuição</div><div class="dd">20/05/2005 — sorteio</div></div>
+                  <div class="dl"><div class="dt">Sistema</div><div class="dd">Projudi (eletrônico)</div></div>
+                  <div class="dl"><div class="dt">Última atualização</div><div class="dd">13/01/2026 (DataJud)</div></div>
+                  <div class="dl"><div class="dt">Última decisão</div><div class="dd">16/12/2025 — Outras Decisões</div></div>
+                  <div class="dl"><div class="dt">Status</div><div class="dd">EM ANÁLISE — verificar partes e teor da decisão</div></div>
+                </div>
+                <div class="epe-alert-note">ℹ <strong>Achado em 28/04/2026 via API DataJud/CNJ.</strong> Mesma vara (3ª VFEF Vitória, Juiz Ronald Kruger Rodor) que conduz o leilão da SEDE Braminex (proc. 0041714-06.2003 Louzada). Histórico típico de execução fiscal estagnada: distribuição 2005 → suspensões em 2007 e 2011 → ausência de pressupostos em 2015 → remessa em grau de recurso 2016 → meros expedientes 2022/2023/2024/2025 → decisão de 16/12/2025. <strong>Próximo passo:</strong> consultar eproc/JFES para identificar executado, CDA e teor da decisão recente — possível candidato a EPE por prescrição intercorrente. Eproc indisponível na consulta de hoje (28/04/2026) por sobrecarga do sistema.</div>
               </td>
             </tr>
           </tbody>
