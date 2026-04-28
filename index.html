@@ -6611,31 +6611,33 @@ tbody td {
                 <div class="epe-alert-note warn">⚠ Vulnerabilidade argumentativa: o marco prescricional utilizado é uma <strong>penhora positiva</strong>, não a ausência de bens. A Fazenda pode contestar este marco, pois a penhora é ato de movimentação processual. Considerar ajuste da fundamentação.</div>
               </td>
             </tr>
-            <!-- Row 9: NOVO ACHADO — em análise -->
+            <!-- Row 9: NOVO ACHADO — em análise (exequente CREA/ES confirmado) -->
             <tr class="epe-data-row" onclick="toggleEpeDetail(9)">
               <td style="color:var(--text-muted);font-family:var(--font-mono);">9</td>
               <td style="font-family:var(--font-mono);font-size:0.72rem;">0000318-44.2005.4.02.5002</td>
-              <td style="color:var(--text-secondary);">A confirmar</td>
-              <td style="color:var(--text-secondary);">A confirmar</td>
+              <td style="color:var(--text-secondary);">BRAMINEX (a confirmar razão social)</td>
+              <td>CREA/ES</td>
               <td style="color:var(--text-secondary);">3ª Vara Fed. Exec. Fiscal</td>
               <td style="font-family:var(--font-mono);">16/12/2025</td>
               <td style="color:var(--text-secondary);">verificar</td>
               <td><span class="epe-badge analise">◐ EM ANÁLISE</span></td>
-              <td style="color:var(--teal-light);font-size:0.75rem;">Achado DataJud · eproc indisp.</td>
+              <td style="color:var(--teal-light);font-size:0.75rem;">CREA/ES · teor decisão pendente</td>
             </tr>
             <tr class="epe-detail-row" id="epeDetail9">
               <td colspan="9">
                 <div class="epe-detail-grid">
                   <div class="dl"><div class="dt">Processo</div><div class="dd">0000318-44.2005.4.02.5002</div></div>
                   <div class="dl"><div class="dt">Classe</div><div class="dd">Execução Fiscal — Dívida Ativa</div></div>
+                  <div class="dl"><div class="dt">Exequente</div><div class="dd">CREA/ES (Conselho Regional de Engenharia e Agronomia do ES)</div></div>
+                  <div class="dl"><div class="dt">Executada</div><div class="dd">Grupo BRAMINEX (S/A ou Mineração Ltda — confirmar no eproc)</div></div>
                   <div class="dl"><div class="dt">Vara</div><div class="dd">3ª Vara Fed. Exec. Fiscal de Vitória/ES</div></div>
                   <div class="dl"><div class="dt">Distribuição</div><div class="dd">20/05/2005 — sorteio</div></div>
                   <div class="dl"><div class="dt">Sistema</div><div class="dd">Projudi (eletrônico)</div></div>
                   <div class="dl"><div class="dt">Última atualização</div><div class="dd">13/01/2026 (DataJud)</div></div>
                   <div class="dl"><div class="dt">Última decisão</div><div class="dd">16/12/2025 — Outras Decisões</div></div>
-                  <div class="dl"><div class="dt">Status</div><div class="dd">EM ANÁLISE — verificar partes e teor da decisão</div></div>
+                  <div class="dl"><div class="dt">Status</div><div class="dd">EM ANÁLISE — aguardando eproc para teor da decisão</div></div>
                 </div>
-                <div class="epe-alert-note">ℹ <strong>Achado em 28/04/2026 via API DataJud/CNJ.</strong> Mesma vara (3ª VFEF Vitória, Juiz Ronald Kruger Rodor) que conduz o leilão da SEDE Braminex (proc. 0041714-06.2003 Louzada). Histórico típico de execução fiscal estagnada: distribuição 2005 → suspensões em 2007 e 2011 → ausência de pressupostos em 2015 → remessa em grau de recurso 2016 → meros expedientes 2022/2023/2024/2025 → decisão de 16/12/2025. <strong>Próximo passo:</strong> consultar eproc/JFES para identificar executado, CDA e teor da decisão recente — possível candidato a EPE por prescrição intercorrente. Eproc indisponível na consulta de hoje (28/04/2026) por sobrecarga do sistema.</div>
+                <div class="epe-alert-note">ℹ <strong>Achado em 28/04/2026 via API DataJud/CNJ; exequente CREA/ES confirmado pelo cliente.</strong> Mesma vara (3ª VFEF Vitória, Juiz Ronald Kruger Rodor) que conduz o leilão da SEDE Braminex (proc. 0041714-06.2003 Louzada). Histórico típico de execução fiscal estagnada: distribuição 2005 → suspensões em 2007 e 2011 → ausência de pressupostos em 2015 → remessa em grau de recurso 2016 → meros expedientes 2022/2023/2024/2025 → decisão de 16/12/2025. <strong>Cluster CREA/ES na 3ª VFEF/4ª VFEF:</strong> alinha-se com os procs 0000313-22.2005 (Row 1, INCOMPLETO), 0000399-90.2005 (Row 3, PRESCRITO), 0000889-15.2005 (Row 2, PRESCRITO) e 0000979-76.2012 (Row 5, PRESCRITO) — todos do mesmo exequente. <strong>Próximo passo:</strong> quando o eproc voltar ao ar, ler decisão de 16/12/2025 para classificar como PRESCRITO (provável, dado o padrão da série) ou em curso. Cron diário 03:00 BRT (id 53d0e7f6) tentará automaticamente.</div>
               </td>
             </tr>
           </tbody>
