@@ -3,10 +3,11 @@
 Fonte única de verdade para o imóvel da família Feiertag.
 
 > **🆕 v4 — NOVOS ACHADOS:**
-> 1. Processo judicial origem do bloqueio ANM 09/10/2025 **identificado**: execuções fiscais federais União vs Braminex na 4ª VFEF Vitória/ES (proc. 0001140-96.2006.4.02.5002 e 0002027-46.2007.4.02.5002).
-> 2. **Roland Feiertag aparece como DEPOSITÁRIO** dos bens da Braminex no proc. 0001140-96.2006.4.02.5002/ES — conexão pessoal-jurídica documentada nos autos federais.
-> 3. Ofício à ANM redigido (`02_peticoes/03-Oficio-ANM-Solicitacao-Copia-Integral.pdf`).
-> 4. Pedido LAI SEOP final preenchido (`03_pecas_administrativas/04-Pedido-LAI-SEOP-FINAL.pdf`).
+> 1. **Polígono ANM 806.774/1977 georreferenciado capturado** (SIGMINE/ANM): 8,85 ha em Cavalcanti/Engenheiro Leal/RJ, centróide a apenas **51 metros** da Rua Silva Vale. **Sobreposição altíssima** — o subsolo do imóvel está onerado por direito mineral em fase de Requerimento de Lavra desde 1985. Mapa em `01_mapa_e_relatorio/MAPA_sobreposicao_ANM_806774.png`. Relatório em `01_mapa_e_relatorio/RELATORIO-Sobreposicao-ANM-Silva-Vale.pdf`.
+> 2. **Processo judicial origem do bloqueio ANM 09/10/2025 identificado**: execuções fiscais federais União vs Braminex na 4ª VFEF Vitória/ES (proc. 0001140-96.2006.4.02.5002 e 0002027-46.2007.4.02.5002).
+> 3. **Roland Feiertag aparece como DEPOSITÁRIO** dos bens da Braminex no proc. 0001140-96.2006.4.02.5002/ES — conexão pessoal-jurídica documentada nos autos federais.
+> 4. **Ofício à ANM** redigido (`02_peticoes/03-Oficio-ANM-Solicitacao-Copia-Integral.pdf`) · **LAI SEOP final preenchida** (`03_pecas_administrativas/04-Pedido-LAI-SEOP-FINAL.pdf`).
+> 5. **Inventário Angelina Pinho Novo**: busca no TJRJ (1ª+2ª instância, Conselho Recursal, Juizados, VEP) **não retornou processo** — provável inventário extrajudicial (CENSEC) ou anterior à digitalização; recomenda-se busca em cartórios de notas do RJ (útil para regularização registral, não impeditivo à adjudicação).
 
 ---
 
@@ -172,7 +173,7 @@ DOSSIE-COMPLETO.zip                        (pacote integral)
 | Nome final Angelina | ✅ Angelina Pinho Novo (antes Corrêa de Pinho · viúva em 1979) | Escritura 1979 |
 | Idade Roland | ✅ **81 anos** (19/06/1945) → art. 71 Estatuto do Idoso (prioritária) | Confirmado 22/06/2026 |
 | Endereço atual Roland | ✅ **10316 Portoromano Dr, Fort Myers FL 33913 (EUA)** | Confirmado 22/06/2026 |
-| Status inventário Angelina | ⏳ Pendente — TJRJ exige captcha/login, recomenda-se busca presencial via Defensoria ou cartório do último domicílio | A confirmar |
+| Status inventário Angelina | ⚠️ **Não localizado no TJRJ** (busca completa em 1ª+2ª inst., Cons. Recursal, Juizados, VEP em 22/06/2026) — provável extrajudicial/CENSEC ou anterior à digitalização | TJRJ portal pesquisa.processual + CENSEC |
 | Nº processo ANM/DNPM | ✅ **806.774/1977** (Braminex · granito · 8,86 ha · Área bloqueada judicialmente 09/10/2025) | Confirmado 22/06/2026 |
 | Doc operação SEOP abril/2022 | ⏳ LAI **final preenchida** pronta para protocolo | `03_pecas_administrativas/04-Pedido-LAI-SEOP-FINAL.pdf` |
 | Processo judicial bloqueio ANM | ✅ **4ª VFEF Vitória/ES** — execuções fiscais União vs Braminex | `02_peticoes/PROCESSO-JUDICIAL-Bloqueio-ANM-09-10-2025.pdf` |
