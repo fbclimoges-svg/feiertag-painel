@@ -41,7 +41,7 @@
 >
 > A referida cedente, por sua vez, adquiriu os direitos sobre o imóvel mediante **ESCRITURA PÚBLICA DE PROMESSA DE VENDA IRREVOGÁVEL E IRRETRATÁVEL** lavrada em **27 de outubro de 1954** no **11º Ofício de Notas da Comarca da Capital do Estado do Rio de Janeiro**, no **Livro nº 885, às fls. 67-verso** (Tabelião Fernando de Azevedo Milanez), tendo como vendedores os Srs. **ELZA TEIXEIRA DE MATOS VIEIRA** e marido, **SEBASTIÃO TEIXEIRA DA COSTA** e cônjuge, **ANTÔNIO TEIXEIRA DA COSTA NETTO** e cônjuge, **LUIZ TEIXEIRA DA COSTA** e cônjuge, e **JOÃO TEIXEIRA DA COSTA**, herdeiros do espólio do finado **ANTÔNIO TEIXEIRA DA COSTA JUNIOR**, conforme Formal de Partilha exibido na sentença de 15/11/1953 do MM. Juiz de Direito Dr. José Cândido Sampaio de Lacerda, da 2ª Vara de Órfãos e Sucessões, 3º Ofício.
 >
-> Desde a imissão na posse em **14/11/1979**, há mais de **40 (quarenta) anos**, o Requerente exerce **posse mansa, pacífica, contínua e ininterrupta** sobre o imóvel, com **animus domini**, tendo nele instalado e operado marmoraria e armazém de distribuição, bem como obtido **registro mineral perante a ANM/DNPM** [nº do processo a confirmar], e arcado com o pagamento integral dos tributos e encargos incidentes sobre a propriedade.
+> Desde a imissão na posse em **14/11/1979**, há mais de **40 (quarenta) anos**, o Requerente exerce **posse mansa, pacífica, contínua e ininterrupta** sobre o imóvel, com **animus domini**, tendo nele instalado e operado marmoraria e armazém de distribuição, bem como obtido **registro mineral perante a ANM/DNPM** através de sua empresa **BRAMINEX BRASILEIRA DE MÁRMORE EXPORTADORA S/A** (CNPJ 27.074.343/0003-19, filial Cavalcanti/RJ), titular do **Processo ANM nº 806.774/1977** (substancia granito, área 8,86 ha), atualmente com área bloqueada judicialmente conforme publicação de 09/10/2025, e arcado com o pagamento integral dos tributos e encargos incidentes sobre a propriedade.
 
 ---
 
@@ -64,7 +64,7 @@
 | RG Angelina | ✅ Preenchido | 571.392 IFP |
 | Advogada/OAB | ✅ Preenchido | Dra. Lilian da Cunha Demartini · OAB/ES 16.501 |
 | Cadeia documental | ✅ Comprovada | Escrituras 1954 + 1979 integrais |
-| Nº processo ANM/DNPM | ⏳ Pendente | Roland deve localizar o processo nos seus arquivos |
+| **Processo ANM/DNPM** | ✅ **806.774/1977** (Braminex · granito · 8,86 ha · RJ · ÁREA BLOQUEADA JUDICIALMENTE 09/10/2025) | Confirmado 22/06/2026 |
 | Status inventário Angelina | ⏳ Pendente | Verificar se foi aberto/concluído após óbito |
 | Doc. operação SEOP abr/2022 | ⏳ Pendente | LAI já preparada (03_pecas_administrativas/04-Pedido-LAI-SEOP.pdf) |
 

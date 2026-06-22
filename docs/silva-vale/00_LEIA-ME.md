@@ -151,7 +151,7 @@ DOSSIE-COMPLETO.zip                        (pacote integral)
 | Idade Roland | ✅ **81 anos** (19/06/1945) → art. 71 Estatuto do Idoso (prioritária) | Confirmado 22/06/2026 |
 | Endereço atual Roland | ✅ **10316 Portoromano Dr, Fort Myers FL 33913 (EUA)** | Confirmado 22/06/2026 |
 | Status inventário Angelina | ⏳ Pendente | A confirmar |
-| Nº processo ANM/DNPM | ⏳ Pendente | A localizar nos arquivos do Roland |
+| Nº processo ANM/DNPM | ✅ **806.774/1977** (Braminex · granito · 8,86 ha · Área bloqueada judicialmente 09/10/2025) | Confirmado 22/06/2026 |
 | Doc operação SEOP abril/2022 | ⏳ Pendente | LAI já preparada |
 
 ---
