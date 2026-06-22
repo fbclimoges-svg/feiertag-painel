@@ -148,20 +148,23 @@ DOSSIE-COMPLETO.zip                        (pacote integral)
 | CPF Angelina | ✅ **058.166.377** | Escritura 1979 |
 | RG Angelina | ✅ **571.392 IFP** | Escritura 1979 |
 | Nome final Angelina | ✅ Angelina Pinho Novo (antes Corrêa de Pinho · viúva em 1979) | Escritura 1979 |
-| Idade exata Roland | ⏳ Necessário (≥80 anos → Estatuto do Idoso art. 71) | Pendente |
+| Idade Roland | ✅ **81 anos** (19/06/1945) → art. 71 Estatuto do Idoso (prioritária) | Confirmado 22/06/2026 |
+| Endereço atual Roland | ✅ **10316 Portoromano Dr, Fort Myers FL 33913 (EUA)** | Confirmado 22/06/2026 |
 | Status inventário Angelina | ⏳ Pendente | A confirmar |
-| Nº processo ANM/DNPM | ⏳ Pendente | A confirmar com Roland |
+| Nº processo ANM/DNPM | ⏳ Pendente | A localizar nos arquivos do Roland |
 | Doc operação SEOP abril/2022 | ⏳ Pendente | LAI já preparada |
 
 ---
 
 ## 6. Próximos passos sugeridos
 
-1. **Atualizar petições 01 e 02** substituindo placeholders pelos dados confirmados (CPF, RG, estado civil, OAB)
+1. **Usar ficha de qualificação pronta** — `02_peticoes/QUALIFICACAO-COMPLETA-Roland-Feiertag.md` contém todos os dados em texto pronto para copiar-colar nas peças
 2. **Anexar escrituras integrais** (07_/) como provas documentais — evita necessidade de prova testemunhal sobre a origem
-3. **Solicitar a Roland**: idade exata · endereço atual · cópia do ANM/DNPM
-4. **Contatar Dra. Lilian (OAB/ES 16.501)** para validar estratégia A.1 (adjudicação compulsória extrajudicial) com a documentação completa
-5. **Iniciar A.1** — com dois títulos públicos íntegros e parecer técnico, a via tem **>90% de probabilidade**
+3. **Procuração consularizada/apostilada em Miami** para Dra. Lilian Demartini atuar em nome de Roland (residente nos EUA)
+4. **Marilia Moraes Feiertag** deve figurar no polo ativo (comunhão de bens, CPC art. 73)
+5. **Invocar art. 71 do Estatuto do Idoso** no preâmbulo (Roland tem 81 anos → tramitação prioritária)
+6. **Localizar ANM/DNPM** nos arquivos físicos do Roland (ref. marmoraria/distribuição)
+7. **Iniciar A.1 (adjudicação compulsória extrajudicial)** — dois títulos públicos + parecer técnico = **>90% probabilidade**
 
 ---
 
