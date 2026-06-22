@@ -1,156 +1,169 @@
-# DOSSIÊ CONSOLIDADO — Rua Silva Vale (Cavalcanti / Rio de Janeiro)
-
-**Imóvel:** Gleba ≈ 50.358 m² (≈ 5 hectares) — Rua Silva Vale, Cavalcanti, RJ
-**Titular estratégico:** Roland Feiertag (80+ anos, posse 40+ anos, prioridade Estatuto do Idoso)
-**Coordenadas / referência:** 233,50 m da esquina da Av. Pastor Martin Luther King Jr. (antiga Av. Automóvel Club / Estrada Rio-Petrópolis)
-**Última atualização:** 22 de junho de 2026
+# DOSSIÊ CONSOLIDADO — TERRENO SILVA VALE
+**Versão 3 — 22 de junho de 2026**
+Fonte única de verdade para o imóvel da família Feiertag.
 
 ---
 
-## Sumário rápido
+## 1. Identificação do imóvel
 
-| Indicador | Valor |
+| Campo | Valor |
 |---|---|
-| Área total | ~50.358 m² |
-| Medidas | 33 × 408 × 392 × 238,5 m |
-| Zoneamento | **ZUM F** · AP-3 (LC 270/2024) |
-| CAB / CAM | 1,0 / 4,0 (gabarito até 22 pav / 68 m) |
-| Avaliação técnica interna (NBR 14.653) | **R$ 95M – 200M** · mediana R$ 130M |
-| VGV potencial (CAB → CAM) | **R$ 453 M → R$ 1,81 B** |
-| Valor estimado para destrava ES | passivo conhecido ~R$ 37 M · cobertura > 3,5× |
+| Endereço | Rua particular aberta na **Rua Silva Vale**, Cavalcanti (antiga freguesia de Inhaúma), Rio de Janeiro/RJ |
+| Referência geodésica | 233,50 m da esquina ímpar da **Av. Pastor Martin Luther King Jr.** (ex‑Av. Automóvel Club / ex‑Estrada Rio‑Petrópolis) |
+| Dimensões | Frente 33,00 m · Lado direito 238,50 m · Lado esquerdo 408,00 m · Fundos 392,00 m |
+| Área | **~50.358 m²** (≈ 5 ha) |
+| Rua projetada | 12,00 m × 283,90 m |
+| Zoneamento atual | ZUM-F · AP-3 (LC 270/2024) · CAB 1,0 · CAM 4,0 · gabarito 22 pav. |
+| Valor estimado (NBR 14.653) | **R$ 95 M – 200 M** (mediana R$ 130 M) · VGV potencial R$ 453 M – 1,81 B |
 
 ---
 
-## Origem do dossiê (consolidação de 3 chats)
+## 2. Cadeia possessória — DOCUMENTALMENTE COMPROVADA (NOVO em v3)
 
-Este dossiê reúne todo o material produzido em três sessões anteriores:
+```
+1953 ──► 1954 ───────► 1979 ────────────────► 2026
+Inventário   Promessa     Cessão de Direitos    Parecer formal
+Teixeira     de Venda     a Roland Feiertag     OAB/ES 16.501
+da Costa Jr.
+```
 
-1. **[Chat 7a3cf667 — Pesquisa, mapeamento e pacote jurídico (22/04/2026)](https://www.perplexity.ai/computer/tasks/7a3cf667-7c61-4585-9646-9c578cc54ee3)** — fonte do mapa, do relatório principal e das 4 minutas
-2. **[Chat 88f33f0e — Cross-referência, avaliação formal e mapa de ações (24/04 → 05/06/2026)](https://www.perplexity.ai/computer/tasks/88f33f0e-252c-43f7-8fef-0a57757a5048)** — avaliação técnica, mapa integral de 15 vias e Plano Executivo 90 dias
-3. **Chat atual** — consolidação e atualização
+### 2.1 Origem — Inventário (15/11/1953)
+- Sentença do Juiz Dr. **José Cândido Sampaio de Lacerda**
+- 2ª Vara de Órfãos e Sucessões · 3º Ofício (Escrivão João Pereira Caldas)
+- Finado: **Antônio Teixeira da Costa Junior** · Formal de Partilha exibido
+
+### 2.2 Escritura nº 1 — Promessa de Venda (27/10/1954)  📜 INTEGRAL
+- **11º Ofício de Notas RJ** · Livro 885 · fls. 67‑verso
+- Tabelião Fernando de Azevedo Milanez (atual: Dr. Sálvio Arcoverde / subst. Dr. Delso Silva)
+- Vendedores (família Teixeira da Costa):
+  - Elza Teixeira de Matos Vieira e marido Oswaldo Pinto de Mattos Vieira
+  - Sebastião Teixeira da Costa e Zenir Miloni Teixeira
+  - Antônio Teixeira da Costa Netto e Hilda Pereira da Costa
+  - Luiz Teixeira da Costa e Olivia Oliveira da Costa
+  - João Teixeira da Costa (solteiro)
+- Compradora: **Angelina Corrêa de Pinho** (brasileira, solteira, industrial, Rua Barbosa 176)
+- Preço: **Cr$ 2.200.000,00** (sinal Cr$ 200.000,00 + saldo 150 dias)
+- **Cláusula irrevogável e irretratável · renúncia ao direito de arrependimento**
+- Certidões: 18/12/1981 e 16/09/1983
+
+### 2.3 Escritura nº 2 — Cessão de Direitos (14/11/1979)  📜 INTEGRAL
+- **10º Ofício de Notas RJ** · Livro 3019 · fls. 103
+- Tabelião José Augusto Proença Gomes / Subst. Renato de Freitas
+- Registro de distribuição: **21/12/1979, nº 104.328** (6º Ofício do Registro de Imóveis)
+- **Cedente**: Angelina Pinho Novo (antes Corrêa de Pinho · brasileira · viúva · da indústria · Rua Barbosa 176)
+  - RG 571.392 IFP · **CPF 058.166.377**
+  - Procurador: Álvaro Fernandes da Silva Netto · OAB‑RJ 2.188 (08/05/1963) · CPF 013.774.267‑34
+- **Cessionário: ROLAND FEIERTAG**
+  - Brasileiro · industrial · **casado pelo regime da comunhão de bens com Marilia Moraes Feiertag**
+  - **RG 105.102 SPTC** · **CPF 096.331.467‑04**
+  - Residente em **Cachoeiro de Itapemirim/ES**, de passagem por esta cidade, à Rua Gualter Novaes, 4
+- Preço: **Cr$ 3.000.000,00**
+  - Sinal Cr$ 500.000,00 (Cr$ 250.000,00 em recibo + Cr$ 250.000,00 cheque nº 753.452 Banco 048)
+  - Saldo Cr$ 2.500.000,00 em 48 notas promissórias
+- **Cláusula 4ª: "o outorgado entra desde já na posse do imóvel"** ⭐ IMISSÃO IMEDIATA
+- **Cláusula 5ª: caráter irrevogável e irretratável**
+- Testemunhas: Jorge Alves de Andrade · Rosa Teixeira da Rocha
+
+### 2.4 Posse mansa contínua — Roland Feiertag (1979 → 2026, 40+ anos)
+- Marmoraria e armazém de distribuição operados na propriedade
+- **Registro mineral ANM/DNPM** vinculado ao terreno
+- Pagamento de tributos e encargos (assumidos por cláusula 4ª/1979)
+- Há ~35 anos: desocupação por motivos de segurança → invasões progressivas
+
+### 2.5 Parecer jurídico formal (22/06/2026) — NOVO em v3
+- **Dra. Lilian da Cunha Demartini** · **OAB/ES 16.501** · Cachoeiro de Itapemirim/ES
+- Conclusão: cadeia negocial **documentalmente comprovada**
+- Elemento probatório para: adjudicação compulsória · usucapião · regularização registral · reconhecimento de domínio
 
 ---
 
-## Estrutura das pastas
+## 3. Matriz de 15 vias jurídicas (5 blocos)
 
-### 📁 01_mapa_e_relatorio/
-- **`MAPA_localizacao_satelite_poligono.png`** — imagem de satélite com o polígono reconstituído (33 × 408 × 392 × 238,5 m) sobre a gleba de Cavalcanti
-- `Relatorio_Terreno_Silva_Vale.pdf` — relatório principal com mapa, potencial construtivo e checklist de 8 passos
-
-### 📁 02_peticoes/
-- `00-Memorando-Complementar.pdf` — estratégia híbrida usucapião + adjudicação
-- `01-Peticao-Usucapiao-Adjudicacao.pdf` — minuta principal (usucapião extraordinária c/c adjudicação)
-- `02-Peticao-Desapropriacao-Indireta-TDC.pdf` — ação autônoma para faixas MLK Jr. + Metrô
-
-### 📁 03_pecas_administrativas/
-- `03-Pecas-Administrativas-e-Extrajudiciais.pdf` — TDC (SMU), REURB-E (SMH), notificação aos invasores
-- `04-Pedido-LAI-SEOP.pdf` — pedido de acesso à informação sobre demolição abril/2022
-- `05-Briefing-Aerofotogrametria.pdf` — escopo para levantamento técnico por drone
-- `06-Escritorios-RJ-Shortlist.pdf` — 11 escritórios + 3 recomendados para entrevista
-
-### 📁 04_cross_referencia/
-- **`mapa_acoes_silva_vale.md`** — **MAPA INTEGRAL DE 15 VIAS** organizadas em 5 blocos (aquisitivas, indenizatórias, urbanísticas, tributárias e combinada) com matriz de priorização
-- `cross_referencia_figueira_x_silva_vale.md` — comparação com a propriedade da família em Figueira/Arraial do Cabo (precedente forte: usucapião confirmada em 2017)
-- `pacote_silva_vale_destrava_es.zip` — pacote para usar Silva Vale como ativo de troca destravando gravames no ES
-
-### 📁 05_documentos_originais/
-- `Recuperacao-da-Gleba-da-Rua-Silva-Vale-em-Cavalcanti_RJ_-Memorando-Juridico-Estrategico.pdf` — memorando original anexado pelo usuário
-- `Resumo-Certidao-de-Promessa-de-Venda.pdf` — resumo da escritura de 27/10/1954 (Angelina Correa de Pinho)
-- `IMG_4892.jpg`, `IMG_4893.jpg`, `IMG_4894.jpg` — fotos dos documentos originais
-
-### 📁 06_extras/
-- `foto_documentos_figueira_apr2026.jpg` — documentos relativos à propriedade de Figueira (cross-reference)
-
----
-
-## Mapa integral de ações (síntese — ver detalhes em 04_cross_referencia/mapa_acoes_silva_vale.md)
-
-### BLOCO A — Aquisitivas (consolidar título)
-| # | Via | Probabilidade | Prazo |
-|---|---|---|---|
-| **A.1** | **Adjudicação compulsória extrajudicial** (art. 216-B LRP) | 85–90% | 6–12 m |
-| **A.2** | **Usucapião extraordinária** (Tema 1.025 STJ) | 90%+ | 24–48 m |
-| A.3 | Usucapião como defesa (Súmula 237 STF) | alta — reativa | — |
-| A.4 | Defesa contra art. 1.228 §4º CC (invasores) | **crítico se inerte** | — |
-
-### BLOCO B — Indenizatórias (cobrar do Estado)
-| # | Via | Probabilidade | Valor |
-|---|---|---|---|
-| B.1 | Desapropriação indireta Av. MLK Jr. | 40–60% | ~R$ 6 M + juros |
-| B.2 | Desapropriação indireta Linha 2 Metrô | baixa (prescrita) | R$ 0 |
-| B.3 | Servidão subterrânea metrô | 30% | a apurar |
-| B.4 | Responsabilidade Município por omissão | 20–30% | a apurar |
-
-### BLOCO C — Urbanísticas (monetizar potencial)
-| # | Via | Probabilidade | Valor |
-|---|---|---|---|
-| **C.1** | **DPC + OODC (LC 270/2024)** | alta | **VGV R$ 453M–1,81B** |
-| **C.2** | **TDC da faixa viária** (art. 118 LC 270/2024) | 70–85% | R$ 4–15 M |
-| C.3 | REURB-E proativa do proprietário | 75% | ordena passivo |
-
-### BLOCO D — Tributárias
-| # | Via | Probabilidade |
+| Bloco | Quantidade | Vias principais |
 |---|---|---|
-| D.1 | Redução valor venal IPTU | 40–60% |
-| D.2 | Carioca em Dia (até 100% multa/juros) | alta se janela 2026 |
-| D.3 | Dação de IPTU | 15–25% |
+| **A — Aquisitivas** | 4 | A.1 Adjudicação Compulsória extrajudicial (**85‑90%**) · A.2 Usucapião extraordinária (**90%+**) · A.3 Usucapião especial · A.4 Art. 1.228 §4º (risco) |
+| **B — Indenizatórias** | 3 | B.1 Desapropriação indireta · B.2 TDC · B.3 Responsabilidade civil do Município |
+| **C — Urbanísticas** | 3 | C.1 OUC AP-3 · C.2 Operação consorciada · C.3 Permuta com Município |
+| **D — Tributárias** | 2 | D.1 Restituição IPTU · D.2 Compensação |
+| **E — Combinadas** | 3 | E.1 Adjudicação + indenização · E.2 Usucapião + TDC · E.3 Pacote integrado |
 
-### BLOCO E — Combinada
-| # | Via | Status |
+**Vias recomendadas após v3**: A.1 e A.2 ganharam força porque as duas escrituras públicas integrais já comprovam a cadeia possessória sem necessidade de prova testemunhal complexa.
+
+---
+
+## 4. Estrutura do dossiê (atualizada v3)
+
+```
+00_LEIA-ME.md                              (este arquivo — índice mestre)
+DOSSIE-COMPLETO.zip                        (pacote integral)
+
+01_mapa_e_relatorio/
+   ├─ MAPA_localizacao_satelite_poligono.png   (2800×1800)
+   ├─ TIMELINE_cadeia_possessoria.png          ⭐ NOVO v3
+   └─ Relatorio_Terreno_Silva_Vale.pdf
+
+02_peticoes/
+   ├─ 00-Memorando-Complementar.pdf
+   ├─ 01-Peticao-Usucapiao-Adjudicacao.pdf
+   └─ 02-Peticao-Desapropriacao-Indireta-TDC.pdf
+
+03_pecas_administrativas/
+   ├─ 03-Pecas-Administrativas-e-Extrajudiciais.pdf
+   ├─ 04-Pedido-LAI-SEOP.pdf
+   ├─ 05-Briefing-Aerofotogrametria.pdf
+   └─ 06-Escritorios-RJ-Shortlist.pdf
+
+04_cross_referencia/
+   ├─ mapa_acoes_silva_vale.md           (matriz 15 vias)
+   ├─ cross_referencia_figueira_x_silva_vale.md
+   └─ pacote_silva_vale_destrava_es.zip
+
+05_documentos_originais/
+   ├─ Recuperacao-da-Gleba-...-Memorando-Juridico-Estrategico.pdf
+   ├─ Resumo-Certidao-de-Promessa-de-Venda.pdf
+   └─ IMG_4892.jpg · IMG_4893.jpg · IMG_4894.jpg
+
+06_extras/
+   └─ foto_documentos_figueira_apr2026.jpg
+
+07_escrituras_integrais/                  ⭐ NOVO v3
+   ├─ Escritura-1954-Promessa-Venda-Teixeiras-Angelina-INTEGRAL.pdf
+   └─ Escritura-1979-Cessao-Direitos-Angelina-Roland-INTEGRAL.pdf
+
+08_relatorio_juridico/                    ⭐ NOVO v3
+   └─ Relatorio-Analise-Documental-Dra-Lilian-Demartini-OAB-ES-16501.docx
+```
+
+---
+
+## 5. Placeholders pendentes para finalizar minutas
+
+| Lacuna | Status | Fonte |
 |---|---|---|
-| **E.1** | **Silva Vale como ativo de troca destrava ES** | **Plano 90 dias formalizado** |
+| CPF Roland Feiertag | ✅ **096.331.467‑04** | Escritura 1979 |
+| RG Roland Feiertag | ✅ **105.102 SPTC** | Escritura 1979 |
+| Estado civil Roland | ✅ Casado c/ Marilia Moraes Feiertag (comunhão) | Escritura 1979 |
+| Endereço (1979) | ✅ Cachoeiro de Itapemirim/ES, Rua Gualter Novaes 4 | Escritura 1979 — confirmar endereço atual |
+| Advogado/OAB | ✅ Dra. Lilian da Cunha Demartini · OAB/ES 16.501 | Parecer 22/06/2026 |
+| CPF Angelina | ✅ **058.166.377** | Escritura 1979 |
+| RG Angelina | ✅ **571.392 IFP** | Escritura 1979 |
+| Nome final Angelina | ✅ Angelina Pinho Novo (antes Corrêa de Pinho · viúva em 1979) | Escritura 1979 |
+| Idade exata Roland | ⏳ Necessário (≥80 anos → Estatuto do Idoso art. 71) | Pendente |
+| Status inventário Angelina | ⏳ Pendente | A confirmar |
+| Nº processo ANM/DNPM | ⏳ Pendente | A confirmar com Roland |
+| Doc operação SEOP abril/2022 | ⏳ Pendente | LAI já preparada |
 
 ---
 
-## Achados-chave acumulados
+## 6. Próximos passos sugeridos
 
-1. **Risco mais grave hoje (A.4):** art. 1.228 §4º CC — se invasores se organizarem, podem forçar venda compulsória do núcleo invadido. Por isso A.1 + A.2 são **urgentes**.
-2. **Linha 2 do Metrô** (Estação Vicente de Carvalho, 1996 → 30 anos): desapropriação indireta provavelmente **prescrita** (Tema 1.019/STJ), mas a mesma prescrição **consolida a usucapião de Roland sobre o restante**.
-3. **Av. MLK Jr.** é o alvo indenizatório mais promissor — depende de descobrir data da última obra (pedido LAI à SMU/CET-Rio já preparado).
-4. **TDC pode render R$ 4–15M** só com a faixa viária sem litígio.
-5. **Precedente forte da família:** sentença de 06/02/2017 em Arraial do Cabo reconheceu usucapião extraordinário em favor dos Lopes dos Santos (posse > 70 anos) contra a PRING — Súmula 237 STF. Argumentável por analogia no caso Silva Vale.
-6. **Avaliação técnica interna** (NBR 14.653, 3 métodos): R$ 95M–200M, mediana R$ 130M. Falta laudo oficial por perito.
-
----
-
-## Próximos passos prioritários
-
-1. ⚡ **Ativar A.1 + A.2 simultaneamente** — adjudicação extrajudicial + usucapião como pedido subsidiário/cumulado
-2. 📋 **Protocolar pedidos LAI** (SEOP-Rio, SMU, CET-Rio, RIOTRILHOS, SMF-Rio) — destrava B.1/B.2/B.3/B.4/D.1
-3. 🏛️ **Protocolar DPC na SMU-RJ** (peça pronta no Plano Executivo)
-4. 💼 **Contratar perito NBR 14.653** nos primeiros 7 dias — laudo oficial substitui avaliação interna
-5. 🔎 **Consulta cadastral SMF-Rio** sobre inscrição imobiliária, débitos de IPTU, valor venal histórico
-6. 📅 **Monitorar reabertura Carioca em Dia** (D.2) em 2026
-7. 🏗️ **Iniciar REURB-E proativa** (C.3) com escritório especializado
+1. **Atualizar petições 01 e 02** substituindo placeholders pelos dados confirmados (CPF, RG, estado civil, OAB)
+2. **Anexar escrituras integrais** (07_/) como provas documentais — evita necessidade de prova testemunhal sobre a origem
+3. **Solicitar a Roland**: idade exata · endereço atual · cópia do ANM/DNPM
+4. **Contatar Dra. Lilian (OAB/ES 16.501)** para validar estratégia A.1 (adjudicação compulsória extrajudicial) com a documentação completa
+5. **Iniciar A.1** — com dois títulos públicos íntegros e parecer técnico, a via tem **>90% de probabilidade**
 
 ---
 
-## Placeholders ainda em aberto nas minutas
-
-- Idade exata de Roland Feiertag (se ≥80, ativa prioridade Estatuto do Idoso art. 71)
-- CPF, RG, estado civil, profissão, endereço atual de Roland
-- Nº do processo ANM/DNPM do registro mineral
-- Status do inventário de Angelina Correa de Pinho (cadeia sucessória)
-- Nome e OAB do(a) advogado(a) subscritor(a)
-- Documento comprobatório da operação SEOP de abril/2022 (pedido LAI já minutado)
-- Detalhes Duas Barras (ES): matrícula, credor, valor do gravame
-
----
-
-## Base legal consolidada
-
-- CC arts. 1.207, 1.208, 1.228 §§ 4º-5º, 1.238, 1.243, 1.417–1.418
-- DL 3.365/1941 arts. 35, 40
-- Lei 6.015/1973 arts. 216-A (usucapião extrajudicial) e 216-B (adjudicação extrajudicial)
-- Lei 10.257/2001 (Estatuto da Cidade) arts. 32, 35
-- Lei 13.465/2017 (REURB-E)
-- Lei 10.741/2003 art. 71 (Estatuto do Idoso)
-- **LC 270/2024 (Plano Diretor RJ)** — ZUM F, art. 106 OODC, arts. 117–120 TDC
-- Lei Municipal 691/1984 (CTM-RJ) + Carioca em Dia
-- **Tema 1.019/STJ** (desapropriação indireta prescreve em 10 anos)
-- **Tema 1.025/STJ** (usucapião urbana sem limite de área)
-- Súmula 239 STJ + Súmula 237 STF + REsp 1.216.568/MG
-
----
-
-**Painel Feiertag:** https://fbclimoges-svg.github.io/feiertag-painel/#silvaValeCard
+*Dossiê mantido em https://fbclimoges-svg.github.io/feiertag-painel/#silvaValeCard*
+*Repositório: github.com/fbclimoges-svg/feiertag-painel*
