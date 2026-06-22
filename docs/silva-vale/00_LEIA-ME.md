@@ -1,6 +1,12 @@
 # DOSSIÊ CONSOLIDADO — TERRENO SILVA VALE
-**Versão 3 — 22 de junho de 2026**
+**Versão 4 — 22 de junho de 2026 (tarde)**
 Fonte única de verdade para o imóvel da família Feiertag.
+
+> **🆕 v4 — NOVOS ACHADOS:**
+> 1. Processo judicial origem do bloqueio ANM 09/10/2025 **identificado**: execuções fiscais federais União vs Braminex na 4ª VFEF Vitória/ES (proc. 0001140-96.2006.4.02.5002 e 0002027-46.2007.4.02.5002).
+> 2. **Roland Feiertag aparece como DEPOSITÁRIO** dos bens da Braminex no proc. 0001140-96.2006.4.02.5002/ES — conexão pessoal-jurídica documentada nos autos federais.
+> 3. Ofício à ANM redigido (`02_peticoes/03-Oficio-ANM-Solicitacao-Copia-Integral.pdf`).
+> 4. Pedido LAI SEOP final preenchido (`03_pecas_administrativas/04-Pedido-LAI-SEOP-FINAL.pdf`).
 
 ---
 
@@ -136,6 +142,22 @@ DOSSIE-COMPLETO.zip                        (pacote integral)
 
 ---
 
+## 4-bis. Processo judicial federal — Bloqueio 09/10/2025 (NOVO em v4)
+
+| Item | Conteúdo |
+|---|---|
+| Vara | **4ª Vara Federal de Execução Fiscal de Vitória/ES** |
+| Exequente | União — Fazenda Nacional |
+| Executado | Braminex Brasileira de Mármore Exportadora S/A |
+| Processos federais identificados | 0001140-96.2006.4.02.5002 · 0002027-46.2007.4.02.5002 · 0034021-73.1999.4.02.5002 |
+| Recurso TRF-2 | AI 5016682-44.2023.4.02.0000/ES (efeito suspensivo indeferido) |
+| Roland Feiertag | **DEPOSITÁRIO** dos bens penhorados no proc. 0001140-96.2006.4.02.5002 (5 ha em Duas Barras, Cachoeiro/ES) — Edital out/2025 |
+| Advogado da Braminex | Pedro Henrique Merote Sacramento (OAB/ES 035959) |
+| Mesma data 09/10/2025 também afeta | proc. ANM 890.308/1980 (Muqui/ES) e demais processos da Braminex |
+| Documento detalhado | `02_peticoes/PROCESSO-JUDICIAL-Bloqueio-ANM-09-10-2025.pdf` |
+
+---
+
 ## 5. Placeholders pendentes para finalizar minutas
 
 | Lacuna | Status | Fonte |
@@ -150,9 +172,11 @@ DOSSIE-COMPLETO.zip                        (pacote integral)
 | Nome final Angelina | ✅ Angelina Pinho Novo (antes Corrêa de Pinho · viúva em 1979) | Escritura 1979 |
 | Idade Roland | ✅ **81 anos** (19/06/1945) → art. 71 Estatuto do Idoso (prioritária) | Confirmado 22/06/2026 |
 | Endereço atual Roland | ✅ **10316 Portoromano Dr, Fort Myers FL 33913 (EUA)** | Confirmado 22/06/2026 |
-| Status inventário Angelina | ⏳ Pendente | A confirmar |
+| Status inventário Angelina | ⏳ Pendente — TJRJ exige captcha/login, recomenda-se busca presencial via Defensoria ou cartório do último domicílio | A confirmar |
 | Nº processo ANM/DNPM | ✅ **806.774/1977** (Braminex · granito · 8,86 ha · Área bloqueada judicialmente 09/10/2025) | Confirmado 22/06/2026 |
-| Doc operação SEOP abril/2022 | ⏳ Pendente | LAI já preparada |
+| Doc operação SEOP abril/2022 | ⏳ LAI **final preenchida** pronta para protocolo | `03_pecas_administrativas/04-Pedido-LAI-SEOP-FINAL.pdf` |
+| Processo judicial bloqueio ANM | ✅ **4ª VFEF Vitória/ES** — execuções fiscais União vs Braminex | `02_peticoes/PROCESSO-JUDICIAL-Bloqueio-ANM-09-10-2025.pdf` |
+| Ofício ANM cópia integral | ✅ Redigido | `02_peticoes/03-Oficio-ANM-Solicitacao-Copia-Integral.pdf` |
 
 ---
 
