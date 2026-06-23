@@ -1,8 +1,28 @@
 # DOSSIÊ CONSOLIDADO — TERRENO SILVA VALE
-**Versão 4 — 22 de junho de 2026 (tarde)**
+**Versão 5 — 23 de junho de 2026**
 Fonte única de verdade para o imóvel da família Feiertag.
 
-> **🆕 v4 — NOVOS ACHADOS:**
+> **NOVO em v5 — EXTRATO OFICIAL SCM/ANM CONFIRMA BLOQUEIO JUDICIAL:**
+>
+> O extrato oficial do Sistema de Cadastro Mineiro emitido em **23/06/2026** confirma todos os marcos do processo ANM 806.774/1977 e o evento central: **"1811 — ÁREA BLOQUEADA JUDICIALMENTE PUBL"** em 09/10/2025 (D.O.U. Seção 1, Despachos nº 157/2025, DIVJUD/SOT). A Braminex está administrativamente impedida de ceder, transferir ou onerar o requerimento de lavra até ordem judicial em contrário.
+>
+> **Novos documentos no dossiê v5** (pasta `02_peticoes/`):
+> - `Dados-do-Processo-RJ.pdf` — extrato oficial SCM/ANM (3 páginas, emitido 23/06/2026)
+> - `Analise-ANM-806774-Silva-Vale.pdf` — análise técnico-jurídica cruzada (6 páginas)
+>
+> **Resumo Executivo v5** atualizado no raiz: `00_Resumo-Executivo-Silva-Vale.pdf`
+>
+> **Dados confirmados pelo SCM/ANM:**
+> - Área: **8,86 ha** (era 8,85 nas versões anteriores — valor oficial corrigido)
+> - NUP completo: **27209.806774/1977-75**
+> - Alvará de Pesquisa nº 3828 · Relatório Final aprovado em 12/04/1985 · Requerimento de Lavra protocolizado em 10/09/1985 (peça central do bloqueio)
+> - Cessão entre empresas Braminex em 13/10/2004
+> - Exigências ambientais descumpridas (12/2012 e 02/2015)
+> - Sigilo aplicado ao processo em 04/04/2019
+
+---
+
+> **Histórico v4 — 22 de junho de 2026:**
 > 1. **Polígono ANM 806.774/1977 georreferenciado capturado** (SIGMINE/ANM): 8,85 ha em Cavalcanti/Engenheiro Leal/RJ, centróide a apenas **51 metros** da Rua Silva Vale. **Sobreposição altíssima** — o subsolo do imóvel está onerado por direito mineral em fase de Requerimento de Lavra desde 1985. Mapa em `01_mapa_e_relatorio/MAPA_sobreposicao_ANM_806774.png`. Relatório em `01_mapa_e_relatorio/RELATORIO-Sobreposicao-ANM-Silva-Vale.pdf`.
 > 2. **Processo judicial origem do bloqueio ANM 09/10/2025 identificado**: execuções fiscais federais União vs Braminex na 4ª VFEF Vitória/ES (proc. 0001140-96.2006.4.02.5002 e 0002027-46.2007.4.02.5002).
 > 3. **Roland Feiertag aparece como DEPOSITÁRIO** dos bens da Braminex no proc. 0001140-96.2006.4.02.5002/ES — conexão pessoal-jurídica documentada nos autos federais.
