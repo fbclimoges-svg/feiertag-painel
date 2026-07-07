@@ -1,6 +1,19 @@
 # DOSSIÊ CONSOLIDADO — TERRENO SILVA VALE
-**Versão 5 — 23 de junho de 2026**
+**Versão 6 — 07 de julho de 2026**
 Fonte única de verdade para o imóvel da família Feiertag.
+
+> **NOVO em v6 — PACOTE DE AÇÕES NUMERADAS + RESUMO MASTER (07/07/2026):**
+>
+> Pasta `09_acoes_v6/` reúne **11 PDFs numerados** que operacionalizam todo o dossiê. `00-RESUMO-MASTER-v6.pdf` é o índice único em português com cruzamento de mapas, escrituras, histórico e referências ao dossiê. Cada uma das 10 ações (01 a 10) é um PDF autocontido com objetivo, contexto, checklist operacional, documentos necessários, prazo, responsável e histórico.
+>
+> **Prioridades MÁXIMA (executar em paralelo já):**
+> - 01 · Apostilar procuração + protocolar 3 requerimentos cartoriais
+> - 02 · Ofício ANM — cópia integral do processo 806.774/1977
+> - 06 · Contratação do advogado principal (usar matriz de 11 escritórios)
+> - 08 · Ação de usucapião reivindicatória + adjudicação compulsória (após ação 01)
+>
+> **Prioridades ALTA:** 03 (autos judiciais 4ª VFEF-ES), 04 (averbação 6º RGI), 05 (LAI SEOP), 09 (desapropriação indireta + TDC).
+> **Prioridades MÉDIA:** 07 (aerofotogrametria + laudo NBR 14.653), 10 (monitoramento contínuo D.O.U./ANM/PJe/TJRJ).
 
 > **NOVO em v5 — EXTRATO OFICIAL SCM/ANM CONFIRMA BLOQUEIO JUDICIAL:**
 >
@@ -27,6 +40,7 @@ Fonte única de verdade para o imóvel da família Feiertag.
 > 2. **Processo judicial origem do bloqueio ANM 09/10/2025 identificado**: execuções fiscais federais União vs Braminex na 4ª VFEF Vitória/ES (proc. 0001140-96.2006.4.02.5002 e 0002027-46.2007.4.02.5002).
 > 3. **Roland Feiertag aparece como DEPOSITÁRIO** dos bens da Braminex no proc. 0001140-96.2006.4.02.5002/ES — conexão pessoal-jurídica documentada nos autos federais.
 > 4. **Ofício à ANM** redigido (`02_peticoes/03-Oficio-ANM-Solicitacao-Copia-Integral.pdf`) · **LAI SEOP final preenchida** (`03_pecas_administrativas/04-Pedido-LAI-SEOP-FINAL.pdf`).
+> 5. **v5.1 (23/06/2026):** 3 requerimentos de certidão de inteiro teor (11º Notas, 10º Notas, 6º RGI) + 1 procuração particular ad negotia — `03_pecas_administrativas/07-Requerimentos-Cartorios-e-Procuracao.{docx,pdf}`. Executa diretamente os passos 4 e 5 do plano de ações da Análise ANM × Silva Vale. **Atenção:** procuração assinada nos EUA exige apostila de Haia + tradução juramentada.
 > 5. **Inventário Angelina Pinho Novo**: busca no TJRJ (1ª+2ª instância, Conselho Recursal, Juizados, VEP) **não retornou processo** — provável inventário extrajudicial (CENSEC) ou anterior à digitalização; recomenda-se busca em cartórios de notas do RJ (útil para regularização registral, não impeditivo à adjudicação).
 
 ---
@@ -137,8 +151,15 @@ DOSSIE-COMPLETO.zip                        (pacote integral)
 03_pecas_administrativas/
    ├─ 03-Pecas-Administrativas-e-Extrajudiciais.pdf
    ├─ 04-Pedido-LAI-SEOP.pdf
+   ├─ 04-Pedido-LAI-SEOP-FINAL.pdf
    ├─ 05-Briefing-Aerofotogrametria.pdf
-   └─ 06-Escritorios-RJ-Shortlist.pdf
+   ├─ 06-Escritorios-RJ-Shortlist.pdf
+   ├─ 07-Requerimentos-Cartorios-e-Procuracao.docx  ⭐ v5.1 (editável)
+   └─ 07-Requerimentos-Cartorios-e-Procuracao.pdf   ⭐ v5.1 (impressão/assinatura)
+      • Requerimento de inteiro teor — 11º Ofício Notas (escr. 1954)
+      • Requerimento de inteiro teor — 10º Ofício Notas (escr. 1979)
+      • Requerimento de busca por endereço + matrícula — 6º RGI
+      • Procuração particular ad negotia (Roland + Marília → procurador)
 
 04_cross_referencia/
    ├─ mapa_acoes_silva_vale.md           (matriz 15 vias)
@@ -159,6 +180,19 @@ DOSSIE-COMPLETO.zip                        (pacote integral)
 
 08_relatorio_juridico/                    ⭐ NOVO v3
    └─ Relatorio-Analise-Documental-Dra-Lilian-Demartini-OAB-ES-16501.docx
+
+09_acoes_v6/                              ⭐ NOVO v6 (07/07/2026)
+   ├─ 00-RESUMO-MASTER-v6.pdf                   (índice mestre + referências cruzadas)
+   ├─ 01-Requerimentos-Cartoriais-+-Procuração.pdf         [MÁXIMA · 10 dias]
+   ├─ 02-Ofício-ANM-—-Cópia-Integral-do-Processo-806.774-1977.pdf [MÁXIMA · 5 dias]
+   ├─ 03-Autos-Judiciais-4ª-VFEF-ES-—-Cópia-Integral.pdf   [ALTA · 15 dias]
+   ├─ 04-Averbação-da-Indisponibilidade-no-6º-RGI.pdf      [ALTA · 30 dias]
+   ├─ 05-Pedido-LAI-à-SEOP-RJ.pdf                          [ALTA · 20 dias]
+   ├─ 06-Contratação-do-Advogado-Principal.pdf             [MÁXIMA · 15 dias]
+   ├─ 07-Aerofotogrametria-+-Laudo-NBR-14.653.pdf          [MÉDIA · 45 dias]
+   ├─ 08-Ação-de-Usucapião-Reivindicatória-+-Adjudicação-Compulsória.pdf [MÁXIMA · após 01]
+   ├─ 09-Ação-de-Desapropriação-Indireta-+-TDC.pdf         [ALTA · após 05]
+   └─ 10-Monitoramento-Contínuo-—-D.O.U.,-ANM,-PJe,-TJRJ.pdf [MÉDIA · contínuo]
 ```
 
 ---
