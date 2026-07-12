@@ -4034,6 +4034,8 @@ tbody td {
 }
 
 </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 </head>
 <body>
 
@@ -4469,6 +4471,12 @@ tbody td {
         <h2>Estudo de Potencial — Lítio</h2>
         <span class="title-line"></span>
         <span class="title-badge" style="background:rgba(188,140,255,0.12);color:#bc8cff;">ANM × Cinturão LCT · 12/07/2026</span>
+      </div>
+
+
+      <!-- MAPA INTERATIVO -->
+      <div id="litioMapContainer">
+        <div id="litioMap"></div>
       </div>
 
       <!-- Contexto Geológico -->
@@ -9962,6 +9970,214 @@ function toggleGuarapariCard() {
     ⬇ Download XLSX
   </a>
 </div>
+
+
+  <!-- ===== MAPA LÍTIO SCRIPT ===== -->
+  <script>
+  (function() {
+    // Esperar o painel de lítio estar visível
+    function initLitioMap() {
+      if (window._litioMapInit) return;
+      const el = document.getElementById('litioMap');
+      if (!el || el.offsetParent === null) return;
+      window._litioMapInit = true;
+
+      const map = L.map('litioMap', {
+        center: [-18.5, -43.0],
+        zoom: 6,
+        zoomControl: true,
+        attributionControl: false
+      });
+
+      // Tile escuro
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 18,
+        subdomains: 'abcd'
+      }).addTo(map);
+
+      L.control.attribution({ prefix: '© CartoDB · OSM' }).addTo(map);
+
+      // ── Polígono do cinturão LCT (simplificado — Jequitinhonha + sul BA) ──
+      const lctBelt = [
+        [-14.5, -40.5], [-15.5, -40.0], [-16.5, -40.5], [-17.2, -41.0],
+        [-17.8, -41.8], [-18.2, -42.5], [-18.0, -43.5], [-17.5, -43.0],
+        [-16.8, -42.0], [-16.0, -41.2], [-15.2, -40.8], [-14.5, -40.5]
+      ];
+      L.polygon(lctBelt, {
+        color: '#bc8cff', weight: 1.5, opacity: 0.7,
+        fillColor: '#bc8cff', fillOpacity: 0.06,
+        dashArray: '6,4'
+      }).addTo(map).bindTooltip('Cinturão LCT — Jequitinhonha / PPOB', {
+        permanent: false, direction: 'top',
+        className: 'li-map-legend'
+      });
+
+      // ── Área Sigma Lithium (referência) ──
+      const sigmaArea = [
+        [-16.8, -41.0], [-17.0, -40.5], [-17.5, -40.8], [-17.3, -41.5], [-16.8, -41.0]
+      ];
+      L.polygon(sigmaArea, {
+        color: '#eab308', weight: 1, opacity: 0.5,
+        fillColor: '#eab308', fillOpacity: 0.08,
+        dashArray: '4,3'
+      }).addTo(map).bindTooltip('Sigma Lithium — Grota do Cirilo (referência)', {
+        permanent: false, direction: 'top',
+        className: 'li-map-legend'
+      });
+
+      // ── Função de ícone pulsante ──
+      function pulseIcon(color, size) {
+        return L.divIcon({
+          className: '',
+          html: `<div style="
+            width:${size}px; height:${size}px;
+            background:${color};
+            border-radius:50%;
+            border:2px solid rgba(255,255,255,0.6);
+            box-shadow:0 0 0 4px ${color}33, 0 0 12px ${color}66;
+            cursor:pointer;
+          "></div>`,
+          iconSize: [size, size],
+          iconAnchor: [size/2, size/2],
+          popupAnchor: [0, -(size/2 + 4)]
+        });
+      }
+
+      // ── Processos Tier 1 ──
+      const tier1 = [
+        {
+          proc: '870.183/1980', mun: 'Santa Cruz da Vitória / BA',
+          lat: -14.9614, lon: -39.8099,
+          mineral: 'SODALITA', area: 963.64, brand: 'MINACOR', score: 7,
+          fase: 'Aut. Pesquisa',
+          destaque: 'Único processo com Sodalita — rocha alcalina indicadora de metais raros. Área máxima. Mesmo corredor do processo 871.188/1987.',
+          anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=870183198000',
+          color: '#f85149', size: 18
+        },
+        {
+          proc: '830.830/1988', mun: 'Medina / MG',
+          lat: -16.2270, lon: -41.4763,
+          mineral: 'Mixed/Mineral', area: 884.76, brand: 'MINACOR', score: 5,
+          fase: 'Req. Lavra',
+          destaque: 'Distrito Pegmatítico de Pedra Azul — PPOB. Herderite litinífero documentado em Medina. 100% das reservas oficiais de Li do Brasil na mesma faixa.',
+          anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=830830198800',
+          color: '#f85149', size: 16
+        },
+        {
+          proc: '832.341/1984', mun: 'Santo Antônio do Monte / MG',
+          lat: -20.0869, lon: -45.2906,
+          mineral: 'Mixed/Mineral', area: 1000.0, brand: 'MINACOR', score: 5,
+          fase: 'Req. Lavra',
+          destaque: 'Cinturão Mineiro — correlato à Prov. Peg. São João del Rei (AMG Volta Grande). Área máxima: 1.000 ha.',
+          anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=832341198400',
+          color: '#f85149', size: 16
+        },
+        {
+          proc: '832.362/1984', mun: 'Itapecerica / MG',
+          lat: -20.4728, lon: -45.1256,
+          mineral: 'Mixed/Mineral', area: 990.0, brand: 'MINACOR', score: 5,
+          fase: 'Req. Lavra',
+          destaque: '60 km da Mina Volta Grande (AMG — espodumênio/tântalo). Mesma Prov. Peg. São João del Rei.',
+          anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=832362198400',
+          color: '#f85149', size: 16
+        },
+        {
+          proc: '830.845/1985', mun: 'Itaguara / MG',
+          lat: -20.3914, lon: -44.4881,
+          mineral: 'Mixed/Mineral', area: 965.0, brand: 'MINACOR', score: 5,
+          fase: 'Req. Lavra',
+          destaque: 'Quadrilátero Ferrífero — Região Leste MG em estudo pelo SGB/CPRM (2022+). Granitos tipo-S presentes.',
+          anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=830845198500',
+          color: '#f85149', size: 16
+        },
+        {
+          proc: '870.894/1984', mun: 'Itapebi / BA',
+          lat: -15.9693, lon: -39.5316,
+          mineral: 'Mixed/Mineral', area: 704.0, brand: 'BRAMINEX', score: 5,
+          fase: 'Req. Lavra',
+          destaque: 'Orógeno Araçuaí-Ribeira. Itarantim (50 km) tem espodumênio/turmalina documentados. Titulado pela BRAMINEX.',
+          anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=870894198400',
+          color: '#f85149', size: 16
+        }
+      ];
+
+      // ── Referências (Sigma, CBL, AMG) ──
+      const refs = [
+        { name: 'Sigma Lithium — Grota do Cirilo', lat: -16.82, lon: -41.12, color: '#eab308' },
+        { name: 'CBL — Mina da Cachoeira (Araçuaí/Itinga)', lat: -16.86, lon: -41.90, color: '#eab308' },
+        { name: 'AMG — Mina Volta Grande (Nazareno)', lat: -21.03, lon: -44.61, color: '#eab308' },
+      ];
+
+      refs.forEach(r => {
+        L.marker([r.lat, r.lon], {
+          icon: L.divIcon({
+            className: '',
+            html: `<div style="width:10px;height:10px;background:${r.color};border-radius:50%;border:1px solid rgba(255,255,255,0.4);opacity:0.7;"></div>`,
+            iconSize: [10,10], iconAnchor: [5,5], popupAnchor:[0,-8]
+          })
+        }).addTo(map).bindPopup(`<div class="li-popup-company" style="color:#eab308;">⭐ Referência: ${r.name}</div>`);
+      });
+
+      // ── Plotar Tier 1 ──
+      tier1.forEach(p => {
+        const marker = L.marker([p.lat, p.lon], { icon: pulseIcon(p.color, p.size) }).addTo(map);
+        const scoreStars = '★'.repeat(p.score) + '☆'.repeat(7 - p.score);
+        marker.bindPopup(`
+          <div style="min-width:220px;max-width:280px;">
+            <div class="li-popup-proc">${p.proc}</div>
+            <div class="li-popup-company">${p.brand} — ${p.mun}</div>
+            <div class="li-popup-detail">
+              <b>Mineral:</b> ${p.mineral}<br>
+              <b>Área:</b> ${p.area.toLocaleString('pt-BR')} ha<br>
+              <b>Fase:</b> ${p.fase}<br>
+              <b>Score:</b> <span style="color:#bc8cff;">${scoreStars} ${p.score}/7</span><br>
+              <b>Destaque:</b> ${p.destaque}
+            </div>
+            <a href="${p.anm}" target="_blank" class="li-popup-link">Abrir no sistema ANM ↗</a>
+          </div>
+        `, { maxWidth: 300 });
+      });
+
+      // ── Legenda ──
+      const legend = L.control({ position: 'bottomleft' });
+      legend.onAdd = function() {
+        const div = L.DomUtil.create('div', 'li-map-legend');
+        div.innerHTML = `
+          <b>Legenda</b><br>
+          <span style="color:#f85149;">●</span> Processo Tier 1 (clique para detalhes)<br>
+          <span style="color:#eab308;">●</span> Mina de referência (Sigma/CBL/AMG)<br>
+          <span style="color:#bc8cff;border-bottom:1px dashed #bc8cff;">- - -</span> Cinturão LCT — PPOB<br>
+          <span style="color:#eab308;border-bottom:1px dashed #eab308;">- - -</span> Área Sigma Lithium
+        `;
+        return div;
+      };
+      legend.addTo(map);
+
+      // Fix tile render after display
+      setTimeout(() => map.invalidateSize(), 300);
+    }
+
+    // Inicializar quando a seção lítio for exibida
+    const observer = new MutationObserver(() => {
+      const sec = document.getElementById('litioSection');
+      if (sec && sec.style.display !== 'none') initLitioMap();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const sec = document.getElementById('litioSection');
+      if (sec) observer.observe(sec, { attributes: true, attributeFilter: ['style'] });
+      // Tentar inicializar se já estiver visível
+      setTimeout(initLitioMap, 800);
+    });
+
+    // Também inicializar ao clicar no nav
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.getAttribute && e.target.getAttribute('data-section') === 'litioSection') {
+        setTimeout(initLitioMap, 400);
+      }
+    });
+  })();
+  </script>
 
 </body>
 </html>
