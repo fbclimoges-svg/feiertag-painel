@@ -19,7 +19,8 @@
 <link rel="author" href="https://www.perplexity.ai/computer">
 
 <meta charset="UTF-8">
-    <meta name="cache-version" content="1777010400">
+<script>document.documentElement.classList.add("workspace");</script>
+    <meta name="cache-version" content="20261030-workspace">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grupo Feiertag — Painel de Inteligência</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1443,6 +1444,7 @@ tbody td {
 }
 
 .acao-cell-link {
+  border: 0; background: transparent; padding: 0; font: inherit; color: inherit; text-align: left;
   display: flex;
   align-items: center;
   gap: 0;
@@ -4034,52 +4036,325 @@ tbody td {
   transform: scale(1.1);
 }
 
+
+/* ===== WORKSPACE SHELL ===== */
+html.workspace { scroll-padding-top: 84px; }
+html.workspace body { margin-left: 252px; background: var(--bg-primary); }
+html.workspace .view-pane { display: none !important; }
+html.workspace .view-pane.is-active { display: block !important; }
+html.workspace #atualizacao-banner-2026-04-30 { display: none !important; }
+html.workspace #analiseEstrategicaSection.is-active #atualizacao-banner-2026-04-30 {
+  display: flex !important;
+  margin: 0 0 18px !important;
+}
+html.workspace #knowledgeBaseSection.focus-child > :not(.view-focus) { display: none !important; }
+html.workspace #knowledgeBaseSection.focus-child > .view-focus { display: block !important; margin-top: 0 !important; }
+html.workspace .resumo-grid { grid-template-columns: repeat(3, 1fr); }
+html.workspace #litioMap {
+  isolation: isolate;
+  height: 480px;
+  width: 100%;
+  border-radius: 12px;
+  margin: 0 0 16px;
+  background: #0d1117;
+  border: 1px solid var(--border);
+}
+
+.side {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 252px;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #12181f;
+  border-right: 1px solid var(--border);
+}
+.side-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px 14px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--border);
+}
+.side-brand img { width: 36px; height: auto; border-radius: 3px; }
+.side-brand strong {
+  display: block;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.side-brand em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+#navLinks {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 8px 10px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #373e47 transparent;
+}
+.side-group {
+  margin: 16px 8px 6px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.side-link, .side-link-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1px 0;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+.side-link:hover, .side-link-btn:hover { background: rgba(255,255,255,0.04); color: var(--text-primary); }
+.side-link.active {
+  background: var(--teal-bg-strong);
+  color: #fff;
+  box-shadow: inset 2px 0 0 #c4a574;
+}
+.side-foot {
+  border-top: 1px solid var(--border);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.side-foot a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.side-foot a:hover { border-color: var(--teal); color: var(--teal-light); }
+.side-scrim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: rgba(0,0,0,0.55);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 10px 22px;
+  background: rgba(15,20,25,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.menu-btn svg { width: 18px; height: 18px; }
+.topbar-title { min-width: 0; flex: 1; }
+.topbar-kicker {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4a574;
+}
+.topbar-kicker a { color: inherit; text-decoration: none; }
+.topbar-kicker a:hover { color: #fff; }
+.topbar h1 {
+  margin: 1px 0 0;
+  font-size: 1.12rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.topbar-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 901px) {
+  html.workspace .fab-sheet,
+  html.workspace .chat-org-btn { display: none !important; }
+}
+html.workspace .disp-alert-panel {
+  display: none;
+  margin: 4px 0 16px;
+  background: rgba(248,81,73,0.06);
+  border: 1px solid rgba(248,81,73,0.35);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+html.workspace .disp-alert-panel.visible { display: block; }
+html.workspace .disp-alert-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+html.workspace .disp-alert-list { display: grid; gap: 8px; }
+html.workspace .disp-alert-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+html.workspace .disp-alert-proc a { color: var(--teal-light); font-family: var(--font-mono); font-size: 0.82rem; }
+html.workspace .disp-alert-company { font-weight: 600; margin-top: 4px; }
+html.workspace .disp-alert-local, html.workspace .disp-alert-sub { color: var(--text-secondary); font-size: 0.78rem; }
+html.workspace .disp-alert-badge {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+@media (max-width: 1100px) {
+  html.workspace .resumo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  html.workspace body { margin-left: 0; }
+  .side {
+    transform: translateX(-105%);
+    transition: transform 220ms ease;
+    z-index: 160;
+    box-shadow: var(--shadow-lg);
+  }
+  html.workspace body.nav-open .side { transform: none; }
+  .side-scrim { display: block; opacity: 0; visibility: hidden; transition: opacity 200ms ease; }
+  html.workspace body.nav-open .side-scrim { opacity: 1; visibility: visible; }
+  body.nav-open .fab-sheet, body.nav-open .chat-org-btn { visibility: hidden; }
+  .menu-btn { display: inline-flex; }
+  html.workspace .fab-sheet { bottom: 84px; right: 16px; }
+  html.workspace .chat-org-btn { bottom: 16px; right: 16px; }
+  .topbar { padding: 10px 12px; }
+  .topbar h1 { font-size: 1rem; }
+  .header-badge { display: none; }
+  html.workspace #litioMap { height: 320px; }
+}
+@media (max-width: 640px) {
+  html.workspace .resumo-grid { grid-template-columns: 1fr; }
+  .topbar-meta #lastUpdated { display: none; }
+}
+
 </style>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="container header-inner">
-    <div class="header-left">
-      <div class="logo-mark">
-        <img src="data:image/webp;base64,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" alt="Brasão da Família Feiertag" class="brazao-header" width="44" height="77">
-      </div>
-      <div class="header-title">
-        <h1>GRUPO FEIERTAG</h1>
-        <span class="subtitle">Painel de Inteligência — Grupo Feiertag</span>
-      </div>
-    </div>
-    <div class="header-right">
-      <span class="header-badge">Inteligência</span>
-      <span id="lastUpdated"></span>
-    </div>
+<!-- WORKSPACE -->
+<aside class="side" id="sideNav">
+  <a class="side-brand" href="#resumoExecutivo" data-section="resumoExecutivo">
+    <img src="data:image/webp;base64,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" alt="Brasão da Família Feiertag" class="brazao-header" width="44" height="77">
+    <span>
+      <strong>GRUPO FEIERTAG</strong>
+      <em>Painel de inteligência</em>
+    </span>
+  </a>
+  <nav id="navLinks" aria-label="Seções do painel">
+    <div class="side-group">Visão</div>
+    <a class="side-link active" href="#resumoExecutivo" data-section="resumoExecutivo">Resumo</a>
+    <a class="side-link" href="#analiseEstrategicaSection" data-section="analiseEstrategicaSection">Estratégia</a>
+    <a class="side-link" href="#alertsSection" data-section="alertsSection">Ações pendentes</a>
+
+    <div class="side-group">Mineração</div>
+    <a class="side-link" href="#minerariosSection" data-section="minerariosSection">Processos ANM</a>
+    <a class="side-link" href="#litioSection" data-section="litioSection">Lítio</a>
+
+    <div class="side-group">Jurídico</div>
+    <a class="side-link" href="#juridicosSection" data-section="juridicosSection">Processos</a>
+    <a class="side-link" href="#pendenciasSection" data-section="pendenciasSection">Pendências</a>
+    <a class="side-link" href="#portfolioJuridicoSection" data-section="portfolioJuridicoSection">Portfólio</a>
+    <a class="side-link" href="#pgfnSection" data-section="pgfnSection">PGFN</a>
+    <a class="side-link" href="#epeSection" data-section="epeSection">EPE</a>
+    <a class="side-link" href="#tjes1aInstanciaSection" data-section="tjes1aInstanciaSection">TJES 1ª instância</a>
+    <a class="side-link" href="#acaoPenalAmbientalSection" data-section="acaoPenalAmbientalSection">Ação penal ambiental</a>
+
+    <div class="side-group">Patrimônio</div>
+    <a class="side-link" href="#avaliacaoAtivosSection" data-section="avaliacaoAtivosSection">Avaliação de ativos</a>
+    <a class="side-link" href="#patrimonioSection" data-section="patrimonioSection">Patrimônio</a>
+
+    <div class="side-group">Referência</div>
+    <a class="side-link" href="#knowledgeBaseSection" data-section="knowledgeBaseSection">Knowledge base</a>
+    <button type="button" class="side-link-btn" onclick="openChatOrg()">Conversas</button>
+  </nav>
+  <div class="side-foot">
+    <a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" rel="noopener">Planilha completa</a>
+    <a href="https://github.com/fbclimoges-svg/feiertag-painel/raw/main/Grupo_Feiertag_Processos_Completo.xlsx">Baixar XLSX</a>
+  </div>
+</aside>
+<div class="side-scrim" id="sideScrim"></div>
+<header class="topbar">
+  <button type="button" class="menu-btn" id="menuBtn" aria-controls="sideNav" aria-expanded="false" aria-label="Abrir seções">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+  <div class="topbar-title">
+    <span class="topbar-kicker" id="viewCrumb">Visão</span>
+    <h1 id="viewTitle">Resumo executivo</h1>
+  </div>
+  <div class="topbar-meta">
+    <span class="header-badge">Uso interno</span>
+    <span id="lastUpdated"></span>
   </div>
 </header>
-
-<nav style="background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:6px 0;position:sticky;top:64px;z-index:99;" id="navLinks">
-  <div class="container" style="display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;">
-    <a href="#resumoExecutivo" class="nav-link" data-section="resumoExecutivo">Resumo</a>
-    <a href="#minerariosSection" class="nav-link" data-section="minerariosSection">Minerários</a>
-    <a href="#juridicosSection" class="nav-link" data-section="juridicosSection">Jurídicos</a>
-    <a href="#pendenciasSection" class="nav-link" data-section="pendenciasSection">Pendências</a>
-    <a href="#pgfnSection" class="nav-link" data-section="pgfnSection">PGFN</a>
-    <a href="#analiseEstrategicaSection" class="nav-link" data-section="analiseEstrategicaSection">Estratégia</a>
-    <a href="#litioSection" class="nav-link" data-section="litioSection">Lítio ⚡</a>
-    <a href="#portfolioJuridicoSection" class="nav-link" data-section="portfolioJuridicoSection">Portfólio Jurídico</a>
-    <a href="#avaliacaoAtivosSection" class="nav-link" data-section="avaliacaoAtivosSection">Avaliação Ativos</a>
-    <a href="#patrimonioSection" class="nav-link" data-section="patrimonioSection">Patrimônio</a>
-    <a href="#epeSection" class="nav-link" data-section="epeSection">EPE</a>
-    <a href="#knowledgeBaseSection" class="nav-link" data-section="knowledgeBaseSection">Knowledge Base</a>
-    <a href="#tjes1aInstanciaSection" class="nav-link" data-section="tjes1aInstanciaSection">TJES 1ª Inst.</a>
-    <a href="#acaoPenalAmbientalSection" class="nav-link" data-section="acaoPenalAmbientalSection">Ação Penal Ambiental</a>
-    <a href="javascript:void(0)" class="nav-link" onclick="openChatOrg()">Conversas</a>
-    <a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="nav-link nav-sheet-link" style="background:rgba(63,185,80,0.15);color:#3fb950;border:1px solid rgba(63,185,80,0.3);font-weight:600;">📊 Planilha Completa</a>
-  </div>
-</nav>
-
 
 <main class="container" id="app">
   <div class="loading-overlay" id="loading">
@@ -4094,7 +4369,7 @@ tbody td {
   <div class="container">
 
     <!-- ===== RESUMO EXECUTIVO ===== -->
-    <div id="resumoExecutivo" class="resumo-executivo">
+    <div id="resumoExecutivo" class="resumo-executivo view-pane is-active">
       <div class="resumo-header">
         <h2>Resumo Executivo</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit#gid=0" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
         <span class="resumo-subtitle">Visão consolidada de todos os módulos</span>
@@ -4290,7 +4565,7 @@ tbody td {
     </div>
 
     <!-- ===== PROCESSOS MINERÁRIOS ===== -->
-    <div id="minerariosSection">
+    <div id="minerariosSection" class="view-pane">
 
     <!-- KPI CARDS -->
     <div class="kpi-grid" id="kpiGrid">
@@ -4301,7 +4576,7 @@ tbody td {
         <div class="kpi-value" id="kpiTotal">—</div>
         <div class="kpi-label">Total Processos</div>
       </div>
-      <div class="kpi-card animate-in" onclick="filterByFase('Conc.', this)" title="Filtrar por Concessões Ativas">
+      <div class="kpi-card animate-in" role="button" tabindex="0" aria-pressed="false" data-kpi-phase="Conc." title="Filtrar por Concessões Ativas">
         <div class="kpi-icon" style="background:var(--green-bg);color:var(--green);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
         </div>
@@ -4309,7 +4584,7 @@ tbody td {
         <div class="kpi-label">Concessões Ativas</div>
         <span class="kpi-filter-hint">clique para filtrar</span>
       </div>
-      <div class="kpi-card animate-in" onclick="filterByFase('Req. Lav', this)" title="Filtrar por Req. de Lavra">
+      <div class="kpi-card animate-in" role="button" tabindex="0" aria-pressed="false" data-kpi-phase="Req. Lav" title="Filtrar por Req. de Lavra">
         <div class="kpi-icon" style="background:var(--blue-bg);color:var(--blue);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
@@ -4317,12 +4592,12 @@ tbody td {
         <div class="kpi-label">Req. de Lavra</div>
         <span class="kpi-filter-hint">clique para filtrar</span>
       </div>
-      <div class="kpi-card animate-in" onclick="filterByDisp(this)" title="Ver processos em Disponibilidade">
+      <div class="kpi-card animate-in" role="button" tabindex="0" aria-pressed="false" data-kpi-phase="disponibilidade" title="Ver processos em Disponibilidade">
         <div class="kpi-icon" style="background:var(--red-bg);color:var(--red);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
         <div class="kpi-value" id="kpiDisp">—</div>
-        <div class="kpi-label">Em Disponibilidade</div>
+        <div class="kpi-label">Em disponibilidade ou aptos</div>
         <span class="kpi-filter-hint" style="color:rgba(248,81,73,0.7);">clique para ver detalhes</span>
       </div>
       <div class="kpi-card animate-in">
@@ -4346,12 +4621,12 @@ tbody td {
     <div class="disp-alert-panel" id="dispAlertPanel">
       <div class="disp-alert-header">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        3 PROCESSOS EM DISPONIBILIDADE — risco de perda de titularidade para terceiros
-        <button onclick="document.getElementById('dispAlertPanel').classList.remove('visible'); clearKpiActive();" style="margin-left:auto;background:none;border:none;color:var(--red);cursor:pointer;font-size:1rem;">✕</button>
+        <span id="availabilityCount"></span>
+        <button type="button" id="closeAvailability" aria-label="Fechar detalhes de disponibilidade" style="margin-left:auto;background:none;border:none;color:var(--red);cursor:pointer;font-size:1rem;">✕</button>
       </div>
       <div class="disp-alert-list">
 
-        <div class="disp-alert-item">
+        <div class="disp-alert-item" data-process="890.026/1986">
           <span class="disp-alert-badge disp-badge-vencido">Edital Vencido</span>
           <div class="disp-alert-proc">
             <a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=890026198600" target="_blank" rel="noopener">890.026/1986 ↗</a>
@@ -4361,7 +4636,7 @@ tbody td {
           <div class="disp-alert-sub">Edital vencido / modalidade antiga. Último mov.: 05/08/2011. Aguardando análise de cumprimento de exigência.</div>
         </div>
 
-        <div class="disp-alert-item">
+        <div class="disp-alert-item" data-process="890.152/1979">
           <span class="disp-alert-badge disp-badge-livre">Área Livre s/ pretendente</span>
           <div class="disp-alert-proc">
             <a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=890152197900" target="_blank" rel="noopener">890.152/1979 ↗</a>
@@ -4371,7 +4646,7 @@ tbody td {
           <div class="disp-alert-sub">Área desbloqueada judicialmente em 27/10/2022. Indeferimento do Req. Lavra; área em edital desde 02/04/2008.</div>
         </div>
 
-        <div class="disp-alert-item">
+        <div class="disp-alert-item" data-process="890.399/1988">
           <span class="disp-alert-badge disp-badge-vencido">Disp. Cancelada</span>
           <div class="disp-alert-proc">
             <a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=890399198800" target="_blank" rel="noopener">890.399/1988 ↗</a>
@@ -4381,7 +4656,7 @@ tbody td {
           <div class="disp-alert-sub">Título caducado. Disponibilidade cancelada. Área retirada por retificação. Último mov.: 10/06/2024.</div>
         </div>
 
-        <div class="disp-alert-item">
+        <div class="disp-alert-item" data-process="890.464/1988">
           <span class="disp-alert-badge disp-badge-apto">Apto p/ Disponibilidade</span>
           <div class="disp-alert-proc">
             <a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=890464198800" target="_blank" rel="noopener">890.464/1988 ↗</a>
@@ -4402,7 +4677,7 @@ tbody td {
       </div>
       <div class="chip-group" id="brandChips"></div>
       <select id="filterState"><option value="">Todos os Estados</option></select>
-      <select id="filterFase"><option value="">Todas as Fases</option></select>
+      <select id="filterFase"><option value="">Todas as Fases</option><option value="disponibilidade">Disponibilidade ou aptos</option></select>
       <select id="filterMineral"><option value="">Todas as Substâncias</option></select>
       <button class="filter-clear" id="clearFilters">Limpar Filtros</button>
     </div>
@@ -4466,7 +4741,7 @@ tbody td {
 
 
     <!-- ===== ESTUDO POTENCIAL LÍTIO ===== -->
-    <div class="li-section" id="litioSection">
+    <div class="li-section view-pane" id="litioSection">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#bc8cff;flex-shrink:0;"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         <h2>Estudo de Potencial — Lítio</h2>
@@ -4527,7 +4802,7 @@ tbody td {
 
         <div class="li-card tier-1">
           <div class="li-proc"><a href="https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=870183198000" target="_blank" rel="noopener">870.183/1980 ↗</a></div>
-          <div class="li-company">OTHER (Ind. Mineração Alvo Mármore Ltda.)</div>
+          <div class="li-company"><span id="litioCompany870183"></span> · titularidade a confirmar na ANM</div>
           <div class="li-loc">📍 Santa Cruz da Vitória / BA — 963,64 ha</div>
           <div class="li-tags">
             <span class="li-tag li-tag-rock">SODALITA</span>
@@ -4755,7 +5030,7 @@ tbody td {
 
 
     <!-- ===== PROCESSOS JURÍDICOS ===== -->
-    <div class="juridicos-section" id="juridicosSection">
+    <div class="juridicos-section view-pane" id="juridicosSection">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--blue);flex-shrink:0;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         <h2>Processos Jurídicos</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
@@ -4867,7 +5142,7 @@ tbody td {
     </div>
 
     <!-- ===== PENDÊNCIAS E PLANO DE AÇÃO ===== -->
-    <div class="pendencias-section" id="pendenciasSection">
+    <div class="pendencias-section view-pane" id="pendenciasSection">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--red);flex-shrink:0;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         <h2>Pendências e Plano de Ação</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
@@ -4949,7 +5224,7 @@ tbody td {
     </div>
 
     <!-- ===== DÍVIDA PGFN ===== -->
-    <div class="pgfn-section" id="pgfnSection">
+    <div class="pgfn-section view-pane" id="pgfnSection">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--yellow);flex-shrink:0;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         <h2>Dívida PGFN — Transação Tributária</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
@@ -5070,7 +5345,7 @@ tbody td {
     </div>
 
     <!-- ===== ANÁLISE ESTRATÉGICA BRAMINEX ===== -->
-    <div class="pgfn-section" id="analiseEstrategicaSection" style="margin-top:32px;">
+    <div class="pgfn-section view-pane" id="analiseEstrategicaSection" style="margin-top:32px;">
       <div class="section-title-bar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--teal);flex-shrink:0;"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
         <h2>Análise Estratégica Processual</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
@@ -5311,7 +5586,7 @@ tbody td {
     <!-- /analiseEstrategicaSection -->
 
     <!-- PORTFÓLIO JURÍDICO -->
-    <div class="portfolio-section" id="portfolioJuridicoSection">
+    <div class="portfolio-section view-pane" id="portfolioJuridicoSection">
       <div class="section-title-bar">
         <h2>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -5394,7 +5669,7 @@ tbody td {
     </div>
 
     <!-- AVALIAÇÃO DE ATIVOS -->
-    <div class="avaliacao-section" id="avaliacaoAtivosSection">
+    <div class="avaliacao-section view-pane" id="avaliacaoAtivosSection">
       <div class="section-title-bar">
         <h2>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -5924,7 +6199,7 @@ tbody td {
     </div>
 
     <!-- ===== PATRIMÔNIO IMOBILIÁRIO ===== -->
-    <div class="patrimonio-section" id="patrimonioSection">
+    <div class="patrimonio-section view-pane" id="patrimonioSection">
       <div class="section-title-bar">
         <h2>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -6546,7 +6821,7 @@ tbody td {
     </div>
 
     <!-- ===== KNOWLEDGE BASE — ESTUDOS TÉCNICOS ===== -->
-    <div class="kb-section" id="knowledgeBaseSection" style="margin:32px 0;">
+    <div class="kb-section view-pane" id="knowledgeBaseSection" style="margin:32px 0;">
       <div class="section-title-bar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:var(--teal-light);flex-shrink:0;"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
         <h2>
@@ -7232,11 +7507,11 @@ tbody td {
                 <span style="font-size:0.72rem;color:var(--text-secondary);">Diligência investigativa · Subseção Cachoeiro · Abr/2026</span>
               </div>
               <h3 style="margin:4px 0 8px 0;color:var(--text-primary);font-size:1.15rem;line-height:1.3;">Apelação Criminal 0000373-29.2004.4.02.5002 — Roland e Rogério Feiertag</h3>
-              <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.55;margin:8px 0;">Apelação criminal por <strong style="color:var(--text-primary);">extração mineral sem autorização do DNPM</strong> realizada pela arrendatária <strong style="color:var(--text-primary);">GL Abílio</strong> em jazida de granito do grupo Feiertag, com <strong style="color:var(--text-primary);">réus Roland Feiertag e Rogério Feiertag</strong>. A decisão foi atacada por <strong style="color:var(--text-primary);">Embargos Infringentes 2005.50.02.000292-5</strong> (proximidade numérica indica cluster da Subseção de Cachoeiro de Itapemirim no biênio 2004/2005). Identificada na diligência investigativa do processo executivo 0000318-44.2005 — fonte de risco de redirecionamento criminal/cível adicional para o cluster Braminex.</p>
+              <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.55;margin:8px 0;">Apelação criminal por <strong style="color:var(--text-primary);">extração mineral sem autorização do DNPM</strong> realizada pela arrendatária <strong style="color:var(--text-primary);">GL Abílio</strong> em jazida de granito do grupo Feiertag, com <strong style="color:var(--text-primary);">réus Roland Feiertag e Rogério Feiertag</strong>. A decisão foi atacada por <strong style="color:var(--text-primary);">Embargos Infringentes 2005.50.02.000292-5</strong> (proximidade numérica indica cluster da Subseção de Cachoeiro de Itapemirim no biênio 2004/2005). A diligência sobre 0000318-44.2005 menciona a apelação, mas não confirma vínculo entre os feitos.</p>
               <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
                 <a href="docs/Diligencia-Investigativa-Proc-0000318-44.2005.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--teal-light);color:#0d1117;padding:8px 14px;border-radius:6px;font-size:0.82rem;font-weight:600;text-decoration:none;">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                  Diligência Investigativa (PDF · 7 pp.)
+                  Relatório sobre 0000318-44.2005 (PDF · 7 pp.)
                 </a>
                 <a href="https://eproc-consulta.jfes.jus.br/eproc/externo_controlador.php?acao=processo_consulta_publica" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--text-primary);padding:8px 14px;border-radius:6px;font-size:0.82rem;font-weight:600;text-decoration:none;border:1px solid var(--border);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -7262,7 +7537,7 @@ tbody td {
           <div class="pat-kpi-card kpi-blue">
             <div class="kpi-val">Cachoeiro</div>
             <div class="kpi-label">Subseção de origem</div>
-            <div class="kpi-sub">Sufixo CNJ 5002 · Vinculado a 0000318-44.2005</div>
+            <div class="kpi-sub">Sufixo CNJ 5002 · Relação com 0000318-44.2005 não confirmada</div>
           </div>
           <div class="pat-kpi-card kpi-green">
             <div class="kpi-val">2005.50.02</div>
@@ -7286,7 +7561,7 @@ tbody td {
                 <tr><td style="color:var(--text-secondary);">Réus</td><td>Roland Feiertag · Rogério Feiertag</td></tr>
                 <tr><td style="color:var(--text-secondary);">Arrendatária</td><td>GL Abílio (responsável pela extração na jazida)</td></tr>
                 <tr><td style="color:var(--text-secondary);">Origem da informação</td><td>Diligência investigativa abr/2026 (cluster CNJ 0000292/0000373/2004 e 0000318-44.2005)</td></tr>
-                <tr><td style="color:var(--text-secondary);">Vínculo cível</td><td>Mesmo grupo réu da execução fiscal CREA/ES 0000318-44.2005 (Linha 9 do EPE)</td></tr>
+                <tr><td style="color:var(--text-secondary);">Vínculo cível</td><td>Hipótese de relação com 0000318-44.2005 (linha 9 do EPE), pendente de confirmação documental.</td></tr>
               </tbody>
             </table>
           </div>
@@ -7342,7 +7617,7 @@ tbody td {
             <li><strong style="color:var(--text-primary);">Obter íntegra dos autos</strong> — solicitar cópia do acórdão da Apelação Criminal 0000373-29.2004 e da decisão final dos Embargos Infringentes 2005.50.02.000292-5.</li>
             <li><strong style="color:var(--text-primary);">Aferir prescrição</strong> — calcular pena em abstrato e marcos interruptivos para verificar a prescrição da pretensão punitiva (art. 109/110 CP).</li>
             <li><strong style="color:var(--text-primary);">Mapear contrato de arrendamento</strong> — localizar instrumento Feiertag ↔ GL Abílio para isolar responsabilidade penal pela extração.</li>
-            <li><strong style="color:var(--text-primary);">Coordenar com EPE Linha 9</strong> — alinhar a defesa criminal com a tese de prescrição/redirecionamento na execução fiscal CREA/ES 0000318-44.2005.</li>
+            <li><strong style="color:var(--text-primary);">Coordenar com EPE Linha 9</strong> — verificar documentalmente a hipótese de vínculo antes de associar estratégias de defesa.</li>
             <li><strong style="color:var(--text-primary);">Contato com banca histórica</strong> — buscar Bruno Quaresma Sena e Hércules Cipriani Pessini para repasse de eventuais autos físicos arquivados.</li>
           </ol>
         </div>
@@ -7352,7 +7627,7 @@ tbody td {
     </div><!-- /knowledgeBaseSection -->
 
     <!-- ===== EPE — EXCEÇÕES DE PRÉ-EXECUTIVIDADE ===== -->
-    <div class="epe-section" id="epeSection">
+    <div class="epe-section view-pane" id="epeSection">
 
       <!-- A. Title Bar -->
       <div class="section-title-bar">
@@ -7767,7 +8042,7 @@ tbody td {
     <!-- /EPE -->
 
     <!-- ALERTS -->
-    <div class="alerts-section" id="alertsSection">
+    <div class="alerts-section view-pane" id="alertsSection">
       <div class="alerts-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         <h2>Ações Pendentes</h2><a href="https://docs.google.com/spreadsheets/d/16ppDCikJjLxbfATDiv7a9hyWzU4X2sgh/edit" target="_blank" class="sheet-link-inline" title="Abrir na Planilha">📊</a>
@@ -7801,6 +8076,7 @@ tbody td {
   let currentPage = 1;
   const PAGE_SIZE = 25;
   let charts = {};
+  window.__painelCharts = charts;
 
   // ===== CHART COLORS =====
   const CHART_COLORS = [
@@ -8006,6 +8282,8 @@ tbody td {
   async function init() {
     try {
       allData = [{"id": "800457/1976", "process": "800.457/1976", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ALEGRE", "state": "ES", "year": 1976, "decade": "1970s", "local": "SANTA ANGELICA", "area": 483.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES, SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "800706/1988", "process": "800.706/1988", "local": "SERROTE BOM JAR.", "company": "GRANBRASIL", "mineral": "GRANITO", "brand": "GRANBRASIL", "group": "Core Feiertag Group"}, {"id": "800718/1988", "process": "800.718/1988", "local": "MORRO REDONDO", "company": "GRANBRASIL", "mineral": "GRANITO", "brand": "GRANBRASIL", "group": "Core Feiertag Group"}, {"id": "800720/1988", "process": "800.720/1988", "local": "SÃO CIPRIANO", "company": "GRANBRASIL", "mineral": "GRANITO", "brand": "GRANBRASIL", "group": "Core Feiertag Group"}, {"id": "800761/1988", "process": "800.761/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "LAVRAS DA MANGABEIRA", "state": "CE", "year": 1988, "decade": "1980s", "local": "SERRA NEGRA", "area": 446.5, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Exigência para cumprir. Dilação de prazo sol. tempestivamente."}, {"id": "800950/1976", "process": "800.950/1976", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "IBIRAÇU", "state": "ES", "year": 1976, "decade": "1970s", "local": "GOIABAL", "area": 500.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "800951/1976", "process": "800.951/1976", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ARACRUZ", "state": "ES", "year": 1976, "decade": "1970s", "local": "GOIABAL", "area": 500.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "800953/1976", "process": "800.953/1976", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "AFONSO CLÁUDIO", "state": "ES", "year": 1976, "decade": "1970s", "local": "LAGOA", "area": 50.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Suspensao lavra até 23/05/2025. ", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES, SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "800954/1976", "process": "800.954/1976", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "AFONSO CLÁUDIO", "state": "ES", "year": 1976, "decade": "1970s", "local": "PICO TRES PONTÕES", "area": 486.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "801595/1977", "process": "801.595/1977", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ARACRUZ", "state": "ES", "year": 1977, "decade": "1970s", "local": "GOIABAL", "area": 311.4, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "801619/1977", "process": "801.619/1977", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1977, "decade": "1970s", "local": "SANTA ANGELICA", "area": 120.1, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-08", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "803897/1976", "process": "803.897/1976", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1976, "decade": "1970s", "local": "LARANJEIRAS", "area": 875.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-08", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "803898/1976", "process": "803.898/1976", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "CASTELO", "state": "ES", "year": 1976, "decade": "1970s", "local": "SÃO LUIZ", "area": 314.19, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-08", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "803961/1975", "process": "803.961/1975", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "SÃO GABRIEL DA PALHA", "state": "ES", "year": 1975, "decade": "1970s", "local": "BARRA DO SERTÃO", "area": 500.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "803962/1975", "process": "803.962/1975", "company": "Ind. de Mineração Alvo Mármore Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Marble / Limestone", "municipality": "SÃO GABRIEL DA PALHA", "state": "ES", "year": 1975, "decade": "1970s", "local": "BARRA DO SERTÃO"}, {"id": "804698/1977", "process": "804.698/1977", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1977, "decade": "1970s", "local": "SANTA CLARA", "area": 11.93, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "1767 - CONC LAV/RAL RETIFICADOR ANOS ANTERIORES", "data_evento": "2024-03-15", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "804898/1977", "process": "804.898/1977", "company": "Ind. de Mineração Alvo Mármore Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Marble / Limestone", "municipality": "SANTA TERESA", "state": "ES", "year": 1977, "decade": "1970s", "local": "VARZEA ALEGRE"}, {"id": "804899/1977", "process": "804.899/1977", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "BARRA DE SÃO FRANCISCO", "state": "ES", "year": 1977, "decade": "1970s", "local": "PONTE ALTA", "area": 1000.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "PFM não foi apresentado em 01/12/2022? Portaria de lavra. Tem RT ? Apresentar RAL ", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "805004/1977", "process": "805.004/1977", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1977, "decade": "1970s", "local": "BONS ARES", "area": 649.9, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "LICENCA AMBIENTAL PROTOCOLADA", "data_evento": "00/02/2025", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (SEFAM-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "805005/1977", "process": "805.005/1977", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1977, "decade": "1970s", "local": "BONS ARES", "area": 970.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2190 - REQ LAV/COMUNICAÇÃO SOBRE RETIFICAÇÃO DE ÁREA", "data_evento": "2024-06-12", "acao": "Req. De lavra com solicitação de GU e LO. Agilizar GU ? LO vigente ? Retificação  ÁREA", "sei_tramitacao": "12/08/2026 — lote SEI (SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "805081/1968", "process": "805.081/1968", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1968, "decade": "1960s", "local": "ALTO MOLEDO", "area": 4.01, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "1767 - CONC LAV/RAL RETIFICADOR ANOS ANTERIORES", "data_evento": "2024-03-15", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "806774/1977", "process": "806.774/1977", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "RIO DE JANEIRO", "state": "RJ", "year": 1977, "decade": "1970s", "area": 8.86, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Req. Lav. Exigencia de licença ambiental 23/02/2015 não cumprida"}, {"id": "807067/1977", "process": "807.067/1977", "company": "Ind. de Mineração Alvo Mármore Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Marble / Limestone", "municipality": "", "state": "", "year": 1977, "decade": "1970s", "local": "ALTO MOLEDO"}, {"id": "810537/1975", "process": "810.537/1975", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CASTELO", "state": "ES", "year": 1975, "decade": "1970s", "local": "FAZENDA PONTÕES", "area": 500.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Cessão parcial pendente analise. Portaria de lavra. Tem RT ? Apresentar RAL ", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES, SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "810972/1975", "process": "810.972/1975", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1975, "decade": "1970s", "local": "ALTO MOLEDO", "area": 0.92, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "1767 - CONC LAV/RAL RETIFICADOR ANOS ANTERIORES", "data_evento": "2024-03-15", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (SEFAM-ES, SEFIS-ES, SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "812760/1975", "process": "812.760/1975", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ALEGRE", "state": "ES", "year": 1975, "decade": "1970s", "local": "BARRA SÃO FELIPE", "area": 500.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "820442/1988", "process": "820.442/1988", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CAPÃO BONITO", "state": "SP", "year": 1988, "decade": "1980s", "local": "FAZ. LARANJEIRAS", "area": 374.2, "fase": "Aut. Pesq", "sub_status": "RFP em Anál.", "ultimo_evento": "2349 - Aut Pesq/Sigilo Informação Minerária- Requerida", "data_evento": "04/04/2019", "acao": "Aguarda aprovação RFP. cump. exigência Protocolado 08/01/2007. "}, {"id": "824334/1972", "process": "824.334/1972", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1972, "decade": "1970s", "local": "ALTO MOLEDO", "area": 4.55, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "1767 - CONC LAV/RAL RETIFICADOR ANOS ANTERIORES", "data_evento": "2024-03-15", "acao": "Portaria de lavra. Pedido de suspensão protocolado em 22/11/2023"}, {"id": "830232/1980", "process": "830.232/1980", "company": "Braminex Mineração de Calcário S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "SANTANA DO RIACHO", "state": "MG", "year": 1980, "decade": "1980s", "local": "FAZ. PADRE JOSÉ", "area": 234.74, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "23/09/2022", "acao": "Req. Lav. cump. exigência Protocolado 23/09/2022. Demonstrar diligenciamento sem."}, {"id": "830260/1985", "process": "830.260/1985", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ITATIAIUÇU", "state": "MG", "year": 1985, "decade": "1980s", "local": "FAZ. CAJU", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "16/08/2022", "acao": "Req Lav. Cumpriu exigencia em 20/08/2022 Não esta comprovando diligenciamento"}, {"id": "830829/1988", "process": "830.829/1988", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "MEDINA", "state": "MG", "year": 1988, "decade": "1980s", "local": "DUAS BARRAS", "area": 301.95, "fase": "Aut. Pesq", "sub_status": "RFP em Anál.", "ultimo_evento": "2349 - Aut Pesq/Sigilo Informação Minerária- Requerida", "data_evento": "04/04/2019", "acao": "Falta aprofação RFP. Cumprir exigência publicada. sol. pror. em 06/11/2012. "}, {"id": "830830/1988", "process": "830.830/1988", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "MEDINA", "state": "MG", "year": 1988, "decade": "1980s", "local": "FAZ. SANTA MAUR.", "area": 884.76, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "cump. Exigencia OF. N°2159/09-FISC pendente sob pena de indeferimento"}, {"id": "830845/1985", "process": "830.845/1985", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ITAGUARA", "state": "MG", "year": 1985, "decade": "1980s", "local": "PARA DOS VILELAS", "area": 965.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "26/11/2021", "acao": "Demonstrar a cada 6 meses o diligenciamento ambiental desde 16/09/2021 Ofício 27469"}, {"id": "832154/2004", "process": "832.154/2004", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "AIMORÉS", "state": "MG", "year": 2004, "decade": "2000s"}, {"id": "832281/2001", "process": "832.281/2001", "company": "Caximira Mineração Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "MANTENA", "state": "MG", "year": 2001, "decade": "2000s"}, {"id": "832341/1984", "process": "832.341/1984", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "SANTO ANTÔNIO DO MONTE", "state": "MG", "year": 1984, "decade": "1980s", "local": "MORRO BOA VISTA", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "04/12/2020", "acao": "Req. Lav. cump. exigência Protocolado 04/12/2020. Deseja fazer LA?"}, {"id": "832362/1984", "process": "832.362/1984", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ITAPECERICA", "state": "MG", "year": 1984, "decade": "1980s", "local": "FAZ. CONTAGEM", "area": 990.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "26/11/2021", "acao": "Diligenciamento ambiental 6 meses desde 23/02/2022. Ofício nº 45996/2021 AR devolvido"}, {"id": "832540/2001", "process": "832.540/2001", "company": "Caximira Mineração Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "SANTA RITA DO ITUETO", "state": "MG", "year": 2001, "decade": "2000s"}, {"id": "840038/1986", "process": "840.038/1986", "local": "CARRAPATEIRA", "company": "BRAMINEX EXPORT.", "mineral": "GRANIDIORITO", "area": 500.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "municipality": "Venturosa", "state": "PE", "brand": "BRAMINEX", "group": "Core Feiertag Group"}, {"id": "870008/2005", "process": "870.008/2005", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ILHÉUS", "state": "BA", "year": 2005, "decade": "2000s"}, {"id": "870067/1990", "process": "870.067/1990", "company": "DT Mineração Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "URUÇUCA", "state": "BA", "year": 1990, "decade": "1990s"}, {"id": "870103/1987", "process": "870.103/1987", "local": "MORRO ALGODÃO", "company": "BRAMINEX EXPORT.", "mineral": "MIGMATITO", "brand": "BRAMINEX", "group": "Core Feiertag Group"}, {"id": "870156/1985", "process": "870.156/1985", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "FLORESTA AZUL", "state": "BA", "year": 1985, "decade": "1980s", "local": "FLORESTA AZUL", "area": 644.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "362 - Req Lav/Prorrogação Prazo Exigência Solicitado", "data_evento": "19/12/2019", "acao": "Req. De lavra pendente ambiental. Fazer licenciamento ambiental ?"}, {"id": "870183/1980", "process": "870.183/1980", "local": "SERRA CORREGO N.", "company": "INDUMAR COMERCIAL", "mineral": "SODALITA", "area": 963.64, "fase": "Aut. Pesq", "sub_status": "Recursos e Defesas", "ultimo_evento": "2349 - Aut Pesq/Sigilo Informação Minerária- Requerida", "data_evento": "04/04/2019", "acao": "Edital de Disp. cancelado", "municipality": "Santa Cruz Da Vitória", "state": "BA", "brand": "OTHER", "group": "Affiliated / Related"}, {"id": "870525/1988", "process": "870.525/1988", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ITAPETINGA", "state": "BA", "year": 1988, "decade": "1980s", "local": "RIO PALMERÃO", "area": 371.62, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "1767 - CONC LAV/RAL RETIFICADOR ANOS ANTERIORES", "data_evento": "2024-03-15", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL . Pedido de suspensão protocolado"}, {"id": "870817/1985", "process": "870.817/1985", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "TANQUINHO", "state": "BA", "year": 1985, "decade": "1980s", "local": "FAZ. AMARGOS"}, {"id": "870836/2019", "process": "870.836/2019", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "URUÇUCA", "state": "BA", "year": 2019, "decade": "2010s"}, {"id": "870894/1984", "process": "870.894/1984", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ITAPEBI", "state": "BA", "year": 1984, "decade": "1980s", "local": "VENTANIA", "area": 704.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1054 - REQ LAV/EXIGÊNCIA LICENÇA AMBIENTAL PUB", "data_evento": "2024-06-21", "acao": "Cumprimento protocolado LA"}, {"id": "870895/1984", "process": "870.895/1984", "local": "RIO DO PEIXE", "company": "MINACOR MINERAÇÃO", "mineral": "GNAISSE", "brand": "MINACOR", "group": "Core Feiertag Group"}, {"id": "871188/1987", "process": "871.188/1987", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "SANTA CRUZ DA VITÓRIA", "state": "BA", "year": 1987, "decade": "1980s", "local": "BAIXADA", "area": 188.1, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "264 - Aut Pesq/Pagamento Tah Efetuado", "data_evento": "05/11/2021", "acao": "cump. exigência Protocolado 26/02/2007. Deseja fazer LA?"}, {"id": "871374/1988", "process": "871.374/1988", "local": "FAZ. TRIUNFO", "company": "GRANBRASIL", "mineral": "SIENITO", "brand": "GRANBRASIL", "group": "Core Feiertag Group"}, {"id": "871376/1988", "process": "871.376/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ITAPETINGA", "state": "BA", "year": 1988, "decade": "1980s", "local": "FAZ. TRIUNFO", "area": 10.14, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguarda analise PAE."}, {"id": "871377/1988", "process": "871.377/1988", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "NOVA VIÇOSA", "state": "BA", "year": 1988, "decade": "1980s", "local": "FAZ. DAS PEDRAS", "area": 420.0, "fase": "Req. Lav", "sub_status": "Recursos e Defesas", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Recurso sobre decisao que negou pror. de prazo 14/05/2015 ainda não analisado."}, {"id": "872189/2004", "process": "872.189/2004", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "URUÇUCA", "state": "BA", "year": 2004, "decade": "2000s"}, {"id": "872191/2004", "process": "872.191/2004", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ILHÉUS", "state": "BA", "year": 2004, "decade": "2000s"}, {"id": "872192/2004", "process": "872.192/2004", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "URUÇUCA", "state": "BA", "year": 2004, "decade": "2000s"}, {"id": "872193/2004", "process": "872.193/2004", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ILHÉUS", "state": "BA", "year": 2004, "decade": "2000s"}, {"id": "872194/2004", "process": "872.194/2004", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "URUÇUCA", "state": "BA", "year": 2004, "decade": "2000s"}, {"id": "872195/2004", "process": "872.195/2004", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ILHÉUS", "state": "BA", "year": 2004, "decade": "2000s"}, {"id": "872196/2004", "process": "872.196/2004", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "URUÇUCA", "state": "BA", "year": 2004, "decade": "2000s"}, {"id": "872446/2015", "process": "872.446/2015", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "LIVRAMENTO DE NOSSA SENHORA", "state": "BA", "year": 2015, "decade": "2010s"}, {"id": "872911/2010", "process": "872.911/2010", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "MANOEL VITORINO", "state": "BA", "year": 2010, "decade": "2010s"}, {"id": "874822/2008", "process": "874.822/2008", "local": "ITAPETINGA", "company": "ANGELO MENICUCCI", "mineral": "SIENITO", "brand": "OTHER", "group": "Affiliated / Related"}, {"id": "890003/1987", "process": "890.003/1987", "local": "SÃO MANOEL/SÃO J.", "company": "JAIR CESCONETO", "mineral": "GRANITO", "brand": "OTHER", "group": "Affiliated / Related"}, {"id": "890009/1987", "process": "890.009/1987", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ATÍLIO VIVACQUA", "state": "ES", "year": 1987, "decade": "1980s", "local": "SNT. CRUZ MILAG.", "area": 439.2, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2275 - APTO DISP/ÁREA APTA PARA Disp.", "data_evento": "2024-03-11", "acao": "Req. Lav. Pedido de pror. sol. 30/09/2003. LP 196/2014 protocolado em 30/01/2015. Disp.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890010/1982", "process": "890.010/1982", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ALEGRE", "state": "ES", "year": 1982, "decade": "1980s", "local": "ROCHOSO", "area": 461.86, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "1767 - CONC LAV/RAL RETIFICADOR ANOS ANTERIORES", "data_evento": "2024-03-15", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "890014/1978", "process": "890.014/1978", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1978, "decade": "1970s", "local": "BONS ARES", "area": 524.9, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "1389 - CONC LAV/RETIFICAÇÃO DE DESPACHO PUBLICADO", "data_evento": "2024-10-29", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL . Alienabilidade do direito de lavra ", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES, SEFIS-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890014/1988", "process": "890.014/1988", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "MUQUI", "state": "ES", "year": 1988, "decade": "1980s", "local": "LINDA AURORA", "area": 942.89, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Req. Lav. Pedido de pror. sol. 05/05/2015 Of 188/15. Falta L.A"}, {"id": "890018/1983", "process": "890.018/1983", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CASTELO", "state": "ES", "year": 1983, "decade": "1980s", "local": "ESTRELA DO NORTE", "area": 510.5, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "pror. Prazo Exigência sol. em 23/09/2004. Cessao total efetivada em 12/04/2006"}, {"id": "890026/1986", "process": "890.026/1986", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "IRUPI", "state": "ES", "year": 1986, "decade": "1980s", "area": 897.0, "fase": "Disp.", "sub_status": "Edital vencido/mod. Antigo. ", "ultimo_evento": "315 - Disponib/Documento Diverso Protocolizado", "data_evento": "05/08/2011", "acao": "Aguardando analise cump. exigencia 05/08/2011"}, {"id": "890033/1980", "process": "890.033/1980", "local": "CORREGO DO SAL", "company": "BRAMINEX EXPORT.", "mineral": "MARMORE/CAL", "area": 6.16, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "municipality": "Cachoeiro De Itapemirim", "state": "ES", "brand": "BRAMINEX", "group": "Core Feiertag Group", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES, SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890060/1988", "process": "890.060/1988", "company": "Braminex Mineração de Calcário S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CASTELO", "state": "ES", "year": 1988, "decade": "1980s", "local": "FAZ. RETIRO", "area": 28.62, "fase": "Dir. Req.", "sub_status": "Aguardando Oferta Publica", "ultimo_evento": "2349 - Aut Pesq/Sigilo Informação Minerária- Requerida", "data_evento": "04/04/2019", "acao": "Area integralmente renunciada", "sei_tramitacao": "12/08/2026 — lote SEI (SEREM-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890065/1983", "process": "890.065/1983", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "COLATINA", "state": "ES", "year": 1983, "decade": "1980s", "local": "SÃO JOÃO PEQ.", "area": 978.7, "fase": "Req. Lav", "sub_status": "Recursos e Defesas", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Pedido de pror. negado. Recurso protocolado em 30/01/2012 ainda não analisado"}, {"id": "890068/1988", "process": "890.068/1988", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1988, "decade": "1980s", "local": "BAIRRO S.GERALDO", "area": 182.31, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Pedido de prorrogacao protocolado 30/09/2003 - Fazer LA?", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890076/1980", "process": "890.076/1980", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "CASTELO", "state": "ES", "year": 1980, "decade": "1980s", "local": "ALTO CAXIXE Q.", "area": 727.22, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-08", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "890080/1982", "process": "890.080/1982", "local": "ITAÓCA", "company": "BRAMINEX MINERAÇÃO", "mineral": "MÁRMORE", "brand": "BRAMINEX", "group": "Core Feiertag Group"}, {"id": "890095/1984", "process": "890.095/1984", "company": "Mineração São Carlos Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "MUQUI", "state": "ES", "year": 1984, "decade": "1980s", "local": "LINDA AURORA", "area": 988.08, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-15", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "890111/1981", "process": "890.111/1981", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1981, "decade": "1980s", "local": "ROCHOSO E CARN.", "area": 670.9, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "336 - Req Lav/Documento Diverso Protocolizado", "data_evento": "28/07/2022", "acao": "Req. De lavra pendente ambiental. Fazer licenciamento ambiental ?"}, {"id": "890112/1981", "process": "890.112/1981", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1981, "decade": "1980s", "local": "CARNEIRO", "area": 253.88, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguardar análise PAE", "sei_tramitacao": "12/08/2026 — lote SEI (SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890113/1981", "process": "890.113/1981", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1981, "decade": "1980s", "local": "FAZ. BELA AURORA", "area": 980.9, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-08", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente. "}, {"id": "890114/1981", "process": "890.114/1981", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1981, "decade": "1980s", "local": "LAMBARI", "area": 1000.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-08", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente. "}, {"id": "890116/1981", "process": "890.116/1981", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1981, "decade": "1980s", "local": "ANUTIBA", "area": 1000.0, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-08", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente. "}, {"id": "890122/1979", "process": "890.122/1979", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ALEGRE", "state": "ES", "year": 1979, "decade": "1970s", "local": "LARANJEIRAS", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "315 - DISPONIB/DOCUMENTO DIVERSO PROTOCOLIZADO", "data_evento": "2024-06-10", "acao": "Req. Lav. cump. exigencia protocolado 29/12/1997- Deseja fazer LA? Exlusao de Disp.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890124/1989", "process": "890.124/1989", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "GUARAPARI", "state": "ES", "year": 1989, "decade": "1980s", "local": "SITIO ALTO S. MIG.", "area": 548.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguarda análise PAE - Perdeu prazo para cump. da exigência em 2004?"}, {"id": "890135/1984", "process": "890.135/1984", "company": "Mineração Rochabras Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "IÚNA", "state": "ES", "year": 1984, "decade": "1980s", "local": "IUNA", "area": 600.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Solicitou pror. de prazo para cumprir oficio 3329/2013 em 09/06/2017. LA?"}, {"id": "890136/1984", "process": "890.136/1984", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CASTELO", "state": "ES", "year": 1984, "decade": "1980s", "local": "INDEPENDENCIA", "area": 992.74, "fase": "Req. Lav", "sub_status": "Recursos e Defesas", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Pedido de pror. negado. Recurso protocolado não conhecido ", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890137/1985", "process": "890.137/1985", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "MUQUI", "state": "ES", "year": 1985, "decade": "1980s", "local": "FAZ. PEDRA NEGRA", "area": 352.5, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Req. Lav. Ped. de pror. sol. 02/10/2002. Falta LA? Cump. total em Doc. Diverso 04/03/04"}, {"id": "890141/1984", "process": "890.141/1984", "local": "ALTO MUTUM PRET", "company": "BRAMINEX MINERAÇÃO", "mineral": "GRANODIORITO", "brand": "BRAMINEX", "group": "Core Feiertag Group"}, {"id": "890142/1984", "process": "890.142/1984", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "COLATINA", "state": "ES", "year": 1984, "decade": "1980s", "local": "MUTUM PRETO", "area": 984.37, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890145/1984", "process": "890.145/1984", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "MANTENÓPOLIS", "state": "ES", "year": 1984, "decade": "1980s", "local": "FAZ. COR.CANSADO", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Exigencia não cumprida 06/12/2004? "}, {"id": "890146/1984", "process": "890.146/1984", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1984, "decade": "1980s", "local": "CORREGO DO SAL", "area": 1.43, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "315 - DISPONIB/DOCUMENTO DIVERSO PROTOCOLIZADO", "data_evento": "2024-06-10", "acao": "Req. Lav. Pedido de pror. protocolado 30/09/2003 - Fazer LA? Exclusão processo de Disp.", "sei_tramitacao": "12/08/2026 — lote SEI (SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890152/1979", "process": "890.152/1979", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ALEGRE", "state": "ES", "year": 1979, "decade": "1970s", "local": "FAZ. SANTA FÉ", "area": 212.0, "fase": "Disp.", "sub_status": "Area Livre Sem prop. ", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Indeferimento Req. Lav. Area em edital 02/04/2008", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890152/1980", "process": "890.152/1980", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ALEGRE", "state": "ES", "year": 1980, "decade": "1980s", "local": "FAZ. DA BARRA", "area": 700.24, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "24/11/2021", "acao": "Req. Lav. cump. Exigencia protocolado 30/11/2021 Falta licença ambiental? Semest.", "sei_tramitacao": "12/08/2026 — lote SEI (SEFAM-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890152/1986", "process": "890.152/1986", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CASTELO", "state": "ES", "year": 1986, "decade": "1980s", "local": "FAZ. BARBIEIRO", "area": 665.71, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Pedido de prorrogacao protocolado 2012 - Fazer LA?", "sei_tramitacao": "12/08/2026 — lote SEI (SEREM-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890168/1979", "process": "890.168/1979", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1979, "decade": "1970s", "local": "FAZ. SANTA FÉ", "area": 99.88, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguarda análise PAE - Perdeu prazo para cump. da exigência em 2002?"}, {"id": "890178/1986", "process": "890.178/1986", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "JERÔNIMO MONTEIRO", "state": "ES", "year": 1986, "decade": "1980s", "local": "FAZ. BARRA LIMPA", "area": 397.0, "fase": "Req. Lav", "sub_status": "Bloqueio Judicial", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Req. Lav. cump. exigencia protocolado 18/07/2005- Deseja fazer LA?"}, {"id": "890183/1985", "process": "890.183/1985", "company": "Mineração Rochabras Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "BARRA DE SÃO FRANCISCO", "state": "ES", "year": 1985, "decade": "1980s", "local": "CORREGO PAULIST", "area": 476.74, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Cump. oficio 1566/2018 em 26/11/2018. Falta Licença Ambiental para Concessão?"}, {"id": "890186/1990", "process": "890.186/1990", "company": "Granito Sul Pedreiras Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Granite", "municipality": "DOMINGOS MARTINS", "state": "ES", "year": 1990, "decade": "1990s"}, {"id": "890191/1983", "process": "890.191/1983", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "RIO DE JANEIRO", "state": "RJ", "year": 1983, "decade": "1980s", "local": "R: SILVO VALE 781", "area": 3.24, "fase": "Req. Lav", "sub_status": "Aguardando Oferta Publica", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Area Integralmente Renunciada"}, {"id": "890193/1981", "process": "890.193/1981", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1981, "decade": "1980s", "local": "TICO - TICO", "area": 11.66, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "2097 - CONC LAV/ARRENDAMENTO - DISTRATO PROTOCOLIZADO", "data_evento": "2024-08-15", "acao": "Portaria de lavra Distrato arrendamento para Mineraçao monte Cassino Protocolado. ", "sei_tramitacao": "12/08/2026 — lote SEI (SEREM-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890196/1982", "process": "890.196/1982", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CASTELO", "state": "ES", "year": 1982, "decade": "1980s", "local": "PONTALZINHO", "area": 602.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Req. Lav. cump. Exigencia protocolado 05/06/2006 Falta licença ambiental"}, {"id": "890198/1986", "process": "890.198/1986", "local": "FAZ. SANTA LÚCIA", "company": "BRAMINEX EXPORT.", "mineral": "GRANODIORITO", "area": 584.38, "fase": "Req. Lav", "sub_status": "Recursos e Defesas", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "18/01/2022", "acao": "cump. Of. 39090/2021 18/01/22. Desp. julgando insuficiente. Prazo final 19/05/23. Venc", "municipality": " ", "state": "RJ", "brand": "BRAMINEX", "group": "Core Feiertag Group"}, {"id": "890207/1979", "process": "890.207/1979", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ALEGRE", "state": "ES", "year": 1979, "decade": "1970s", "local": "RIO DO NORTE", "area": 950.5, "fase": "Req. Lav", "sub_status": "Bloqueio Judicial", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Req. Lav. Pedido de prorrogacao protocolado 26/03/2003 - Fazer LA?"}, {"id": "890207/1983", "process": "890.207/1983", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "CASTELO", "state": "ES", "year": 1983, "decade": "1980s", "local": "PONTE SÃO JOÃO", "area": 345.2, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguarda análise PAE - Pediu pror. tempestivamente em 2017"}, {"id": "890209/1979", "process": "890.209/1979", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1979, "decade": "1970s", "local": "FAZ. PETRÓPOLIS", "area": 312.5, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890209/1986", "process": "890.209/1986", "local": "SERRA DE ITAOCA", "company": "BRAMINEX EXPORT.", "mineral": "CALCITA", "area": 0.39, "fase": "Req. Lav", "sub_status": "Recursos e Defesas", "ultimo_evento": "2190 - Req Lav/Comunicação Sobre Retificação De Área", "data_evento": "26/11/2019", "acao": "Req. Lav. Recurso contra caduc. pendente. Pedido de pror. exigencia sol. 07/01/2008", "municipality": "Cachoeiro De Itapemirim", "state": "ES", "brand": "BRAMINEX", "group": "Core Feiertag Group", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890209/1987", "process": "890.209/1987", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1987, "decade": "1980s", "local": "MAMONA", "area": 513.38, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Pedido de prorrogacao protocolado 16/05/2003 - Fazer LA?", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890210/1987", "process": "890.210/1987", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CASTELO", "state": "ES", "year": 1987, "decade": "1980s", "local": "CONTRATISTA", "area": 78.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "cump. exigência Protocolado 01/04/2005. Deseja fazer LA?"}, {"id": "890221/1988", "process": "890.221/1988", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "SÃO MATEUS", "state": "ES", "year": 1988, "decade": "1980s", "local": "TERRA FRESCA", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "26/11/2021", "acao": "cump. exigência Protocolado 18/07/2005. Deseja fazer LA?"}, {"id": "890222/1988", "process": "890.222/1988", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "COLATINA", "state": "ES", "year": 1988, "decade": "1980s", "local": "PIABA", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "cump. exigência Protocolado 18/07/2005. Deseja fazer LA?"}, {"id": "890224/1988", "process": "890.224/1988", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "PINHEIROS", "state": "ES", "year": 1988, "decade": "1980s", "local": "FAZ. CANNAÃ", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "Req. Lav. em Anál.", "data_evento": "04/04/2019", "acao": "cump. exigência Protocolado 18/02/2004. Deseja fazer LA?"}, {"id": "890225/1979", "process": "890.225/1979", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "CASTELO", "state": "ES", "year": 1979, "decade": "1970s", "local": "ALTO CAXIXE", "area": 431.4, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguarda análise PAE - Pediu pror. tempestivamente em 201 segunda  vez, "}, {"id": "890235/1987", "process": "890.235/1987", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "MUNIZ FREIRE", "state": "ES", "year": 1987, "decade": "1980s", "local": "CAPOEIRINHA", "area": 999.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "cump. exigência Protocolado 18/07/2005. Deseja fazer LA?"}, {"id": "890269/1987", "process": "890.269/1987", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "MUNIZ FREIRE", "state": "ES", "year": 1987, "decade": "1980s", "local": "FAZ. TERRA CORRID", "area": 289.62, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "PAE pendente de análise. Deseja fazer licença ambiental?"}, {"id": "890275/1979", "process": "890.275/1979", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 1979, "decade": "1970s", "local": "COR. DO SOSSEGO", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890278/1983", "process": "890.278/1983", "company": "Mineração São Carlos Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "VARGEM ALTA", "state": "ES", "year": 1983, "decade": "1980s", "local": "FAZ. MONTE LÍB.", "area": 245.79, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "603 - Req Lav/Transf Direitos -cessão Parcial Req Lav Negada", "data_evento": "24/02/2023", "acao": "Aguarda analise GU e PAE. Deseja fazer licença ambiental?"}, {"id": "890284/2004", "process": "890.284/2004", "company": "Unirochas Mineração e Comércio Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "AFONSO CLÁUDIO", "state": "ES", "year": 2004, "decade": "2000s"}, {"id": "890300/1986", "process": "890.300/1986", "local": "FAZ. JOSE MOL", "company": "BRAMINEX MINERAÇÃO", "mineral": "DIORITO", "brand": "BRAMINEX", "group": "Core Feiertag Group"}, {"id": "890303/1986", "process": "890.303/1986", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "VARGEM ALTA", "state": "ES", "year": 1986, "decade": "1980s", "local": "SITIO SNT. ROSA", "area": 675.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Licença previa 75/2012. Deseja fazer LI+LO?", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890306/1984", "process": "890.306/1984", "company": "Mineração Rochabras Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "MUNIZ FREIRE", "state": "ES", "year": 1984, "decade": "1980s", "local": "SANTA CRUZ", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Cump. oficio 0563/2018 em 04/10/2018. Licença Ambiental Protocolizada em 30/01/2018"}, {"id": "890308/1980", "process": "890.308/1980", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "MUQUI", "state": "ES", "year": 1980, "decade": "1980s", "local": "FAZ. CAPOEIRÃO", "area": 363.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. cump. exigencia protocolado 18/07/2005- Deseja fazer LA?", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890310/1980", "process": "890.310/1980", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "MUQUI", "state": "ES", "year": 1980, "decade": "1980s", "local": "FAZ. NOVA CALED.", "area": 375.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. cump. exigencia protocolado 18/07/2005- Deseja fazer LA?", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890314/2004", "process": "890.314/2004", "company": "Unirochas Mineração e Comércio Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "AFONSO CLÁUDIO", "state": "ES", "year": 2004, "decade": "2000s"}, {"id": "890340/1988", "process": "890.340/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "BARRA DE SÃO FRANCISCO", "state": "ES", "year": 1988, "decade": "1980s", "local": "FAZ. SÃO LUCAS", "area": 130.2, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguarda anáilise PAE - Pediu pror. tempestivamente em 2005 "}, {"id": "890341/1988", "process": "890.341/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "BARRA DE SÃO FRANCISCO", "state": "ES", "year": 1988, "decade": "1980s", "local": "COR. COMPRIDO", "area": 50.85, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-08", "acao": "Portaria de lavra. Tem RT? Apresentar RAL anuemente"}, {"id": "890352/1984", "process": "890.352/1984", "local": "FAZ. FLORESTA", "company": "BRAMINEX MINERAÇÃO", "mineral": "CHARNOCKITO", "area": 590.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Req. Lav. cump. Exigencia protocolado 18/05/2005 Falta licença ambiental", "municipality": "Muqui", "state": "ES", "brand": "BRAMINEX", "group": "Core Feiertag Group"}, {"id": "890353/1984", "process": "890.353/1984", "company": "Mineração Azul Tropical Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "ALEGRE", "state": "ES", "year": 1984, "decade": "1980s", "local": "FAZ. CX. D’AGUA", "sei_tramitacao": "12/08/2026 — lote SEI (SEFIS-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890357/2004", "process": "890.357/2004", "company": "Unirochas Mineração e Comércio Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "AFONSO CLÁUDIO", "state": "ES", "year": 2004, "decade": "2000s"}, {"id": "890360/2004", "process": "890.360/2004", "company": "Unirochas Mineração e Comércio Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "AFONSO CLÁUDIO", "state": "ES", "year": 2004, "decade": "2000s"}, {"id": "890367/1987", "process": "890.367/1987", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CASTELO", "state": "ES", "year": 1987, "decade": "1980s", "local": "FAZ. CAPARAÓ", "area": 127.6, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Pedido de prorrogacao protocolado 27/01/2005", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890374/1984", "process": "890.374/1984", "company": "Mineração Fischer Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "PANCAS", "state": "ES", "year": 1984, "decade": "1980s", "local": "ALTO MUTUM PRET.", "sei_tramitacao": "12/08/2026 — lote SEI (SEFIS-ES, SEREM-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890375/1984", "process": "890.375/1984", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "PANCAS", "state": "ES", "year": 1984, "decade": "1980s", "local": "LAGINHA", "area": 762.5, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "03/12/2020", "acao": "Aguarda análise PAE - Exigência cumprida tempestivamente em 2020 por COVID"}, {"id": "890378/1988", "process": "890.378/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "ALEGRE", "state": "ES", "year": 1988, "decade": "1980s", "local": "BONS ARES", "area": 101.9, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "336 - Req Lav/Documento Diverso Protocolizado", "data_evento": "03/06/2019", "acao": "Aguarda análise PAE - Pediu pror. tempestivamente em 2005"}, {"id": "890399/1988", "process": "890.399/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "BARRA DE SÃO FRANCISCO", "state": "ES", "year": 1988, "decade": "1980s", "local": "ALTO PAULISTA", "area": 49.7, "fase": "Disp.", "sub_status": "Área Retirada (Retificação)", "ultimo_evento": "315 - DISPONIB/DOCUMENTO DIVERSO PROTOCOLIZADO", "data_evento": "2024-06-10", "acao": "Titulo caducado.  Disp. cancelada", "sei_tramitacao": "12/08/2026 — lote SEI (SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890406/1986", "process": "890.406/1986", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CONCEIÇÃO DO CASTELO", "state": "ES", "year": 1986, "decade": "1980s", "local": "ALTO ESTRELINHA", "area": 500.75, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Pedido de prorrogacao protocolado 15/06/2009", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890407/1986", "process": "890.407/1986", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CASTELO", "state": "ES", "year": 1986, "decade": "1980s", "local": "SERGIPE", "area": 48.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Pedido de prorrogacao protocolado 30/09/2004", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890436/1985", "process": "890.436/1985", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "NOVA VENÉCIA", "state": "ES", "year": 1985, "decade": "1980s", "local": "BOA VISTA", "area": 515.78, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "365 - Req Lav/Cumprimento Exigência Protocoliz", "data_evento": "24/11/2021", "acao": "Aguarda análise PAE - Interesse em fazer ambiental?", "sei_tramitacao": "12/08/2026 — lote SEI (SEOUT-ES, SEREM-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890441/1999", "process": "890.441/1999", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "CONCEIÇÃO DE MACABU", "state": "RJ", "year": 1999, "decade": "1990s", "local": "FAZ. BATATAL", "area": 49.25, "fase": "Dir. Req.", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1062 - REQ LAV/LICENÇA AMBIENTAL- REGISTRO PROTOCOLO ÓRGÃO", "data_evento": "2024-08-26", "acao": "Comprovar diligênciamento ambiental até 26/02/2025"}, {"id": "890463/1988", "process": "890.463/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "SÃO FIDÉLIS", "state": "RJ", "year": 1988, "decade": "1980s", "local": "FAZ. CASA BRANCA", "area": 994.25, "fase": "Req. Lav", "sub_status": "Indeferimento de Pedido", "ultimo_evento": "2139 - Req Lav/Indeferimento Req Lavra - Anm Pub", "data_evento": "13/04/2020", "acao": "Titulo caducado. "}, {"id": "890464/1988", "process": "890.464/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "SÃO FIDÉLIS", "state": "RJ", "year": 1988, "decade": "1980s", "local": "FAZ. SOBRADO", "area": 986.0, "fase": "Apto para Disp.", "sub_status": "Indeferimento de Pedido", "ultimo_evento": "99 - DISPONIB/ÁREA S/PRETEN PROC ARQ ÁREA LIVRE", "data_evento": "2024-07-23", "acao": "Area livre sem pretendentes"}, {"id": "890465/1988", "process": "890.465/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "SÃO FIDÉLIS", "state": "RJ", "year": 1988, "decade": "1980s", "local": "FAZ. PONTE PRETA", "area": 971.03, "fase": "Req. Lav", "sub_status": "Recursos e Defesas", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguarda análise PAE - Aguarda análise recurso 2ª instância indeferimento do PAE"}, {"id": "890500/1988", "process": "890.500/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "BARRA DE SÃO FRANCISCO", "state": "ES", "year": 1988, "decade": "1980s", "local": "PANORAMA", "area": 49.5, "fase": "Req. Pesq", "sub_status": "Req. Pesq Mineral", "ultimo_evento": "2348 - Req Pesq/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Alvara declarado Nulo"}, {"id": "890504/1988", "process": "890.504/1988", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "BARRA DE SÃO FRANCISCO", "state": "ES", "year": 1988, "decade": "1980s", "local": "ALTO PAULISTA", "area": 641.96, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Aguarda análise PAE (desde 2001) - Interesse em fazer ambiental?"}, {"id": "890555/1985", "process": "890.555/1985", "company": "Minacor Mineração Ltda.", "brand": "MINACOR", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "FUNDÃO", "state": "ES", "year": 1985, "decade": "1980s", "local": "FAZ. IRONDI", "area": 926.0, "fase": "Req. Lav", "sub_status": "Recursos e Defesas", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Pedido de pror. de prazo neg. Recurso tempestivo prot. em 19/11/2011 LP 192/2012"}, {"id": "890605/1988", "process": "890.605/1988", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ALEGRE", "state": "ES", "year": 1988, "decade": "1980s", "local": "PONTE DE BRAÚNA", "area": 806.49, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "2350 - Req Lav/Sigilo Informação Minerária - Requerida", "data_evento": "04/04/2019", "acao": "Req. Lav. Pedido de pror. sol. 30/09/2003. LP protocolado em 01/04/2011"}, {"id": "890656/1994", "process": "890.656/1994", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "MUNIZ FREIRE", "state": "ES", "year": 1994, "decade": "1990s", "local": "FAZ. TERRA COR.", "area": 829.62, "fase": "Aut. Pesq", "sub_status": "RFP em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Aguardando Analise RFP", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890855/1989", "process": "890.855/1989", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "GUARAPARI", "state": "ES", "year": 1989, "decade": "1980s", "local": "IGUAPE", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Pedido de prorrogacao protocolado 06/12/2004 Protocolo IEMA 23/03/2012", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "890856/1989", "process": "890.856/1989", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "GUARAPARI", "state": "ES", "year": 1989, "decade": "1980s", "local": "RIO CLARINHO", "area": 1000.0, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. Pedido de prorrogacao protocolado 02/02/2005", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "896027/2017", "process": "896.027/2017", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "BAIXO GUANDU", "state": "ES", "year": 2017, "decade": "2010s"}, {"id": "896092/1995", "process": "896.092/1995", "local": "BATEIA", "company": "BRAMINEX EXPORT.", "mineral": "GRANITO", "area": 130.78, "fase": "Aut. Pesq", "sub_status": "Recursos e Defesas", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "RFP negado. Aguarda análise recurso.", "municipality": "Castelo", "state": "ES", "brand": "BRAMINEX", "group": "Core Feiertag Group", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "896100/2000", "process": "896.100/2000", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ALEGRE", "state": "ES", "year": 2000, "decade": "2000s", "local": "FAZ. BOA UNIÃO", "area": 939.24, "fase": "Aut. Pesq", "sub_status": "RFP em Anál.", "ultimo_evento": "2349 - Aut Pesq/Sigilo Informação Minerária- Requerida", "data_evento": "04/04/2019", "acao": "Aguardando Analise RFP "}, {"id": "896117/2017", "process": "896.117/2017", "company": "Black Brazil Mineração Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "ALEGRE", "state": "ES", "year": 2017, "decade": "2010s"}, {"id": "896162/2002", "process": "896.162/2002", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "FUNDÃO", "state": "ES", "year": 2002, "decade": "2000s"}, {"id": "896163/2000", "process": "896.163/2000", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "SANTA TERESA", "state": "ES", "year": 2000, "decade": "2000s", "sei_tramitacao": "12/08/2026 — lote SEI (SEREM-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "896194/2001", "process": "896.194/2001", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "CONCEIÇÃO DO CASTELO", "state": "ES", "year": 2001, "decade": "2000s"}, {"id": "896217/1999", "process": "896.217/1999", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "VILA PAVÃO", "state": "ES", "year": 1999, "decade": "1990s", "local": "ALTO PAULISTA", "area": 560.27, "fase": "Aut. Pesq", "sub_status": "RFP em Anál.", "ultimo_evento": "2349 - Aut Pesq/Sigilo Informação Minerária- Requerida", "data_evento": "04/04/2019", "acao": "Aguarda análise RFP (desde 2003)"}, {"id": "896239/2001", "process": "896.239/2001", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "CASTELO", "state": "ES", "year": 2001, "decade": "2000s"}, {"id": "896261/1996", "process": "896.261/1996", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "DOMINGOS MARTINS", "state": "ES", "year": 1996, "decade": "1990s", "local": "BAIXO LAGINHA", "area": 707.04, "fase": "Aut. Pesq", "sub_status": "RFP em Anál.", "ultimo_evento": "2349 - Aut Pesq/Sigilo Informação Minerária- Requerida", "data_evento": "04/04/2019", "acao": "Aguardando Analise RFP "}, {"id": "896277/2000", "process": "896.277/2000", "company": "Roland Feiertag (Personal)", "brand": "ROLAND FEIERTAG", "group": "Personal (Roland Feiertag)", "mineral": "Mixed / Mineral", "municipality": "MUNIZ FREIRE", "state": "ES", "year": 2000, "decade": "2000s", "local": "FAZ. CACH. ALTA", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "896284/2004", "process": "896.284/2004", "company": "Unirochas Mineração e Comércio Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "AFONSO CLÁUDIO", "state": "ES", "year": 2004, "decade": "2000s"}, {"id": "896346/2015", "process": "896.346/2015", "company": "Unibrasil União Brasileira Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "VARGEM ALTA", "state": "ES", "year": 2015, "decade": "2010s"}, {"id": "896370/2006", "process": "896.370/2006", "company": "Caximira Mineração Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "JOÃO NEIVA", "state": "ES", "year": 2006, "decade": "2000s"}, {"id": "896374/2005", "process": "896.374/2005", "company": "Unibrasil União Brasileira Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "VENDA NOVA DO IMIGRANTE", "state": "ES", "year": 2005, "decade": "2000s"}, {"id": "896375/2005", "process": "896.375/2005", "company": "Unibrasil União Brasileira Ltda.", "brand": "OTHER", "group": "Affiliated / Related", "mineral": "Mixed / Mineral", "municipality": "CONCEIÇÃO DO CASTELO", "state": "ES", "year": 2005, "decade": "2000s"}, {"id": "896405/2001", "process": "896.405/2001", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "COLATINA", "state": "ES", "year": 2001, "decade": "2000s", "local": "FAZ. BARRA MUT.", "area": 110.28, "fase": "Req. Lav", "sub_status": "Req. Lav. em Anál.", "ultimo_evento": "1812 - Área Desbloqueada Judicialmente", "data_evento": "27/10/2022", "acao": "Req. Lav. cump. exigência Protocolado 30/04/2015 OF 2021/2014. Licença previa 32/2014.", "sei_tramitacao": "12/08/2026 — lote SEI (GER-ES, SEOUT-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "896415/1995", "process": "896.415/1995", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "ARACRUZ", "state": "ES", "year": 1995, "decade": "1990s"}, {"id": "896424/2000", "process": "896.424/2000", "local": "ALTO JUCU", "company": "BRAMINEX MINERAÇÃO", "mineral": "GRANITO", "brand": "BRAMINEX", "group": "Core Feiertag Group"}, {"id": "896472/2005", "process": "896.472/2005", "company": "Gramacruz Extração de Granitos Ltda.", "brand": "GRAMACRUZ", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "SANTA LEOPOLDINA", "state": "ES", "year": 2005, "decade": "2000s"}, {"id": "896482/2012", "process": "896.482/2012", "company": "Braminex Brasileira de Mármore Exportadora S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "ARACRUZ", "state": "ES", "year": 2012, "decade": "2010s", "area": 48.96, "fase": "Conc.", "sub_status": "Concessão Publicada", "ultimo_evento": "418 - CONC LAV/RAL ANO BASE APRESENTADO", "data_evento": "2024-03-11", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "896539/2012", "process": "896.539/2012", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "CACHOEIRO DE ITAPEMIRIM", "state": "ES", "year": 2012, "decade": "2010s", "area": 133.48, "fase": "Aut. Pesq", "sub_status": "RFP em Anál.", "ultimo_evento": "2189 - Aut Pesq/Comunicação Sobre Retificação De Área", "data_evento": "29/10/2021", "acao": "Portaria de lavra. Tem RT ? Apresentar RAL anualmente."}, {"id": "896627/2009", "process": "896.627/2009", "company": "Granbrasil Granitos do Brasil S.A.", "brand": "GRANBRASIL", "group": "Core Feiertag Group", "mineral": "Granite", "municipality": "CASTELO", "state": "ES", "year": 2009, "decade": "2000s", "area": 8.59, "fase": "Conc.", "sub_status": "Arrendamento arquivado", "ultimo_evento": "2071 - Conc Lav/Arrendamento Arquivamento Processo Pub", "data_evento": "26/04/2019", "acao": "Arquivado definitivamente - Arrendamento parcial"}, {"id": "896745/1995", "process": "896.745/1995", "company": "Norte Rochas Imp. & Exp. Ltda.", "brand": "NORTE ROCHAS", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "BARRA DE SÃO FRANCISCO", "state": "ES", "year": 1995, "decade": "1990s", "sei_tramitacao": "12/08/2026 — lote SEI (SEFIS-ES): conclusão/recebimento na unidade (Sigamina 13/08/2026, sem novos protocolos)"}, {"id": "896796/2007", "process": "896.796/2007", "company": "Braminex Mineração de Calcário S.A.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Marble / Limestone", "municipality": "VARGEM ALTA", "state": "ES", "year": 2007, "decade": "2000s", "local": "ITAÓCA"}, {"id": "896847/2007", "process": "896.847/2007", "local": "ITAÓCA", "company": "TRIANON", "mineral": "MÁRMORE", "brand": "TRIANON", "group": "Core Feiertag Group"}, {"id": "996859/2007", "process": "996.859/2007", "company": "Braminex Mineração Ltda.", "brand": "BRAMINEX", "group": "Core Feiertag Group", "mineral": "Mixed / Mineral", "municipality": "", "state": "", "year": 2007, "decade": "2000s"}];
+      window.miningCompanyFor = process => allData.find(record => record.process === process)?.company || 'Empresa não informada';
+      document.getElementById('litioCompany870183').textContent = window.miningCompanyFor('870.183/1980');
       // Normalize missing fields
       allData.forEach(d => {
         d.process = d.process || '';
@@ -8029,11 +8307,12 @@ tbody td {
 
       document.getElementById('loading').style.display = 'none';
       document.getElementById('mainContent').style.display = 'block';
-      document.getElementById('lastUpdated').textContent = 'Atualizado: ' + new Date().toLocaleDateString('pt-BR');
+      document.getElementById('lastUpdated').textContent = 'Atualizado: ' + new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
 
       buildFilters();
       setupEvents();
       applyFilters();
+      updateAlerts();
       renderPendencias();
     } catch (e) {
       document.getElementById('loading').innerHTML =
@@ -8093,6 +8372,20 @@ tbody td {
   }
 
   function setupEvents() {
+    document.querySelectorAll('[data-kpi-phase]').forEach(card => {
+      card.addEventListener('click', () => selectKpi(card));
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selectKpi(card);
+        }
+      });
+    });
+    document.getElementById('closeAvailability').addEventListener('click', () => {
+      document.getElementById('filterFase').value = '';
+      applyFilters();
+      document.querySelector('[data-kpi-phase="disponibilidade"]').focus();
+    });
     document.getElementById('searchInput').addEventListener('input', debounce(applyFilters, 200));
     document.getElementById('filterState').addEventListener('change', applyFilters);
     document.getElementById('filterFase').addEventListener('change', applyFilters);
@@ -8128,51 +8421,35 @@ tbody td {
   }
 
   // ===== KPI FILTER FUNCTIONS =====
-  let activeKpiCard = null;
+  function isAvailable(record) {
+    return record.fase === 'Disp.' || record.fase === 'Apto para Disp.';
+  }
 
-  function clearKpiActive() {
-    document.querySelectorAll('.kpi-card').forEach(c => {
-      c.classList.remove('kpi-active', 'kpi-active-red');
+  function selectKpi(card) {
+    const select = document.getElementById('filterFase');
+    select.value = select.value === card.dataset.kpiPhase ? '' : card.dataset.kpiPhase;
+    applyFilters();
+    if (select.value) {
+      const target = select.value === 'disponibilidade' ? '#dispAlertPanel' : '.table-section';
+      document.querySelector(target).scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  }
+
+  function updateAvailability(records) {
+    const phase = document.getElementById('filterFase').value;
+    document.querySelectorAll('[data-kpi-phase]').forEach(card => {
+      const active = phase === card.dataset.kpiPhase;
+      card.setAttribute('aria-pressed', String(active));
+      card.classList.toggle('kpi-active', active && phase !== 'disponibilidade');
+      card.classList.toggle('kpi-active-red', active && phase === 'disponibilidade');
     });
-    activeKpiCard = null;
-  }
-
-  function filterByFase(fase, card) {
-    const faSel = document.getElementById('filterFase');
-    const isAlreadyActive = activeKpiCard === card && faSel.value === fase;
-    clearKpiActive();
-    document.getElementById('dispAlertPanel').classList.remove('visible');
-    if (isAlreadyActive) {
-      faSel.value = '';
-      applyFilters();
-      return;
-    }
-    faSel.value = fase;
-    card.classList.add('kpi-active');
-    activeKpiCard = card;
-    applyFilters();
-    // Scroll suave para a tabela
-    setTimeout(() => document.querySelector('.table-section').scrollIntoView({behavior:'smooth', block:'start'}), 150);
-  }
-
-  function filterByDisp(card) {
-    const isAlreadyActive = activeKpiCard === card;
-    clearKpiActive();
-    const faSel = document.getElementById('filterFase');
-    if (isAlreadyActive) {
-      faSel.value = '';
-      document.getElementById('dispAlertPanel').classList.remove('visible');
-      applyFilters();
-      return;
-    }
-    // Ativar card vermelho + mostrar painel + filtrar tabela
-    card.classList.add('kpi-active-red');
-    activeKpiCard = card;
-    faSel.value = 'Disp.';
-    document.getElementById('dispAlertPanel').classList.add('visible');
-    applyFilters();
-    // Scroll para o painel de alerta
-    setTimeout(() => document.getElementById('dispAlertPanel').scrollIntoView({behavior:'smooth', block:'start'}), 150);
+    const panel = document.getElementById('dispAlertPanel');
+    panel.classList.toggle('visible', phase === 'disponibilidade');
+    const eligible = records.filter(d => d.fase === 'Apto para Disp.').length;
+    document.getElementById('availabilityCount').textContent =
+      'Em disponibilidade: ' + (records.length - eligible) + ' · Aptos: ' + eligible;
+    const ids = new Set(records.map(d => d.process));
+    panel.querySelectorAll('[data-process]').forEach(item => { item.hidden = !ids.has(item.dataset.process); });
   }
 
   function applyFilters() {
@@ -8185,7 +8462,7 @@ tbody td {
       if (q && !d.process.toLowerCase().includes(q) && !d.company.toLowerCase().includes(q)) return false;
       if (activeBrands.size > 0 && !activeBrands.has(d.brand)) return false;
       if (st && d.state !== st) return false;
-      if (fa && d.fase !== fa) return false;
+      if (fa === 'disponibilidade' ? !isAvailable(d) : fa && d.fase !== fa) return false;
       if (mi && d.mineral !== mi) return false;
       return true;
     });
@@ -8208,7 +8485,6 @@ tbody td {
     updateKPIs();
     updateCharts();
     updateTable();
-    updateAlerts();
   }
 
   // ===== KPI =====
@@ -8217,7 +8493,9 @@ tbody td {
     document.getElementById('kpiTotal').textContent = numFmt(d.length);
     document.getElementById('kpiConc').textContent = numFmt(d.filter(x => x.fase === 'Conc.').length);
     document.getElementById('kpiReqLav').textContent = numFmt(d.filter(x => x.fase === 'Req. Lav').length);
-    document.getElementById('kpiDisp').textContent = numFmt(d.filter(x => x.fase === 'Disp.' || x.fase === 'Apto para Disp.').length);
+    const available = d.filter(isAvailable);
+    document.getElementById('kpiDisp').textContent = numFmt(available.length);
+    updateAvailability(available);
     const statesSet = new Set(d.map(x => x.state).filter(s => s));
     document.getElementById('kpiEstados').textContent = numFmt(statesSet.size);
     const totalArea = d.reduce((s, x) => s + (x.area || 0), 0);
@@ -8500,7 +8778,7 @@ tbody td {
       html += '<td style="font-variant-numeric:tabular-nums;text-align:right;">' + areaStr + '</td>';
       html += '<td><span class="fase-badge ' + fCls + '">' + escHtml(faseLabel) + '</span></td>';
       html += '<td title="' + escHtml(d.sub_status) + '">' + escHtml(truncate(d.sub_status, 25)) + '</td>';
-      html += '<td title="' + escHtml(d.acao) + '">' + (d.acao && d.acao.trim() ? '<span class="acao-cell-link" onclick="event.stopPropagation();document.getElementById(\'pendenciasSection\').scrollIntoView({behavior:\'smooth\'});"><span class="acao-dot"></span>' + escHtml(truncate(d.acao, 28)) + '</span>' : '—') + '</td>';
+      html += '<td title="' + escHtml(d.acao) + '">' + (d.acao && d.acao.trim() ? '<button type="button" class="acao-cell-link" aria-expanded="false"><span class="acao-dot"></span>' + escHtml(truncate(d.acao, 28)) + '</button>' : '—') + '</td>';
       html += '</tr>';
 
       // Detail row
@@ -8547,6 +8825,8 @@ tbody td {
         const detail = tbody.querySelector('tr[data-detail="' + idx + '"]');
         if (detail) {
           detail.classList.toggle('open');
+          const action = tr.querySelector('.acao-cell-link');
+          if (action) action.setAttribute('aria-expanded', String(detail.classList.contains('open')));
           tr.style.background = detail.classList.contains('open') ? 'var(--bg-card-hover)' : '';
         }
       });
@@ -8603,7 +8883,7 @@ tbody td {
 
   // ===== ALERTS =====
   function updateAlerts() {
-    const withAction = filteredData.filter(d => d.acao && d.acao.trim());
+    const withAction = allData.filter(d => d.acao && d.acao.trim());
     document.getElementById('alertsCount').textContent = withAction.length;
 
     // Group by fase
@@ -9826,81 +10106,7 @@ function toggleGuarapariCard() {
   };
 })();
 
-// ===== NAV POSITION & INTERSECTION OBSERVER =====
-(function() {
-  'use strict';
-  document.addEventListener('DOMContentLoaded', function() {
-    // Dynamically set nav top to match header height
-    var header = document.querySelector('.header');
-    var nav = document.getElementById('navLinks');
-    if (header && nav) {
-      function updateNavTop() {
-        nav.style.top = header.offsetHeight + 'px';
-      }
-      updateNavTop();
-      window.addEventListener('resize', updateNavTop);
-    }
-
-    var navLinks = document.querySelectorAll('#navLinks .nav-link[data-section]');
-    if (!navLinks.length) return;
-
-    var sectionIds = [];
-    navLinks.forEach(function(link) {
-      sectionIds.push(link.getAttribute('data-section'));
-    });
-
-    var visibleSections = new Set();
-
-    function updateActive() {
-      // Pick the topmost visible section (by DOM order)
-      for (var i = 0; i < sectionIds.length; i++) {
-        if (visibleSections.has(sectionIds[i])) {
-          navLinks.forEach(function(link) {
-            if (link.getAttribute('data-section') === sectionIds[i]) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
-          return;
-        }
-      }
-    }
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          visibleSections.add(entry.target.id);
-        } else {
-          visibleSections.delete(entry.target.id);
-        }
-      });
-      updateActive();
-    }, {
-      root: null,
-      rootMargin: '-160px 0px -35% 0px',
-      threshold: 0
-    });
-
-    sectionIds.forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    // Set initial active state after content loads
-    var initCheck = setInterval(function() {
-      var mainContent = document.getElementById('mainContent');
-      if (mainContent && mainContent.style.display !== 'none') {
-        clearInterval(initCheck);
-        // Force a re-check by scrolling slightly
-        setTimeout(function() {
-          window.scrollBy(0, 1);
-          window.scrollBy(0, -1);
-        }, 100);
-      }
-    }, 200);
-  });
-})();
+// Active section is handled by the workspace router.
 
 // ===== PORTFÓLIO JURÍDICO SECTION =====
 (function() {
@@ -10189,12 +10395,12 @@ function toggleGuarapariCard() {
       });
 
       // Tile escuro
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        maxZoom: 18,
-        subdomains: 'abcd'
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 16,
+        attribution: 'Esri, USGS, NOAA'
       }).addTo(map);
 
-      L.control.attribution({ prefix: '© CartoDB · OSM' }).addTo(map);
+      L.control.attribution({ prefix: '© Esri' }).addTo(map);
 
       // ── Polígono do cinturão LCT (simplificado — Jequitinhonha + sul BA) ──
       const lctBelt = [
@@ -10247,7 +10453,7 @@ function toggleGuarapariCard() {
         {
           proc: '870.183/1980', mun: 'Santa Cruz da Vitória / BA',
           lat: -14.9614, lon: -39.8099,
-          mineral: 'SODALITA', area: 963.64, brand: 'MINACOR', score: 7,
+          mineral: 'SODALITA', area: 963.64, score: 7,
           fase: 'Aut. Pesquisa',
           destaque: 'Único processo com Sodalita — rocha alcalina indicadora de metais raros. Área máxima. Mesmo corredor do processo 871.188/1987.',
           anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=870183198000',
@@ -10256,7 +10462,7 @@ function toggleGuarapariCard() {
         {
           proc: '830.830/1988', mun: 'Medina / MG',
           lat: -16.2270, lon: -41.4763,
-          mineral: 'Mixed/Mineral', area: 884.76, brand: 'MINACOR', score: 5,
+          mineral: 'Mixed/Mineral', area: 884.76, score: 5,
           fase: 'Req. Lavra',
           destaque: 'Distrito Pegmatítico de Pedra Azul — PPOB. Herderite litinífero documentado em Medina. 100% das reservas oficiais de Li do Brasil na mesma faixa.',
           anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=830830198800',
@@ -10265,7 +10471,7 @@ function toggleGuarapariCard() {
         {
           proc: '832.341/1984', mun: 'Santo Antônio do Monte / MG',
           lat: -20.0869, lon: -45.2906,
-          mineral: 'Mixed/Mineral', area: 1000.0, brand: 'MINACOR', score: 5,
+          mineral: 'Mixed/Mineral', area: 1000.0, score: 5,
           fase: 'Req. Lavra',
           destaque: 'Cinturão Mineiro — correlato à Prov. Peg. São João del Rei (AMG Volta Grande). Área máxima: 1.000 ha.',
           anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=832341198400',
@@ -10274,7 +10480,7 @@ function toggleGuarapariCard() {
         {
           proc: '832.362/1984', mun: 'Itapecerica / MG',
           lat: -20.4728, lon: -45.1256,
-          mineral: 'Mixed/Mineral', area: 990.0, brand: 'MINACOR', score: 5,
+          mineral: 'Mixed/Mineral', area: 990.0, score: 5,
           fase: 'Req. Lavra',
           destaque: '60 km da Mina Volta Grande (AMG — espodumênio/tântalo). Mesma Prov. Peg. São João del Rei.',
           anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=832362198400',
@@ -10283,7 +10489,7 @@ function toggleGuarapariCard() {
         {
           proc: '830.845/1985', mun: 'Itaguara / MG',
           lat: -20.3914, lon: -44.4881,
-          mineral: 'Mixed/Mineral', area: 965.0, brand: 'MINACOR', score: 5,
+          mineral: 'Mixed/Mineral', area: 965.0, score: 5,
           fase: 'Req. Lavra',
           destaque: 'Quadrilátero Ferrífero — Região Leste MG em estudo pelo SGB/CPRM (2022+). Granitos tipo-S presentes.',
           anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=830845198500',
@@ -10292,7 +10498,7 @@ function toggleGuarapariCard() {
         {
           proc: '870.894/1984', mun: 'Itapebi / BA',
           lat: -15.9693, lon: -39.5316,
-          mineral: 'Mixed/Mineral', area: 704.0, brand: 'BRAMINEX', score: 5,
+          mineral: 'Mixed/Mineral', area: 704.0, score: 5,
           fase: 'Req. Lavra',
           destaque: 'Orógeno Araçuaí-Ribeira. Itarantim (50 km) tem espodumênio/turmalina documentados. Titulado pela BRAMINEX.',
           anm: 'https://sistemas.anm.gov.br/SCM/Extra/site/admin/dadosProcesso.aspx?Numero=870894198400',
@@ -10320,11 +10526,13 @@ function toggleGuarapariCard() {
       // ── Plotar Tier 1 ──
       tier1.forEach(p => {
         const marker = L.marker([p.lat, p.lon], { icon: pulseIcon(p.color, p.size) }).addTo(map);
+        const company = document.createElement('span');
+        company.textContent = window.miningCompanyFor(p.proc);
         const scoreStars = '★'.repeat(p.score) + '☆'.repeat(7 - p.score);
         marker.bindPopup(`
           <div style="min-width:220px;max-width:280px;">
             <div class="li-popup-proc">${p.proc}</div>
-            <div class="li-popup-company">${p.brand} — ${p.mun}</div>
+            <div class="li-popup-company">${company.innerHTML} — ${p.mun}</div>
             <div class="li-popup-detail">
               <b>Mineral:</b> ${p.mineral}<br>
               <b>Área:</b> ${p.area.toLocaleString('pt-BR')} ha<br>
@@ -10356,6 +10564,7 @@ function toggleGuarapariCard() {
       setTimeout(() => map.invalidateSize(), 300);
     }
 
+    window.__initLitioMap = initLitioMap;
     // Inicializar quando a seção lítio for exibida
     const observer = new MutationObserver(() => {
       const sec = document.getElementById('litioSection');
@@ -10371,12 +10580,163 @@ function toggleGuarapariCard() {
 
     // Também inicializar ao clicar no nav
     document.addEventListener('click', function(e) {
-      if (e.target && e.target.getAttribute && e.target.getAttribute('data-section') === 'litioSection') {
+      var t = e.target && e.target.closest ? e.target.closest('[data-section]') : null;
+      if (t && t.getAttribute('data-section') === 'litioSection') {
         setTimeout(initLitioMap, 400);
       }
     });
   })();
   </script>
+
+
+<script>
+(function() {
+  var VIEWS = {
+    resumoExecutivo: { title: 'Resumo executivo', crumb: 'Visão' },
+    analiseEstrategicaSection: { title: 'Análise estratégica', crumb: 'Visão' },
+    alertsSection: { title: 'Ações pendentes', crumb: 'Visão' },
+    minerariosSection: { title: 'Processos minerários', crumb: 'Mineração' },
+    litioSection: { title: 'Potencial de lítio', crumb: 'Mineração' },
+    juridicosSection: { title: 'Processos jurídicos', crumb: 'Jurídico' },
+    pendenciasSection: { title: 'Pendências trabalhistas', crumb: 'Jurídico' },
+    portfolioJuridicoSection: { title: 'Portfólio jurídico', crumb: 'Jurídico' },
+    pgfnSection: { title: 'Dívida PGFN', crumb: 'Jurídico' },
+    epeSection: { title: 'Exceções de pré-executividade', crumb: 'Jurídico' },
+    tjes1aInstanciaSection: { title: 'TJES — 1ª instância', crumb: 'Knowledge base', parent: 'knowledgeBaseSection' },
+    acaoPenalAmbientalSection: { title: 'Ação penal ambiental', crumb: 'Knowledge base', parent: 'knowledgeBaseSection' },
+    avaliacaoAtivosSection: { title: 'Avaliação de ativos', crumb: 'Patrimônio' },
+    patrimonioSection: { title: 'Patrimônio', crumb: 'Patrimônio' },
+    knowledgeBaseSection: { title: 'Knowledge base', crumb: 'Referência' }
+  };
+
+  function resolveView(id) {
+    if (VIEWS[id]) return id;
+    var el = id ? document.getElementById(id) : null;
+    while (el) {
+      if (el.id && VIEWS[el.id]) return el.id;
+      el = el.parentElement;
+    }
+    return 'resumoExecutivo';
+  }
+
+  function resizeCharts() {
+    var charts = window.__painelCharts || {};
+    Object.keys(charts).forEach(function(k) {
+      try { charts[k].resize(); } catch (e) {}
+    });
+  }
+
+  const mobileMenu = window.matchMedia('(max-width: 900px)');
+  function setMenuOpen(open) {
+    const side = document.getElementById('sideNav');
+    const menu = document.getElementById('menuBtn');
+    const expanded = mobileMenu.matches && open;
+    if (!expanded && mobileMenu.matches && side.contains(document.activeElement)) menu.focus();
+    document.body.classList.toggle('nav-open', expanded);
+    side.inert = mobileMenu.matches && !expanded;
+    menu.setAttribute('aria-expanded', String(expanded));
+    if (expanded) side.querySelector('.side-link.active').focus();
+  }
+
+  function showSection(id) {
+    var meta = VIEWS[id] || VIEWS.resumoExecutivo;
+    id = VIEWS[id] ? id : 'resumoExecutivo';
+    document.querySelectorAll('.view-pane').forEach(function(el) {
+      el.classList.remove('is-active');
+    });
+    var kb = document.getElementById('knowledgeBaseSection');
+    if (kb) {
+      kb.classList.remove('focus-child');
+      kb.querySelectorAll('.view-focus').forEach(function(el) { el.classList.remove('view-focus'); });
+    }
+    if (meta.parent) {
+      var parent = document.getElementById(meta.parent);
+      var child = document.getElementById(id);
+      if (parent) parent.classList.add('is-active', 'focus-child');
+      if (child) child.classList.add('view-focus');
+    } else {
+      var pane = document.getElementById(id);
+      if (pane) pane.classList.add('is-active');
+    }
+    document.querySelectorAll('#navLinks .side-link, .side-brand').forEach(function(a) {
+      if (!a.getAttribute) return;
+      a.classList.toggle('active', a.getAttribute('data-section') === id);
+    });
+    var title = document.getElementById('viewTitle');
+    var crumb = document.getElementById('viewCrumb');
+    if (title) title.textContent = meta.title;
+    if (crumb) {
+      if (meta.parent) {
+        var parentMeta = VIEWS[meta.parent];
+        crumb.innerHTML = '<a href="#' + meta.parent + '">' + (parentMeta ? parentMeta.title : meta.crumb) + '</a>';
+      } else {
+        crumb.textContent = meta.crumb;
+      }
+    }
+    setMenuOpen(false);
+    window.scrollTo(0, 0);
+    var navEl = document.getElementById('navLinks');
+    var activeLink = navEl && navEl.querySelector('.side-link.active');
+    if (navEl && activeLink) {
+      var navBox = navEl.getBoundingClientRect();
+      var linkBox = activeLink.getBoundingClientRect();
+      if (linkBox.top < navBox.top) navEl.scrollTop -= (navBox.top - linkBox.top + 12);
+      else if (linkBox.bottom > navBox.bottom) navEl.scrollTop += (linkBox.bottom - navBox.bottom + 12);
+    }
+    if (id === 'minerariosSection') {
+      setTimeout(resizeCharts, 40);
+      setTimeout(resizeCharts, 280);
+    }
+    if (id === 'litioSection' && window.__initLitioMap) {
+      setTimeout(window.__initLitioMap, 60);
+      setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 420);
+    }
+  }
+
+  function showFromHash() {
+    var raw = (location.hash || '').replace(/^#/, '');
+    try { raw = decodeURIComponent(raw); } catch (e) {}
+    var id = resolveView(raw);
+    showSection(id);
+    if (raw && raw !== id) {
+      var el = document.getElementById(raw);
+      if (el) setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 70);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var banner = document.getElementById('atualizacao-banner-2026-04-30');
+    var estrat = document.getElementById('analiseEstrategicaSection');
+    if (banner && estrat && banner.parentElement !== estrat) {
+      estrat.insertBefore(banner, estrat.firstChild);
+    }
+    var side = document.getElementById('sideNav');
+    if (side) {
+      side.addEventListener('click', function(e) {
+        var a = e.target.closest('[data-section]');
+        if (!a || !side.contains(a)) return;
+        var id = a.getAttribute('data-section');
+        if (!VIEWS[id]) return;
+        e.preventDefault();
+        if ((location.hash || '').replace(/^#/, '') === id) showSection(id);
+        else location.hash = id;
+      });
+    }
+    var menu = document.getElementById('menuBtn');
+    var scrim = document.getElementById('sideScrim');
+    menu.addEventListener('click', () => setMenuOpen(!document.body.classList.contains('nav-open')));
+    scrim.addEventListener('click', () => setMenuOpen(false));
+    side.querySelector('.side-link-btn').addEventListener('click', () => setMenuOpen(false));
+    mobileMenu.addEventListener('change', () => setMenuOpen(false));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && document.body.classList.contains('nav-open')) setMenuOpen(false);
+    });
+    window.addEventListener('hashchange', showFromHash);
+    if (!location.hash) history.replaceState(null, '', '#resumoExecutivo');
+    showFromHash();
+  });
+})();
+</script>
 
 </body>
 </html>
