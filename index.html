@@ -9086,6 +9086,8 @@ function toggleGuarapariCard() {
   },
   {
     "numero": "0000520-79.2025.5.17.0132",
+    "pauta_trt17": "O TRT-17 lista o recurso ordinário trabalhista (ROT) na pauta da sessão 6753, item 060. A pauta não informa o resultado.",
+    "sessao_trt17": "6753",
     "reclamante": "Delson Marcelino da Silva",
     "reclamado": "BRAMINEX",
     "fase": "Sentença — Recurso",
@@ -9482,6 +9484,8 @@ function toggleGuarapariCard() {
   },
   {
     "numero": "0017600-47.2011.5.17.0132",
+    "pauta_trt17": "O TRT-17 lista o agravo de petição na pauta da sessão 6422, item 107. A pauta não informa o resultado.",
+    "sessao_trt17": "6422",
     "reclamante": "União Federal (PGFN)",
     "reclamado": "GRANBRASIL",
     "fase": "TRT17 — Agravo de Petição",
@@ -9788,6 +9792,10 @@ function toggleGuarapariCard() {
       if (p.observacoes) {
         html += '  <button class="jur-obs-toggle" onclick="toggleJurObs(event, ' + i + ')">▸ Ver observações</button>';
         html += '  <div class="jur-obs-content" id="jurObs' + i + '">' + escapeHtml(p.observacoes) + '</div>';
+      }
+
+      if (p.pauta_trt17 && /^\d+$/.test(p.sessao_trt17)) {
+        html += '<p class="jur-public-source"><strong>Conferência pública de 03/11/2026.</strong> ' + escapeHtml(p.pauta_trt17) + ' <a href="https://app.trt17.jus.br/principal/atividade-judiciaria/sessao/' + p.sessao_trt17 + '" target="_blank" rel="noopener noreferrer">Consultar pauta no TRT-17</a></p>';
       }
 
       html += '</div>';
